@@ -25,7 +25,6 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdbool.h>
-#include "Version.h"
 #include "Types.h"
 /* USER CODE END Includes */
 
@@ -36,7 +35,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
 #define m_p_startup_data_length 12
 /* USER CODE END PD */
 
@@ -71,8 +69,8 @@ void whichCommand(void);
 
 
 uint8_t m_p_startup_data[m_p_startup_data_length] = "Hello World\n";
-s_Buff s_Buffer;
-s_Commands commands;
+s_Buff s_buffer;
+s_Commands s_commands;
 
 /* USER CODE END 0 */
 
@@ -92,14 +90,17 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  commands.m_ping.m_size = 4;
-  strncpy((char *)commands.m_ping.m_p_name, "ping\n", commands.m_ping.m_size);
+  s_commands._ping._size = PING_SIZE;
+  strncpy((char *)s_commands._ping._p_name, PING, s_commands._ping._size);
 
-  commands.m_version.m_size = 5;
-  strncpy((char *)commands.m_version.m_p_name, (char *)m_p_version, commands.m_version.m_size);
+  s_commands._version._size = GET_VERSION_SIZE;
+  strncpy((char *)s_commands._version._p_name, (char *)m_p_version, s_commands._version._size);
 
-  s_Buffer.m_rx_index = 0;
-  s_Buffer.m_state = e_buff_ready;
+  s_commands._tick._size = TICK_SIZE;
+  strncpy((char *)s_commands._tick._p_name, TICK, s_commands._tick._size);
+
+  s_buffer._rx_index = 0;
+  s_buffer._state = e_buff_ready;
 
   /* USER CODE END Init */
 
@@ -116,7 +117,7 @@ int main(void)
   MX_RTC_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_IT(&huart2, &s_Buffer.m_single_char, 1);
+  HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
   HAL_UART_Transmit(&huart2, m_p_startup_data, m_p_startup_data_length, 10);
   /* USER CODE END 2 */
 
@@ -274,7 +275,7 @@ static void MX_RTC_Init(void)
   sAlarm.AlarmTime.SubSeconds = 0;
   sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  sAlarm.AlarmMask = RTC_ALARMMASK_NONE;
+  sAlarm.AlarmMask = RTC_ALARMMASK_SECONDS;
   sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
   sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
   sAlarm.AlarmDateWeekDay = 1;
@@ -355,37 +356,47 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-	/*if(!s_Buffer.m_rx_index)
+	/*if(!s_buffer._rx_index)
 	{
-		s_Buffer.m_state = e_buff_busy;
+		s_buffer._state = e_buff_busy;
 	}*/
 
-	if (s_Buffer.m_single_char != '\n')
+	if (s_buffer._single_char != '\n')
 	{
-		if(s_Buffer.m_rx_index <= BUFFER_SIZE)
+		if(s_buffer._rx_index < BUFFER_SIZE)
 		{
-			s_Buffer.m_p_rx_buffer[s_Buffer.m_rx_index] = s_Buffer.m_single_char;
-			s_Buffer.m_rx_index++;
+			s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._single_char;
+			s_buffer._rx_index++;
 		}
 	}
-	else if (s_Buffer.m_single_char == '\n'){
+	else // if (s_buffer._single_char == '\n'){
 		whichCommand();
-		bufferInit(&s_Buffer);
-		s_Buffer.m_rx_index = 0;
+		bufferInit(&s_buffer);
+		s_buffer._rx_index = 0;
 	}
 
-	HAL_UART_Receive_IT(&huart2, &s_Buffer.m_single_char, 1);
+	HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
 
 }
 
 void whichCommand(void)
 {
-	if(strncmp((char*)s_Buffer.m_p_rx_buffer, (char *)commands.m_ping.m_p_name, s_Buffer.m_rx_index + 1)==0){
-		HAL_UART_Transmit(&huart2, commands.m_ping.m_p_name, commands.m_ping.m_size, 10);
+	if(strncmp((char*)s_buffer._p_rx_buffer, (char *)s_commands._ping._p_name, s_buffer._rx_index + 1)==0){
+		HAL_UART_Transmit(&huart2, s_commands._ping._p_name, s_commands._ping._size, 10);
 	}
-	else if (strncmp((char*)s_Buffer.m_p_rx_buffer, "get_version", s_Buffer.m_rx_index + 1)==0){
-		HAL_UART_Transmit(&huart2, commands.m_version.m_p_name, commands.m_version.m_size, 10);
+	else if (strncmp((char*)s_buffer._p_rx_buffer, GET_VERSION, s_buffer._rx_index + 1)==0){
+		HAL_UART_Transmit(&huart2, s_commands._version._p_name, s_commands._version._size, 10);
 	}
+}
+
+void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
+{
+  /* Prevent unused argument(s) compilation warning */
+  UNUSED(hrtc);
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_RTC_AlarmAEventCallback could be implemented in the user file
+   */
+  HAL_UART_Transmit(&huart2, s_commands._tick._p_name, s_commands._tick._size, 10);
 }
 /* USER CODE END 4 */
 

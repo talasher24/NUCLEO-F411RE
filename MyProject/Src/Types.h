@@ -3,25 +3,15 @@
 
 #define __Types_H__
 
-uint8_t m_p_version[5] = 	"0.0.2" ;
 
-#define BUFFER_SIZE 20
-
-/*------------Commands------------*/
-
-#define PING "ping"
-
-#define PING_SIZE 4
-
-#define GET_VERSION "get_version"
-
-#define GET_VERSION_SIZE 5
-
-#define TICK "tick\n"
+uint8_t m_p_version[6] = "0.0.3\n" ;
 
 #define TICK_SIZE 5
 
-/*--------End_of_Commands--------*/
+uint8_t m_p_tick[TICK_SIZE] = "tick\n";
+
+
+#define BUFFER_SIZE 20
 
 typedef enum  {
 
@@ -47,21 +37,6 @@ void bufferInit(s_Buff *buffer){
 		buffer->_p_rx_buffer[i] = 0;
 	}
 }
-
-typedef struct {
-	
-	uint8_t _p_name[15];
-	uint8_t _size;
-	
-}s_Command;
-
-typedef struct {
-	
-	s_Command _ping;
-	s_Command _version;
-	s_Command _tick;
-	
-}s_Commands;
 
 
 #endif // __Types_H__

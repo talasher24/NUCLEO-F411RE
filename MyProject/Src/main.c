@@ -26,6 +26,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "Types.h"
+#include "Commands.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +49,8 @@ CRC_HandleTypeDef hcrc;
 
 RTC_HandleTypeDef hrtc;
 
+TIM_HandleTypeDef htim3;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -60,17 +63,17 @@ static void MX_GPIO_Init(void);
 static void MX_CRC_Init(void);
 static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
-void whichCommand(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-
 uint8_t m_p_startup_data[m_p_startup_data_length] = "Hello World\n";
 s_Buff s_buffer;
-s_Commands s_commands;
+
+//s_Commands s_commands;
 
 /* USER CODE END 0 */
 
@@ -90,18 +93,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  s_commands._ping._size = PING_SIZE;
-  strncpy((char *)s_commands._ping._p_name, PING, s_commands._ping._size);
-
-  s_commands._version._size = GET_VERSION_SIZE;
-  strncpy((char *)s_commands._version._p_name, (char *)m_p_version, s_commands._version._size);
-
-  s_commands._tick._size = TICK_SIZE;
-  strncpy((char *)s_commands._tick._p_name, TICK, s_commands._tick._size);
-
   s_buffer._rx_index = 0;
-  s_buffer._state = e_buff_ready;
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -116,9 +108,14 @@ int main(void)
   MX_CRC_Init();
   MX_RTC_Init();
   MX_USART2_UART_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
   HAL_UART_Transmit(&huart2, m_p_startup_data, m_p_startup_data_length, 10);
+
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,7 +125,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	/*htim3.Instance->CCR1 = 0;
+	HAL_Delay(1000);
+	htim3.Instance->CCR1 = 25;
+	HAL_Delay(1000);
+	htim3.Instance->CCR1 = 50;
+	HAL_Delay(1000);
+	htim3.Instance->CCR1 = 75;
+	HAL_Delay(1000);
+	htim3.Instance->CCR1 = 100;
+	HAL_Delay(1000);*/
   }
   /* USER CODE END 3 */
 }
@@ -275,7 +281,7 @@ static void MX_RTC_Init(void)
   sAlarm.AlarmTime.SubSeconds = 0;
   sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  sAlarm.AlarmMask = RTC_ALARMMASK_SECONDS;
+  sAlarm.AlarmMask = RTC_ALARMMASK_ALL;
   sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
   sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
   sAlarm.AlarmDateWeekDay = 1;
@@ -287,6 +293,65 @@ static void MX_RTC_Init(void)
   /* USER CODE BEGIN RTC_Init 2 */
 
   /* USER CODE END RTC_Init 2 */
+
+}
+
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 84-1;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 100-1;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+  HAL_TIM_MspPostInit(&htim3);
 
 }
 
@@ -356,11 +421,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-	/*if(!s_buffer._rx_index)
-	{
-		s_buffer._state = e_buff_busy;
-	}*/
-
 	if (s_buffer._single_char != '\n')
 	{
 		if(s_buffer._rx_index < BUFFER_SIZE)
@@ -369,7 +429,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 			s_buffer._rx_index++;
 		}
 	}
-	else // if (s_buffer._single_char == '\n'){
+	else{
 		whichCommand();
 		bufferInit(&s_buffer);
 		s_buffer._rx_index = 0;
@@ -379,14 +439,40 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 }
 
-void whichCommand(void)
+void whichCommand (void)
 {
-	if(strncmp((char*)s_buffer._p_rx_buffer, (char *)s_commands._ping._p_name, s_buffer._rx_index + 1)==0){
-		HAL_UART_Transmit(&huart2, s_commands._ping._p_name, s_commands._ping._size, 10);
+	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
+	{
+		if (strncmp((char*)s_buffer._p_rx_buffer, commands[i]._name, commands[i]._size)==0)
+		{
+			commands[i].func_ptr(i);
+		}
 	}
-	else if (strncmp((char*)s_buffer._p_rx_buffer, GET_VERSION, s_buffer._rx_index + 1)==0){
-		HAL_UART_Transmit(&huart2, s_commands._version._p_name, s_commands._version._size, 10);
-	}
+}
+
+void ping_callBack(uint8_t i)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*)commands[i]._name, commands[i]._size-1, 10);
+}
+
+void version_callback(uint8_t i)
+{
+	HAL_UART_Transmit(&huart2, m_p_version, commands[i]._size, 10);
+}
+
+void pwm_start_callback(uint8_t i)
+{
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+}
+
+void pwm_stop_callback(uint8_t i)
+{
+	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
+}
+
+void pwm_dc_50_callback(uint8_t i)
+{
+	htim3.Instance->CCR1 = DUTY_CYCLE_50;
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
@@ -396,11 +482,13 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_RTC_AlarmAEventCallback could be implemented in the user file
    */
-  HAL_UART_Transmit(&huart2, s_commands._tick._p_name, s_commands._tick._size, 10);
+  HAL_UART_Transmit(&huart2, m_p_tick, TICK_SIZE, 10);
 }
 /* USER CODE END 4 */
 
  /**
+  *
+  *
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM1 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment

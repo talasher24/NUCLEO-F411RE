@@ -441,9 +441,36 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void whichCommand (void)
 {
+	token = strtok((char*)s_buffer._p_rx_buffer, " ");
+	//strncpy((char*)s_buffer._p_rx_buffer, token, strlen(token));
+
+	token = strtok(NULL, " ");
+	//char* newline = "\n";
+
+	if(strlen(token) > 0)
+	{
+		s_buffer._rx_index =  s_buffer._rx_index - strlen(token) - 1;
+		dc = atoi(token);
+		//HAL_UART_Transmit(&huart2, s_buffer._p_rx_buffer, s_buffer._rx_index, 10);
+		//HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+		//HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
+		//HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+	}
+
+
+
+
+	/*char* token = strtok((char*)s_buffer._p_rx_buffer, " ");
+	while(token != NULL){
+		HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
+		token = strtok(NULL, " ");
+
+	}*/
+
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{
 		if (strncmp((char*)s_buffer._p_rx_buffer, commands[i]._name, commands[i]._size)==0)
+		//if (strncmp((char*)s_buffer._p_rx_buffer, commands[i]._name, s_buffer._rx_index)==0)
 		{
 			commands[i].func_ptr(i);
 		}
@@ -470,9 +497,9 @@ void pwm_stop_callback(uint8_t i)
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
 }
 
-void pwm_dc_50_callback(uint8_t i)
+void pwm_dc_callback(uint8_t i)
 {
-	htim3.Instance->CCR1 = DUTY_CYCLE_50;
+	htim3.Instance->CCR1 = dc;
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)

@@ -3,8 +3,9 @@
 
 #define __Types_H__
 
+#define VERSION_SIZE 6
 
-uint8_t m_p_version[6] = "0.0.3\n" ;
+uint8_t m_p_version[VERSION_SIZE] = "0.0.4\n" ;
 
 #define TICK_SIZE 5
 

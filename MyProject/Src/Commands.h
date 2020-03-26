@@ -13,7 +13,7 @@ void ping_callBack(uint8_t i);
 void version_callback(uint8_t i);
 void pwm_start_callback(uint8_t i);
 void pwm_stop_callback(uint8_t i);
-void pwm_dc_50_callback(uint8_t i);
+void pwm_dc_callback(uint8_t i);
 
 /*------------Commands------------*/
 
@@ -27,10 +27,12 @@ void pwm_dc_50_callback(uint8_t i);
 
 #define PWM_STOP_COMMAND_NAME "pwm_stop"
 
-#define PWM_SET_DC_COMMAND_NAME "pwm_dc_50"
+#define PWM_DC_COMMAND_NAME "pwm_dc"
 
 /*--------End_of_Commands--------*/
 
+char* token;
+uint8_t dc;
 #define DUTY_CYCLE_50 50
 
 typedef struct {
@@ -44,7 +46,7 @@ command commands [NUM_OF_COMMANDS] = {
 		{VERSION_COMMAND_NAME, sizeof(m_p_version), version_callback},
 		{PWM_START_COMMAND_NAME, sizeof(PWM_START_COMMAND_NAME), pwm_start_callback},
 		{PWM_STOP_COMMAND_NAME, sizeof(PWM_STOP_COMMAND_NAME), pwm_stop_callback},
-		{PWM_SET_DC_COMMAND_NAME, sizeof(PWM_SET_DC_COMMAND_NAME), pwm_dc_50_callback}
+		{PWM_DC_COMMAND_NAME, sizeof(PWM_DC_COMMAND_NAME), pwm_dc_callback}
 };
 
 

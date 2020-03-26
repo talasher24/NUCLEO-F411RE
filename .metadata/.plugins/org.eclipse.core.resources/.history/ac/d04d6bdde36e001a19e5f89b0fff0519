@@ -1,0 +1,54 @@
+
+#ifndef __Commands_H__
+
+#define __Commands_H__
+
+
+void whichCommand(void);
+void ping_callBack(int i);
+void version_callback(int i);
+
+#define NUM_OF_COMMANDS 2
+
+#define PING_COMMAND_NAME "ping"
+
+#define VERSION_COMMAND_NAME "version"
+
+
+typedef struct {
+	char* _name;
+	uint8_t _size;
+	void(*func_ptr)(uint8_t);
+}command;
+
+command commands [NUM_OF_COMMANDS] = {
+		{PING_COMMAND_NAME, sizeof(PING_COMMAND_NAME), ping_callBack},
+		{VERSION_COMMAND_NAME, sizeof(VERSION_COMMAND_NAME), version_callback}
+};
+
+void whichCommand (void)
+{
+	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
+	{
+		if (strncmp((char*)s_buffer._p_rx_buffer, commands._name, commands[i]._size)==0)
+		{
+			commands[i].func_ptr(i);
+		}
+	}
+}
+
+void ping_callBack(int i)
+{
+	HAL_UART_Transmit(&huart2, commands[i]._name, commands[i]._size, HAL_TIMEOUT);
+}
+
+void version_callback(int i)
+{
+	HAL_UART_Transmit(&huart2, commands[i]._name, commands[i]._size, HAL_TIMEOUT);
+}
+
+
+
+#endif // __Commands_H__
+
+

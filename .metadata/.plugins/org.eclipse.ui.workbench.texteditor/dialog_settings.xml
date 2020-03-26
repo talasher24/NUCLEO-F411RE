@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="IRQHandler"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="IRQHandler"/>
+			<item value="RTC"/>
+			<item value="RTC_IRQHandler"/>
+			<item value="s_Buffer"/>
+			<item value="commands"/>
+			<item value="m_version"/>
+			<item value="m_ping"/>
+			<item value="m_size"/>
+			<item value="m_p_name"/>
+			<item value="m_state"/>
+			<item value="m_single_char"/>
+			<item value="m_rx_index"/>
+			<item value="m_p_rx_buffer"/>
+		</list>
+		<list key="replacehistory">
+			<item value="s_buffer"/>
+			<item value="s_commands"/>
+			<item value="buffer"/>
+			<item value="_version"/>
+			<item value="_ping"/>
+			<item value="_size"/>
+			<item value="_p_name"/>
+			<item value="_state"/>
+			<item value="_single_char"/>
+			<item value="_rx_index"/>
+			<item value="_p_rx_buffer"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1003"/>
+		<item key="DIALOG_Y_ORIGIN" value="217"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="729"/>
+		<item key="DIALOG_Y_ORIGIN" value="403"/>
+	</section>
+</section>

@@ -9,11 +9,11 @@
 #define COMMANDS_H_
 
 void whichCommand(void);
-void ping_callBack(uint8_t i);
-void version_callback(uint8_t i);
-void pwm_start_callback(uint8_t i);
-void pwm_stop_callback(uint8_t i);
-void pwm_dc_callback(uint8_t i);
+void ping_callBack(char* token);
+void version_callback(char* token);
+void pwm_start_callback(char* token);
+void pwm_stop_callback(char* token);
+void pwm_dc_callback(char* token);
 
 /*------------Commands------------*/
 
@@ -31,14 +31,10 @@ void pwm_dc_callback(uint8_t i);
 
 /*--------End_of_Commands--------*/
 
-char* token;
-uint8_t dc;
-#define DUTY_CYCLE_50 50
-
 typedef struct {
 	char* _name;
 	uint8_t _size;
-	void(*func_ptr)(uint8_t);
+	void(*func_ptr)(char*);
 }command;
 
 command commands [NUM_OF_COMMANDS] = {

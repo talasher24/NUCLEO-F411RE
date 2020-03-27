@@ -5,7 +5,11 @@
 
 #define VERSION_SIZE 6
 
-uint8_t m_p_version[VERSION_SIZE] = "0.0.4\n" ;
+uint8_t m_p_version[VERSION_SIZE] = "0.0.5\n" ;
+
+#define OK_SIZE 3
+
+uint8_t m_p_ok[OK_SIZE] = "OK\n" ;
 
 #define TICK_SIZE 5
 

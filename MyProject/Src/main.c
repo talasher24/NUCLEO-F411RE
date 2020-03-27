@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "Types.h"
 #include "Commands.h"
 /* USER CODE END Includes */
@@ -72,6 +73,7 @@ static void MX_TIM3_Init(void);
 
 uint8_t m_p_startup_data[m_p_startup_data_length] = "Hello World\n";
 s_Buff s_buffer;
+char* newline = "\n";
 
 //s_Commands s_commands;
 
@@ -113,9 +115,6 @@ int main(void)
   HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
   HAL_UART_Transmit(&huart2, m_p_startup_data, m_p_startup_data_length, 10);
 
-
-
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -125,18 +124,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	/*htim3.Instance->CCR1 = 0;
-	HAL_Delay(1000);
-	htim3.Instance->CCR1 = 25;
-	HAL_Delay(1000);
-	htim3.Instance->CCR1 = 50;
-	HAL_Delay(1000);
-	htim3.Instance->CCR1 = 75;
-	HAL_Delay(1000);
-	htim3.Instance->CCR1 = 100;
-	HAL_Delay(1000);*/
+	  //HAL_RTCEx_SetSmoothCalib()
+
+
   }
   /* USER CODE END 3 */
+
+
 }
 
 /**
@@ -291,7 +285,13 @@ static void MX_RTC_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN RTC_Init 2 */
-
+    /*if (HAL_RTCEx_SetSmoothCalib(
+		&hrtc,
+		RTC_SMOOTHCALIB_PERIOD_32SEC,
+		RTC_SMOOTHCALIB_PLUSPULSES_RESET,
+		0x1FFU) != HAL_OK) {
+    		Error_Handler();
+      	}*/
   /* USER CODE END RTC_Init 2 */
 
 }
@@ -441,64 +441,50 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void whichCommand (void)
 {
-	token = strtok((char*)s_buffer._p_rx_buffer, " ");
-	//strncpy((char*)s_buffer._p_rx_buffer, token, strlen(token));
+	char* token = strtok((char*)s_buffer._p_rx_buffer, " ");
 
+	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
+	{
+		if (strncmp(token, commands[i]._name, commands[i]._size)==0)
+		{
+			commands[i].func_ptr(token);
+		}
+	}
+}
+
+void ping_callBack(char* token)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
+	HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+}
+
+void version_callback(char* token)
+{
+	HAL_UART_Transmit(&huart2, m_p_version, sizeof(m_p_version), 10);
+}
+
+void pwm_start_callback(char* token)
+{
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	HAL_UART_Transmit(&huart2, m_p_ok, sizeof(m_p_ok), 10);
+}
+
+void pwm_stop_callback(char* token)
+{
+	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
+	HAL_UART_Transmit(&huart2, m_p_ok, sizeof(m_p_ok), 10);
+}
+
+void pwm_dc_callback(char* token)
+{
+	uint8_t dc;
 	token = strtok(NULL, " ");
-	//char* newline = "\n";
 
 	if(strlen(token) > 0)
 	{
 		s_buffer._rx_index =  s_buffer._rx_index - strlen(token) - 1;
 		dc = atoi(token);
-		//HAL_UART_Transmit(&huart2, s_buffer._p_rx_buffer, s_buffer._rx_index, 10);
-		//HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
-		//HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
-		//HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
 	}
-
-
-
-
-	/*char* token = strtok((char*)s_buffer._p_rx_buffer, " ");
-	while(token != NULL){
-		HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
-		token = strtok(NULL, " ");
-
-	}*/
-
-	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
-	{
-		if (strncmp((char*)s_buffer._p_rx_buffer, commands[i]._name, commands[i]._size)==0)
-		//if (strncmp((char*)s_buffer._p_rx_buffer, commands[i]._name, s_buffer._rx_index)==0)
-		{
-			commands[i].func_ptr(i);
-		}
-	}
-}
-
-void ping_callBack(uint8_t i)
-{
-	HAL_UART_Transmit(&huart2, (uint8_t*)commands[i]._name, commands[i]._size-1, 10);
-}
-
-void version_callback(uint8_t i)
-{
-	HAL_UART_Transmit(&huart2, m_p_version, commands[i]._size, 10);
-}
-
-void pwm_start_callback(uint8_t i)
-{
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-}
-
-void pwm_stop_callback(uint8_t i)
-{
-	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
-}
-
-void pwm_dc_callback(uint8_t i)
-{
 	htim3.Instance->CCR1 = dc;
 }
 

@@ -67,7 +67,7 @@ static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
-void crcWholeFlashCalc(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -76,7 +76,7 @@ void crcWholeFlashCalc(void);
 uint8_t m_p_startup_data[m_p_startup_data_length] = "Hello World\n";
 s_Buff s_buffer;
 char* newline = "\n";
-
+uint32_t crcFlashResult;
 /* USER CODE END 0 */
 
 /**
@@ -115,7 +115,6 @@ int main(void)
   HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
   HAL_UART_Transmit(&huart2, m_p_startup_data, m_p_startup_data_length, 10);
 
-  crcWholeFlashCalc();
 
   /* USER CODE END 2 */
 
@@ -488,92 +487,34 @@ void pwm_dc_callback(char* token)
 	htim3.Instance->CCR1 = dc;
 }
 
-void crcWholeFlashCalc(void)
+void crc_whole_flash_calc_callback(char* token)
 {
-	//uint32_t myTestWrite[4] = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
-	//uint32_t myTestWrite[4] = {0x11111111, 0x22222222, 0x33333333, 0x44444444};
-	//uint32_t myTestRead[4];
-	//uint32_t crcArray [4] = {0x00001111, 0x00002222, 0x00003333, 0x00004444}; //CRC result: 0x2059ACAE
-	//MY_FLASH_WriteN(0, myTestWrite, 4, DATA_TYPE_32);
-
-
-
-	/*uint32_t crcFlash[4000];
-	uint32_t crcFlashResult;
-
-	MY_FLASH_SetSectorAddrs(0, 0x08000000);
-	MY_FLASH_ReadN(0, crcFlash, 4000, DATA_TYPE_32);
-	crcFlashResult = HAL_CRC_Calculate(&hcrc, crcFlash, 4000);
-
-	char CrcBytes [4];
-	itoa(crcFlashResult, CrcBytes, 16);
-	HAL_UART_Transmit(&huart2, (uint8_t*)CrcBytes, strlen(CrcBytes), 10);
-	HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);*/
-
 	uint16_t sector_0_Size = 4096; 				//16KB
-	//uint16_t sector_1_Size = 4096; 			//16KB
-	//uint16_t sector_2_Size = 4096; 			//16KB
-	//uint16_t sector_3_Size = 4096; 			//16KB
-	//uint16_t sector_4_Size = 4096 * 4; 		//64KB
-	//uint16_t sector_5_Size = 4096 * 8;   		//128KB
-	//uint16_t sector_6_Size = 4096 * 8; 		//128KB
-	//uint16_t sector_7_Size = 4096 * 8; 		//128KB
-
 	uint32_t sector_0_addr = 0x08000000;
-	//uint32_t sector_1_addr = 0x08004000;
-	//uint32_t sector_2_addr = 0x08008000;
-	//uint32_t sector_3_addr = 0x0800C000;
-	//uint32_t sector_4_addr = 0x08010000;
-	//uint32_t sector_5_addr = 0x08020000;
-	//uint32_t sector_6_addr = 0x08040000;
-	//uint32_t sector_7_addr = 0x08060000;
-
-	uint32_t crcFlash[sector_0_Size];
-	//uint32_t crcFlashPart2[sector_4_Size];
-	//uint32_t crcFlashPart3[sector_5_Size];
-	uint32_t crcFlashResult;
+	uint32_t crcFlashDataBuffer[sector_0_Size];
+	//uint32_t crcFlashResult;
 	uint32_t offsetAddr;
-
-	//DEBUG
-	/*MY_FLASH_SetSectorAddrs(7, sector_7_addr);
-	uint32_t myTestWrite2[1] = {0xFFFFFFFF};
-	MY_FLASH_WriteN(131072-4, myTestWrite2, 1, DATA_TYPE_32);*/
 
 	offsetAddr = 0x0;
 	for(int i = 0; i < 32; i++)
 	{
 		MY_FLASH_SetSectorAddrs(0, sector_0_addr + offsetAddr);
-		MY_FLASH_ReadN(0, crcFlash, sector_0_Size, DATA_TYPE_32);
-		crcFlashResult = HAL_CRC_Accumulate(&hcrc, crcFlash, sector_0_Size);
+		MY_FLASH_ReadN(0, crcFlashDataBuffer, sector_0_Size, DATA_TYPE_32);
+		crcFlashResult = HAL_CRC_Accumulate(&hcrc, crcFlashDataBuffer, sector_0_Size);
 		offsetAddr += 0x4000;
 	}
-
-	/*offsetAddr = 0x0;
-	for(int i = 0; i < 3; i++)
-	{
-		MY_FLASH_SetSectorAddrs(0, sector_0_addr + offsetAddr);
-		MY_FLASH_ReadN(0, crcFlash, sector_0_Size, DATA_TYPE_32);
-		crcFlashResult = HAL_CRC_Accumulate(&hcrc, crcFlash, sector_0_Size);
-		offsetAddr += 0x4000;
-	}
-
-	MY_FLASH_SetSectorAddrs(4, sector_4_addr);
-	MY_FLASH_ReadN(0, crcFlashPart2, sector_4_Size, DATA_TYPE_32);
-	crcFlashResult = HAL_CRC_Accumulate(&hcrc, crcFlashPart2, sector_4_Size);
-
-	offsetAddr = 0x0;
-	for(int i = 0; i < 3 * 8; i++)
-	{
-		MY_FLASH_SetSectorAddrs(5, sector_5_addr + offsetAddr);
-		MY_FLASH_ReadN(0, crcFlash, sector_0_Size, DATA_TYPE_32);
-		crcFlashResult = HAL_CRC_Accumulate(&hcrc, crcFlash, sector_0_Size);
-		offsetAddr += 0x4000;
-	}*/
-
-	char CrcBytes [4];
-	itoa(crcFlashResult, CrcBytes, 16);
-	HAL_UART_Transmit(&huart2, (uint8_t*)CrcBytes, strlen(CrcBytes), 10);
+	HAL_UART_Transmit(&huart2, m_p_ok, sizeof(m_p_ok), 10);
+}
+void crc_whole_flash_print_callback(char* token)
+{
+	char crcBytes[10];
+	itoa(crcFlashResult, crcBytes, 16);
+	HAL_UART_Transmit(&huart2, (uint8_t*)crcBytes, strlen(crcBytes), 10);
 	HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+
+	/*Reset HW CRC module */
+	uint32_t resetCrcBuffer [1];
+	HAL_CRC_Calculate(&hcrc, resetCrcBuffer, 0);
 }
 
 

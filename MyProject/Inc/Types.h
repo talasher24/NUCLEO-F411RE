@@ -5,7 +5,7 @@
 
 #define VERSION_SIZE 6
 
-uint8_t m_p_version[VERSION_SIZE] = "0.0.6\n" ;
+uint8_t m_p_version[VERSION_SIZE] = "0.0.7\n" ;
 
 #define OK_SIZE 3
 
@@ -16,7 +16,7 @@ uint8_t m_p_ok[OK_SIZE] = "OK\n" ;
 uint8_t m_p_tick[TICK_SIZE] = "tick\n";
 
 
-#define BUFFER_SIZE 20
+#define BUFFER_SIZE 25
 
 typedef enum  {
 

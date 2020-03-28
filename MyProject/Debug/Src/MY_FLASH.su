@@ -1,0 +1,4 @@
+MY_FLASH.c:10:13:MY_FLASH_EraseSector	8	static
+MY_FLASH.c:19:6:MY_FLASH_SetSectorAddrs	16	static
+MY_FLASH.c:26:6:MY_FLASH_WriteN	48	static
+MY_FLASH.c:66:6:MY_FLASH_ReadN	40	static

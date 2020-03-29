@@ -15,11 +15,10 @@ void pwm_start_callback(char* token);
 void pwm_stop_callback(char* token);
 void pwm_dc_callback(char* token);
 void crc_whole_flash_calc_callback(char* token);
-void crc_whole_flash_print_callback(char* token);
 
 /*------------Commands------------*/
 
-#define NUM_OF_COMMANDS 7
+#define NUM_OF_COMMANDS 6
 
 #define PING_COMMAND_NAME "ping"
 
@@ -32,8 +31,6 @@ void crc_whole_flash_print_callback(char* token);
 #define PWM_DC_COMMAND_NAME "pwm_dc"
 
 #define CRC_WHOLE_FLASH_CALC "crc_whole_flash_calc"
-
-#define CRC_WHOLE_FLASH_print "crc_whole_flash_print"
 
 /*--------End_of_Commands--------*/
 
@@ -49,8 +46,7 @@ command commands [NUM_OF_COMMANDS] = {
 		{PWM_START_COMMAND_NAME, sizeof(PWM_START_COMMAND_NAME), pwm_start_callback},
 		{PWM_STOP_COMMAND_NAME, sizeof(PWM_STOP_COMMAND_NAME), pwm_stop_callback},
 		{PWM_DC_COMMAND_NAME, sizeof(PWM_DC_COMMAND_NAME), pwm_dc_callback},
-		{CRC_WHOLE_FLASH_CALC, sizeof(CRC_WHOLE_FLASH_CALC), crc_whole_flash_calc_callback},
-		{CRC_WHOLE_FLASH_print, sizeof(CRC_WHOLE_FLASH_print), crc_whole_flash_print_callback}
+		{CRC_WHOLE_FLASH_CALC, sizeof(CRC_WHOLE_FLASH_CALC), crc_whole_flash_calc_callback}
 };
 
 

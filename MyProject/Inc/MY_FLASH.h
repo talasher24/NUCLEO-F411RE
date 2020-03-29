@@ -5,6 +5,8 @@
 
 #include "stm32f4xx_hal.h"
 
+#define FLASH_START_ADDRESS      0x08000000
+
 //Typedefs
 //1. data size
 typedef enum

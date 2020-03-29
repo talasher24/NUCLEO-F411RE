@@ -5,7 +5,7 @@
 
 #define VERSION_SIZE 6
 
-uint8_t m_p_version[VERSION_SIZE] = "0.0.7\n" ;
+uint8_t m_p_version[VERSION_SIZE] = "0.0.8\n" ;
 
 #define OK_SIZE 3
 

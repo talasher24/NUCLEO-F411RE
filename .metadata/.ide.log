@@ -2341,3 +2341,221 @@
 2020-03-30 03:47:58,942 [INFO] IPUIPlugin:65 - create IPUIPlugin
 2020-03-30 03:47:58,942 [INFO] IPUIPlugin:65 - create IPUIPlugin
 2020-03-30 03:47:58,957 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-30 14:17:46,938 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-30 14:17:47,150 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-30 14:17:47,151 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-30 14:17:47,155 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-30 14:17:47,161 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 810379056 Bytes (1073741824)
+2020-03-30 14:17:47,162 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-30 14:17:47,163 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-30 14:17:47,163 [INFO] OpenFileManager:274 - Change cursor
+2020-03-30 14:17:48,096 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 765551856 Bytes (1073741824)
+2020-03-30 14:17:48,109 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-30 14:17:48,182 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-30 14:17:48,182 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-03-30 14:17:48,315 [INFO] UtilMem:74 - Before build in PCC Used Memory: 805169240 Bytes (1073741824)
+2020-03-30 14:17:48,419 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-03-30 14:17:48,436 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-03-30 14:17:48,446 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-03-30 14:17:48,447 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-03-30 14:17:48,467 [INFO] UtilMem:74 - After build in PCC Used Memory: 847112280 Bytes (1073741824)
+2020-03-30 14:17:48,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,480 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-30 14:17:48,513 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-30 14:18:03,281 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,452x420,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-30 14:18:20,149 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 896206944 Bytes (1073741824)
+2020-03-30 14:18:21,660 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 907219032 Bytes (1073741824)
+2020-03-30 14:18:27,986 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 533263448 Bytes (1073741824)
+2020-03-30 14:18:28,138 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-03-30 14:18:28,138 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-30 14:18:28,138 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-03-30 14:18:28,138 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-03-30 14:18:28,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-03-30 14:18:28,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-30 14:18:28,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-30 14:18:28,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-03-30 14:18:28,140 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-03-30 14:18:28,148 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-03-30 14:18:28,152 [INFO] Argument:280 - 	 sub Args: 
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : Initvalue: null
+2020-03-30 14:18:28,152 [INFO] Argument:280 - 	 sub Args: 
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-30 14:18:28,152 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-03-30 14:18:28,152 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : Statevalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : Statevalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-03-30 14:18:28,154 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-03-30 14:18:28,155 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-03-30 14:18:28,155 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-03-30 14:18:28,155 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-03-30 14:18:28,155 [INFO] Argument:280 - 	 sub Args: 
+2020-03-30 14:18:28,155 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-03-30 14:18:28,155 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-03-30 14:18:28,155 [INFO] Argument:278 - Argument : Initvalue: null
+2020-03-30 14:18:28,155 [INFO] Argument:280 - 	 sub Args: 
+2020-03-30 14:18:28,156 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-03-30 14:18:28,156 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-03-30 14:18:28,156 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-03-30 14:18:28,156 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-03-30 14:18:28,156 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-30 14:18:28,156 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-03-30 14:18:28,156 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-30 14:18:28,156 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-03-30 14:18:28,156 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-30 14:18:28,156 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-03-30 14:18:28,157 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-30 14:18:28,157 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-03-30 14:18:28,157 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-03-30 14:18:28,157 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-03-30 14:18:28,157 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-30 14:18:28,157 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-03-30 14:18:28,157 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-30 14:18:28,157 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-03-30 14:18:28,157 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-03-30 14:18:28,157 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:278 - Argument : Statevalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:288 - Argument : Statevalue: null
+2020-03-30 14:18:28,158 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-03-30 14:18:28,159 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-03-30 14:18:28,316 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\license.tmp_save
+2020-03-30 14:18:28,381 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\license.tmp
+2020-03-30 14:18:28,417 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\gpio.tmp_save
+2020-03-30 14:18:28,469 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\gpio.tmp
+2020-03-30 14:18:28,600 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-30 14:18:28,600 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-03-30 14:18:28,600 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,604 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-30 14:18:28,604 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-03-30 14:18:28,604 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,626 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\dma.tmp_save
+2020-03-30 14:18:28,674 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\dma.tmp
+2020-03-30 14:18:28,679 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\dma_GV.tmp_save
+2020-03-30 14:18:28,726 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\dma_GV.tmp
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-30 14:18:28,728 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-30 14:18:28,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-03-30 14:18:28,732 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,734 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-30 14:18:28,735 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-30 14:18:28,742 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_it.c_save
+2020-03-30 14:18:28,814 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_it.c
+2020-03-30 14:18:28,820 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\stm32f4xx_it.h_save
+2020-03-30 14:18:28,868 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\stm32f4xx_it.h
+2020-03-30 14:18:28,877 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_hal_msp.c_save
+2020-03-30 14:18:28,969 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_hal_msp.c
+2020-03-30 14:18:28,974 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\system.tmp_save
+2020-03-30 14:18:29,038 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\MXTmpFiles\system.tmp
+2020-03-30 14:18:29,044 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-03-30 14:18:29,103 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\stm32f4xx_hal_timebase_tim.c
+2020-03-30 14:18:29,115 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\stm32f4xx_hal_conf.h_save
+2020-03-30 14:18:29,209 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\stm32f4xx_hal_conf.h
+2020-03-30 14:18:29,224 [WARN] IPConfigManager:2701 - IP not found : TIM
+2020-03-30 14:18:29,225 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-30 14:18:29,225 [WARN] CodeGenerator:2649 - IP not found : TIM
+2020-03-30 14:18:29,226 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-30 14:18:29,236 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\main.h_save
+2020-03-30 14:18:29,322 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Inc\main.h
+2020-03-30 14:18:29,329 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\main.c_save
+2020-03-30 14:18:29,504 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\Src\main.c
+2020-03-30 14:18:30,184 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 127mS.
+2020-03-30 14:18:30,187 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-30 14:18:30,507 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-03-30 14:18:31,746 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1559mS.
+2020-03-30 14:18:31,747 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-30 14:18:31,749 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.

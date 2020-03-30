@@ -3,9 +3,15 @@
 
 #define __Types_H__
 
-#define VERSION_SIZE 6
+#define VERSION_SIZE 7
 
-uint8_t m_p_version[VERSION_SIZE] = "0.0.9\n" ;
+uint8_t m_p_version[VERSION_SIZE] = "0.0.10\n" ;
+
+#define m_p_startup_data_length 12
+
+uint8_t m_p_startup_data[m_p_startup_data_length] = "Hello World\n";
+
+char* newline = "\n";
 
 #define OK_SIZE 3
 
@@ -24,7 +30,7 @@ typedef struct {
 	uint8_t _p_rx_buffer[BUFFER_SIZE];
 	uint8_t _rx_index;
 	uint8_t _rx_single_char;
-	uint8_t _p_tx_buffer[6];
+	uint8_t _p_tx_buffer[BUFFER_SIZE];
 	uint8_t _tx_index;
 	uint8_t _tx_single_char;
 }s_Buff;

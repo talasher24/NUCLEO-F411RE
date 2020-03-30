@@ -55,6 +55,7 @@ TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_rx;
+DMA_HandleTypeDef hdma_usart2_tx;
 
 /* USER CODE BEGIN PV */
 
@@ -113,12 +114,17 @@ int main(void)
   MX_RTC_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
+
   /* USER CODE BEGIN 2 */
-  //HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
+  HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
 
-  HAL_UART_Receive_DMA(&huart2, &s_buffer._single_char, 1);
-
+#ifndef UART_DMA
   HAL_UART_Transmit(&huart2, m_p_startup_data, m_p_startup_data_length, 10);
+#else
+  strcpy((char*)s_buffer._p_tx_buffer, (char*)m_p_startup_data);
+  HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, 12);
+#endif
+  //HAL_Delay(1000);
 
   /* USER CODE END 2 */
 
@@ -152,15 +158,15 @@ void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 336;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 84;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -180,7 +186,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -404,6 +410,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+  /* DMA1_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
 
 }
 
@@ -417,6 +426,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -432,6 +443,18 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  /* Prevent unused argument(s) compilation warning */
+  UNUSED(huart);
+  /* NOTE: This function should not be modified, when the callback is needed,
+           the HAL_UART_TxCpltCallback could be implemented in the user file
+   */
+
+  //HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, 20);
+}
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 
@@ -440,23 +463,24 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-	if (s_buffer._single_char != '\n')
+	if (s_buffer._rx_single_char != '\n')
 	{
 		if(s_buffer._rx_index < BUFFER_SIZE)
 		{
-			s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._single_char;
+			s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._rx_single_char;
 			s_buffer._rx_index++;
 		}
 	}
 	else{
+		s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._rx_single_char;
+		s_buffer._rx_index++;
 		whichCommand();
 		bufferInit(&s_buffer);
 		s_buffer._rx_index = 0;
 	}
 
-	//HAL_UART_Receive_IT(&huart2, &s_buffer._single_char, 1);
-	HAL_UART_Receive_DMA(&huart2, &s_buffer._single_char, 1);
-
+	//HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
+	HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
 }
 
 void whichCommand (void)
@@ -474,25 +498,45 @@ void whichCommand (void)
 
 void ping_callBack(char* token)
 {
-	HAL_UART_Transmit(&huart2, (uint8_t*)token, strlen(token), 10);
+#ifndef UART_DMA
+	HAL_UART_Transmit(&huart2, (uint8_t*)token, sizeof(token), 10);
 	HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+#else
+	strcpy((char*)s_buffer._p_tx_buffer, (char*)token);
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, sizeof(token) + 1);
+#endif
 }
 
 void version_callback(char* token)
 {
+#ifndef UART_DMA
 	HAL_UART_Transmit(&huart2, m_p_version, sizeof(m_p_version), 10);
+#else
+	strcpy((char*)s_buffer._p_tx_buffer, (char*)m_p_version);
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, sizeof(m_p_version));
+#endif
 }
 
 void pwm_start_callback(char* token)
 {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+#ifndef UART_DMA
 	HAL_UART_Transmit(&huart2, m_p_ok, sizeof(m_p_ok), 10);
+#else
+	strcpy((char*)s_buffer._p_tx_buffer, (char*)m_p_ok);
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, sizeof(m_p_ok));
+#endif
 }
 
 void pwm_stop_callback(char* token)
 {
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
+#ifndef UART_DMA
 	HAL_UART_Transmit(&huart2, m_p_ok, sizeof(m_p_ok), 10);
+#else
+	strcpy((char*)s_buffer._p_tx_buffer, (char*)m_p_ok);
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, sizeof(m_p_ok));
+#endif
 }
 
 void pwm_dc_callback(char* token)
@@ -555,11 +599,16 @@ void crc_whole_flash_calc_callback(char* token)
 
 	crcFlashResult = HAL_CRC_Calculate(&hcrc, p_flash_start_address, flashSize);
 
-
 	char crcBytes[4];
 	itoa(crcFlashResult, crcBytes, 16);
+
+#ifndef UART_DMA
 	HAL_UART_Transmit(&huart2, (uint8_t*)crcBytes, strlen(crcBytes), 10);
 	HAL_UART_Transmit(&huart2, (uint8_t*)newline, 1, 10);
+#else
+	strcpy((char*)s_buffer._p_tx_buffer, crcBytes);
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, sizeof(crcBytes) + 1);
+#endif
 }
 
 
@@ -570,7 +619,13 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_RTC_AlarmAEventCallback could be implemented in the user file
    */
+#ifndef UART_DMA
   HAL_UART_Transmit(&huart2, m_p_tick, TICK_SIZE, 10);
+#else
+  strcpy((char*)s_buffer._p_tx_buffer, (char*)m_p_tick);
+  HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, TICK_SIZE);
+#endif
+
 }
 /* USER CODE END 4 */
 

@@ -94,3 +94,45 @@ void MY_FLASH_ReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataT
 			break;
 	}
 }
+
+//5. Write OTP
+void MY_FLASH_OTP_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
+{
+	uint32_t flashAddress = MY_SectorAddrs + idx;
+
+	//Erase sector before write
+	//MY_FLASH_EraseSector();
+
+	//Unlock Flash
+	HAL_FLASH_Unlock();
+	//Write to Flash
+	switch(dataType)
+	{
+		case DATA_TYPE_8:
+				for(uint32_t i=0; i<Nsize; i++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)wrBuf)[i]);
+					flashAddress++;
+				}
+			break;
+
+		case DATA_TYPE_16:
+				for(uint32_t i=0; i<Nsize; i++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)wrBuf)[i]);
+					flashAddress+=2;
+				}
+			break;
+
+		case DATA_TYPE_32:
+				for(uint32_t i=0; i<Nsize; i++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)wrBuf)[i]);
+					flashAddress+=4;
+				}
+			break;
+	}
+	//Lock the Flash space
+	HAL_FLASH_Lock();
+}
+

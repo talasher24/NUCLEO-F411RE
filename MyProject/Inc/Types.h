@@ -1,11 +1,11 @@
 
-#ifndef __Types_H__
+#ifndef Types_H__
 
-#define __Types_H__
+#define Types_H__
 
 /*------------#define------------*/
 
-#define VERSION "0.0.12\n"
+#define VERSION "0.0.13\n"
 
 #define HELLO_WORLD "Hello World\n"
 
@@ -14,7 +14,6 @@
 #define TICK "tick\n"
 
 #define BUFFER_SIZE 25
-
 
 typedef struct {
 	
@@ -33,5 +32,5 @@ void bufferInit(s_Buff *buffer){
 }
 
 
-#endif // __Types_H__
+#endif // Types_H__
 

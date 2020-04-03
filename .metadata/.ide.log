@@ -5963,3 +5963,944 @@
 2020-04-02 19:28:37,704 [INFO] OpenFileManager:294 - Restore cursor
 2020-04-02 19:30:50,703 [INFO] DbMcusDocs:142 - JSON generation date=Wed Feb 26 10:53:47 IST 2020 (1582707227)
 2020-04-02 19:30:50,968 [INFO] DbMcusDocs:77 - Found 571 MCUs documents
+2020-04-03 12:37:17,681 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-03 12:37:17,779 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 12:37:17,780 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 12:37:17,789 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 12:37:17,804 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 757686448 Bytes (1073741824)
+2020-04-03 12:37:17,805 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 12:37:17,805 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 12:37:17,805 [INFO] OpenFileManager:274 - Change cursor
+2020-04-03 12:37:18,655 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,656 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,656 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,656 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,656 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,656 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,657 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,658 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-04-03 12:37:18,658 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-04-03 12:37:18,659 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-04-03 12:37:18,659 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-04-03 12:37:18,794 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 684974240 Bytes (1073741824)
+2020-04-03 12:37:18,799 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-04-03 12:37:18,895 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 12:37:18,897 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-04-03 12:37:19,167 [INFO] UtilMem:74 - Before build in PCC Used Memory: 730885096 Bytes (1073741824)
+2020-04-03 12:37:19,372 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:37:19,423 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:37:19,456 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:37:19,460 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:37:19,502 [INFO] UtilMem:74 - After build in PCC Used Memory: 774398960 Bytes (1073741824)
+2020-04-03 12:37:19,515 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,515 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,516 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,516 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,516 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,516 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,516 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,520 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,521 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,522 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,522 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,522 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,522 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:37:19,552 [INFO] OpenFileManager:294 - Restore cursor
+2020-04-03 12:38:56,056 [INFO] BinarySerializedPackPreferences:66 - Sw Pack name : STMicroelectronics.FreeRTOS.0.0.1 preferred : false
+2020-04-03 12:54:13,602 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-03 12:54:13,635 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 12:54:13,635 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 12:54:13,635 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 12:54:13,638 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 809341040 Bytes (1073741824)
+2020-04-03 12:54:13,638 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 12:54:13,638 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 12:54:13,639 [INFO] OpenFileManager:274 - Change cursor
+2020-04-03 12:54:14,561 [INFO] ApiDbMcu:451 - Load IP Config File for STMicroelectronics.X-CUBE-MEMS1.7.0.0
+2020-04-03 12:54:14,703 [ERROR] Migration:331 - 
+2020-04-03 12:54:14,703 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 893803632 Bytes (1073741824)
+2020-04-03 12:54:14,704 [ERROR] ThirdPartyIpManager:246 - STMicroelectronics.X-CUBE-MEMS1.7.0.0
+2020-04-03 12:54:14,706 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-04-03 12:54:14,777 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 12:54:14,778 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-04-03 12:54:14,899 [INFO] UtilMem:74 - Before build in PCC Used Memory: 932900816 Bytes (1073741824)
+2020-04-03 12:54:15,039 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:54:15,055 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:54:15,148 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:54:15,152 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 12:54:15,183 [INFO] UtilMem:74 - After build in PCC Used Memory: 657188832 Bytes (1073741824)
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,193 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,194 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,195 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,196 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,197 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 12:54:15,217 [INFO] OpenFileManager:294 - Restore cursor
+2020-04-03 12:54:15,243 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:15,243 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:15,243 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:15,244 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:15,245 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:15,246 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:15,247 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:15,248 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:15,249 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:15,250 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:15,251 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:15,252 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:15,252 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:15,254 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:15,255 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:20,506 [INFO] BinarySerializedPackPreferences:66 - Sw Pack name : STMicroelectronics.FreeRTOS.0.0.1 preferred : false
+2020-04-03 12:54:22,916 [WARN] MainPanel:345 - Warning: This IP has no parameters to be configured
+2020-04-03 12:54:22,918 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:22,918 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:22,918 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:22,918 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:22,919 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:22,920 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:22,921 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:22,922 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:22,923 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:22,924 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:22,925 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:22,926 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:22,926 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:22,927 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:22,928 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:34,474 [INFO] BinarySerializedPackPreferences:66 - Sw Pack name : STMicroelectronics.FreeRTOS.0.0.1 preferred : false
+2020-04-03 12:54:39,700 [INFO] BinarySerializedPackPreferences:66 - Sw Pack name : STMicroelectronics.FreeRTOS.0.0.1 preferred : false
+2020-04-03 12:54:42,619 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:42,620 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:42,620 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:42,620 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:42,620 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:42,621 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:42,622 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:42,623 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:42,623 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:42,623 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:42,623 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:42,623 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:42,624 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:42,625 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:42,625 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:42,625 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:42,625 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:42,625 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:42,626 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:42,627 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:42,628 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:42,629 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:42,629 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:42,629 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:42,629 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:42,629 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:42,630 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:42,631 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:42,632 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:42,632 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:42,633 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:42,633 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:42,641 [WARN] MainPanel:345 - Warning: This IP has no parameters to be configured
+2020-04-03 12:54:42,642 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:42,642 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:42,642 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:42,643 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:42,644 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:42,645 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:42,646 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:42,647 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:42,648 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:42,649 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:42,650 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:42,650 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:42,650 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:42,651 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:42,651 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:44,707 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:44,708 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:44,709 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:44,710 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:44,713 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:44,714 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:44,714 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:44,715 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:44,716 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:44,725 [WARN] MainPanel:345 - Warning: This IP has no parameters to be configured
+2020-04-03 12:54:44,726 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:44,726 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:44,726 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:44,727 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:44,728 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:44,729 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:44,730 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:44,731 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:44,732 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:44,732 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:44,733 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:44,733 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:46,105 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:46,106 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:46,106 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:46,106 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:46,107 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:46,107 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:46,107 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:46,107 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:46,108 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:46,108 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:46,108 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:46,109 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:46,109 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:46,109 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:46,110 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:46,110 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:46,110 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:46,111 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:46,111 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:46,111 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:46,111 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:46,112 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:46,112 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:46,112 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:46,113 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:46,116 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:46,116 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:46,117 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:46,117 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:46,117 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:46,118 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:46,118 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:46,118 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:46,119 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:46,119 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:46,120 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:46,120 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:46,120 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:46,120 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:46,121 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:46,121 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:46,121 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:46,121 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:46,122 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:46,122 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:46,122 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:46,122 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:46,123 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:46,124 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:46,124 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:46,124 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:46,124 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:46,125 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:46,125 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:46,126 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:46,126 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:46,126 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:46,128 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:46,128 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:54:46,138 [WARN] MainPanel:345 - Warning: This IP has no parameters to be configured
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSL_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjI2C
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSLJjSPI
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSO_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjI2C
+2020-04-03 12:54:46,139 [INFO] Middleware:411 - LSM6DSO BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOJjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjI2C
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DW12JjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LSM303AGR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjLSM303AGRJjI2C
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS3MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjI2C
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS3MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS3MDLJjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS2MDL_CScheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:46,140 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjI2C
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LIS2MDL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjLIS2MDLJjSPI
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - HTS221 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjHumTempJjHTS221JjI2C
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HB_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjI2C
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HB BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HBJjSPI
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HH_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjI2C
+2020-04-03 12:54:46,141 [INFO] Middleware:411 - LPS22HH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS22HHJjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - STTS751 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS751JjI2C
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LSM6DSOX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjI2C
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LSM6DSOX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSOXJjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LPS33HW_CScheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjI2C
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LPS33HW BUS IO drivercheck condition failed for : SEMBoardOoComponentJjPressTempJjLPS33HWJjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LIS2DH12_CScheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:46,142 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjI2C
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - LIS2DH12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjLIS2DH12JjSPI
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ASM330LHH_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjI2C
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ASM330LHH BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjASM330LHHJjSPI
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ISM330DLC_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjI2C
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ISM330DLC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DLCJjSPI
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - ISM303DAC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccMagJjISM303DACJjI2C
+2020-04-03 12:54:46,143 [INFO] Middleware:411 - IIS2DLPC_CScheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjI2C
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - IIS2DLPC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjIIS2DLPCJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - IIS2MDC_CScheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjI2C
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - IIS2MDC BUS IO drivercheck condition failed for : SEMBoardOoComponentJjMagJjIIS2MDCJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - ISM330DHCX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjI2C
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - ISM330DHCX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjISM330DHCXJjSPI
+2020-04-03 12:54:46,144 [INFO] Middleware:411 - LSM6DSR_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjI2C
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - LSM6DSR BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRJjSPI
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - AIS2DW12_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjI2C
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - AIS2DW12 BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS2DW12JjSPI
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - STTS22H BUS IO drivercheck condition failed for : SEMBoardOoComponentJjTempJjSTTS22HJjI2C
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - A3G4250D_CScheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:46,145 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjI2C
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - A3G4250D BUS IO drivercheck condition failed for : SEMBoardOoComponentJjGyrJjA3G4250DJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS328DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjI2C
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS328DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS328DQJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS3624DQ_CScheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjI2C
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - AIS3624DQ BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjAIS3624DQJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - H3LIS331DL_CScheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjI2C
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - H3LIS331DL BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccJjH3LIS331DLJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - LSM6DSRX_CScheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjI2C
+2020-04-03 12:54:46,146 [INFO] Middleware:411 - LSM6DSRX BUS IO drivercheck condition failed for : SEMBoardOoComponentJjAccGyrJjLSM6DSRXJjSPI
+2020-04-03 12:54:46,147 [INFO] Middleware:411 - IKS01A3 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS01A3
+2020-04-03 12:54:46,147 [INFO] Middleware:417 - IKS01A2 BUS IO drivercheck condition success for : SEMBoardOoExtensionJjIKS01A2
+2020-04-03 12:54:46,147 [INFO] Middleware:411 - IKS02A1 BUS IO drivercheck condition failed for : SEMBoardOoExtensionJjIKS02A1
+2020-04-03 12:54:46,148 [INFO] Middleware:411 - MEMS_INT_PIN_Acheck condition failed for : SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiPedometer | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiTilt | SEMDeviceJjApplicationJjIKS01A3IiLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjIKS01A3IiSTTS751IiTemperatureLimit | SEMDeviceJjApplicationJjIKS01A2IiLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiPedometer | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiTilt | SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLPS22HBIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSLIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSLIiFIFOLowPower | SEMDeviceJjApplicationJjLSM6DSLIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSLIiFreeFall | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiPedometer | SEMDeviceJjApplicationJjLSM6DSLIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSLIiTilt | SEMDeviceJjApplicationJjLSM6DSLIiWakeUp | SEMDeviceJjApplicationJjLIS2DW12Ii6DOrientation | SEMDeviceJjApplicationJjLIS2DW12IiWakeUp | SEMDeviceJjApplicationJjLPS22HHIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIi6DOrientation | SEMDeviceJjApplicationJjLSM6DSOIiFIFOContMode | SEMDeviceJjApplicationJjLSM6DSOIiFIFOMode | SEMDeviceJjApplicationJjLSM6DSOIiFreeFall | SEMDeviceJjApplicationJjLSM6DSOIiPedometer | SEMDeviceJjApplicationJjLSM6DSOIiSingleDoubleTap | SEMDeviceJjApplicationJjLSM6DSOIiTilt | SEMDeviceJjApplicationJjLSM6DSOIiWakeUp | SEMDeviceJjApplicationJjSTTS751IiTemperatureLimit
+2020-04-03 12:54:46,148 [INFO] Middleware:411 - MEMS_INT_PIN_Bcheck condition failed for : SEMDeviceJjApplicationJjIKS01A2IiLSM6DSLIiMultiEvent | SEMDeviceJjApplicationJjLSM6DSLIiMultiEvent
+2020-04-03 12:55:15,840 [INFO] BinarySerializedPackPreferences:66 - Sw Pack name : STMicroelectronics.FreeRTOS.0.0.1 preferred : false
+2020-04-03 18:35:29,021 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-03 18:35:29,052 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 18:35:29,052 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 18:35:29,054 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 18:35:29,057 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 894574976 Bytes (1073741824)
+2020-04-03 18:35:29,058 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 18:35:29,058 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 18:35:29,058 [INFO] OpenFileManager:274 - Change cursor
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,692 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,693 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,694 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,694 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,694 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-04-03 18:35:29,694 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-04-03 18:35:29,695 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-04-03 18:35:29,695 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-04-03 18:35:29,843 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 800252448 Bytes (1073741824)
+2020-04-03 18:35:29,846 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-04-03 18:35:29,925 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 18:35:29,926 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-04-03 18:35:30,128 [INFO] UtilMem:74 - Before build in PCC Used Memory: 848260488 Bytes (1073741824)
+2020-04-03 18:35:30,226 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:35:30,256 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:35:30,274 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:35:30,277 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:35:30,308 [INFO] UtilMem:74 - After build in PCC Used Memory: 889687440 Bytes (1073741824)
+2020-04-03 18:35:30,322 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,322 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,323 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,323 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,323 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,323 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,324 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,325 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,325 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,325 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,325 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,325 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,326 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,326 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,326 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,326 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,326 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,327 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,327 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,327 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,327 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,327 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,328 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,328 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,328 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,328 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,328 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,329 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,329 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,329 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,329 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,330 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,330 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,330 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,330 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,330 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,331 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:35:30,357 [INFO] OpenFileManager:294 - Restore cursor
+2020-04-03 18:35:36,357 [INFO] DmaTabbedPanel:192 - Cannot restore the selected Tab for DMA
+2020-04-03 18:35:37,785 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM3, USART2]
+2020-04-03 18:35:39,806 [INFO] Gpio:248 - dependency for GPIO [RCC, TIM3, USART2]
+2020-04-03 18:59:46,295 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-03 18:59:46,394 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 18:59:46,395 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 18:59:46,398 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 18:59:46,401 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 776649360 Bytes (1073741824)
+2020-04-03 18:59:46,401 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-03 18:59:46,402 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-04-03 18:59:46,402 [INFO] OpenFileManager:274 - Change cursor
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,116 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,117 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-04-03 18:59:47,118 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-04-03 18:59:47,119 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-04-03 18:59:47,119 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-04-03 18:59:47,252 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 701938672 Bytes (1073741824)
+2020-04-03 18:59:47,254 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-04-03 18:59:47,313 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-04-03 18:59:47,314 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-04-03 18:59:47,477 [INFO] UtilMem:74 - Before build in PCC Used Memory: 749946712 Bytes (1073741824)
+2020-04-03 18:59:47,596 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:59:47,612 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:59:47,622 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:59:47,623 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-04-03 18:59:47,642 [INFO] UtilMem:74 - After build in PCC Used Memory: 789792568 Bytes (1073741824)
+2020-04-03 18:59:47,649 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,649 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,649 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,649 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,649 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,650 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,651 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,652 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,653 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-03 18:59:47,670 [INFO] OpenFileManager:294 - Restore cursor

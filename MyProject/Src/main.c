@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
@@ -40,6 +39,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define UART_TX_DMA
+#define UART_RX_DMA
+//#define WWDG_ENABLE
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -72,10 +74,16 @@ static void MX_CRC_Init(void);
 static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
+#ifdef WWDG_ENABLE
 static void MX_WWDG_Init(void);
+#endif
 /* USER CODE BEGIN PFP */
+void whichCommand(void);
 void uart_print(char* token);
+#ifdef WWDG_ENABLE
 void kickDog(void);
+#endif
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -115,16 +123,33 @@ int main(void)
   MX_CRC_Init();
   MX_RTC_Init();
   MX_USART2_UART_Init();
-  MX_TIM3_Init();
+  MX_TIM3_Init(); //PWM
+#ifdef WWDG_ENABLE
   MX_WWDG_Init();
+#endif
   /* USER CODE BEGIN 2 */
-  if(__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
-  {
-	  // Clear reset flags
-	  __HAL_RCC_CLEAR_RESET_FLAGS();
-  }
-
+#ifdef UART_RX_DMA
   HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+#else
+  HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
+#endif
+
+  /*//uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
+  uint32_t OTP_sector_addr 	   = 0x1FFF7800;		//Sector 7 address
+  //uint32_t OTP_Lock_block_addr = 0x1FFF7A00;		//Sector 7 address
+
+
+
+  MY_FLASH_SetSectorAddrs(7, OTP_sector_addr);
+  uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
+  MY_FLASH_OTP_WriteN(0, myTestWrite, 1, DATA_TYPE_32);
+
+  uint32_t myTestRead[1];
+  MY_FLASH_ReadN(0, myTestRead, 1, DATA_TYPE_32);
+  sprintf((char*)s_buffer._p_tx_buffer, "%x\n", (unsigned int)myTestRead[0]);
+  uart_print((char*)s_buffer._p_tx_buffer);*/
+
+
   uart_print(HELLO_WORLD);
   /* USER CODE END 2 */
 
@@ -135,16 +160,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+#ifdef WWDG_ENABLE
 	  kickDog();
+#endif
+
   }
   /* USER CODE END 3 */
 }
 
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -192,11 +215,6 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief CRC Initialization Function
-  * @param None
-  * @retval None
-  */
 static void MX_CRC_Init(void)
 {
 
@@ -218,11 +236,6 @@ static void MX_CRC_Init(void)
 
 }
 
-/**
-  * @brief RTC Initialization Function
-  * @param None
-  * @retval None
-  */
 static void MX_RTC_Init(void)
 {
 
@@ -304,11 +317,6 @@ static void MX_RTC_Init(void)
 
 }
 
-/**
-  * @brief TIM3 Initialization Function
-  * @param None
-  * @retval None
-  */
 static void MX_TIM3_Init(void)
 {
 
@@ -363,11 +371,6 @@ static void MX_TIM3_Init(void)
 
 }
 
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
 static void MX_USART2_UART_Init(void)
 {
 
@@ -396,11 +399,7 @@ static void MX_USART2_UART_Init(void)
 
 }
 
-/**
-  * @brief WWDG Initialization Function
-  * @param None
-  * @retval None
-  */
+#ifdef WWDG_ENABLE
 static void MX_WWDG_Init(void)
 {
 
@@ -414,7 +413,7 @@ static void MX_WWDG_Init(void)
   /* USER CODE BEGIN WWDG_Init 1 */
 
   /* USER CODE END WWDG_Init 1 */
-  /*hwwdg.Instance = WWDG;
+  hwwdg.Instance = WWDG;
   hwwdg.Init.Prescaler = WWDG_PRESCALER_8;
   hwwdg.Init.Window = 80;
   hwwdg.Init.Counter = 127;
@@ -422,16 +421,18 @@ static void MX_WWDG_Init(void)
   if (HAL_WWDG_Init(&hwwdg) != HAL_OK)
   {
     Error_Handler();
-  }*/
+  }
   /* USER CODE BEGIN WWDG_Init 2 */
-
+  /*if(__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
+  {
+	  // Clear reset flags
+	  __HAL_RCC_CLEAR_RESET_FLAGS();
+  }*/
   /* USER CODE END WWDG_Init 2 */
 
 }
+#endif
 
-/** 
-  * Enable DMA controller clock
-  */
 static void MX_DMA_Init(void) 
 {
 
@@ -445,14 +446,8 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream6_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
-
 }
 
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -470,7 +465,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
@@ -482,7 +476,6 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
-  //HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, 20);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -510,8 +503,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		s_buffer._rx_index = 0;
 	}
 
+#ifdef UART_RX_DMA
+  HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+#else
+  HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
+#endif
+
 	//HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
-	HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+	//HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
 }
 
 void whichCommand (void)
@@ -629,8 +628,8 @@ void flash_lock_callback(char* token)
 		{
 			Error_Handler();
 		}
-		/* Clear All pending flags */
-		__HAL_FLASH_CLEAR_FLAG (FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
+		/* Clear All pending flags */ //if wwdg and kickDog are enabled - uncomment __HAL_FLASH_CLEAR_FLAG
+		//__HAL_FLASH_CLEAR_FLAG (FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
 		if (HAL_FLASH_OB_Unlock() != HAL_OK)
 		{
 			Error_Handler();
@@ -679,10 +678,10 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 void uart_print(char* token)
 {
 	memcpy((char*)s_buffer._p_tx_buffer, token, strlen(token));
-#ifndef UART_TX_DMA
-  HAL_UART_Transmit(&huart2, s_buffer._p_tx_buffer, strlen(token), 10);
+#ifdef UART_TX_DMA
+	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, strlen(token));
 #else
-  HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, strlen(token));
+	HAL_UART_Transmit(&huart2, s_buffer._p_tx_buffer, strlen(token), 10);
 #endif
 }
 
@@ -719,10 +718,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 1 */
 }
 
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */

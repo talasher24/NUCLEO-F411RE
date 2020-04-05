@@ -16,10 +16,12 @@ void pwm_dc_callback(char* token);
 void crc_whole_flash_calc_callback(char* token);
 void wwdg_test_callback(char* token);
 void flash_lock_callback(char* token);
+void set_SN_callback(char* token);
+void get_SN_callback(char* token);
 
 /*------------Commands------------*/
 
-#define NUM_OF_COMMANDS 8
+#define NUM_OF_COMMANDS 10
 
 #define PING_COMMAND_NAME "ping\n"
 
@@ -37,6 +39,10 @@ void flash_lock_callback(char* token);
 
 #define FLASH_LOCK "flash_lock\n"
 
+#define set_SN "set_SN\n"
+
+#define get_SN "get_SN\n"
+
 /*--------End_of_Commands--------*/
 
 typedef struct {
@@ -53,7 +59,9 @@ command commands [NUM_OF_COMMANDS] = {
 		{PWM_DC_COMMAND_NAME, sizeof(PWM_DC_COMMAND_NAME), pwm_dc_callback},
 		{CRC_WHOLE_FLASH_CALC, sizeof(CRC_WHOLE_FLASH_CALC), crc_whole_flash_calc_callback},
 		{WWDG_TEST, sizeof(WWDG_TEST), wwdg_test_callback},
-		{FLASH_LOCK, sizeof(FLASH_LOCK), flash_lock_callback}
+		{FLASH_LOCK, sizeof(FLASH_LOCK), flash_lock_callback},
+		{set_SN, sizeof(set_SN), set_SN_callback},
+		{get_SN, sizeof(get_SN), get_SN_callback}
 };
 
 

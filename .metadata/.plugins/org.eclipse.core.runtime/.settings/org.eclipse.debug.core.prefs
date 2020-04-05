@@ -5,4 +5,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
 org.eclipse.debug.core.USE_STEP_FILTERS=true
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="s_buffer"/>\r\n<expression enabled\="true" text\="token"/>\r\n<expression enabled\="true" text\="s_buffer._p_tx_buffer"/>\r\n<expression enabled\="true" text\="obConfig"/>\r\n<expression enabled\="true" text\="myTestRead"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="s_buffer"/>\r\n<expression enabled\="true" text\="token"/>\r\n<expression enabled\="true" text\="s_buffer._p_tx_buffer"/>\r\n<expression enabled\="true" text\="obConfig"/>\r\n<expression enabled\="true" text\="myTestRead"/>\r\n<expression enabled\="true" text\="OBInit"/>\r\n<expression enabled\="true" text\="SectorsWRPStatus"/>\r\n<expression enabled\="true" text\="FLASH_WRP_SECTORS"/>\r\n</watchExpressions>\r\n

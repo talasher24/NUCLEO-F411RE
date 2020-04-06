@@ -2,7 +2,7 @@
 
 #define Buffer_H__
 
-
+#include "stm32f4xx_hal.h"
 
 #define BUFFER_SIZE 25
 
@@ -15,11 +15,6 @@ typedef struct {
 
 void bufferInit(s_Buff *buffer);
 
-void bufferInit(s_Buff *buffer){
-	for(int i = 0; i < BUFFER_SIZE; i++){
-		buffer->_p_rx_buffer[i] = 0;
-	}
-}
 
 
 #endif // Buffer_H__

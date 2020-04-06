@@ -5,13 +5,13 @@
 
 /*------------#define------------*/
 
-#define VERSION "0.0.15\n"
+#define VERSION "0.0.16\n"
 
 #define HELLO_WORLD "Hello World\n"
 
-#define OK "OK\n"
-
 #define TICK "tick\n"
+
+#define OK "OK\n"
 
 
 #endif // Types_H__

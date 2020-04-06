@@ -6,19 +6,31 @@
  */
 
 
-/*
+
 #include "Commands.h"
 #include "main.h"
+#include "MY_FLASH.h"
+#include "Buffer.h"
+#include "Types.h"
+
+
 
 #include <string.h>
-#include <stdbool.h>
 #include <stdlib.h>
-#include <stdio.h>*/
-//#include "stm32f4xx_hal.h"
+#include <stdio.h>
+//#include <stdbool.h>
 
-/*
- extern void uart_print(char* token);
+
  extern TIM_HandleTypeDef htim3;
+ extern CRC_HandleTypeDef hcrc;
+ extern RTC_HandleTypeDef hrtc;
+
+ extern void MX_RTC_Init(void);
+ extern void uart_print(char* token);
+ extern s_Buff s_buffer;
+
+
+
 
 void ping_callBack(char* token)
 {
@@ -58,6 +70,40 @@ void pwm_dc_callback(char* token)
 
 void crc_whole_flash_calc_callback(char* token)
 {
+	/*Flash information...
+	uint16_t sector_0_Size = 4096; 				//16KB  - After multiplying by uint32_t
+	uint16_t sector_1_Size = 4096; 				//16KB  - After multiplying by uint32_t
+	uint16_t sector_2_Size = 4096; 				//16KB  - After multiplying by uint32_t
+	uint16_t sector_3_Size = 4096; 				//16KB  - After multiplying by uint32_t
+	uint16_t sector_4_Size = 4096 * 4; 			//64KB  - After multiplying by uint32_t
+	uint16_t sector_5_Size = 4096 * 8;   		//128KB - After multiplying by uint32_t
+	uint16_t sector_6_Size = 4096 * 8; 			//128KB - After multiplying by uint32_t
+	uint16_t sector_7_Size = 4096 * 8; 			//128KB - After multiplying by uint32_t
+
+	uint32_t sector_0_addr = 0x08000000;		//Sector 0 address
+	uint32_t sector_1_addr = 0x08004000;		//Sector 1 address
+	uint32_t sector_2_addr = 0x08008000;		//Sector 2 address
+	uint32_t sector_3_addr = 0x0800C000;		//Sector 3 address
+	uint32_t sector_4_addr = 0x08010000;		//Sector 4 address
+	uint32_t sector_5_addr = 0x08020000;		//Sector 5 address
+	uint32_t sector_6_addr = 0x08040000;		//Sector 6 address
+	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
+
+
+	//uint16_t sector_0_Size = 4096; 				//16KB
+	//uint32_t sector_0_addr = 0x08000000;		//Sector 0 address
+	//uint32_t flashDataBuffer[sector_0_Size];	//(4096(=0x1000) * 4Bytes(=sizeOf(int)) = 16384 (=0x4000))
+	//uint32_t offsetAddr = 0x0;
+
+
+	for(int i = 0; i < 32; i++)  				//(32 * 16384(=0x4000) = 524288(=0x80000)) => whole flash
+	{
+		MY_FLASH_SetSectorAddrs(0, sector_0_addr + offsetAddr);
+		MY_FLASH_ReadN(0, flashDataBuffer, sector_0_Size, DATA_TYPE_32);
+		crcFlashResult = HAL_CRC_Accumulate(&hcrc, flashDataBuffer, sector_0_Size);
+		offsetAddr += 0x4000;
+	}*/
+
 	uint32_t crcFlashResult;
 	uint32_t flashSize = 0x20000;
 	uint32_t *p_flash_start_address = (uint32_t *) FLASH_START_ADDRESS;
@@ -77,10 +123,10 @@ void wwdg_test_callback(char* token)
 void flash_lock_callback(char* token)
 {
 
-	//  RDP protects the whole internal flash from reading from outside, via debugger interface.
-	// *It does not prevent one part of code to read another part, or even rewrite.
-	// *PCROP allows you to use debugger to debug your code,
-	// *but protects reading and rewriting the "secret" part.
+	/*RDP protects the whole internal flash from reading from outside, via debugger interface.
+	 *It does not prevent one part of code to read another part, or even rewrite.
+	 *PCROP allows you to use debugger to debug your code,
+	 *but protects reading and rewriting the "secret" part.*/
 
 	FLASH_OBProgramInitTypeDef obConfig;
 	HAL_FLASHEx_OBGetConfig(&obConfig);
@@ -93,8 +139,8 @@ void flash_lock_callback(char* token)
 		{
 			Error_Handler();
 		}
-		// Clear All pending flags  //if wwdg and kickDog are enabled - uncomment __HAL_FLASH_CLEAR_FLAG
-		////__HAL_FLASH_CLEAR_FLAG (FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
+		/* Clear All pending flags */ //if wwdg and kickDog are enabled - uncomment __HAL_FLASH_CLEAR_FLAG
+		//__HAL_FLASH_CLEAR_FLAG (FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
 		if (HAL_FLASH_OB_Unlock() != HAL_OK)
 		{
 			Error_Handler();
@@ -118,31 +164,31 @@ void flash_lock_callback(char* token)
 		uart_print(OK);
 
 
-
-		////DEBUG - use for writing data to flash
-		//uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
-		//MY_FLASH_SetSectorAddrs(7, sector_7_addr);
-		//uint32_t myTestWrite[1] = {0xDEADBEEF}; 		//0xFFFFFFFF, 0xDEADBEEF
-		//MY_FLASH_WriteN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
-
+		/*
+		//DEBUG - use for writing data to flash
+		uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
+		MY_FLASH_SetSectorAddrs(7, sector_7_addr);
+		uint32_t myTestWrite[1] = {0xDEADBEEF}; 		//0xFFFFFFFF, 0xDEADBEEF
+		MY_FLASH_WriteN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
+		*/
 	}
 }
 
 void set_SN_callback(char* token)
 {
-	if (WRP_sector_disable() != HAL_OK)
+	/*if (WRP_sector_disable() != HAL_OK)
 	{
 		Error_Handler();
-	}
+	}*/
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
 	MY_FLASH_SetSectorAddrs(7, sector_7_addr);
 	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
 	MY_FLASH_WriteN(0, myTestWrite, 1, DATA_TYPE_32);
 
-	if (WRP_sector_enable() != HAL_OK)
+	/*if (WRP_sector_enable() != HAL_OK)
 	{
 		Error_Handler();
-	}
+	}*/
 }
 
 void get_SN_callback(char* token)
@@ -155,5 +201,20 @@ void get_SN_callback(char* token)
 	uart_print((char*)s_buffer._p_tx_buffer);
 }
 
-*/
+void start_tick_callback(char* token)
+{
+	MX_RTC_Init();
+	/*if (HAL_RTC_Init(&hrtc) != HAL_OK)
+	{
+		Error_Handler();
+	}*/
 
+}
+
+void stop_tick_callback(char* token)
+{
+	if (HAL_RTC_DeInit(&hrtc) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}

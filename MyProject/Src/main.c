@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
@@ -38,7 +39,7 @@
 /* USER CODE BEGIN PD */
 #define UART_TX_DMA
 #define UART_RX_DMA
-//#define WWDG_ENABLE
+#define IWDG_ENABLE
 
 /* USER CODE END PD */
 
@@ -50,6 +51,8 @@
 /* Private variables ---------------------------------------------------------*/
 CRC_HandleTypeDef hcrc;
 
+IWDG_HandleTypeDef hiwdg;
+
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim3;
@@ -57,8 +60,6 @@ TIM_HandleTypeDef htim3;
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_rx;
 DMA_HandleTypeDef hdma_usart2_tx;
-
-WWDG_HandleTypeDef hwwdg;
 
 /* USER CODE BEGIN PV */
 
@@ -72,15 +73,14 @@ static void MX_CRC_Init(void);
 void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
-#ifdef WWDG_ENABLE
-static void MX_WWDG_Init(void);
-#endif
+static void MX_IWDG_Init(void);
+
 /* USER CODE BEGIN PFP */
 void whichCommand(void);
 void uart_print(char* token);
 HAL_StatusTypeDef WRP_sector_enable (void);
 HAL_StatusTypeDef WRP_sector_disable (void);
-#ifdef WWDG_ENABLE
+#ifdef IWDG_ENABLE
 void kickDog(void);
 #endif
 
@@ -122,12 +122,10 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_CRC_Init();
-  //MX_RTC_Init();
+  MX_RTC_Init();
   MX_USART2_UART_Init();
-  MX_TIM3_Init(); //PWM
-#ifdef WWDG_ENABLE
-  MX_WWDG_Init();
-#endif
+  MX_TIM3_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 #ifdef UART_RX_DMA
   HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
@@ -162,7 +160,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-#ifdef WWDG_ENABLE
+#ifdef IWDG_ENABLE
 	  kickDog();
 #endif
 
@@ -170,6 +168,10 @@ int main(void)
   /* USER CODE END 3 */
 }
 
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -182,10 +184,12 @@ void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI
+                              |RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 16;
@@ -217,6 +221,11 @@ void SystemClock_Config(void)
   }
 }
 
+/**
+  * @brief CRC Initialization Function
+  * @param None
+  * @retval None
+  */
 static void MX_CRC_Init(void)
 {
 
@@ -238,6 +247,47 @@ static void MX_CRC_Init(void)
 
 }
 
+/**
+  * @brief IWDG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IWDG_Init(void)
+{
+
+  /* USER CODE BEGIN IWDG_Init 0 */
+	/*
+		Watchdog freq. is 32 kHz
+		Prescaler: Min_Value = 4 and Max_Value = 256
+		Reload: Min_Data = 0 and Max_Data = 0x0FFF
+		TimeOut in seconds = (Reload * Prescaler) / Freq.
+		MinTimeOut = (4 * 1) / 32000 = 0.000125 seconds (125 microseconds)
+		MaxTimeOut = (256 * 4096) / 32000 = 32.768 seconds
+		This TimeOut: 625 * 256 / 32,000 = 5 sec
+	 */
+  /* USER CODE END IWDG_Init 0 */
+
+  /* USER CODE BEGIN IWDG_Init 1 */
+
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_256;
+  hiwdg.Init.Reload = 625;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
+
+  /* USER CODE END IWDG_Init 2 */
+
+}
+
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
 void MX_RTC_Init(void)
 {
 
@@ -319,6 +369,11 @@ void MX_RTC_Init(void)
 
 }
 
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
 static void MX_TIM3_Init(void)
 {
 
@@ -373,6 +428,11 @@ static void MX_TIM3_Init(void)
 
 }
 
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
 static void MX_USART2_UART_Init(void)
 {
 
@@ -401,40 +461,9 @@ static void MX_USART2_UART_Init(void)
 
 }
 
-#ifdef WWDG_ENABLE
-static void MX_WWDG_Init(void)
-{
-
-  /* USER CODE BEGIN WWDG_Init 0 */
-	/*
-	 * WWDG clock counter = (PCLK1 (42MHz)/4096)/8) = 1281 Hz (~780 us)
-	 * WWDG Counter value = 127, WWDG timeout = ~780 us * 64 = 49.9 ms
-	 * */
-  /* USER CODE END WWDG_Init 0 */
-
-  /* USER CODE BEGIN WWDG_Init 1 */
-
-  /* USER CODE END WWDG_Init 1 */
-  hwwdg.Instance = WWDG;
-  hwwdg.Init.Prescaler = WWDG_PRESCALER_8;
-  hwwdg.Init.Window = 80;
-  hwwdg.Init.Counter = 127;
-  hwwdg.Init.EWIMode = WWDG_EWI_DISABLE;
-  if (HAL_WWDG_Init(&hwwdg) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN WWDG_Init 2 */
-  /*if(__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
-  {
-	  // Clear reset flags
-	  __HAL_RCC_CLEAR_RESET_FLAGS();
-  }*/
-  /* USER CODE END WWDG_Init 2 */
-
-}
-#endif
-
+/** 
+  * Enable DMA controller clock
+  */
 static void MX_DMA_Init(void) 
 {
 
@@ -448,8 +477,14 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream6_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+
 }
 
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -467,6 +502,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -680,16 +716,10 @@ void uart_print(char* token)
 #endif
 }
 
-#ifdef WWDG_ENABLE
+#ifdef IWDG_ENABLE
 void kickDog(void)
 {
-	/* Refresh WWDG: update counter value to 127, the refresh window is:
-		  	 ~780 * (127-80) = 36.6ms < refresh window < ~780 * 64 = 49.9ms */
-	HAL_Delay(40);
-	if(HAL_WWDG_Refresh(&hwwdg) != HAL_OK)
-	{
-		Error_Handler();
-	}
+	HAL_IWDG_Refresh(&hiwdg);
 }
 #endif
 /* USER CODE END 4 */
@@ -715,6 +745,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 1 */
 }
 
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */

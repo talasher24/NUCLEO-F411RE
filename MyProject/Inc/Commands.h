@@ -16,7 +16,7 @@ void pwm_start_callback(char* token);
 void pwm_stop_callback(char* token);
 void pwm_dc_callback(char* token);
 void crc_whole_flash_calc_callback(char* token);
-void wwdg_test_callback(char* token);
+void iwdg_test_callback(char* token);
 void flash_lock_callback(char* token);
 void set_SN_callback(char* token);
 void get_SN_callback(char* token);
@@ -40,7 +40,7 @@ void stop_tick_callback(char* token);
 
 #define CRC_WHOLE_FLASH_CALC "crc_whole_flash_calc\n"
 
-#define WWDG_TEST "wwdg_test\n"
+#define IWDG_TEST "iwdg_test\n"
 
 #define FLASH_LOCK "flash_lock\n"
 
@@ -68,7 +68,7 @@ static const command commands [NUM_OF_COMMANDS] = {
 		{PWM_STOP_COMMAND_NAME, 	sizeof(PWM_STOP_COMMAND_NAME), 	pwm_stop_callback				},
 		{PWM_DC_COMMAND_NAME, 		sizeof(PWM_DC_COMMAND_NAME), 	pwm_dc_callback					},
 		{CRC_WHOLE_FLASH_CALC, 		sizeof(CRC_WHOLE_FLASH_CALC), 	crc_whole_flash_calc_callback	},
-		{WWDG_TEST, 				sizeof(WWDG_TEST), 				wwdg_test_callback				},
+		{IWDG_TEST, 				sizeof(IWDG_TEST), 				iwdg_test_callback				},
 		{FLASH_LOCK, 				sizeof(FLASH_LOCK), 			flash_lock_callback				},
 		{set_SN, 					sizeof(set_SN), 				set_SN_callback					},
 		{get_SN, 					sizeof(get_SN), 				get_SN_callback					},

@@ -114,7 +114,7 @@ void crc_whole_flash_calc_callback(char* token)
 	uart_print((char*)s_buffer._p_tx_buffer);
 }
 
-void wwdg_test_callback(char* token)
+void iwdg_test_callback(char* token)
 {
 	uart_print(OK);
 	while(1);
@@ -204,11 +204,7 @@ void get_SN_callback(char* token)
 void start_tick_callback(char* token)
 {
 	MX_RTC_Init();
-	/*if (HAL_RTC_Init(&hrtc) != HAL_OK)
-	{
-		Error_Handler();
-	}*/
-
+	uart_print(OK);
 }
 
 void stop_tick_callback(char* token)
@@ -217,4 +213,5 @@ void stop_tick_callback(char* token)
 	{
 		Error_Handler();
 	}
+	uart_print(OK);
 }

@@ -1,0 +1,24 @@
+/*
+ * Commands.c
+ *
+ *  Created on: Apr 5, 2020
+ *      Author: ADMIN
+ */
+
+#include "stm32f4xx_hal.h"
+
+#define VERSION "0.0.15\n"
+
+
+void ping_callBack(char* token)
+{
+	uart_print(token);
+}
+
+void version_callback(char* token)
+{
+  uart_print(VERSION);
+}
+
+
+

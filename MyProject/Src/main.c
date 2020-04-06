@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Types.h"
+#include "Buffer.h"
 #include "Commands.h"
 #include "MY_FLASH.h"
 /* USER CODE END Includes */
@@ -86,6 +87,7 @@ HAL_StatusTypeDef WRP_sector_disable (void);
 void kickDog(void);
 #endif
 
+//const uint8_t arr[365808] = {0};
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -152,6 +154,7 @@ int main(void)
   	*/
 
   uart_print(HELLO_WORLD);
+  //uart_print((char*)arr);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -682,19 +685,19 @@ void flash_lock_callback(char* token)
 
 void set_SN_callback(char* token)
 {
-	if (WRP_sector_disable() != HAL_OK)
+	/*if (WRP_sector_disable() != HAL_OK)
 	{
 		Error_Handler();
-	}
+	}*/
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
 	MY_FLASH_SetSectorAddrs(7, sector_7_addr);
 	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
 	MY_FLASH_WriteN(0, myTestWrite, 1, DATA_TYPE_32);
 
-	if (WRP_sector_enable() != HAL_OK)
+	/*if (WRP_sector_enable() != HAL_OK)
 	{
 		Error_Handler();
-	}
+	}*/
 }
 
 void get_SN_callback(char* token)

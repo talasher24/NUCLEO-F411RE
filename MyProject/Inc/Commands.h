@@ -51,18 +51,20 @@ typedef struct {
 	void(*func_ptr)(char*);
 }command;
 
+
 command commands [NUM_OF_COMMANDS] = {
-		{PING_COMMAND_NAME, sizeof(PING_COMMAND_NAME), ping_callBack},
-		{VERSION_COMMAND_NAME, sizeof(VERSION_COMMAND_NAME), version_callback},
-		{PWM_START_COMMAND_NAME, sizeof(PWM_START_COMMAND_NAME), pwm_start_callback},
-		{PWM_STOP_COMMAND_NAME, sizeof(PWM_STOP_COMMAND_NAME), pwm_stop_callback},
-		{PWM_DC_COMMAND_NAME, sizeof(PWM_DC_COMMAND_NAME), pwm_dc_callback},
-		{CRC_WHOLE_FLASH_CALC, sizeof(CRC_WHOLE_FLASH_CALC), crc_whole_flash_calc_callback},
-		{WWDG_TEST, sizeof(WWDG_TEST), wwdg_test_callback},
-		{FLASH_LOCK, sizeof(FLASH_LOCK), flash_lock_callback},
-		{set_SN, sizeof(set_SN), set_SN_callback},
-		{get_SN, sizeof(get_SN), get_SN_callback}
+		{PING_COMMAND_NAME, 		sizeof(PING_COMMAND_NAME), 		ping_callBack},
+		{VERSION_COMMAND_NAME, 		sizeof(VERSION_COMMAND_NAME), 	version_callback},
+		{PWM_START_COMMAND_NAME, 	sizeof(PWM_START_COMMAND_NAME), pwm_start_callback},
+		{PWM_STOP_COMMAND_NAME, 	sizeof(PWM_STOP_COMMAND_NAME), 	pwm_stop_callback},
+		{PWM_DC_COMMAND_NAME, 		sizeof(PWM_DC_COMMAND_NAME), 	pwm_dc_callback},
+		{CRC_WHOLE_FLASH_CALC, 		sizeof(CRC_WHOLE_FLASH_CALC), 	crc_whole_flash_calc_callback},
+		{WWDG_TEST, 				sizeof(WWDG_TEST), 				wwdg_test_callback},
+		{FLASH_LOCK, 				sizeof(FLASH_LOCK), 			flash_lock_callback},
+		{set_SN, 					sizeof(set_SN), 				set_SN_callback},
+		{get_SN, 					sizeof(get_SN), 				get_SN_callback}
 };
+
 
 
 #endif /* COMMANDS_H_ */

@@ -1,0 +1,16 @@
+/*
+ * Commands.c
+ *
+ *  Created on: Apr 5, 2020
+ *      Author: ADMIN
+ */
+
+#include "stm32f4xx_hal.h"
+
+void ping_callBack(char* token)
+{
+	uart_print(token);
+}
+
+
+

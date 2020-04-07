@@ -36,10 +36,10 @@ _Min_Stack_Size = 0x400 ;	/* required amount of stack */
 /* Memories definition */
 MEMORY
 {
-  RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 128K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 384K
-  IP_CODE (x)     : ORIGIN = 0x08060000, LENGTH = 128K
-  
+  RAM     (xrw)    : ORIGIN = 0x20000080,  LENGTH = 128K - 128
+  NOINIT  (rwx)    : ORIGIN = 0x20000000,  LENGTH = 128
+  FLASH   (rx)     : ORIGIN = 0x8000000,   LENGTH = 384K
+  IP_CODE (rx)     : ORIGIN = 0x08060000,  LENGTH = 128K
 }
 
 /* Sections */
@@ -139,6 +139,25 @@ SECTIONS
   } >RAM AT> FLASH
   
   
+  .noinit (NOLOAD):
+  {
+  	. = ALIGN(4);
+    PROVIDE(__start_noinit_data = .);
+    KEEP(*(.noinit))
+    PROVIDE(__stop_noinit_data = .);
+    . = ALIGN(4);
+  } >NOINIT
+  
+  /*.my_section (NOLOAD):
+  {
+    . = ALIGN(4);
+    _s_my_section = .;      
+    *(.my_section)
+    . = ALIGN(4) ;
+    _e_my_section = .;
+  } > RAM*/
+  
+  /*separate section for sector 7*/
   .ip_code :
   {
   	. = ALIGN(4);

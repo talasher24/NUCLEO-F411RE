@@ -28,7 +28,7 @@
  extern void MX_RTC_Init(void);
  extern void uart_print(char* token);
  extern s_Buff s_buffer;
-
+ extern assert_struct s_assert_struct;
 
 
 
@@ -40,6 +40,7 @@ void ping_callBack(char* token)
 void version_callback(char* token)
 {
 	uart_print(VERSION);
+	assert_param(0);
 }
 
 void pwm_start_callback(char* token)
@@ -214,4 +215,14 @@ void stop_tick_callback(char* token)
 		Error_Handler();
 	}
 	uart_print(OK);
+}
+
+void assert_0_callback(char* token)
+{
+	assert_param(0);
+}
+
+void clear_assert_flag_callback(char* token)
+{
+	s_assert_struct.flag = false;
 }

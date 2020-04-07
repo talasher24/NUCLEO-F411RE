@@ -1,0 +1,30 @@
+
+#ifndef Types_H__
+
+#define Types_H__
+
+/*------------#define------------*/
+
+#define VERSION "0.0.18\n"
+
+#define HELLO_WORLD "Hello World\n"
+
+#define TICK "tick\n"
+
+#define OK "OK\n"
+
+typedef struct {
+	uint8_t* _p_file;
+	uint32_t _line;
+}assert_struct;
+
+//__attribute__((section('.noinit')))
+
+//__attribute__((section(".noinit")));
+
+
+
+__attribute__((section(".my_section"))) assert_struct s_assert_struct;
+
+#endif // Types_H__
+

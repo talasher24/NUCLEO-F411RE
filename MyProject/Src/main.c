@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
+#include <stdio.h>
 #include "Types.h"
 #include "Buffer.h"
 #include "Commands.h"
@@ -73,7 +74,10 @@ static void MX_CRC_Init(void);
 void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
+
+#ifdef IWDG_ENABLE
 static void MX_IWDG_Init(void);
+#endif
 
 /* USER CODE BEGIN PFP */
 void whichCommand(void);
@@ -90,6 +94,7 @@ void kickDog(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 s_Buff s_buffer;
+__attribute__((section(".noinit"))) assert_struct s_assert_struct;
 /* USER CODE END 0 */
 
 /**
@@ -122,10 +127,12 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_CRC_Init();
-  MX_RTC_Init();
+  //MX_RTC_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
+#ifdef IWDG_ENABLE
   MX_IWDG_Init();
+#endif
   /* USER CODE BEGIN 2 */
 #ifdef UART_RX_DMA
   HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
@@ -133,22 +140,23 @@ int main(void)
   HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
 #endif
 
-  /*//use OPT to store and read data
-  	//uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
-  	uint32_t OTP_sector_addr 	   = 0x1FFF7800;		//Sector 7 address
-  	//uint32_t OTP_Lock_block_addr = 0x1FFF7A00;		//Sector 7 address
 
-  	MY_FLASH_SetSectorAddrs(7, OTP_sector_addr);
-  	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
-  	MY_FLASH_OTP_WriteN(0, myTestWrite, 1, DATA_TYPE_32);
-
-  	uint32_t myTestRead[1];
-  	MY_FLASH_ReadN(0, myTestRead, 1, DATA_TYPE_32);
-  	sprintf((char*)s_buffer._p_tx_buffer, "%x\n", (unsigned int)myTestRead[0]);
-  	uart_print((char*)s_buffer._p_tx_buffer);
-  	*/
+  if (s_assert_struct.flag)
+  {
+	  //uart_print("stop\n");
+	  //uart_print(s_assert_struct._file);
+	  sprintf(s_assert_struct._file, "%s\n", s_assert_struct._file);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)s_assert_struct._file, sizeof(s_assert_struct._file)-1, 10);
+	  while (s_assert_struct.flag)
+	  {
+#ifdef IWDG_ENABLE
+		  kickDog();
+#endif
+	  }
+  }
 
   uart_print(HELLO_WORLD);
+
   //uart_print((char*)arr);
   /* USER CODE END 2 */
 
@@ -156,15 +164,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+	/* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+	/* USER CODE BEGIN 3 */
 
 #ifdef IWDG_ENABLE
 	  kickDog();
 #endif
 
   }
+
   /* USER CODE END 3 */
 }
 
@@ -247,6 +256,7 @@ static void MX_CRC_Init(void)
 
 }
 
+#ifdef IWDG_ENABLE
 /**
   * @brief IWDG Initialization Function
   * @param None
@@ -280,8 +290,8 @@ static void MX_IWDG_Init(void)
   /* USER CODE BEGIN IWDG_Init 2 */
 
   /* USER CODE END IWDG_Init 2 */
-
 }
+#endif
 
 /**
   * @brief RTC Initialization Function
@@ -707,8 +717,8 @@ HAL_StatusTypeDef WRP_sector_disable (void)
 
 void uart_print(char* token)
 {
-	//HAL_Delay(250);
 	memcpy((char*)s_buffer._p_tx_buffer, token, strlen(token));
+	//memcpy((char*)s_buffer._p_tx_buffer, token, sizeof(s_buffer._p_tx_buffer));
 #ifdef UART_TX_DMA
 	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, strlen(token));
 #else
@@ -771,6 +781,27 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+
+	//s_assert_struct._p_file = file;
+	//uint32_t val = strlen((char*)file);
+	//s_assert_struct._file = (char*)*file;
+	//s_assert_struct.try = 0xDEADBEEF;
+	//memcpy((char*)s_assert_struct._file, (char*)file, strlen((char*)file));
+	/*if(s_assert_struct.flag)
+		return;*/
+	s_assert_struct.flag = true;
+	for (int i = 0; i < sizeof(s_assert_struct._file); i++)
+	{
+		s_assert_struct._file [i]  = 0;
+	}
+
+	strncpy((char*)s_assert_struct._file, (char*)file, sizeof(s_assert_struct._file));
+	s_assert_struct._line = line;
+
+	/*while(1)
+	{
+		NVIC_SystemReset();
+	}*/
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

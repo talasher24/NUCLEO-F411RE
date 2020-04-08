@@ -40,7 +40,6 @@ void ping_callBack(char* token)
 void version_callback(char* token)
 {
 	uart_print(VERSION);
-	assert_param(0);
 }
 
 void pwm_start_callback(char* token)
@@ -224,5 +223,5 @@ void assert_0_callback(char* token)
 
 void clear_assert_flag_callback(char* token)
 {
-	s_assert_struct.flag = false;
+	s_assert_struct.flag = 0;
 }

@@ -40,7 +40,7 @@
 /* USER CODE BEGIN PD */
 #define UART_TX_DMA
 #define UART_RX_DMA
-#define IWDG_ENABLE
+//#define IWDG_ENABLE
 
 /* USER CODE END PD */
 
@@ -74,11 +74,9 @@ static void MX_CRC_Init(void);
 void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
-
 #ifdef IWDG_ENABLE
 static void MX_IWDG_Init(void);
 #endif
-
 /* USER CODE BEGIN PFP */
 void whichCommand(void);
 void uart_print(char* token);
@@ -127,7 +125,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_CRC_Init();
-  //MX_RTC_Init();
+ // MX_RTC_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
 #ifdef IWDG_ENABLE
@@ -141,13 +139,14 @@ int main(void)
 #endif
 
 
-  if (s_assert_struct.flag)
+  if (s_assert_struct.flag == 0xFF)
   {
-	  //uart_print("stop\n");
-	  //uart_print(s_assert_struct._file);
+	  char temp [8];
 	  sprintf(s_assert_struct._file, "%s\n", s_assert_struct._file);
-	  HAL_UART_Transmit(&huart2, (uint8_t*)s_assert_struct._file, sizeof(s_assert_struct._file)-1, 10);
-	  while (s_assert_struct.flag)
+	  HAL_UART_Transmit(&huart2, (uint8_t*)s_assert_struct._file, strlen(s_assert_struct._file), 10);
+	  sprintf(temp, "%u\n", (unsigned int)s_assert_struct._line);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)temp, strlen(temp), 10);
+	  while (s_assert_struct.flag == 0xFF)
 	  {
 #ifdef IWDG_ENABLE
 		  kickDog();
@@ -164,9 +163,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	/* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-	/* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
 
 #ifdef IWDG_ENABLE
 	  kickDog();
@@ -290,9 +289,9 @@ static void MX_IWDG_Init(void)
   /* USER CODE BEGIN IWDG_Init 2 */
 
   /* USER CODE END IWDG_Init 2 */
+
 }
 #endif
-
 /**
   * @brief RTC Initialization Function
   * @param None
@@ -734,27 +733,6 @@ void kickDog(void)
 #endif
 /* USER CODE END 4 */
 
- /**
-  * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM1 interrupt took place, inside
-  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-  * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
-  * @retval None
-  */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1) {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
-}
-
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
@@ -789,7 +767,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 	//memcpy((char*)s_assert_struct._file, (char*)file, strlen((char*)file));
 	/*if(s_assert_struct.flag)
 		return;*/
-	s_assert_struct.flag = true;
+	s_assert_struct.flag = 0xFF;
 	for (int i = 0; i < sizeof(s_assert_struct._file); i++)
 	{
 		s_assert_struct._file [i]  = 0;
@@ -798,10 +776,10 @@ void assert_failed(uint8_t *file, uint32_t line)
 	strncpy((char*)s_assert_struct._file, (char*)file, sizeof(s_assert_struct._file));
 	s_assert_struct._line = line;
 
-	/*while(1)
+	while(1)
 	{
 		NVIC_SystemReset();
-	}*/
+	}
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

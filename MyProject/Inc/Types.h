@@ -8,7 +8,7 @@
 
 /*------------#define------------*/
 
-#define VERSION "0.0.18\n"
+#define VERSION "0.0.19\n"
 
 #define HELLO_WORLD "Hello World\n"
 
@@ -19,7 +19,7 @@
 typedef struct {
 	char _file [60];
 	uint32_t _line;
-	bool flag;
+	uint8_t flag;
 }assert_struct;
 
 //__attribute__((section('.noinit')))

@@ -1,0 +1,10 @@
+19:41:30 **** Incremental Build of configuration Debug for project I2C F411 cubeIDE ****
+make -j8 all 
+arm-none-eabi-size   I2C\ F411\ cubeIDE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9456	     20	   1652	  11128	   2b78	I2C F411 cubeIDE.elf
+Finished building: default.size.stdout
+ 
+
+19:41:31 Build Finished. 0 errors, 0 warnings. (took 1s.132ms)
+

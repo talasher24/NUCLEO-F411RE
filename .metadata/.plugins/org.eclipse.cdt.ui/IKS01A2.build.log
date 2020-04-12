@@ -1,0 +1,10 @@
+21:21:05 **** Incremental Build of configuration Debug for project IKS01A2 ****
+make -j8 all 
+arm-none-eabi-size   IKS01A2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51900	    488	   2464	  54852	   d644	IKS01A2.elf
+Finished building: default.size.stdout
+ 
+
+21:21:07 Build Finished. 0 errors, 0 warnings. (took 2s.206ms)
+

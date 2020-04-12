@@ -1,0 +1,10 @@
+01:05:56 **** Incremental Build of configuration Debug for project AccelerometerCalibration ****
+make -j8 all 
+arm-none-eabi-size   AccelerometerCalibration.elf 
+   text	   data	    bss	    dec	    hex	filename
+  70160	    480	  36800	 107440	  1a3b0	AccelerometerCalibration.elf
+Finished building: default.size.stdout
+ 
+
+01:05:57 Build Finished. 0 errors, 0 warnings. (took 963ms)
+

@@ -29,6 +29,7 @@
 #include "Buffer.h"
 #include "Commands.h"
 #include "MY_FLASH.h"
+#include "MY_LSM6DSL.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,7 +41,7 @@
 /* USER CODE BEGIN PD */
 #define UART_TX_DMA
 #define UART_RX_DMA
-//#define IWDG_ENABLE
+#define IWDG_ENABLE
 
 /* USER CODE END PD */
 
@@ -51,6 +52,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 CRC_HandleTypeDef hcrc;
+
+I2C_HandleTypeDef hi2c1;
 
 IWDG_HandleTypeDef hiwdg;
 
@@ -74,9 +77,8 @@ static void MX_CRC_Init(void);
 void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
-#ifdef IWDG_ENABLE
 static void MX_IWDG_Init(void);
-#endif
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 void whichCommand(void);
 void uart_print(char* token);
@@ -85,20 +87,17 @@ HAL_StatusTypeDef WRP_sector_disable (void);
 #ifdef IWDG_ENABLE
 void kickDog(void);
 #endif
-
-//const uint8_t arr[365808] = {0};
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 s_Buff s_buffer;
 __attribute__((section(".noinit"))) assert_struct s_assert_struct;
+//const uint8_t arr[365808] = {0};
+
 /* USER CODE END 0 */
 
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -125,19 +124,18 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_CRC_Init();
- // MX_RTC_Init();
+  //MX_RTC_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
-#ifdef IWDG_ENABLE
   MX_IWDG_Init();
-#endif
+  MX_I2C1_Init();
+
   /* USER CODE BEGIN 2 */
 #ifdef UART_RX_DMA
   HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
 #else
   HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
 #endif
-
 
   if (s_assert_struct.flag == 0xFF)
   {
@@ -154,6 +152,7 @@ int main(void)
 	  }
   }
 
+  lsm_init();
   uart_print(HELLO_WORLD);
 
   //uart_print((char*)arr);
@@ -166,13 +165,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 #ifdef IWDG_ENABLE
 	  kickDog();
 #endif
-
+	  lsm_callback();
   }
-
   /* USER CODE END 3 */
 }
 
@@ -255,7 +252,40 @@ static void MX_CRC_Init(void)
 
 }
 
-#ifdef IWDG_ENABLE
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
 /**
   * @brief IWDG Initialization Function
   * @param None
@@ -291,7 +321,7 @@ static void MX_IWDG_Init(void)
   /* USER CODE END IWDG_Init 2 */
 
 }
-#endif
+
 /**
   * @brief RTC Initialization Function
   * @param None
@@ -501,6 +531,7 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
@@ -716,8 +747,8 @@ HAL_StatusTypeDef WRP_sector_disable (void)
 
 void uart_print(char* token)
 {
-	memcpy((char*)s_buffer._p_tx_buffer, token, strlen(token));
-	//memcpy((char*)s_buffer._p_tx_buffer, token, sizeof(s_buffer._p_tx_buffer));
+	//memcpy((char*)s_buffer._p_tx_buffer, token, strlen(token));
+	memcpy((char*)s_buffer._p_tx_buffer, token, sizeof(s_buffer._p_tx_buffer));
 #ifdef UART_TX_DMA
 	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, strlen(token));
 #else

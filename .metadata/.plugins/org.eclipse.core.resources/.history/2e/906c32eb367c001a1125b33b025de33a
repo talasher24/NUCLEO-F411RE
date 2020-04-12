@@ -1,0 +1,38 @@
+
+#ifndef __MY_LSM6DSL_H__
+
+#define __MY_LSM6DSL_H__
+
+#include "stm32f4xx_hal.h"
+
+#define TX_BUF_DIM          1000
+
+#include "lsm6dsl_reg.h"
+#include <string.h>
+#include <stdio.h>
+
+typedef union{
+  int16_t i16bit[3];
+  uint8_t u8bit[6];
+} axis3bit16_t;
+
+typedef union{
+  int16_t i16bit;
+  uint8_t u8bit[2];
+} axis1bit16_t;
+
+static axis3bit16_t data_raw_acceleration;
+static axis3bit16_t data_raw_angular_rate;
+static float acceleration_mg[3];
+static float angular_rate_mdps[3];
+static uint8_t whoamI, rst;
+static uint8_t tx_buffer[TX_BUF_DIM];
+
+void lsm_init (void);
+void lsm_callback (void);
+static int32_t lsm_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+static int32_t lsm_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+static void tx_com( uint8_t *tx_buffer, uint16_t len );
+
+
+#endif // __MY_LSM6DSL_H__

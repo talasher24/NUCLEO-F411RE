@@ -46,6 +46,7 @@ What things you need to install the software and how to install them
 ```
 STM32CubeMX
 STM32CubeIDE
+STM32 ST-LINK Utility
 Serial communication terminal 
 ```
 

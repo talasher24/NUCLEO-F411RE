@@ -8,7 +8,7 @@
 
 /*------------#define------------*/
 
-#define VERSION "0.0.20\n"
+#define VERSION "0.0.21\n"
 
 #define HELLO_WORLD "Hello World\n"
 
@@ -16,19 +16,17 @@
 
 #define OK "OK\n"
 
+#define ASSERT_FLAG_ON 0xAA
+
+#define ASSERT_FLAG_OFF 0x55
+
+bool int1_occurred;
+
 typedef struct {
 	char _file [60];
 	uint32_t _line;
 	uint8_t flag;
 }assert_struct;
-
-//__attribute__((section('.noinit')))
-
-//__attribute__((section(".noinit")));
-
-//__attribute__((section(".my_section"))) assert_struct s_assert_struct;
-
-//__attribute__((section(".my_section"))) uint32_t a;
 
 #endif // Types_H__
 

@@ -1,7 +1,24 @@
-04:45:03 **** Incremental Build of configuration Debug for project MyProject ****
+04:20:08 **** Incremental Build of configuration Debug for project MyProject ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "MyProject.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ADMIN\Documents\GitHub\MyProject\MyProject\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MyProject.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MyProject.elf
+ 
+arm-none-eabi-objdump -h -S  MyProject.elf  > "MyProject.list"
+arm-none-eabi-objcopy  -O binary  MyProject.elf  "MyProject.bin"
+arm-none-eabi-size   MyProject.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53544	    484	   2320	  56348	   dc1c	MyProject.elf
+Finished building: default.size.stdout
+Finished building: MyProject.bin
+ 
+ 
+Finished building: MyProject.list
+ 
+04:20:11 **** Incremental Build of configuration Debug for project MyProject ****
 make -j8 all 
 arm-none-eabi-size   MyProject.elf 
    text	   data	    bss	    dec	    hex	filename
-  52720	    484	   3256	  56460	   dc8c	MyProject.elf
+  53544	    484	   2320	  56348	   dc1c	MyProject.elf
 Finished building: default.size.stdout
  

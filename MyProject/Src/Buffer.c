@@ -9,10 +9,10 @@
 #include "main.h"
 
 
-void bufferInit(s_Buff *buffer)
+void BufferInit(uint8_t* rxBuffer)
 {
 	for(int i = 0; i < BUFFER_SIZE; i++){
-		buffer->_p_rx_buffer[i] = 0;
+		rxBuffer[i] = 0;
 	}
 }
 

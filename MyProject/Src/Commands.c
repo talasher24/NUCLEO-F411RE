@@ -27,7 +27,7 @@
 
  extern void MX_RTC_Init(void);
  extern void uart_print(char* token);
- extern s_Buff s_buffer;
+ extern s_Buff s_uart_buffer;
  extern assert_struct s_assert_struct;
 
 
@@ -104,14 +104,19 @@ void crc_whole_flash_calc_callback(char* token)
 		offsetAddr += 0x4000;
 	}*/
 
+	char temp [9];
 	uint32_t crcFlashResult;
 	uint32_t flashSize = 0x20000;
 	uint32_t *p_flash_start_address = (uint32_t *) FLASH_START_ADDRESS;
-	//FeedDog(1);
+
 	crcFlashResult = HAL_CRC_Calculate(&hcrc, p_flash_start_address, flashSize);
-	//FeedDog(1);
-	sprintf((char*)s_buffer._p_tx_buffer, "%x\n", (unsigned int)crcFlashResult);
-	uart_print((char*)s_buffer._p_tx_buffer);
+
+	sprintf(temp, "%x\n", (unsigned int)crcFlashResult);
+	uart_print(temp);
+	/*
+	sprintf((char*)s_uart_buffer._p_tx_buffer, "%x\n", (unsigned int)crcFlashResult);
+	uart_print((char*)s_uart_buffer._p_tx_buffer);
+	*/
 }
 
 void iwdg_test_callback(char* token)
@@ -193,12 +198,18 @@ void set_SN_callback(char* token)
 
 void get_SN_callback(char* token)
 {
+	char temp [9];
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
 	MY_FLASH_SetSectorAddrs(7, sector_7_addr);
 	uint32_t myTestRead[1];
 	MY_FLASH_ReadN(0, myTestRead, 1, DATA_TYPE_32);
-	sprintf((char*)s_buffer._p_tx_buffer, "%x\n", (unsigned int)myTestRead[0]);
-	uart_print((char*)s_buffer._p_tx_buffer);
+
+	sprintf(temp, "%x\n", (unsigned int)myTestRead[0]);
+	uart_print(temp);
+	/*
+	sprintf((char*)s_uart_buffer._p_tx_buffer, "%x\n", (unsigned int)myTestRead[0]);
+	uart_print((char*)s_uart_buffer._p_tx_buffer);
+	*/
 }
 
 void start_tick_callback(char* token)
@@ -223,5 +234,5 @@ void assert_0_callback(char* token)
 
 void clear_assert_flag_callback(char* token)
 {
-	s_assert_struct.flag = 0;
+	s_assert_struct.flag = ASSERT_FLAG_OFF;
 }

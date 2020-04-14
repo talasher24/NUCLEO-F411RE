@@ -1,10 +1,10 @@
-04:45:03 **** Incremental Build of configuration Debug for project MyProject ****
+04:20:11 **** Incremental Build of configuration Debug for project MyProject ****
 make -j8 all 
 arm-none-eabi-size   MyProject.elf 
    text	   data	    bss	    dec	    hex	filename
-  52720	    484	   3256	  56460	   dc8c	MyProject.elf
+  53544	    484	   2320	  56348	   dc1c	MyProject.elf
 Finished building: default.size.stdout
  
 
-04:45:05 Build Finished. 0 errors, 0 warnings. (took 2s.40ms)
+04:20:12 Build Finished. 0 errors, 0 warnings. (took 1s.17ms)
 

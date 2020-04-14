@@ -42,7 +42,6 @@
 #define UART_TX_DMA
 #define UART_RX_DMA
 #define IWDG_ENABLE
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -80,6 +79,7 @@ static void MX_TIM3_Init(void);
 static void MX_IWDG_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+void uart_rx_ready_command_handler(void);
 void whichCommand(void);
 void uart_print(char* token);
 HAL_StatusTypeDef WRP_sector_enable (void);
@@ -91,13 +91,15 @@ void kickDog(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-s_Buff s_buffer;
+s_Buff s_uart_buffer;
 __attribute__((section(".noinit"))) assert_struct s_assert_struct;
-//const uint8_t arr[365808] = {0};
-
+HAL_StatusTypeDef uart_print_status;
 /* USER CODE END 0 */
 
-
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -129,46 +131,47 @@ int main(void)
   MX_TIM3_Init();
   MX_IWDG_Init();
   MX_I2C1_Init();
-
   /* USER CODE BEGIN 2 */
+
 #ifdef UART_RX_DMA
-  HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+  HAL_UART_Receive_DMA(&huart2, &s_uart_buffer._rx_single_char, 1);
 #else
-  HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
+  HAL_UART_Receive_IT(&huart2, &s_uart_buffer._rx_single_char, 1);
 #endif
 
-  if (s_assert_struct.flag == 0xFF)
+  if (s_assert_struct.flag == ASSERT_FLAG_ON)
   {
 	  char temp [8];
 	  sprintf(s_assert_struct._file, "%s\n", s_assert_struct._file);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)s_assert_struct._file, strlen(s_assert_struct._file), 10);
 	  sprintf(temp, "%u\n", (unsigned int)s_assert_struct._line);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)temp, strlen(temp), 10);
-	  while (s_assert_struct.flag == 0xFF)
-	  {
-#ifdef IWDG_ENABLE
-		  kickDog();
-#endif
-	  }
   }
 
   lsm_init();
   uart_print(HELLO_WORLD);
 
-  //uart_print((char*)arr);
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
 #ifdef IWDG_ENABLE
 	  kickDog();
 #endif
-	  lsm_callback();
+
+	  //lsm_callback();
+	  if (s_uart_buffer._rx_ready_command)
+	  {
+		  uart_rx_ready_command_handler();
+	  }
+	  if (int1_occurred)
+	  {
+		  //lsm_callback();
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  int1_occurred = false;
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -286,6 +289,7 @@ static void MX_I2C1_Init(void)
 
 }
 
+#ifdef IWDG_ENABLE
 /**
   * @brief IWDG Initialization Function
   * @param None
@@ -321,7 +325,7 @@ static void MX_IWDG_Init(void)
   /* USER CODE END IWDG_Init 2 */
 
 }
-
+#endif
 /**
   * @brief RTC Initialization Function
   * @param None
@@ -543,6 +547,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -564,31 +578,46 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-	if (s_buffer._rx_single_char != '\n')
-	{
-		if(s_buffer._rx_index < BUFFER_SIZE)
-		{
-			s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._rx_single_char;
-			s_buffer._rx_index++;
-		}
-	}
-	else
-	{
-		s_buffer._p_rx_buffer[s_buffer._rx_index] = s_buffer._rx_single_char;
-		s_buffer._rx_index++;
-		whichCommand();
-		bufferInit(&s_buffer);
-		s_buffer._rx_index = 0;
-	}
 
 #ifdef UART_RX_DMA
-  HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+  HAL_UART_Receive_DMA(&huart2, &s_uart_buffer._rx_single_char, 1);
 #else
-  HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
+  HAL_UART_Receive_IT(&huart2, &s_uart_buffer._rx_single_char, 1);
 #endif
 
-	//HAL_UART_Receive_IT(&huart2, &s_buffer._rx_single_char, 1);
-	//HAL_UART_Receive_DMA(&huart2, &s_buffer._rx_single_char, 1);
+  if (s_uart_buffer._rx_ready_command)
+  {
+	  return;
+  }
+
+  if (s_uart_buffer._rx_single_char != '\n')
+  {
+	if(s_uart_buffer._rx_index < BUFFER_SIZE)
+	{
+		s_uart_buffer._p_rx_buffer[s_uart_buffer._rx_index] = s_uart_buffer._rx_single_char;
+		s_uart_buffer._rx_index++;
+	}
+  }
+  else
+  {
+	  s_uart_buffer._p_rx_buffer[s_uart_buffer._rx_index] = s_uart_buffer._rx_single_char;
+	  s_uart_buffer._rx_index++;
+	  s_uart_buffer._rx_ready_command = true;
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  /* Prevent unused argument(s) compilation warning */
+  UNUSED(GPIO_Pin);
+  /* NOTE: This function Should not be modified, when the callback is needed,
+           the HAL_GPIO_EXTI_Callback could be implemented in the user file
+   */
+
+  /*if (int1_occurred)
+	  return;*/
+
+  int1_occurred = true;
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
@@ -601,15 +630,24 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
   uart_print(TICK);
 }
 
+void uart_rx_ready_command_handler(void)
+{
+	whichCommand();
+	BufferInit(s_uart_buffer._p_rx_buffer);
+	s_uart_buffer._rx_index = 0;
+	s_uart_buffer._rx_ready_command = false;
+}
+
 void whichCommand (void)
 {
-	char* token = strtok((char*)s_buffer._p_rx_buffer, " ");
+	char* token = strtok((char*)s_uart_buffer._p_rx_buffer, " ");
 
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{
 		if (strncmp(token, commands[i]._name, commands[i]._size)==0)
 		{
 			commands[i].func_ptr(token);
+			//uart_print(OK);
 			return;
 		}
 	}
@@ -747,14 +785,28 @@ HAL_StatusTypeDef WRP_sector_disable (void)
 
 void uart_print(char* token)
 {
-	//memcpy((char*)s_buffer._p_tx_buffer, token, strlen(token));
-	memcpy((char*)s_buffer._p_tx_buffer, token, sizeof(s_buffer._p_tx_buffer));
+	//memcpy((char*)s_uart_buffer._p_tx_buffer, token, strlen(token));
+	memcpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
+	//snprintf((char*)s_uart_buffer._p_tx_buffer, sizeof(s_uart_buffer._p_tx_buffer), "%s", token);
+	//memset((char*)s_uart_buffer._p_tx_buffer, '\0', sizeof(s_uart_buffer._p_tx_buffer));
+	//strncpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
+
+/*
 #ifdef UART_TX_DMA
-	HAL_UART_Transmit_DMA(&huart2, s_buffer._p_tx_buffer, strlen(token));
+	HAL_UART_Transmit_DMA(&huart2, (uint8_t*)token, strlen(token));
 #else
-	HAL_UART_Transmit(&huart2, s_buffer._p_tx_buffer, strlen(token), 10);
+	HAL_UART_Transmit(&huart2, s_uart_buffer._p_tx_buffer, strlen(token), 10);
 #endif
+*/
+
+#ifdef UART_TX_DMA
+	while (HAL_UART_Transmit_DMA(&huart2, s_uart_buffer._p_tx_buffer, strlen(token)) != HAL_OK);
+#else
+	HAL_UART_Transmit(&huart2, s_uart_buffer._p_tx_buffer, strlen(token), 10);
+#endif
+	//BufferInit(s_uart_buffer._p_tx_buffer);
 }
+
 
 #ifdef IWDG_ENABLE
 void kickDog(void)
@@ -788,17 +840,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 { 
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
-	//s_assert_struct._p_file = file;
-	//uint32_t val = strlen((char*)file);
-	//s_assert_struct._file = (char*)*file;
-	//s_assert_struct.try = 0xDEADBEEF;
-	//memcpy((char*)s_assert_struct._file, (char*)file, strlen((char*)file));
-	/*if(s_assert_struct.flag)
-		return;*/
-	s_assert_struct.flag = 0xFF;
+	s_assert_struct.flag = ASSERT_FLAG_ON;
 	for (int i = 0; i < sizeof(s_assert_struct._file); i++)
 	{
 		s_assert_struct._file [i]  = 0;
@@ -807,10 +850,9 @@ void assert_failed(uint8_t *file, uint32_t line)
 	strncpy((char*)s_assert_struct._file, (char*)file, sizeof(s_assert_struct._file));
 	s_assert_struct._line = line;
 
-	while(1)
-	{
-		NVIC_SystemReset();
-	}
+	NVIC_SystemReset();
+	while (1) {}; // never reached to here
+
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

@@ -15,11 +15,6 @@ typedef union{
   uint8_t u8bit[6];
 } axis3bit16_t;
 
-typedef union{
-  int16_t i16bit;
-  uint8_t u8bit[2];
-} axis1bit16_t;
-
 axis3bit16_t data_raw_acceleration;
 axis3bit16_t data_raw_angular_rate;
 float acceleration_mg[3];

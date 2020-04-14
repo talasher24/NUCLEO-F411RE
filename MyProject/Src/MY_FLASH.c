@@ -1,4 +1,8 @@
 #include "MY_FLASH.h"
+#include "main.h"
+
+ extern void uart_print(char* token);
+
 
 //Private variables
 //1. sector start address
@@ -134,5 +138,135 @@ void MY_FLASH_OTP_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef 
 	}
 	//Lock the Flash space
 	HAL_FLASH_Lock();
+}
+
+HAL_StatusTypeDef WRP_sector_enable (void)
+{
+	HAL_StatusTypeDef status = HAL_ERROR;
+
+	/* Private define ------------------------------------------------------------*/
+	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
+	/* Private variables ---------------------------------------------------------*/
+	FLASH_OBProgramInitTypeDef OBInit;
+	__IO uint32_t SectorsWRPStatus = 0xFFF;
+
+	/* Get FLASH_WRP_SECTORS write protection status */
+	HAL_FLASHEx_OBGetConfig(&OBInit);
+	SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
+
+	if (SectorsWRPStatus != 0)
+	{
+		/* If FLASH_WRP_SECTORS are not write protected, enable the write protection */
+
+		/* Allow Access to option bytes sector */
+		HAL_FLASH_OB_Unlock();
+
+		/* Allow Access to Flash control registers and user Flash */
+		HAL_FLASH_Unlock();
+
+		/* Enable FLASH_WRP_SECTORS write protection */
+		OBInit.OptionType = OPTIONBYTE_WRP;
+		OBInit.WRPState   = WRPSTATE_ENABLE;
+		OBInit.WRPSector  = FLASH_WRP_SECTORS;
+		HAL_FLASHEx_OBProgram(&OBInit);
+
+		/* Start the Option Bytes programming process */
+		if (HAL_FLASH_OB_Launch() != HAL_OK)
+		{
+		/* User can add here some code to deal with this error */
+		  Error_Handler();
+		}
+
+		/* Prevent Access to option bytes sector */
+		HAL_FLASH_OB_Lock();
+
+		/* Disable the Flash option control register access (recommended to protect
+		the option Bytes against possible unwanted operations) */
+		HAL_FLASH_Lock();
+
+		/* Get FLASH_WRP_SECTORS write protection status */
+		HAL_FLASHEx_OBGetConfig(&OBInit);
+		SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
+
+		/* Check if FLASH_WRP_SECTORS are write protected */
+		if (SectorsWRPStatus == 0)
+		{
+			status = HAL_OK; //uart_print("wrp enabled\n");
+		}
+		else
+		{
+		  uart_print("wrp not enabled\n");
+		}
+	}
+	else
+	{
+		status = HAL_OK; //uart_print("wrp is already enabled\n");
+	}
+	return status;
+}
+
+HAL_StatusTypeDef WRP_sector_disable (void)
+{
+	HAL_StatusTypeDef status = HAL_ERROR;
+
+	/* Private define ------------------------------------------------------------*/
+	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
+	/* Private variables ---------------------------------------------------------*/
+	FLASH_OBProgramInitTypeDef OBInit;
+	__IO uint32_t SectorsWRPStatus = 0xFFF;
+
+	/* Get FLASH_WRP_SECTORS write protection status */
+	HAL_FLASHEx_OBGetConfig(&OBInit);
+	SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
+
+	if (SectorsWRPStatus == 0)
+	{
+		/* If FLASH_WRP_SECTORS are write protected, disable the write protection */
+
+		/* Allow Access to option bytes sector */
+		HAL_FLASH_OB_Unlock();
+
+		/* Allow Access to Flash control registers and user Flash */
+		HAL_FLASH_Unlock();
+
+		/* Disable FLASH_WRP_SECTORS write protection */
+		OBInit.OptionType = OPTIONBYTE_WRP;
+		OBInit.WRPState   = WRPSTATE_DISABLE;
+		OBInit.WRPSector  = FLASH_WRP_SECTORS;
+		HAL_FLASHEx_OBProgram(&OBInit);
+
+		/* Start the Option Bytes programming process */
+		if (HAL_FLASH_OB_Launch() != HAL_OK)
+		{
+		/* User can add here some code to deal with this error */
+		  Error_Handler();
+		}
+
+		/* Prevent Access to option bytes sector */
+		HAL_FLASH_OB_Lock();
+
+		/* Disable the Flash option control register access (recommended to protect
+		the option Bytes against possible unwanted operations) */
+		HAL_FLASH_Lock();
+
+		/* Get FLASH_WRP_SECTORS write protection status */
+		HAL_FLASHEx_OBGetConfig(&OBInit);
+		SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
+
+		/* Check if FLASH_WRP_SECTORS write protection is disabled */
+		if (SectorsWRPStatus == FLASH_WRP_SECTORS)
+		{
+			status = HAL_OK; //uart_print("wrp disabled\n");
+		}
+		else
+		{
+		  uart_print("wrp not disabled\n");
+		}
+	}
+	else
+	{
+		status = HAL_OK; //uart_print("wrp is already disabled\n");
+	}
+	return status;
 }
 

@@ -45,13 +45,11 @@ void version_callback(char* token)
 void pwm_start_callback(char* token)
 {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-	uart_print(OK);
 }
 
 void pwm_stop_callback(char* token)
 {
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
-	uart_print(OK);
 }
 
 void pwm_dc_callback(char* token)
@@ -65,7 +63,6 @@ void pwm_dc_callback(char* token)
 	if (dc > 100) dc = 100;
 	if (dc < 0)   dc = 0;
 	htim3.Instance->CCR1 = dc;
-	uart_print(OK);
 }
 
 void crc_whole_flash_calc_callback(char* token)
@@ -166,8 +163,6 @@ void flash_lock_callback(char* token)
 		{
 			Error_Handler();
 		}
-		uart_print(OK);
-
 
 		/*
 		//DEBUG - use for writing data to flash
@@ -215,7 +210,6 @@ void get_SN_callback(char* token)
 void start_tick_callback(char* token)
 {
 	MX_RTC_Init();
-	uart_print(OK);
 }
 
 void stop_tick_callback(char* token)
@@ -224,7 +218,6 @@ void stop_tick_callback(char* token)
 	{
 		Error_Handler();
 	}
-	uart_print(OK);
 }
 
 void assert_0_callback(char* token)

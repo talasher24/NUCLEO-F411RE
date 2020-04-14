@@ -29,6 +29,10 @@ void MY_FLASH_ReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataT
 //5. Write OTP
 void MY_FLASH_OTP_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
 
+HAL_StatusTypeDef WRP_sector_enable (void);
+
+HAL_StatusTypeDef WRP_sector_disable (void);
+
 #endif // __MY_FLASH_H__
 
 

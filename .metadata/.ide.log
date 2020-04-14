@@ -17332,3 +17332,15 @@
 
 
 2020-04-13 21:55:56,409 [INFO] Activator:177 - !SESSION log4j initialized
+2020-04-15 01:30:02,765 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2020-04-15 01:30:02,781 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-04-15 01:30:03,729 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2020-04-15 01:30:03,729 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-04-15 01:30:04,735 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2020-04-15 01:30:04,735 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-04-15 01:30:05,712 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2020-04-15 01:30:05,712 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-04-15 02:15:40,571 [INFO] Activator:176 - 
+
+
+2020-04-15 02:15:40,576 [INFO] Activator:177 - !SESSION log4j initialized

@@ -69,6 +69,7 @@ void lsm_init (void)
 
 
 	/*does not working - to remove
+	 *
 	lsm6dsl_int1_route_t int1_reg;
 	int1_reg.int1_drdy_xl = 1;
 	int1_reg.int1_drdy_g = 1;
@@ -81,15 +82,15 @@ void lsm_init (void)
 
 	lsm6dsl_all_on_int1_set(&dev_ctx, PROPERTY_ENABLE);
 
-	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
-
-	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
-
 	lsm6dsl_auto_increment_set(&dev_ctx, PROPERTY_ENABLE);*/
 
 
 	//LSM6DSL_ACC_Set_INT1_DRDY
 	//LSM6DSL_GYRO_Set_INT1_DRDY
+
+	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
+
+	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
 
 	lsm6dsl_int1_route_t reg;
 
@@ -99,6 +100,8 @@ void lsm_init (void)
 	reg.int1_drdy_g = PROPERTY_ENABLE;
 
 	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+
+
 }
 
 void lsm_callback (void)
@@ -108,6 +111,7 @@ void lsm_callback (void)
 	 */
 	lsm6dsl_reg_t reg;
 	lsm6dsl_status_reg_get(&dev_ctx, &reg.status_reg);
+	char data[100];
 
 	if (reg.status_reg.xlda)
 	{
@@ -117,10 +121,12 @@ void lsm_callback (void)
 	  acceleration_mg[1] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration.i16bit[1]);
 	  acceleration_mg[2] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration.i16bit[2]);
 
-	  sprintf((char*)s_uart_buffer._p_tx_buffer, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
 	  			  acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
 
-	  HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
+	  uart_print(data);
+	  //BufferInit((uint8_t*)data);
+	  //HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
 	}
 	if (reg.status_reg.gda)
 	{
@@ -130,9 +136,11 @@ void lsm_callback (void)
 	  angular_rate_mdps[1] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate.i16bit[1]);
 	  angular_rate_mdps[2] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate.i16bit[2]);
 
-	  sprintf((char*)s_uart_buffer._p_tx_buffer, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
 			  angular_rate_mdps[0], angular_rate_mdps[1], angular_rate_mdps[2]);
 
-	  HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
+	  uart_print(data);
+	  //BufferInit((uint8_t*)data);
+	  //HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
 	}
 }

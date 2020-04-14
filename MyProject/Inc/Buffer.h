@@ -5,7 +5,7 @@
 #include "stm32f4xx_hal.h"
 #include <stdbool.h>
 
-#define BUFFER_SIZE 50
+#define BUFFER_SIZE 100
 
 typedef struct {
 	uint8_t _p_rx_buffer[BUFFER_SIZE];
@@ -13,6 +13,7 @@ typedef struct {
 	uint8_t _rx_single_char;
 	bool _rx_ready_command;
 	uint8_t _p_tx_buffer[BUFFER_SIZE];
+	bool tx_busy;
 }s_Buff;
 
 void BufferInit(uint8_t* rxBuffer);

@@ -82,8 +82,6 @@ static void MX_I2C1_Init(void);
 void uart_rx_ready_command_handler(void);
 void whichCommand(void);
 void uart_print(char* token);
-HAL_StatusTypeDef WRP_sector_enable (void);
-HAL_StatusTypeDef WRP_sector_disable (void);
 #ifdef IWDG_ENABLE
 void kickDog(void);
 #endif
@@ -93,7 +91,6 @@ void kickDog(void);
 /* USER CODE BEGIN 0 */
 s_Buff s_uart_buffer;
 __attribute__((section(".noinit"))) assert_struct s_assert_struct;
-HAL_StatusTypeDef uart_print_status;
 /* USER CODE END 0 */
 
 /**
@@ -141,12 +138,11 @@ int main(void)
 
   if (s_assert_struct.flag == ASSERT_FLAG_ON)
   {
-	  char temp [8];
-	  sprintf(s_assert_struct._file, "%s\n", s_assert_struct._file);
-	  HAL_UART_Transmit(&huart2, (uint8_t*)s_assert_struct._file, strlen(s_assert_struct._file), 10);
-	  sprintf(temp, "%u\n", (unsigned int)s_assert_struct._line);
-	  HAL_UART_Transmit(&huart2, (uint8_t*)temp, strlen(temp), 10);
+	  char temp [100];
+	  sprintf(temp, "Problem found! Path: %s\tLine: %u\n", s_assert_struct._file, (unsigned int)s_assert_struct._line);
+	  uart_print(temp);
   }
+
 
   lsm_init();
   uart_print(HELLO_WORLD);
@@ -169,7 +165,7 @@ int main(void)
 	  if (int1_occurred)
 	  {
 		  //lsm_callback();
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		  int1_occurred = false;
 	  }
   }
@@ -549,7 +545,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PB5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -568,6 +564,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
+  s_uart_buffer.tx_busy = false;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -614,9 +611,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
            the HAL_GPIO_EXTI_Callback could be implemented in the user file
    */
 
-  /*if (int1_occurred)
-	  return;*/
-
   int1_occurred = true;
 }
 
@@ -647,166 +641,24 @@ void whichCommand (void)
 		if (strncmp(token, commands[i]._name, commands[i]._size)==0)
 		{
 			commands[i].func_ptr(token);
-			//uart_print(OK);
+			uart_print(OK);
 			return;
 		}
 	}
 }
 
-HAL_StatusTypeDef WRP_sector_enable (void)
-{
-	HAL_StatusTypeDef status = HAL_ERROR;
-
-	/* Private define ------------------------------------------------------------*/
-	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
-	/* Private variables ---------------------------------------------------------*/
-	FLASH_OBProgramInitTypeDef OBInit;
-	__IO uint32_t SectorsWRPStatus = 0xFFF;
-
-	/* Get FLASH_WRP_SECTORS write protection status */
-	HAL_FLASHEx_OBGetConfig(&OBInit);
-	SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
-
-	if (SectorsWRPStatus != 0)
-	{
-		/* If FLASH_WRP_SECTORS are not write protected, enable the write protection */
-
-		/* Allow Access to option bytes sector */
-		HAL_FLASH_OB_Unlock();
-
-		/* Allow Access to Flash control registers and user Flash */
-		HAL_FLASH_Unlock();
-
-		/* Enable FLASH_WRP_SECTORS write protection */
-		OBInit.OptionType = OPTIONBYTE_WRP;
-		OBInit.WRPState   = WRPSTATE_ENABLE;
-		OBInit.WRPSector  = FLASH_WRP_SECTORS;
-		HAL_FLASHEx_OBProgram(&OBInit);
-
-		/* Start the Option Bytes programming process */
-		if (HAL_FLASH_OB_Launch() != HAL_OK)
-		{
-		/* User can add here some code to deal with this error */
-		  Error_Handler();
-		}
-
-		/* Prevent Access to option bytes sector */
-		HAL_FLASH_OB_Lock();
-
-		/* Disable the Flash option control register access (recommended to protect
-		the option Bytes against possible unwanted operations) */
-		HAL_FLASH_Lock();
-
-		/* Get FLASH_WRP_SECTORS write protection status */
-		HAL_FLASHEx_OBGetConfig(&OBInit);
-		SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
-
-		/* Check if FLASH_WRP_SECTORS are write protected */
-		if (SectorsWRPStatus == 0)
-		{
-			status = HAL_OK; //uart_print("wrp enabled\n");
-		}
-		else
-		{
-		  uart_print("wrp not enabled\n");
-		}
-	}
-	else
-	{
-		status = HAL_OK; //uart_print("wrp is already enabled\n");
-	}
-	return status;
-}
-
-HAL_StatusTypeDef WRP_sector_disable (void)
-{
-	HAL_StatusTypeDef status = HAL_ERROR;
-
-	/* Private define ------------------------------------------------------------*/
-	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
-	/* Private variables ---------------------------------------------------------*/
-	FLASH_OBProgramInitTypeDef OBInit;
-	__IO uint32_t SectorsWRPStatus = 0xFFF;
-
-	/* Get FLASH_WRP_SECTORS write protection status */
-	HAL_FLASHEx_OBGetConfig(&OBInit);
-	SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
-
-	if (SectorsWRPStatus == 0)
-	{
-		/* If FLASH_WRP_SECTORS are write protected, disable the write protection */
-
-		/* Allow Access to option bytes sector */
-		HAL_FLASH_OB_Unlock();
-
-		/* Allow Access to Flash control registers and user Flash */
-		HAL_FLASH_Unlock();
-
-		/* Disable FLASH_WRP_SECTORS write protection */
-		OBInit.OptionType = OPTIONBYTE_WRP;
-		OBInit.WRPState   = WRPSTATE_DISABLE;
-		OBInit.WRPSector  = FLASH_WRP_SECTORS;
-		HAL_FLASHEx_OBProgram(&OBInit);
-
-		/* Start the Option Bytes programming process */
-		if (HAL_FLASH_OB_Launch() != HAL_OK)
-		{
-		/* User can add here some code to deal with this error */
-		  Error_Handler();
-		}
-
-		/* Prevent Access to option bytes sector */
-		HAL_FLASH_OB_Lock();
-
-		/* Disable the Flash option control register access (recommended to protect
-		the option Bytes against possible unwanted operations) */
-		HAL_FLASH_Lock();
-
-		/* Get FLASH_WRP_SECTORS write protection status */
-		HAL_FLASHEx_OBGetConfig(&OBInit);
-		SectorsWRPStatus = OBInit.WRPSector & FLASH_WRP_SECTORS;
-
-		/* Check if FLASH_WRP_SECTORS write protection is disabled */
-		if (SectorsWRPStatus == FLASH_WRP_SECTORS)
-		{
-			status = HAL_OK; //uart_print("wrp disabled\n");
-		}
-		else
-		{
-		  uart_print("wrp not disabled\n");
-		}
-	}
-	else
-	{
-		status = HAL_OK; //uart_print("wrp is already disabled\n");
-	}
-	return status;
-}
-
 void uart_print(char* token)
 {
-	//memcpy((char*)s_uart_buffer._p_tx_buffer, token, strlen(token));
+	while (s_uart_buffer.tx_busy);
 	memcpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
-	//snprintf((char*)s_uart_buffer._p_tx_buffer, sizeof(s_uart_buffer._p_tx_buffer), "%s", token);
-	//memset((char*)s_uart_buffer._p_tx_buffer, '\0', sizeof(s_uart_buffer._p_tx_buffer));
-	//strncpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
-
-/*
-#ifdef UART_TX_DMA
-	HAL_UART_Transmit_DMA(&huart2, (uint8_t*)token, strlen(token));
-#else
-	HAL_UART_Transmit(&huart2, s_uart_buffer._p_tx_buffer, strlen(token), 10);
-#endif
-*/
 
 #ifdef UART_TX_DMA
 	while (HAL_UART_Transmit_DMA(&huart2, s_uart_buffer._p_tx_buffer, strlen(token)) != HAL_OK);
 #else
 	HAL_UART_Transmit(&huart2, s_uart_buffer._p_tx_buffer, strlen(token), 10);
 #endif
-	//BufferInit(s_uart_buffer._p_tx_buffer);
+	s_uart_buffer.tx_busy = true;
 }
-
 
 #ifdef IWDG_ENABLE
 void kickDog(void)

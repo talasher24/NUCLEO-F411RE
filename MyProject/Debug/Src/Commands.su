@@ -1,5 +1,5 @@
 Commands.c:35:6:ping_callBack	16	static
-Commands.c:40:6:version_callback	16	static
+Commands.c:40:6:get_version_callback	16	static
 Commands.c:45:6:pwm_start_callback	16	static
 Commands.c:50:6:pwm_stop_callback	16	static
 Commands.c:55:6:pwm_dc_callback	24	static

@@ -157,13 +157,15 @@ int main(void)
 	  kickDog();
 #endif
 
+	  //lsm_callback();
 	  if (s_uart_buffer._rx_ready_command)
 	  {
 		  uart_rx_ready_command_handler();
 	  }
 	  if (int1_occurred)
 	  {
-		  lsm_callback();
+		  //lsm_callback();
+		  //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		  int1_occurred = false;
 	  }
   }
@@ -608,10 +610,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   /* NOTE: This function Should not be modified, when the callback is needed,
            the HAL_GPIO_EXTI_Callback could be implemented in the user file
    */
-  if (GPIO_Pin == GPIO_PIN_5)
-  {
-	  int1_occurred = true;
-  }
+
+  int1_occurred = true;
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)

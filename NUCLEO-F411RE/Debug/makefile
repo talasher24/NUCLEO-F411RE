@@ -40,8 +40,8 @@ NUCLEO-F411RE.bin \
 all: NUCLEO-F411RE.elf secondary-outputs
 
 # Tool invocations
-NUCLEO-F411RE.elf: $(OBJS) $(USER_OBJS) C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\MyProject\STM32F411RETX_FLASH.ld
-	arm-none-eabi-gcc -o "NUCLEO-F411RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\MyProject\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-F411RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+NUCLEO-F411RE.elf: $(OBJS) $(USER_OBJS) C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\STM32F411RETX_FLASH.ld
+	arm-none-eabi-gcc -o "NUCLEO-F411RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-F411RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

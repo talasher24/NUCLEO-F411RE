@@ -6533,7 +6533,7 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_line    0x0000000000015e69      0x763 Src/system_stm32f4xx.o
  .debug_line    0x00000000000165cc       0x80 Startup/startup_stm32f411retx.o
 
-.debug_str      0x0000000000000000    0x9c74d
+.debug_str      0x0000000000000000    0x9c78f
  .debug_str     0x0000000000000000    0x8ccef Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0x8d063 (size before relaxing)
  .debug_str     0x000000000008ccef      0x3f8 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -6568,25 +6568,25 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
                                       0x8cf28 (size before relaxing)
  .debug_str     0x0000000000091729       0x90 Src/Buffer.o
                                       0x8c5b2 (size before relaxing)
- .debug_str     0x00000000000917b9     0x464e Src/Commands.o
-                                      0x913c7 (size before relaxing)
- .debug_str     0x0000000000095e07      0x12a Src/MY_FLASH.o
+ .debug_str     0x00000000000917b9     0x4690 Src/Commands.o
+                                      0x913cb (size before relaxing)
+ .debug_str     0x0000000000095e49      0x12a Src/MY_FLASH.o
                                       0x8c75b (size before relaxing)
- .debug_str     0x0000000000095f31     0x30df Src/MY_LSM6DSL.o
+ .debug_str     0x0000000000095f73     0x30df Src/MY_LSM6DSL.o
                                       0x93fb4 (size before relaxing)
- .debug_str     0x0000000000099010     0x2f4f Src/lsm6dsl_reg.o
+ .debug_str     0x0000000000099052     0x2f4f Src/lsm6dsl_reg.o
                                        0xcc31 (size before relaxing)
- .debug_str     0x000000000009bf5f      0x14f Src/main.o
-                                      0x937bb (size before relaxing)
- .debug_str     0x000000000009c0ae       0x39 Src/stm32f4xx_hal_msp.o
+ .debug_str     0x000000000009bfa1      0x14f Src/main.o
+                                      0x937bf (size before relaxing)
+ .debug_str     0x000000000009c0f0       0x39 Src/stm32f4xx_hal_msp.o
                                       0x8d667 (size before relaxing)
- .debug_str     0x000000000009c0e7      0x122 Src/stm32f4xx_it.o
+ .debug_str     0x000000000009c129      0x122 Src/stm32f4xx_it.o
                                       0x8cc4d (size before relaxing)
- .debug_str     0x000000000009c209      0x4b9 Src/sysmem.o
+ .debug_str     0x000000000009c24b      0x4b9 Src/sysmem.o
                                        0x7aed (size before relaxing)
- .debug_str     0x000000000009c6c2       0x5a Src/system_stm32f4xx.o
+ .debug_str     0x000000000009c704       0x5a Src/system_stm32f4xx.o
                                       0x8c6e9 (size before relaxing)
- .debug_str     0x000000000009c71c       0x31 Startup/startup_stm32f411retx.o
+ .debug_str     0x000000000009c75e       0x31 Startup/startup_stm32f411retx.o
                                          0x6f (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

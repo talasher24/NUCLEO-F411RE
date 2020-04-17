@@ -24,10 +24,13 @@ void start_tick_callback(char* token);
 void stop_tick_callback(char* token);
 void assert_0_callback(char* token);
 void clear_assert_flag_callback(char* token);
+void lsm6dsl_per_sample_enable_callback(char* token);
+void lsm6dsl_disable_callback(char* token);
+
 
 /*------------Commands------------*/
 
-#define NUM_OF_COMMANDS 14
+#define NUM_OF_COMMANDS 16
 
 #define PING_COMMAND_NAME "ping\n"
 
@@ -57,6 +60,11 @@ void clear_assert_flag_callback(char* token);
 
 #define CLEAR_ASSERT_FLAG "clear_assert_flag\n"
 
+#define LSM6DSL_PER_SAMPLE_ENABLE "lsm6dsl_per_sample_enable\n"
+
+#define LSM6DSL_DISABLE "lsm6dsl_disable\n"
+
+
 /*--------End_of_Commands--------*/
 
 typedef struct {
@@ -67,20 +75,22 @@ typedef struct {
 
 
 static const command commands [NUM_OF_COMMANDS] = {
-		{PING_COMMAND_NAME, 			sizeof(PING_COMMAND_NAME), 			ping_callBack					},
-		{GET_VERSION_COMMAND_NAME, 		sizeof(GET_VERSION_COMMAND_NAME), 	get_version_callback			},
-		{PWM_START_COMMAND_NAME, 		sizeof(PWM_START_COMMAND_NAME), 	pwm_start_callback				},
-		{PWM_STOP_COMMAND_NAME, 		sizeof(PWM_STOP_COMMAND_NAME), 		pwm_stop_callback				},
-		{PWM_DC_COMMAND_NAME, 			sizeof(PWM_DC_COMMAND_NAME), 		pwm_dc_callback					},
-		{CRC_WHOLE_FLASH_CALC, 			sizeof(CRC_WHOLE_FLASH_CALC), 		crc_whole_flash_calc_callback	},
-		{IWDG_TEST, 					sizeof(IWDG_TEST), 					iwdg_test_callback				},
-		{FLASH_LOCK, 					sizeof(FLASH_LOCK), 				flash_lock_callback				},
-		{set_SN, 						sizeof(set_SN), 					set_SN_callback					},
-		{get_SN, 						sizeof(get_SN), 					get_SN_callback					},
-		{START_TICK, 					sizeof(START_TICK), 				start_tick_callback				},
-		{STOP_TICK, 					sizeof(STOP_TICK), 					stop_tick_callback				},
-		{ASSERT_0, 						sizeof(ASSERT_0), 					assert_0_callback				},
-		{CLEAR_ASSERT_FLAG, 			sizeof(CLEAR_ASSERT_FLAG), 			clear_assert_flag_callback		}
+		{PING_COMMAND_NAME, 			sizeof(PING_COMMAND_NAME), 			ping_callBack						},
+		{GET_VERSION_COMMAND_NAME, 		sizeof(GET_VERSION_COMMAND_NAME), 	get_version_callback				},
+		{PWM_START_COMMAND_NAME, 		sizeof(PWM_START_COMMAND_NAME), 	pwm_start_callback					},
+		{PWM_STOP_COMMAND_NAME, 		sizeof(PWM_STOP_COMMAND_NAME), 		pwm_stop_callback					},
+		{PWM_DC_COMMAND_NAME, 			sizeof(PWM_DC_COMMAND_NAME), 		pwm_dc_callback						},
+		{CRC_WHOLE_FLASH_CALC, 			sizeof(CRC_WHOLE_FLASH_CALC), 		crc_whole_flash_calc_callback		},
+		{IWDG_TEST, 					sizeof(IWDG_TEST), 					iwdg_test_callback					},
+		{FLASH_LOCK, 					sizeof(FLASH_LOCK), 				flash_lock_callback					},
+		{set_SN, 						sizeof(set_SN), 					set_SN_callback						},
+		{get_SN, 						sizeof(get_SN), 					get_SN_callback						},
+		{START_TICK, 					sizeof(START_TICK), 				start_tick_callback					},
+		{STOP_TICK, 					sizeof(STOP_TICK), 					stop_tick_callback					},
+		{ASSERT_0, 						sizeof(ASSERT_0), 					assert_0_callback					},
+		{CLEAR_ASSERT_FLAG, 			sizeof(CLEAR_ASSERT_FLAG), 			clear_assert_flag_callback			},
+		{LSM6DSL_PER_SAMPLE_ENABLE, 	sizeof(LSM6DSL_PER_SAMPLE_ENABLE), 	lsm6dsl_per_sample_enable_callback	},
+		{LSM6DSL_DISABLE, 				sizeof(LSM6DSL_DISABLE), 			lsm6dsl_disable_callback			}
 };
 
 

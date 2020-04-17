@@ -21,7 +21,7 @@ float acceleration_mg[3];
 float angular_rate_mdps[3];
 uint8_t whoamI, rst;
 
-void lsm_init (void);
+void lsm6dsl_init (void);
 void lsm_callback (void);
 int32_t lsm_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
 int32_t lsm_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);

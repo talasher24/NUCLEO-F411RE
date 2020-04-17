@@ -1,4 +1,4 @@
-Src/Commands.o: ../Src/Commands.c ../Inc/Commands.h \
+Src/Commands.o: ../Src/Commands.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -32,10 +32,11 @@ Src/Commands.o: ../Src/Commands.c ../Inc/Commands.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/main.h \
- ../Inc/MY_FLASH.h ../Inc/Buffer.h ../Inc/Types.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/Flash.h \
+ ../Inc/lsm6dsl.h ../Inc/lsm6dsl_reg.h ../Inc/Commands.h ../Inc/Buffer.h \
+ ../Inc/Types.h ../Inc/Debug.h
 
-../Inc/Commands.h:
+../Inc/main.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -105,10 +106,16 @@ Src/Commands.o: ../Src/Commands.c ../Inc/Commands.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-../Inc/main.h:
+../Inc/Flash.h:
 
-../Inc/MY_FLASH.h:
+../Inc/lsm6dsl.h:
+
+../Inc/lsm6dsl_reg.h:
+
+../Inc/Commands.h:
 
 ../Inc/Buffer.h:
 
 ../Inc/Types.h:
+
+../Inc/Debug.h:

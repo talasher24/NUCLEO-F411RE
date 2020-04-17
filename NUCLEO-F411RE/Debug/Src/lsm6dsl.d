@@ -1,4 +1,4 @@
-Src/MY_LSM6DSL.o: ../Src/MY_LSM6DSL.c ../Inc/MY_LSM6DSL.h \
+Src/lsm6dsl.o: ../Src/lsm6dsl.c ../Inc/lsm6dsl.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -35,7 +35,7 @@ Src/MY_LSM6DSL.o: ../Src/MY_LSM6DSL.c ../Inc/MY_LSM6DSL.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Inc/lsm6dsl_reg.h ../Inc/Buffer.h
 
-../Inc/MY_LSM6DSL.h:
+../Inc/lsm6dsl.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 

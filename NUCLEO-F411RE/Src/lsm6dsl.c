@@ -1,7 +1,6 @@
 
 
-#include "MY_LSM6DSL.h"
-
+#include <lsm6dsl.h>
 #include "Buffer.h"
 
 
@@ -24,7 +23,7 @@ int32_t lsm_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 	return 0;
 }
 
-void lsm_init (void)
+void lsm6dsl_init (void)
 {
 	/* Initialize mems driver interface */
 	dev_ctx.write_reg = lsm_write;
@@ -66,42 +65,6 @@ void lsm_init (void)
 
 	/* Gyroscope - filtering chain */
 	lsm6dsl_gy_band_pass_set(&dev_ctx, LSM6DSL_HP_260mHz_LP1_STRONG);
-
-
-	/*does not working - to remove
-	 *
-	lsm6dsl_int1_route_t int1_reg;
-	int1_reg.int1_drdy_xl = 1;
-	int1_reg.int1_drdy_g = 1;
-	//int1_reg.int1_sign_mot = 1;
-	//int1_reg.int1_single_tap = 1;
-	//int1_reg.int1_double_tap = 1;
-	int1_reg.drdy_on_int1 = 1;
-
-	lsm6dsl_pin_int1_route_set(&dev_ctx, int1_reg);
-
-	lsm6dsl_all_on_int1_set(&dev_ctx, PROPERTY_ENABLE);
-
-	lsm6dsl_auto_increment_set(&dev_ctx, PROPERTY_ENABLE);*/
-
-
-	//LSM6DSL_ACC_Set_INT1_DRDY
-	//LSM6DSL_GYRO_Set_INT1_DRDY
-
-	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
-
-	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
-
-	lsm6dsl_int1_route_t reg;
-
-	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
-
-	reg.int1_drdy_xl = PROPERTY_ENABLE;
-	reg.int1_drdy_g = PROPERTY_ENABLE;
-
-	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
-
-
 }
 
 void lsm_callback (void)

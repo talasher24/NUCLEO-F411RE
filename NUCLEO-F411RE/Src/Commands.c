@@ -5,19 +5,18 @@
  *      Author: ADMIN
  */
 
-
-
-#include "Commands.h"
-#include "main.h"
-#include "MY_FLASH.h"
-#include "Buffer.h"
-#include "Types.h"
-
-
-
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "main.h"
+#include <Flash.h>
+#include <lsm6dsl.h>
+#include "Commands.h"
+#include "Buffer.h"
+#include "Types.h"
+#include "Debug.h"
+
 //#include <stdbool.h>
 
 
@@ -29,6 +28,7 @@
  extern void uart_print(char* token);
  extern s_Buff s_uart_buffer;
  extern assert_struct s_assert_struct;
+ extern stmdev_ctx_t dev_ctx;
 
 
 
@@ -67,40 +67,6 @@ void pwm_dc_callback(char* token)
 
 void crc_whole_flash_calc_callback(char* token)
 {
-	/*Flash information...
-	uint16_t sector_0_Size = 4096; 				//16KB  - After multiplying by uint32_t
-	uint16_t sector_1_Size = 4096; 				//16KB  - After multiplying by uint32_t
-	uint16_t sector_2_Size = 4096; 				//16KB  - After multiplying by uint32_t
-	uint16_t sector_3_Size = 4096; 				//16KB  - After multiplying by uint32_t
-	uint16_t sector_4_Size = 4096 * 4; 			//64KB  - After multiplying by uint32_t
-	uint16_t sector_5_Size = 4096 * 8;   		//128KB - After multiplying by uint32_t
-	uint16_t sector_6_Size = 4096 * 8; 			//128KB - After multiplying by uint32_t
-	uint16_t sector_7_Size = 4096 * 8; 			//128KB - After multiplying by uint32_t
-
-	uint32_t sector_0_addr = 0x08000000;		//Sector 0 address
-	uint32_t sector_1_addr = 0x08004000;		//Sector 1 address
-	uint32_t sector_2_addr = 0x08008000;		//Sector 2 address
-	uint32_t sector_3_addr = 0x0800C000;		//Sector 3 address
-	uint32_t sector_4_addr = 0x08010000;		//Sector 4 address
-	uint32_t sector_5_addr = 0x08020000;		//Sector 5 address
-	uint32_t sector_6_addr = 0x08040000;		//Sector 6 address
-	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
-
-
-	//uint16_t sector_0_Size = 4096; 				//16KB
-	//uint32_t sector_0_addr = 0x08000000;		//Sector 0 address
-	//uint32_t flashDataBuffer[sector_0_Size];	//(4096(=0x1000) * 4Bytes(=sizeOf(int)) = 16384 (=0x4000))
-	//uint32_t offsetAddr = 0x0;
-
-
-	for(int i = 0; i < 32; i++)  				//(32 * 16384(=0x4000) = 524288(=0x80000)) => whole flash
-	{
-		MY_FLASH_SetSectorAddrs(0, sector_0_addr + offsetAddr);
-		MY_FLASH_ReadN(0, flashDataBuffer, sector_0_Size, DATA_TYPE_32);
-		crcFlashResult = HAL_CRC_Accumulate(&hcrc, flashDataBuffer, sector_0_Size);
-		offsetAddr += 0x4000;
-	}*/
-
 	char temp [9];
 	uint32_t crcFlashResult;
 	uint32_t flashSize = 0x20000;
@@ -110,10 +76,6 @@ void crc_whole_flash_calc_callback(char* token)
 
 	sprintf(temp, "%x\n", (unsigned int)crcFlashResult);
 	uart_print(temp);
-	/*
-	sprintf((char*)s_uart_buffer._p_tx_buffer, "%x\n", (unsigned int)crcFlashResult);
-	uart_print((char*)s_uart_buffer._p_tx_buffer);
-	*/
 }
 
 void iwdg_test_callback(char* token)
@@ -141,8 +103,6 @@ void flash_lock_callback(char* token)
 		{
 			Error_Handler();
 		}
-		/* Clear All pending flags */ //if wwdg and kickDog are enabled - uncomment __HAL_FLASH_CLEAR_FLAG
-		//__HAL_FLASH_CLEAR_FLAG (FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
 		if (HAL_FLASH_OB_Unlock() != HAL_OK)
 		{
 			Error_Handler();
@@ -201,10 +161,6 @@ void get_SN_callback(char* token)
 
 	sprintf(temp, "%x\n", (unsigned int)myTestRead[0]);
 	uart_print(temp);
-	/*
-	sprintf((char*)s_uart_buffer._p_tx_buffer, "%x\n", (unsigned int)myTestRead[0]);
-	uart_print((char*)s_uart_buffer._p_tx_buffer);
-	*/
 }
 
 void start_tick_callback(char* token)
@@ -229,3 +185,35 @@ void clear_assert_flag_callback(char* token)
 {
 	s_assert_struct.flag = ASSERT_FLAG_OFF;
 }
+
+void lsm6dsl_per_sample_enable_callback(char* token)
+{
+	//LSM6DSL_ACC_Set_INT1_DRDY
+	//LSM6DSL_GYRO_Set_INT1_DRDY
+
+	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
+
+	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
+
+	lsm6dsl_int1_route_t reg;
+
+	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
+
+	reg.int1_drdy_xl = PROPERTY_ENABLE;
+	reg.int1_drdy_g = PROPERTY_ENABLE;
+
+	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+}
+
+void lsm6dsl_disable_callback(char* token)
+{
+	lsm6dsl_int1_route_t reg;
+
+	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
+
+	reg.int1_drdy_xl = PROPERTY_DISABLE;
+	reg.int1_drdy_g = PROPERTY_DISABLE;
+
+	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+}
+

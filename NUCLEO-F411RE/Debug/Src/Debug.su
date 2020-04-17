@@ -1,0 +1,2 @@
+Debug.c:4:15:reset_cause_get	16	static
+Debug.c:47:14:reset_cause_get_name	24	static

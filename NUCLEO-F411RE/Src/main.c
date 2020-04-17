@@ -20,16 +20,16 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdio.h>
+#include <Flash.h>
+#include <lsm6dsl.h>
 #include "Types.h"
 #include "Buffer.h"
 #include "Commands.h"
-#include "MY_FLASH.h"
-#include "MY_LSM6DSL.h"
+#include "Debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,7 +100,7 @@ __attribute__((section(".noinit"))) assert_struct s_assert_struct;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	reset_cause_t reset_cause = reset_cause_get();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -144,7 +144,12 @@ int main(void)
   }
 
 
-  lsm_init();
+  lsm6dsl_init();
+
+  char temp [100];
+  sprintf(temp, "The system reset cause is \%s\"\n", reset_cause_get_name(reset_cause));
+  uart_print(temp);
+
   uart_print(HELLO_WORLD);
 
   /* USER CODE END 2 */

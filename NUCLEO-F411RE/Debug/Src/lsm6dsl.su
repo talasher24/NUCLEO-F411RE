@@ -1,0 +1,4 @@
+lsm6dsl.c:14:9:lsm_write	40	static
+lsm6dsl.c:20:9:lsm_read	40	static
+lsm6dsl.c:26:6:lsm6dsl_init	8	static
+lsm6dsl.c:70:6:lsm_callback	144	static

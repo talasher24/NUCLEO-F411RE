@@ -144,7 +144,7 @@ int main(void)
   }
 
 
-  lsm6dsl_init();
+  LSM6DSL_INIT();
 
   char temp [100];
   sprintf(temp, "The system reset cause is \%s\"\n", reset_cause_get_name(reset_cause));
@@ -168,7 +168,9 @@ int main(void)
 	  }
 	  if (int1_occurred)
 	  {
-		  lsm_callback();
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  LSM6DSL_FIFOMode_Process();
+		  //LSM6DSL_PER_SAMPLE_PROCESS();
 		  int1_occurred = false;
 	  }
   }

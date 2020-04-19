@@ -17,8 +17,6 @@
 #include "Types.h"
 #include "Debug.h"
 
-//#include <stdbool.h>
-
 
  extern TIM_HandleTypeDef htim3;
  extern CRC_HandleTypeDef hcrc;
@@ -188,32 +186,17 @@ void clear_assert_flag_callback(char* token)
 
 void lsm6dsl_per_sample_enable_callback(char* token)
 {
-	//LSM6DSL_ACC_Set_INT1_DRDY
-	//LSM6DSL_GYRO_Set_INT1_DRDY
+	LSM6DSL_PER_SAMPLE_Init();
+}
 
-	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
-
-	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
-
-	lsm6dsl_int1_route_t reg;
-
-	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
-
-	reg.int1_drdy_xl = PROPERTY_ENABLE;
-	reg.int1_drdy_g = PROPERTY_ENABLE;
-
-	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+void lsm6dsl_fifo_enable_callback(char* token)
+{
+	LSM6DSL_FIFOMode_Init();
 }
 
 void lsm6dsl_disable_callback(char* token)
 {
-	lsm6dsl_int1_route_t reg;
-
-	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
-
-	reg.int1_drdy_xl = PROPERTY_DISABLE;
-	reg.int1_drdy_g = PROPERTY_DISABLE;
-
-	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+	LSM6DSL_PER_SAMPLE_DISABLE();
+	LSM6DSL_FIFOMode_DISABLE();
 }
 

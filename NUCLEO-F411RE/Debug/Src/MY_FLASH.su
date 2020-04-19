@@ -1,7 +1,0 @@
-MY_FLASH.c:14:13:MY_FLASH_EraseSector	8	static
-MY_FLASH.c:23:6:MY_FLASH_SetSectorAddrs	16	static
-MY_FLASH.c:30:6:MY_FLASH_WriteN	48	static
-MY_FLASH.c:70:6:MY_FLASH_ReadN	40	static
-MY_FLASH.c:103:6:MY_FLASH_OTP_WriteN	48	static
-MY_FLASH.c:143:19:WRP_sector_enable	48	static
-MY_FLASH.c:208:19:WRP_sector_disable	48	static

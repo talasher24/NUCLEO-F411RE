@@ -25,12 +25,13 @@ void stop_tick_callback(char* token);
 void assert_0_callback(char* token);
 void clear_assert_flag_callback(char* token);
 void lsm6dsl_per_sample_enable_callback(char* token);
+void lsm6dsl_fifo_enable_callback(char* token);
 void lsm6dsl_disable_callback(char* token);
 
 
 /*------------Commands------------*/
 
-#define NUM_OF_COMMANDS 16
+#define NUM_OF_COMMANDS 17
 
 #define PING_COMMAND_NAME "ping\n"
 
@@ -62,6 +63,8 @@ void lsm6dsl_disable_callback(char* token);
 
 #define LSM6DSL_PER_SAMPLE_ENABLE "lsm6dsl_per_sample_enable\n"
 
+#define LSM6DSL_FIFO_ENABLE "lsm6dsl_fifo_enable\n"
+
 #define LSM6DSL_DISABLE "lsm6dsl_disable\n"
 
 
@@ -90,6 +93,7 @@ static const command commands [NUM_OF_COMMANDS] = {
 		{ASSERT_0, 						sizeof(ASSERT_0), 					assert_0_callback					},
 		{CLEAR_ASSERT_FLAG, 			sizeof(CLEAR_ASSERT_FLAG), 			clear_assert_flag_callback			},
 		{LSM6DSL_PER_SAMPLE_ENABLE, 	sizeof(LSM6DSL_PER_SAMPLE_ENABLE), 	lsm6dsl_per_sample_enable_callback	},
+		{LSM6DSL_FIFO_ENABLE, 			sizeof(LSM6DSL_FIFO_ENABLE), 		lsm6dsl_fifo_enable_callback		},
 		{LSM6DSL_DISABLE, 				sizeof(LSM6DSL_DISABLE), 			lsm6dsl_disable_callback			}
 };
 

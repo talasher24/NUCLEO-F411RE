@@ -144,8 +144,6 @@ void LSM6DSL_FIFOMode_Init(void)
 {
 	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
 
-	lsm6dsl_data_ready_mode_set(&dev_ctx, LSM6DSL_DRDY_PULSED);
-
 	/* Set acc&gyro FIFO decimation */
 	lsm6dsl_dec_fifo_xl_t valXl;
 	lsm6dsl_dec_fifo_gyro_t valGy;
@@ -183,16 +181,6 @@ void LSM6DSL_FIFOMode_Init(void)
 	valStopOnWtm = PROPERTY_ENABLE;
 	lsm6dsl_fifo_stop_on_wtm_set(&dev_ctx, valStopOnWtm);
 
-	/* Set FIFO trigger */
-	/*lsm6dsl_trigger_fifo_t trigger_fifo_t;
-	lsm6dsl_fifo_write_trigger_get(&dev_ctx, &trigger_fifo_t);
-	trigger_fifo_t = LSM6DSL_TRG_XL_GY_DRDY;
-	lsm6dsl_fifo_write_trigger_set(&dev_ctx, trigger_fifo_t);*/
-
-	/*lsm6dsl_den_xl_en_t den_xl_en_t;
-	lsm6dsl_den_enable_get(&dev_ctx, &den_xl_en_t);
-	den_xl_en_t = LSM6DSL_STAMP_IN_GY_XL_DATA;
-	lsm6dsl_den_enable_set(&dev_ctx, den_xl_en_t);*/
 
 	/* Set FIFO mode to FIFO */
 	/*lsm6dsl_fifo_mode_t fifo_mode_t;
@@ -226,8 +214,8 @@ void LSM6DSL_Read_All_FIFO_Data(void)
 
 	samples_to_read /= 6U;
 
-	if(samples_to_read == SAMPLES_TO_READ)
-	{
+	//if(samples_to_read == SAMPLES_TO_READ)
+	//{
 		for (int i = 0; i < samples_to_read; i++)
 		{
 			LSM6DSL_Read_Single_FIFO_SAMPLE(i);
@@ -253,7 +241,7 @@ void LSM6DSL_Read_All_FIFO_Data(void)
 					angular_rate_dps_Sum[0], angular_rate_dps_Sum[1], angular_rate_dps_Sum[2]);
 
 		uart_print(data);
-	}
+	//}
 }
 void LSM6DSL_Read_Single_FIFO_SAMPLE(uint16_t SampleIndex)
 {
@@ -269,46 +257,6 @@ void LSM6DSL_Read_Single_FIFO_SAMPLE(uint16_t SampleIndex)
 	acceleration_g_Sum[1] += data_raw_acceleration_Buf[SampleIndex].i16bit[1];
 	acceleration_g_Sum[2] += data_raw_acceleration_Buf[SampleIndex].i16bit[2];
 
-
-	/*lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_angular_rate_Buf[SampleIndex].u8bit, 6);
-	angular_rate_mdps_Buf[SampleIndex][0] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate_Buf[SampleIndex].i16bit[0]);
-	angular_rate_mdps_Buf[SampleIndex][1] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate_Buf[SampleIndex].i16bit[1]);
-	angular_rate_mdps_Buf[SampleIndex][2] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate_Buf[SampleIndex].i16bit[2]);
-
-	sprintf(data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n",
-			angular_rate_mdps_Buf[SampleIndex][0], angular_rate_mdps_Buf[SampleIndex][1], angular_rate_mdps_Buf[SampleIndex][2]);
-
-	uart_print(data);
-
-	lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acceleration_Buf[SampleIndex].u8bit, 6);
-	acceleration_mg_Buf[SampleIndex][0] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration_Buf[SampleIndex].i16bit[0]);
-	acceleration_mg_Buf[SampleIndex][1] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration_Buf[SampleIndex].i16bit[1]);
-	acceleration_mg_Buf[SampleIndex][2] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration_Buf[SampleIndex].i16bit[2]);
-
-	sprintf(data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n\n",
-			acceleration_mg_Buf[SampleIndex][0], acceleration_mg_Buf[SampleIndex][1], acceleration_mg_Buf[SampleIndex][2]);
-
-	uart_print(data);*/
-
-	/*lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_angular_rate.u8bit, 6);
-	angular_rate_mdps[0] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate.i16bit[0]);
-	angular_rate_mdps[1] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate.i16bit[1]);
-	angular_rate_mdps[2] = lsm6dsl_from_fs500dps_to_mdps(data_raw_angular_rate.i16bit[2]);
-
-	sprintf(data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n",
-				  angular_rate_mdps[0], angular_rate_mdps[1], angular_rate_mdps[2]);
-
-	uart_print(data);
-
-	lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acceleration.u8bit, 6);
-	acceleration_mg[0] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration.i16bit[0]);
-	acceleration_mg[1] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration.i16bit[1]);
-	acceleration_mg[2] = lsm6dsl_from_fs8g_to_mg( data_raw_acceleration.i16bit[2]);
-
-	sprintf(data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n\n",
-					  acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
-
-	uart_print(data);*/
 }
 
 void LSM6DSL_FIFO_Set_FIFO_Mode(void)

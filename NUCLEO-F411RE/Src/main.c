@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
@@ -123,12 +124,13 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_CRC_Init();
-  //MX_RTC_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
-  MX_IWDG_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+#ifdef IWDG_ENABLE
+  MX_IWDG_Init();
+#endif
 
 #ifdef UART_RX_DMA
   HAL_UART_Receive_DMA(&huart2, &s_uart_buffer._rx_single_char, 1);
@@ -155,8 +157,11 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
 #ifdef IWDG_ENABLE
 	  kickDog();
@@ -290,7 +295,6 @@ static void MX_I2C1_Init(void)
 
 }
 
-#ifdef IWDG_ENABLE
 /**
   * @brief IWDG Initialization Function
   * @param None
@@ -326,7 +330,7 @@ static void MX_IWDG_Init(void)
   /* USER CODE END IWDG_Init 2 */
 
 }
-#endif
+
 /**
   * @brief RTC Initialization Function
   * @param None

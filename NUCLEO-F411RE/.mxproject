@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/ADMIN/Documents/GitHub/MyProject/MyProject/Inc
+HeaderPath=C:/Users/ADMIN/Documents/GitHub/NUCLEO-F411RE/NUCLEO-F411RE/Inc
 HeaderFiles=stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=C:/Users/ADMIN/Documents/GitHub/MyProject/MyProject/Src
+SourcePath=C:/Users/ADMIN/Documents/GitHub/NUCLEO-F411RE/NUCLEO-F411RE/Src
 SourceFiles=stm32f4xx_it.c;stm32f4xx_hal_msp.c;stm32f4xx_hal_timebase_tim.c;main.c;
 
 [PreviousLibFiles]

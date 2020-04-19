@@ -33,8 +33,6 @@ axis3bit16_t data_raw_acceleration_Buf[SAMPLES_TO_READ];
 axis3bit16_t data_raw_angular_rate_Buf[SAMPLES_TO_READ];
 float acceleration_g_Sum[3];
 float angular_rate_dps_Sum[3];
-//float acceleration_mg_Buf[SAMPLES_TO_READ][3];
-//float angular_rate_mdps_Buf[SAMPLES_TO_READ][3];
 
 
 void LSM6DSL_INIT (void);

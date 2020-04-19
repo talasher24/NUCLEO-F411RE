@@ -5,9 +5,9 @@ lsm6dsl.c:71:6:LSM6DSL_PER_SAMPLE_Init	16	static
 lsm6dsl.c:90:6:LSM6DSL_PER_SAMPLE_PROCESS	48	static
 lsm6dsl.c:131:6:LSM6DSL_PER_SAMPLE_DISABLE	16	static
 lsm6dsl.c:143:6:LSM6DSL_FIFOMode_Init	24	static
-lsm6dsl.c:205:6:LSM6DSL_FIFOMode_Process	8	static
-lsm6dsl.c:214:6:LSM6DSL_Read_All_FIFO_Data	56	static
-lsm6dsl.c:258:6:LSM6DSL_Read_Single_FIFO_SAMPLE	16	static
-lsm6dsl.c:314:6:LSM6DSL_FIFO_Set_FIFO_Mode	8	static
-lsm6dsl.c:320:6:LSM6DSL_FIFO_Set_Bypass_Mode	8	static
-lsm6dsl.c:326:6:LSM6DSL_FIFOMode_DISABLE	16	static
+lsm6dsl.c:193:6:LSM6DSL_FIFOMode_Process	8	static
+lsm6dsl.c:202:6:LSM6DSL_Read_All_FIFO_Data	56	static
+lsm6dsl.c:246:6:LSM6DSL_Read_Single_FIFO_SAMPLE	16	static
+lsm6dsl.c:262:6:LSM6DSL_FIFO_Set_FIFO_Mode	8	static
+lsm6dsl.c:268:6:LSM6DSL_FIFO_Set_Bypass_Mode	8	static
+lsm6dsl.c:274:6:LSM6DSL_FIFOMode_DISABLE	16	static

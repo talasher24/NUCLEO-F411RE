@@ -186,17 +186,17 @@ void clear_assert_flag_callback(char* token)
 
 void lsm6dsl_per_sample_enable_callback(char* token)
 {
-	LSM6DSL_PER_SAMPLE_Init();
+	LSM6DSL_Per_Sample_Init();
 }
 
 void lsm6dsl_fifo_enable_callback(char* token)
 {
-	LSM6DSL_FIFOMode_Init();
+	LSM6DSL_FIFO_Init();
 }
 
 void lsm6dsl_disable_callback(char* token)
 {
-	LSM6DSL_PER_SAMPLE_DISABLE();
-	LSM6DSL_FIFOMode_DISABLE();
+	LSM6DSL_Per_Sample_Disable();
+	LSM6DSL_FIFO_Disable();
 }
 

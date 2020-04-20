@@ -22,7 +22,7 @@ typedef struct {
 	uint8_t flag;
 }assert_struct;
 
-typedef enum reset_cause_e
+typedef enum reset_cause_t
 {
     RESET_CAUSE_UNKNOWN = 0,
     RESET_CAUSE_LOW_POWER_RESET,

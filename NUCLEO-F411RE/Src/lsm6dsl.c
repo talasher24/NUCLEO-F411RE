@@ -195,7 +195,7 @@ void LSM6DSL_FIFO_Disable(void)
 
 void LSM6DSL_FIFO_Read_All_Data(void)
 {
-	uint16_t unread_fifo_samples = 0;
+	uint16_t unread_int16_fifo_samples = 0;
 
 	for(int i = 0; i < 3; i++)
 	{
@@ -204,14 +204,34 @@ void LSM6DSL_FIFO_Read_All_Data(void)
 	}
 
 	/* Get num of unread FIFO samples before reading data */
-	lsm6dsl_fifo_data_level_get(&dev_ctx, &unread_fifo_samples);
+	lsm6dsl_fifo_data_level_get(&dev_ctx, &unread_int16_fifo_samples);
 
-	sprintf(data, "Number of unread FIFO samples (GYRO+ACC): %d\n", unread_fifo_samples / ACC_SINGLE_FIFO_SAMPLE);
+	uint16_t unread_acc_and_gyro_samples = unread_int16_fifo_samples / ACC_AND_GYRO_SINGLE_FIFO_SAMPLE;
+	sprintf(data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
 	uart_print(data);
 
-	while (unread_fifo_samples > 0)
+	while (unread_acc_and_gyro_samples > 0)
 	{
-		if ((unread_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE) >= SAMPLES_TO_READ) 		// reading 10 GYRO & ACC samples each
+		uint16_t unread_acc_and_gyro_samples_cycle;
+		if(unread_acc_and_gyro_samples >= SAMPLES_TO_READ)
+		{
+			unread_acc_and_gyro_samples_cycle = SAMPLES_TO_READ;
+		}
+		else
+		{
+			unread_acc_and_gyro_samples_cycle = unread_acc_and_gyro_samples;
+		}
+
+		lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, unread_acc_and_gyro_samples_cycle * ACC_AND_GYRO_SINGLE_FIFO_SAMPLE * FIFO_SAMPLE_TO_BYTE_RATIO);
+		for (int i = 0; i < unread_acc_and_gyro_samples_cycle * ACC_AND_GYRO_SINGLE_FIFO_SAMPLE; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
+		{
+			LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(i);
+		}
+		LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(unread_acc_and_gyro_samples_cycle);
+		unread_acc_and_gyro_samples -= unread_acc_and_gyro_samples_cycle;
+
+
+		/*if ((unread_int16_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE) >= SAMPLES_TO_READ) 		// reading 10 GYRO & ACC samples each
 		{
 			lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, ACC_GYRO_BUF_BYTES_SIZE);
 			for (int i = 0; i < ACC_AND_GYRO_FIFO_WATERMARK; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
@@ -219,18 +239,18 @@ void LSM6DSL_FIFO_Read_All_Data(void)
 				LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(i);
 			}
 			LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(SAMPLES_TO_READ);
-			unread_fifo_samples -= ACC_AND_GYRO_FIFO_WATERMARK;
+			unread_int16_fifo_samples -= ACC_AND_GYRO_FIFO_WATERMARK;
 		}
 		else 																				//reading less than 10 GYRO & ACC samples each
-		{ 	//should be an if condition to ensure that unread_fifo_samples is grater than 6
-			lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, unread_fifo_samples * FIFO_SAMPLE_TO_BYTE_RATIO);
-			for (int i = 0; i < unread_fifo_samples; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
+		{ 	//should be an if condition to ensure that unread_int16_fifo_samples is grater than 6
+			lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, unread_int16_fifo_samples * FIFO_SAMPLE_TO_BYTE_RATIO);
+			for (int i = 0; i < unread_int16_fifo_samples; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
 			{
 				LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(i);
 			}
-			LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(unread_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE);
-			unread_fifo_samples = 0;
-		}
+			LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(unread_int16_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE);
+			unread_int16_fifo_samples = 0;
+		}*/
 	}
 }
 void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex)

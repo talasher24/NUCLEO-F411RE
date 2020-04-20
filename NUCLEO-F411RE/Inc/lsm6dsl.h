@@ -47,7 +47,7 @@ void LSM6DSL_Per_Sample_Init(void);
 void LSM6DSL_Per_Sample_Process (void);
 void LSM6DSL_Per_Sample_Disable (void);
 void LSM6DSL_FIFO_Read_All_Data(void);
-void LSM6DSL_FIFO_Read_Single_SAMPLE(uint16_t SampleIndex);
+void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
 
 void LSM6DSL_FIFO_Init(void);
 void LSM6DSL_FIFO_Process(void);

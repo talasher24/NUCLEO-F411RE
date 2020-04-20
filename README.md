@@ -5,41 +5,50 @@ Working with NUCLEO-F411RE
 ### Topics used in the project:
 Serial protocols:
 ```
-I2C - Communicates with the LSM6DSL sensor
-UART - Communicates with the PC
+I2C             - Communicates with the LSM6DSL sensor
+UART            - Communicates with the PC
 ```
 ST MCU peripherals:
 ```
-DMA - Uses UART DMA
-Timers - Uses GPIO to output PWM signal
-RTC - Uses RTC to print “tick” every 1 second
-CRC - Uses the HW CRC module to calculate the CRC of the whole flash
-Internal flash - Uses read/write/erase, read/write protection
-Watchdog - Uses IWDG to detect and recover from computer malfunctions
+DMA             - Uses UART DMA
+Timers          - Uses GPIO to output PWM signal
+RTC             - Uses RTC to print “tick” every 1 second
+CRC             - Uses the HW CRC module to calculate the CRC of the whole flash
+Internal flash  - Uses read/write/erase, read/write protection
+                - Uses RAM to defines assertion struct that retains its value after reboot. Saves there the last command made.
+                  The next reboot should print the value that the pointer pointed to.          
+Watchdog        - Uses IWDG to detect and recover from computer malfunctions
+Reset cause     - Prints reset cause upon startup
+Low power mode  - Uses sleep and standby mode for power saving
 ```
 MEMS sensors:
 ```
-LSM6DSL - Prints every sample to the terminal (acceleration + gyro values)
+LSM6DSL:
+* Polling mode  - Prints every sample to the terminal (acceleration + gyro values)
+* FIFO mode     - Generates an interrupt when it has 10 samples of acceleration and gyro each in the FIFO.
+                  Upon every interrupt, reads all the data from the FIFO and prints the average.
 ```
 
 ### Commands implemented in the project
 The project executes the following commands received through serial terminal:
 ```
-ping
-get_version
-pwm_start
-pwm_dc XXX
-pwm_stop
-crc_whole_flash_calc
-iwdg_test
-flash_lock
-set_SN
-get_SN
-start_tick
-stop_tick
-flash_lock
-assert_0
-clear_assert_flag
+ping                            - Returns ping
+get_version                     - Returns SW version
+pwm_start                       - Starts the PWM
+pwm_dc XXX                      - Sets PWM value (0-100) 
+pwm_stop                        - Stops the PWM
+crc_whole_flash_calc            - Calculates the CRC of the whole flash and prints the result in hex format
+iwdg_test                       - Tests the watchdog i.e. enters infinite loop
+flash_lock                      - Locks the flash for reading
+set_SN                          - Saves the serial number in sector 7 - changes Linker file so the code won't overrun this sector
+get_SN                          - Reads the serial number from sector 7
+start_tick                      - Prints “tick” every 1 second using RTC
+stop_tick                       - Stops “tick” printing                      
+assert_0                        - Tests the assertion struct by generating assert(0)
+clear_assert_flag               - Resets assertion struct flag 
+lsm6dsl_per_sample_enable       - Enables Polling mode
+lsm6dsl_fifo_enable             - Enables FIFO modede
+lsm6dsl_disable                 - Disable Both Polling and FIFO mode
 ```
 
 ### Prerequisites

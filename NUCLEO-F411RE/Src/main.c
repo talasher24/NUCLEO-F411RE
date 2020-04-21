@@ -163,7 +163,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	//enter_sleep_mode();
+
+	enter_sleep_mode();
+
     /* USER CODE BEGIN 3 */
 #ifdef IWDG_ENABLE
 	  kickDog();

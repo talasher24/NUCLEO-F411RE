@@ -6,7 +6,7 @@
 
 /*------------#define------------*/
 
-#define VERSION "0.0.36\n"
+#define VERSION "0.0.37\n"
 
 #define HELLO_WORLD "Hello World\n"
 

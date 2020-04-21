@@ -1,11 +1,15 @@
 
-#include "Debug.h"
+
 #include "main.h"
+#include "Debug.h"
+#include "Buffer.h"
+
+
 
 extern IWDG_HandleTypeDef hiwdg;
 extern RTC_HandleTypeDef hrtc;
 
-
+extern s_Buff s_uart_buffer;
 
 extern void uart_print(char* token);
 
@@ -97,22 +101,18 @@ const char * reset_cause_get_name(reset_cause_t reset_cause)
 
 void enter_sleep_mode(void)
 {
-	  uart_print("Going into SLEEP MODE in 1 second\n");
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	  HAL_Delay(1000);
+	//uart_print("Going into SLEEP MODE\n");
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	while (s_uart_buffer.tx_busy);
 
-	  // Enters to sleep mode
-	  HAL_SuspendTick();
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-	  HAL_ResumeTick();
-	  uart_print("WakeUP from SLEEP\n");
+	// Enters to sleep mode
+	HAL_SuspendTick();
+	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+	HAL_ResumeTick();
 
-	  for (int i=0; i<20; i++)
-	  {
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  HAL_Delay(100);
-	  }
+	//uart_print("WakeUP from SLEEP\n");
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	//while (s_uart_buffer.tx_busy);
 }
 
 void enter_standby_mode(void)

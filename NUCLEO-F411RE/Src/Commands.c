@@ -163,7 +163,6 @@ void get_SN_callback(char* token)
 
 void start_tick_callback(char* token)
 {
-	//MX_RTC_Init();
 	RTC_AlarmTypeDef sAlarm = {0};
 	  /** Enable the Alarm A
 	  */
@@ -186,10 +185,6 @@ void start_tick_callback(char* token)
 
 void stop_tick_callback(char* token)
 {
-	/*if (HAL_RTC_DeInit(&hrtc) != HAL_OK)
-	{
-		Error_Handler();
-	}*/
 	HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
 }
 

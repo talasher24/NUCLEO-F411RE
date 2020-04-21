@@ -1,6 +1,16 @@
 
 #include "Debug.h"
 
+
+extern IWDG_HandleTypeDef hiwdg;
+
+#ifdef IWDG_ENABLE
+void kickDog(void)
+{
+	HAL_IWDG_Refresh(&hiwdg);
+}
+#endif
+
 reset_cause_t reset_cause_get(void)
 {
     reset_cause_t reset_cause;

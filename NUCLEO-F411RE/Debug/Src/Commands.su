@@ -9,9 +9,9 @@ Commands.c:85:6:flash_lock_callback	48	static
 Commands.c:135:6:set_SN_callback	24	static
 Commands.c:152:6:get_SN_callback	40	static
 Commands.c:164:6:start_tick_callback	56	static
-Commands.c:187:6:stop_tick_callback	16	static
-Commands.c:196:6:assert_0_callback	16	static
-Commands.c:201:6:clear_assert_flag_callback	16	static
-Commands.c:206:6:lsm6dsl_per_sample_enable_callback	16	static
-Commands.c:211:6:lsm6dsl_fifo_enable_callback	16	static
-Commands.c:216:6:lsm6dsl_disable_callback	16	static
+Commands.c:186:6:stop_tick_callback	16	static
+Commands.c:191:6:assert_0_callback	16	static
+Commands.c:196:6:clear_assert_flag_callback	16	static
+Commands.c:201:6:lsm6dsl_per_sample_enable_callback	16	static
+Commands.c:206:6:lsm6dsl_fifo_enable_callback	16	static
+Commands.c:211:6:lsm6dsl_disable_callback	16	static

@@ -42,7 +42,7 @@
 /* USER CODE BEGIN PD */
 #define UART_TX_DMA
 #define UART_RX_DMA
-#define IWDG_ENABLE
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -83,9 +83,6 @@ static void MX_I2C1_Init(void);
 void uart_rx_ready_command_handler(void);
 void whichCommand(void);
 void uart_print(char* token);
-#ifdef IWDG_ENABLE
-void kickDog(void);
-#endif
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -673,12 +670,6 @@ void uart_print(char* token)
 	s_uart_buffer.tx_busy = true;
 }
 
-#ifdef IWDG_ENABLE
-void kickDog(void)
-{
-	HAL_IWDG_Refresh(&hiwdg);
-}
-#endif
 /* USER CODE END 4 */
 
 /**

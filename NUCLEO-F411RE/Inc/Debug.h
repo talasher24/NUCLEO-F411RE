@@ -9,12 +9,17 @@
 #include "stm32f4xx_hal.h"
 #include <stdbool.h>
 
+#define IWDG_ENABLE
+
 #define ASSERT_FLAG_ON 0xAA
 
 #define ASSERT_FLAG_OFF 0x55
 
 bool int1_occurred;
 
+#ifdef IWDG_ENABLE
+void kickDog(void);
+#endif
 
 typedef struct {
 	char _file [60];

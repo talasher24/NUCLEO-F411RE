@@ -160,12 +160,7 @@ void LSM6DSL_FIFO_Init(void)
 	valOdr = LSM6DSL_FIFO_12Hz5;
 	lsm6dsl_fifo_data_rate_set(&dev_ctx, valOdr);
 
-	/* Set FIFO_FTH on INT1 */
-	lsm6dsl_int1_route_t reg;
-	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
-	//reg.int1_full_flag = PROPERTY_ENABLE;
-	reg.int1_fth = PROPERTY_ENABLE;
-	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+	LSM6DSL_FIFO_Interrupt_Enable();
 
 	/* Set FIFO watermark */
 	uint16_t valWtm;
@@ -308,6 +303,16 @@ void LSM6DSL_FIFO_Set_Bypass_Mode(void)
 	lsm6dsl_fifo_mode_set(&dev_ctx, fifo_mode_t);
 
 	//lsm6dsl_fifo_mode_set(&dev_ctx, LSM6DSL_BYPASS_MODE);
+}
+
+void LSM6DSL_FIFO_Interrupt_Enable(void)
+{
+	/* Set FIFO_FTH on INT1 */
+	lsm6dsl_int1_route_t reg;
+	lsm6dsl_pin_int1_route_get(&dev_ctx, &reg);
+	//reg.int1_full_flag = PROPERTY_ENABLE;
+	reg.int1_fth = PROPERTY_ENABLE;
+	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
 }
 
 void LSM6DSL_FIFO_Interrupt_Disable(void)

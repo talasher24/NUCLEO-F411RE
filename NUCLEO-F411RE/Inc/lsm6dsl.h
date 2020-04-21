@@ -55,6 +55,7 @@ void LSM6DSL_FIFO_Disable(void);
 void LSM6DSL_FIFO_Set_FIFO_Mode(void);
 void LSM6DSL_FIFO_Set_Bypass_Mode(void);
 void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
+void LSM6DSL_FIFO_Interrupt_Enable(void);
 void LSM6DSL_FIFO_Interrupt_Disable(void);
 
 

@@ -17,6 +17,20 @@ typedef union{
   uint8_t u8bit[6];
 } axis3bit16_t;
 
+typedef enum
+{
+    LSM6DSL_MODE_IDLE = 0,
+	LSM6DSL_MODE_PER_SAMPLE = 1,
+	LSM6DSL_MODE_FIFO = 2,
+} lsm6dsl_mode_t;
+
+typedef enum
+{
+    LSM6DSL_CONNECTED = 0,
+	LSM6DSL_DISCONNECTED = 1,
+} lsm6dsl_is_connected_t;
+
+
 axis3bit16_t data_raw_acceleration;
 axis3bit16_t data_raw_angular_rate;
 float acceleration_mg[3];
@@ -38,6 +52,9 @@ axis3bit16_t data_raw_acc_gy_Buf[ACC_GYRO_BUF_BYTES_SIZE];
 float acceleration_g_Sum[3];
 float angular_rate_dps_Sum[3];
 
+lsm6dsl_mode_t lsm6dsl_mode;
+lsm6dsl_is_connected_t lsm6dsl_is_connected;
+
 
 void LSM6DSL_Init (void);
 int32_t LSM6DSL_Write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
@@ -46,17 +63,20 @@ int32_t LSM6DSL_Read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
 void LSM6DSL_Per_Sample_Init(void);
 void LSM6DSL_Per_Sample_Process (void);
 void LSM6DSL_Per_Sample_Disable (void);
-void LSM6DSL_FIFO_Read_All_Data(void);
-void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
 
 void LSM6DSL_FIFO_Init(void);
 void LSM6DSL_FIFO_Process(void);
 void LSM6DSL_FIFO_Disable(void);
+void LSM6DSL_FIFO_Read_All_Data(void);
+void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
+void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
 void LSM6DSL_FIFO_Set_FIFO_Mode(void);
 void LSM6DSL_FIFO_Set_Bypass_Mode(void);
-void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
 void LSM6DSL_FIFO_Interrupt_Enable(void);
 void LSM6DSL_FIFO_Interrupt_Disable(void);
+
+
+void LSM6DSL_Mode_Disable(void);
 
 
 

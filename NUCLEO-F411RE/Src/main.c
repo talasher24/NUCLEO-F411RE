@@ -178,8 +178,16 @@ int main(void)
 	  if (int1_occurred)
 	  {
 		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  LSM6DSL_FIFO_Process();
-		  //LSM6DSL_Per_Sample_Process();
+		  if (lsm6dsl_mode == LSM6DSL_MODE_PER_SAMPLE)
+		  {
+			  LSM6DSL_Per_Sample_Process();
+		  }
+		  else if (lsm6dsl_mode == LSM6DSL_MODE_FIFO)
+		  {
+			  LSM6DSL_FIFO_Process();
+		  }
+
+
 		  int1_occurred = false;
 	  }
   }

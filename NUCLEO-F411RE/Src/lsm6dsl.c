@@ -26,6 +26,8 @@ int32_t LSM6DSL_Read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 
 void LSM6DSL_Init (void)
 {
+	lsm6dsl_is_connected = LSM6DSL_DISCONNECTED;
+
 	/* Initialize mems driver interface */
 	dev_ctx.write_reg = LSM6DSL_Write;
 	dev_ctx.read_reg = LSM6DSL_Read;
@@ -36,7 +38,9 @@ void LSM6DSL_Init (void)
 	lsm6dsl_device_id_get(&dev_ctx, &whoamI);
 	if ( whoamI != LSM6DSL_ID )
 	{
-		while(1); /* device not found */
+		uart_print("lsm6dsl device not found\n");
+		return;
+		//while(1); /* device not found */
 	}
 
 	/* Restore default configuration */
@@ -64,10 +68,26 @@ void LSM6DSL_Init (void)
 
 	/* Gyroscope - filtering chain */
 	lsm6dsl_gy_band_pass_set(&dev_ctx, LSM6DSL_HP_260mHz_LP1_STRONG);
+
+	lsm6dsl_mode = LSM6DSL_MODE_IDLE;
+
+	lsm6dsl_is_connected = LSM6DSL_CONNECTED;
 }
 
 void LSM6DSL_Per_Sample_Init(void)
 {
+
+	if (lsm6dsl_is_connected == LSM6DSL_DISCONNECTED)
+	{
+		uart_print("LSM6DSL is not connected!\n");
+		return;
+	}
+	if (lsm6dsl_mode == LSM6DSL_MODE_FIFO)
+	{
+		uart_print("Need to disable FIFO mode first\n");
+		return;
+	}
+
 	//LSM6DSL_ACC_Set_INT1_DRDY
 	//LSM6DSL_GYRO_Set_INT1_DRDY
 
@@ -83,6 +103,8 @@ void LSM6DSL_Per_Sample_Init(void)
 	reg.int1_drdy_g = PROPERTY_ENABLE;
 
 	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
+
+	lsm6dsl_mode = LSM6DSL_MODE_PER_SAMPLE;
 }
 
 void LSM6DSL_Per_Sample_Process (void)
@@ -106,8 +128,6 @@ void LSM6DSL_Per_Sample_Process (void)
 	  			  acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
 
 	  uart_print(data);
-	  //BufferInit((uint8_t*)data);
-	  //HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
 	}
 	if (reg.status_reg.gda)
 	{
@@ -121,8 +141,6 @@ void LSM6DSL_Per_Sample_Process (void)
 			  angular_rate_mdps[0], angular_rate_mdps[1], angular_rate_mdps[2]);
 
 	  uart_print(data);
-	  //BufferInit((uint8_t*)data);
-	  //HAL_UART_Transmit( &huart2, s_uart_buffer._p_tx_buffer, strlen( (char*)s_uart_buffer._p_tx_buffer ), 1000 );
 	}
 }
 
@@ -140,6 +158,17 @@ void LSM6DSL_Per_Sample_Disable (void)
 
 void LSM6DSL_FIFO_Init(void)
 {
+	if (lsm6dsl_is_connected == LSM6DSL_DISCONNECTED)
+	{
+		uart_print("LSM6DSL is not connected!\n");
+		return;
+	}
+	if (lsm6dsl_mode == LSM6DSL_MODE_PER_SAMPLE)
+	{
+		uart_print("Need to disable PER_SAMPLE mode first\n");
+		return;
+	}
+
 	lsm6dsl_pin_polarity_set(&dev_ctx, LSM6DSL_ACTIVE_LOW);
 
 	/* Set acc&gyro FIFO decimation */
@@ -175,6 +204,8 @@ void LSM6DSL_FIFO_Init(void)
 	lsm6dsl_fifo_stop_on_wtm_set(&dev_ctx, valStopOnWtm);*/
 
 	LSM6DSL_FIFO_Set_FIFO_Mode();
+
+	lsm6dsl_mode = LSM6DSL_MODE_FIFO;
 }
 
 void LSM6DSL_FIFO_Process(void)
@@ -248,6 +279,7 @@ void LSM6DSL_FIFO_Read_All_Data(void)
 		}*/
 	}
 }
+
 void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex)
 {
 	angular_rate_dps_Sum[0] += data_raw_acc_gy_Buf->i16bit[SampleIndex];
@@ -290,8 +322,6 @@ void LSM6DSL_FIFO_Set_FIFO_Mode(void)
 	lsm6dsl_fifo_mode_get(&dev_ctx, &fifo_mode_t);
 	fifo_mode_t = LSM6DSL_FIFO_MODE;
 	lsm6dsl_fifo_mode_set(&dev_ctx, fifo_mode_t);
-
-	//lsm6dsl_fifo_mode_set(&dev_ctx, LSM6DSL_FIFO_MODE);
 }
 
 void LSM6DSL_FIFO_Set_Bypass_Mode(void)
@@ -324,3 +354,9 @@ void LSM6DSL_FIFO_Interrupt_Disable(void)
 	lsm6dsl_pin_int1_route_set(&dev_ctx, reg);
 }
 
+void LSM6DSL_Mode_Disable(void)
+{
+	LSM6DSL_Per_Sample_Disable();
+	LSM6DSL_FIFO_Disable();
+	lsm6dsl_mode = LSM6DSL_MODE_IDLE;
+}

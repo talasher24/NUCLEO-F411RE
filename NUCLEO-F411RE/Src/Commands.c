@@ -210,8 +210,7 @@ void lsm6dsl_fifo_enable_callback(char* token)
 
 void lsm6dsl_disable_callback(char* token)
 {
-	LSM6DSL_Per_Sample_Disable();
-	LSM6DSL_FIFO_Disable();
+	LSM6DSL_Mode_Disable();
 }
 
 void enter_standby_mode_callback(char* token)

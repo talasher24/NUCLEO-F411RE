@@ -4,6 +4,9 @@
 
 extern IWDG_HandleTypeDef hiwdg;
 
+extern void uart_print(char* token);
+
+
 #ifdef IWDG_ENABLE
 void kickDog(void)
 {
@@ -88,4 +91,25 @@ const char * reset_cause_get_name(reset_cause_t reset_cause)
 
     return reset_cause_name;
 }
+
+void enter_sleep_mode(void)
+{
+	  uart_print("Going into SLEEP MODE in 1 second\n");
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	  HAL_Delay(1000);
+
+	  // Enters to sleep mode
+	  HAL_SuspendTick();
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+	  HAL_ResumeTick();
+	  uart_print("WakeUP from SLEEP\n");
+
+	  for (int i=0; i<20; i++)
+	  {
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  HAL_Delay(100);
+	  }
+}
+
 

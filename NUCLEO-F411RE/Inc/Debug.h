@@ -42,5 +42,8 @@ typedef enum reset_cause_t
 reset_cause_t reset_cause_get(void);
 const char * reset_cause_get_name(reset_cause_t reset_cause);
 
+void enter_sleep_mode(void);
+
+
 
 #endif // Debug_H__

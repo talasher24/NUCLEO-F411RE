@@ -1,8 +1,11 @@
 
 #include "Debug.h"
-
+#include "main.h"
 
 extern IWDG_HandleTypeDef hiwdg;
+extern RTC_HandleTypeDef hrtc;
+
+
 
 extern void uart_print(char* token);
 
@@ -110,6 +113,51 @@ void enter_sleep_mode(void)
 		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		  HAL_Delay(100);
 	  }
+}
+
+void enter_standby_mode(void)
+{
+	/* Clear the WU FLAG */
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+
+	 /* clear the RTC Wake UP (WU) flag */
+	 __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc, RTC_FLAG_WUTF);
+
+	 /* Enable the WAKEUP PIN */
+	 HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
+
+	 /* enable the RTC Wakeup */
+	 if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+	 {
+		 Error_Handler();
+	 }
+	 uart_print("STANDBY MODE is ON\n");
+
+	 /* Enter the standby mode */
+	 HAL_PWR_EnterSTANDBYMode();
+}
+
+void wakeup_standby_mode(void)
+{
+	if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
+	{
+		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);  // clear the flag
+
+		uart_print("Wakeup from STANDBY MODE\n");
+
+		/** Blink the LED **/
+		for (int i=0; i<20; i++)
+		{
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  HAL_Delay(200);
+		}
+
+		/** Disable the WWAKEUP PIN **/
+		HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);  // disable PA0
+
+		/** Deactivate the RTC wakeup  **/
+		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	}
 }
 
 

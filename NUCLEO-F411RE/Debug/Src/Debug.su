@@ -1,4 +1,5 @@
-Debug.c:11:6:kickDog	8	static
-Debug.c:17:15:reset_cause_get	16	static
-Debug.c:60:14:reset_cause_get_name	24	static
-Debug.c:95:6:enter_sleep_mode	16	static
+Debug.c:20:15:reset_cause_get	16	static
+Debug.c:63:14:reset_cause_get_name	24	static
+Debug.c:98:6:enter_sleep_mode	16	static
+Debug.c:118:6:enter_standby_mode	8	static
+Debug.c:140:6:wakeup_standby_mode	16	static

@@ -126,6 +126,10 @@ int main(void)
   MX_TIM3_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  wakeup_standby_mode();
+
+
+
 #ifdef IWDG_ENABLE
   MX_IWDG_Init();
 #endif
@@ -159,7 +163,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  enter_sleep_mode();
+	//enter_sleep_mode();
     /* USER CODE BEGIN 3 */
 #ifdef IWDG_ENABLE
 	  kickDog();
@@ -403,15 +407,21 @@ void MX_RTC_Init(void)
   {
     Error_Handler();
   }
+  /** Enable the WakeUp 
+  */
+  /*if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }*/
   /* USER CODE BEGIN RTC_Init 2 */
   HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
-    /*if (HAL_RTCEx_SetSmoothCalib(
-		&hrtc,
-		RTC_SMOOTHCALIB_PERIOD_32SEC,
-		RTC_SMOOTHCALIB_PLUSPULSES_RESET,
-		0x1FFU) != HAL_OK) {
-    		Error_Handler();
-      	}*/
+  /*if (HAL_RTCEx_SetSmoothCalib(
+	&hrtc,
+	RTC_SMOOTHCALIB_PERIOD_32SEC,
+	RTC_SMOOTHCALIB_PLUSPULSES_RESET,
+	0x1FFU) != HAL_OK) {
+		Error_Handler();
+	}*/
   /* USER CODE END RTC_Init 2 */
 
 }

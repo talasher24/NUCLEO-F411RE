@@ -9,7 +9,7 @@
 #include "stm32f4xx_hal.h"
 #include <stdbool.h>
 
-#define IWDG_ENABLE
+//#define IWDG_ENABLE
 
 #define ASSERT_FLAG_ON 0xAA
 
@@ -43,6 +43,9 @@ reset_cause_t reset_cause_get(void);
 const char * reset_cause_get_name(reset_cause_t reset_cause);
 
 void enter_sleep_mode(void);
+void enter_standby_mode(void);
+void wakeup_standby_mode(void);
+
 
 
 

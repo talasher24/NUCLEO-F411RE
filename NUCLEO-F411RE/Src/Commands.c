@@ -213,6 +213,11 @@ void lsm6dsl_disable_callback(char* token)
 	LSM6DSL_Mode_Disable();
 }
 
+void enter_stop_mode_callback(char* token)
+{
+	enter_stop_mode();
+}
+
 void enter_standby_mode_callback(char* token)
 {
 	enter_standby_mode();

@@ -74,7 +74,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_CRC_Init(void);
-void MX_RTC_Init(void);
+static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_IWDG_Init(void);
@@ -127,8 +127,7 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   wakeup_standby_mode();
-
-
+  //enter_stop_mode();
 
 #ifdef IWDG_ENABLE
   MX_IWDG_Init();
@@ -164,9 +163,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	enter_sleep_mode();
-
     /* USER CODE BEGIN 3 */
+	  //enter_sleep_mode();
+
 #ifdef IWDG_ENABLE
 	  kickDog();
 #endif
@@ -186,8 +185,6 @@ int main(void)
 		  {
 			  LSM6DSL_FIFO_Process();
 		  }
-
-
 		  int1_occurred = false;
 	  }
   }
@@ -348,7 +345,7 @@ static void MX_IWDG_Init(void)
   * @param None
   * @retval None
   */
-void MX_RTC_Init(void)
+static void MX_RTC_Init(void)
 {
 
   /* USER CODE BEGIN RTC_Init 0 */
@@ -564,6 +561,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PA5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -581,6 +584,9 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -592,7 +598,11 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
+
+#ifdef UART_TX_DMA
   s_uart_buffer.tx_busy = false;
+#endif
+
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -631,6 +641,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   }
 }
 
+void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
+{
+	wakeup_stop_mode();
+	/*HAL_ResumeTick();
+	SystemClock_Config();*/
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -641,6 +658,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if (GPIO_Pin == GPIO_PIN_5)
   {
 	  int1_occurred = true;
+  }
+  if (GPIO_Pin == GPIO_PIN_13)
+  {
+	  wakeup_stop_mode();
+	  /*HAL_ResumeTick();
+	  SystemClock_Config();*/
   }
 }
 
@@ -679,7 +702,10 @@ void whichCommand (void)
 
 void uart_print(char* token)
 {
+#ifdef UART_TX_DMA
 	while (s_uart_buffer.tx_busy);
+#endif
+
 	memcpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
 
 #ifdef UART_TX_DMA

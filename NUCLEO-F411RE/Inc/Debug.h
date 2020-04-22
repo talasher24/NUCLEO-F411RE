@@ -43,6 +43,10 @@ reset_cause_t reset_cause_get(void);
 const char * reset_cause_get_name(reset_cause_t reset_cause);
 
 void enter_sleep_mode(void);
+
+void enter_stop_mode(void);
+void wakeup_stop_mode(void);
+
 void enter_standby_mode(void);
 void wakeup_standby_mode(void);
 

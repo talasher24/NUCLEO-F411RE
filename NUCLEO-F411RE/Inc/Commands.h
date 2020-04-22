@@ -27,12 +27,13 @@ void clear_assert_flag_callback(char* token);
 void lsm6dsl_per_sample_enable_callback(char* token);
 void lsm6dsl_fifo_enable_callback(char* token);
 void lsm6dsl_disable_callback(char* token);
+void enter_stop_mode_callback(char* token);
 void enter_standby_mode_callback(char* token);
 
 
 /*------------Commands------------*/
 
-#define NUM_OF_COMMANDS 18
+#define NUM_OF_COMMANDS 19
 
 #define PING_COMMAND_NAME "ping\n"
 
@@ -68,6 +69,8 @@ void enter_standby_mode_callback(char* token);
 
 #define LSM6DSL_DISABLE "lsm6dsl_disable\n"
 
+#define ENTER_STOP_MODE "enter_stop_mode\n"
+
 #define ENTER_STANDBY_MODE "enter_standby_mode\n"
 
 
@@ -98,6 +101,7 @@ static const command commands [NUM_OF_COMMANDS] = {
 		{LSM6DSL_PER_SAMPLE_ENABLE, 	sizeof(LSM6DSL_PER_SAMPLE_ENABLE), 	lsm6dsl_per_sample_enable_callback	},
 		{LSM6DSL_FIFO_ENABLE, 			sizeof(LSM6DSL_FIFO_ENABLE), 		lsm6dsl_fifo_enable_callback		},
 		{LSM6DSL_DISABLE, 				sizeof(LSM6DSL_DISABLE), 			lsm6dsl_disable_callback			},
+		{ENTER_STOP_MODE, 				sizeof(ENTER_STOP_MODE), 			enter_stop_mode_callback			},
 		{ENTER_STANDBY_MODE, 			sizeof(ENTER_STANDBY_MODE), 		enter_standby_mode_callback			}
 };
 

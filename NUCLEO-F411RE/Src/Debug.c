@@ -1,13 +1,23 @@
 
 
-#include "main.h"
-#include "Debug.h"
-#include "Buffer.h"
+#include <Buffer.h>
+#include <Debug.h>
+#include <main.h>
+#include <stm32f411xe.h>
+#include <stm32f4xx.h>
+#include <stm32f4xx_hal_def.h>
+#include <stm32f4xx_hal_gpio.h>
+#include <stm32f4xx_hal_iwdg.h>
+#include <stm32f4xx_hal_pwr.h>
+#include <stm32f4xx_hal_rcc.h>
+#include <stm32f4xx_hal_rtc.h>
+#include <stm32f4xx_hal_rtc_ex.h>
 
 
 
 extern IWDG_HandleTypeDef hiwdg;
 extern RTC_HandleTypeDef hrtc;
+extern void SystemClock_Config(void);
 
 extern s_Buff s_uart_buffer;
 
@@ -113,6 +123,54 @@ void enter_sleep_mode(void)
 	//uart_print("WakeUP from SLEEP\n");
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	//while (s_uart_buffer.tx_busy);
+}
+
+void enter_stop_mode(void)
+{
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	//uart_print("STOP MODE is ON\n");
+
+	/* enable the RTC Wakeup */
+	if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+	// Enters to stop mode
+	while (s_uart_buffer.tx_busy);
+	HAL_SuspendTick();
+	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+
+	SystemClock_Config();
+	HAL_ResumeTick();
+
+	/** Deactivate the RTC wakeup  **/
+		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	//uart_print("STOP MODE is OFF\n");
+
+}
+
+void wakeup_stop_mode(void)
+{
+	SystemClock_Config();
+	HAL_ResumeTick();
+
+	/** Deactivate the RTC wakeup  **/
+		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
+
+	//SystemClock_Config();
+	//HAL_ResumeTick();
+
+	/** Deactivate the RTC wakeup  **/
+	//HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+
+
 }
 
 void enter_standby_mode(void)

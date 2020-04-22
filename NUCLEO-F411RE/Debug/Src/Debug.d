@@ -1,4 +1,4 @@
-Src/Debug.o: ../Src/Debug.c ../Inc/main.h \
+Src/Debug.o: ../Src/Debug.c ../Inc/Buffer.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -33,9 +33,11 @@ Src/Debug.o: ../Src/Debug.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/Debug.h \
- ../Inc/Buffer.h
+ ../Inc/main.h ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 
-../Inc/main.h:
+../Inc/Buffer.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -107,4 +109,10 @@ Src/Debug.o: ../Src/Debug.c ../Inc/main.h \
 
 ../Inc/Debug.h:
 
-../Inc/Buffer.h:
+../Inc/main.h:
+
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:

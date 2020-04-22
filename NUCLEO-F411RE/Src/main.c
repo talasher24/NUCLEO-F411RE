@@ -127,7 +127,7 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   wakeup_standby_mode();
-  //enter_stop_mode();
+
 
 #ifdef IWDG_ENABLE
   MX_IWDG_Init();
@@ -164,7 +164,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  //enter_sleep_mode();
+	  enter_sleep_mode();
 
 #ifdef IWDG_ENABLE
 	  kickDog();
@@ -693,8 +693,8 @@ void whichCommand (void)
 	{
 		if (strncmp(token, commands[i]._name, commands[i]._size)==0)
 		{
-			commands[i].func_ptr(token);
 			uart_print(OK);
+			commands[i].func_ptr(token);
 			return;
 		}
 	}

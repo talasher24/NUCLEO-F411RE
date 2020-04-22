@@ -111,7 +111,7 @@ const char * reset_cause_get_name(reset_cause_t reset_cause)
 
 void enter_sleep_mode(void)
 {
-	//uart_print("Going into SLEEP MODE\n");
+	//uart_print("SLEEP MODE is ON\n");
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 	while (s_uart_buffer.tx_busy);
 
@@ -120,7 +120,7 @@ void enter_sleep_mode(void)
 	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 	HAL_ResumeTick();
 
-	//uart_print("WakeUP from SLEEP\n");
+	//uart_print("SLEEP MODE is OFF\n");
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	//while (s_uart_buffer.tx_busy);
 }
@@ -128,8 +128,8 @@ void enter_sleep_mode(void)
 void enter_stop_mode(void)
 {
 
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	//uart_print("STOP MODE is ON\n");
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	uart_print("STOP MODE is ON\n");
 
 	/* enable the RTC Wakeup */
 	if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
@@ -146,10 +146,10 @@ void enter_stop_mode(void)
 	HAL_ResumeTick();
 
 	/** Deactivate the RTC wakeup  **/
-		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	//uart_print("STOP MODE is OFF\n");
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	uart_print("STOP MODE is OFF\n");
 
 }
 
@@ -174,6 +174,15 @@ void enter_standby_mode(void)
 	 HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
 
 	 /* enable the RTC Wakeup */
+	    /*  RTC Wake-up Interrupt Generation:
+	      Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
+	      ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
+
+	      To configure the wake up timer to 5s the WakeUpCounter is set to 0x2710:
+	      RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
+	      Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
+	      ==> WakeUpCounter = ~5s/0.0005s = 20000 = 0x2710
+	    */
 	 if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
 	 {
 		 Error_Handler();

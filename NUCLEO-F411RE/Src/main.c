@@ -643,7 +643,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 {
-	wakeup_stop_mode();
+	//wakeup_stop_mode();
 	/*HAL_ResumeTick();
 	SystemClock_Config();*/
 }
@@ -661,7 +661,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
   if (GPIO_Pin == GPIO_PIN_13)
   {
-	  wakeup_stop_mode();
+	  //wakeup_stop_mode();
 	  /*HAL_ResumeTick();
 	  SystemClock_Config();*/
   }

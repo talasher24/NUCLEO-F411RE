@@ -159,18 +159,7 @@ void wakeup_stop_mode(void)
 	HAL_ResumeTick();
 
 	/** Deactivate the RTC wakeup  **/
-		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
-
-	//SystemClock_Config();
-	//HAL_ResumeTick();
-
-	/** Deactivate the RTC wakeup  **/
-	//HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-
-
+	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 }
 
 void enter_standby_mode(void)

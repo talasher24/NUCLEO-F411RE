@@ -33,7 +33,26 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "crc.h"
+#include "dma.h"
+#include "i2c.h"
+#include "iwdg.h"
+#include "rtc.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include "Flash.h"
+#include "lsm6dsl.h"
+#include "Types.h"
+#include "COM.h"
+#include "Commands.h"
+#include "Debug.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

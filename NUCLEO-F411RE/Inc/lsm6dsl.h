@@ -1,83 +1,56 @@
+/*
+ * LSM6DSL.h
+ *
+ *  Created on: Mar 26, 2020
+ *      Author: Tal Asher
+ */
 
 #ifndef MY_LSM6DSL_H
-
 #define MY_LSM6DSL_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
-#include "stm32f4xx_hal.h"
+/* Includes ------------------------------------------------------------------*/
 
+/* USER CODE BEGIN Includes */
 
-#include "lsm6dsl_reg.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdbool.h>
+/* USER CODE END Includes */
 
+/* USER CODE BEGIN Private defines */
 
-typedef union{
-  int16_t i16bit[3];
-  uint8_t u8bit[6];
-} axis3bit16_t;
+/* USER CODE END Private defines */
 
-typedef enum
-{
-    LSM6DSL_MODE_IDLE = 0,
-	LSM6DSL_MODE_PER_SAMPLE = 1,
-	LSM6DSL_MODE_FIFO = 2,
-} lsm6dsl_mode_t;
+/* USER CODE BEGIN Prototypes */
 
-typedef enum
-{
-    LSM6DSL_CONNECTED = 0,
-	LSM6DSL_DISCONNECTED = 1,
-} lsm6dsl_is_connected_t;
+ void LSM6DSL_ProcessHanlder(void);
 
+ void LSM6DSL_init (void);
+ int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+ int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
 
-axis3bit16_t data_raw_acceleration;
-axis3bit16_t data_raw_angular_rate;
-float acceleration_mg[3];
-float angular_rate_mdps[3];
-uint8_t whoamI, rst;
-bool int1_occurred;
+ void LSM6DSL_perSampleInit(void);
+ void LSM6DSL_perSampleProcess (void);
+ void LSM6DSL_perSampleDisable (void);
 
-#define SAMPLES_TO_READ 								10
-#define FIFO_SAMPLE_TO_BYTE_RATIO						2
-#define ACC_SINGLE_FIFO_SAMPLE 							3
-#define GYRO_SINGLE_FIFO_SAMPLE 						3
-#define ACC_AND_GYRO_SINGLE_FIFO_SAMPLE 				(ACC_SINGLE_FIFO_SAMPLE + GYRO_SINGLE_FIFO_SAMPLE)
-#define ACC_AND_GYRO_FIFO_WATERMARK   					(SAMPLES_TO_READ * ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
-#define ACC_GYRO_BUF_BYTES_SIZE 						(ACC_AND_GYRO_FIFO_WATERMARK * FIFO_SAMPLE_TO_BYTE_RATIO)
+ void LSM6DSL_FIFO_Init(void);
+ void LSM6DSL_FIFO_Process(void);
+ void LSM6DSL_FIFO_Disable(void);
+ void LSM6DSL_FIFO_Read_All_Data(void);
+ void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
+ void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
+ void LSM6DSL_FIFO_Set_FIFO_Mode(void);
+ void LSM6DSL_FIFO_Set_Bypass_Mode(void);
+ void LSM6DSL_FIFO_Interrupt_Enable(void);
+ void LSM6DSL_FIFO_Interrupt_Disable(void);
+ void LSM6DSL_Mode_Disable(void);
 
+ bool LSM6DSL_getInterruptFlag(void);
+ void LSM6DSL_setInterruptFlagOn(void);
+ void LSM6DSL_setInterruptFlagOff(void);
+/* USER CODE END Prototypes */
 
-axis3bit16_t data_raw_acc_gy_Buf[ACC_GYRO_BUF_BYTES_SIZE];
-
-float acceleration_g_Sum[3];
-float angular_rate_dps_Sum[3];
-
-
-
-void LSM6DSL_ProcessHanlder(void);
-
-void LSM6DSL_init (void);
-int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
-int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
-
-void LSM6DSL_perSampleInit(void);
-void LSM6DSL_perSampleProcess (void);
-void LSM6DSL_perSampleDisable (void);
-
-void LSM6DSL_FIFO_Init(void);
-void LSM6DSL_FIFO_Process(void);
-void LSM6DSL_FIFO_Disable(void);
-void LSM6DSL_FIFO_Read_All_Data(void);
-void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
-void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
-void LSM6DSL_FIFO_Set_FIFO_Mode(void);
-void LSM6DSL_FIFO_Set_Bypass_Mode(void);
-void LSM6DSL_FIFO_Interrupt_Enable(void);
-void LSM6DSL_FIFO_Interrupt_Disable(void);
-
-
-void LSM6DSL_Mode_Disable(void);
-
-
-
+#ifdef __cplusplus
+}
+#endif
 #endif // MY_LSM6DSL_H

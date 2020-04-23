@@ -1,37 +1,40 @@
+/*
+ * Com.h
+ *
+ *  Created on: Mar 26, 2020
+ *      Author: Tal Asher
+ */
+
 #ifndef COM_H
-
 #define COM_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
-#include "stm32f4xx_hal.h"
-#include <stdbool.h>
+/* Includes ------------------------------------------------------------------*/
 
-#define BUFFER_SIZE 100
+/* USER CODE BEGIN Includes */
 
-typedef struct {
-	uint8_t _p_rx_buffer[BUFFER_SIZE];
-	uint8_t _rx_index;
-	uint8_t _rx_single_char;
-	bool _rx_ready_command;
-	uint8_t _p_tx_buffer[BUFFER_SIZE];
-	bool tx_busy;
-}s_Buff;
+/* USER CODE END Includes */
 
+/* USER CODE BEGIN Private defines */
 
-void readyCommandProcess(void);
-void COM_whichCommand(void);
-void uartPrint(char* token);
+/* USER CODE END Private defines */
 
+/* USER CODE BEGIN Prototypes */
 
-void halUartReceiveDma(void);
-void txBusyFlagEnable(void);
-void txBusyFlagDisable(void);
-bool getTxBusyFlag(void);
+ bool getReadyCommandFlag(void);
+ void readyCommandProcess(void);
+ void uartPrint(char* token);
+ void halUartReceiveDma(void);
+ void charHandler(void);
+ void setTxBusyFlagOff(void);
+ bool getTxBusyFlag(void);
 
-
-void charHandler(void);
-
-void bufferInit(uint8_t* rxBuffer);
-
-
-
+/* USER CODE END Prototypes */
+#ifdef __cplusplus
+}
+#endif
 #endif // COM_H
+
+

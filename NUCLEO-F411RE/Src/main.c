@@ -31,14 +31,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
-#include <stdio.h>
-#include <Flash.h>
-#include <lsm6dsl.h>
-#include "Types.h"
-#include "COM.h"
-#include "Commands.h"
-#include "Debug.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -143,13 +136,16 @@ int main(void)
 	  kickDog();
 #endif
 
-	  readyCommandProcess();
+	if (getReadyCommandFlag())
+	{
+		readyCommandProcess();
+	}
 
-	  if (int1_occurred)
-	  {
-		  LSM6DSL_ProcessHanlder();
-		  int1_occurred = false;
-	  }
+	if (LSM6DSL_getInterruptFlag())
+	{
+		LSM6DSL_ProcessHanlder();
+		LSM6DSL_setInterruptFlagOff();
+	}
   }
   /* USER CODE END 3 */
 }
@@ -216,7 +212,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
-  txBusyFlagDisable();
+  setTxBusyFlagOff();
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -242,11 +238,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
    */
   if (GPIO_Pin == GPIO_PIN_5)
   {
-	  int1_occurred = true;
-  }
-  if (GPIO_Pin == GPIO_PIN_13)
-  {
-
+	  LSM6DSL_setInterruptFlagOn();
   }
 }
 
@@ -259,8 +251,6 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
    */
   uartPrint(TICK);
 }
-
-
 
 /* USER CODE END 4 */
 

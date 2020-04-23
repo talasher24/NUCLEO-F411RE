@@ -1,12 +1,63 @@
+/*
+ * LSM6DSL.c
+ *
+ *  Created on: Apr 5, 2020
+ *      Author: ADMIN
+ */
 
-
-#include <lsm6dsl.h>
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "main.h"
+#include <lsm6dsl.h>
+#include "lsm6dsl_reg.h"
+/******************************************************************************
+* Module Preprocessor Constants
+*******************************************************************************/
+#define SAMPLES_TO_READ 								10
+#define FIFO_SAMPLE_TO_BYTE_RATIO						2
+#define ACC_SINGLE_FIFO_SAMPLE 							3
+#define GYRO_SINGLE_FIFO_SAMPLE 						3
+#define ACC_AND_GYRO_SINGLE_FIFO_SAMPLE 				(ACC_SINGLE_FIFO_SAMPLE + GYRO_SINGLE_FIFO_SAMPLE)
+#define ACC_AND_GYRO_FIFO_WATERMARK   					(SAMPLES_TO_READ * ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
+#define ACC_GYRO_BUF_BYTES_SIZE 						(ACC_AND_GYRO_FIFO_WATERMARK * FIFO_SAMPLE_TO_BYTE_RATIO)
+/******************************************************************************
+* Module Preprocessor Macros
+*******************************************************************************/
 
-#include "COM.h"
-#include "i2c.h"
-#include "usart.h"
+/******************************************************************************
+* Module Typedefs
+*******************************************************************************/
+typedef union{
+  int16_t i16bit[3];
+  uint8_t u8bit[6];
+} axis3bit16_t;
 
+typedef enum
+{
+    LSM6DSL_MODE_IDLE = 0,
+	LSM6DSL_MODE_PER_SAMPLE = 1,
+	LSM6DSL_MODE_FIFO = 2,
+} lsm6dsl_mode_t;
+
+typedef enum
+{
+    LSM6DSL_CONNECTED = 0,
+	LSM6DSL_DISCONNECTED = 1,
+} lsm6dsl_is_connected_t;
+/******************************************************************************
+* Module Variable Definitions
+*******************************************************************************/
+axis3bit16_t data_raw_acceleration;
+axis3bit16_t data_raw_angular_rate;
+float acceleration_mg[3];
+float angular_rate_mdps[3];
+uint8_t whoamI, rst;
+
+axis3bit16_t data_raw_acc_gy_Buf[ACC_GYRO_BUF_BYTES_SIZE];
+
+float acceleration_g_Sum[3];
+float angular_rate_dps_Sum[3];
 
 static stmdev_ctx_t dev_ctx;
 char data[100];
@@ -14,6 +65,14 @@ char data[100];
 lsm6dsl_mode_t lsm6dsl_mode;
 lsm6dsl_is_connected_t lsm6dsl_is_connected;
 
+static bool interrup_flag;
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
+
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
 void LSM6DSL_ProcessHanlder(void)
 {
 	if (lsm6dsl_mode == LSM6DSL_MODE_PER_SAMPLE)
@@ -351,4 +410,19 @@ void LSM6DSL_Mode_Disable(void)
 	LSM6DSL_perSampleDisable();
 	LSM6DSL_FIFO_Disable();
 	lsm6dsl_mode = LSM6DSL_MODE_IDLE;
+}
+
+bool LSM6DSL_getInterruptFlag(void)
+{
+	return interrup_flag;
+}
+
+void LSM6DSL_setInterruptFlagOn(void)
+{
+	interrup_flag = true;
+}
+
+void LSM6DSL_setInterruptFlagOff(void)
+{
+	interrup_flag = false;
 }

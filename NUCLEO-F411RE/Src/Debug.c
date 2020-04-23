@@ -1,24 +1,58 @@
+/*
+ * Debug.c
+ *
+ *  Created on: Apr 5, 2020
+ *      Author: ADMIN
+ */
 
-
-#include <string.h>
-#include <stdio.h>
-
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include <main.h>
-
 #include "Debug.h"
-#include "COM.h"
-#include "rtc.h"
+/******************************************************************************
+* Module Preprocessor Constants
+*******************************************************************************/
+#define ASSERT_FLAG_ON 0xAA
+#define ASSERT_FLAG_OFF 0x55
+/******************************************************************************
+* Module Preprocessor Macros
+*******************************************************************************/
 
-
-
-
+/******************************************************************************
+* Module Typedefs
+*******************************************************************************/
 extern void SystemClock_Config(void);
+typedef enum reset_cause_t
+{
+    RESET_CAUSE_UNKNOWN = 0,
+    RESET_CAUSE_LOW_POWER_RESET,
+    RESET_CAUSE_WINDOW_WATCHDOG_RESET,
+    RESET_CAUSE_INDEPENDENT_WATCHDOG_RESET,
+    RESET_CAUSE_SOFTWARE_RESET,
+    RESET_CAUSE_POWER_ON_POWER_DOWN_RESET,
+    RESET_CAUSE_EXTERNAL_RESET_PIN_RESET,
+    RESET_CAUSE_BROWNOUT_RESET,
+} reset_cause_t;
 
-
+typedef struct {
+	char _file [60];
+	uint32_t _line;
+	uint8_t flag;
+}assert_struct;
+/******************************************************************************
+* Module Variable Definitions
+*******************************************************************************/
 static reset_cause_t reset_cause;
 __attribute__((section(".noinit"))) static assert_struct s_assert_struct;
-
-
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
+reset_cause_t resetCauseGet(void);
+const char * resetCauseGetName(reset_cause_t reset_cause);
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
 void assertRecord(uint8_t *file, uint32_t line)
 {
 	s_assert_struct.flag = ASSERT_FLAG_ON;
@@ -50,7 +84,6 @@ void assertResetFlag(void)
 	s_assert_struct.flag = ASSERT_FLAG_OFF;
 }
 
-
 void printResetCause(void)
 {
 	reset_cause = resetCauseGet();
@@ -59,7 +92,6 @@ void printResetCause(void)
 	sprintf(temp, "The system reset cause is \%s\"\n", resetCauseGetName(reset_cause));
 	uartPrint(temp);
 }
-
 
 reset_cause_t resetCauseGet(void)
 {
@@ -102,7 +134,6 @@ reset_cause_t resetCauseGet(void)
 
     return reset_cause;
 }
-
 
 const char * resetCauseGetName(reset_cause_t reset_cause)
 {
@@ -177,15 +208,6 @@ void enterStopMode(void)
 	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	uartPrint("STOP MODE is OFF\n");
 
-}
-
-void wakeupStopMode(void)
-{
-	SystemClock_Config();
-	HAL_ResumeTick();
-
-	/** Deactivate the RTC wakeup  **/
-	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 }
 
 void enterStandbyMode(void)

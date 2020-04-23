@@ -30,6 +30,7 @@ void assertRecord(uint8_t *file, uint32_t line)
 	strncpy((char*)s_assert_struct._file, (char*)file, sizeof(s_assert_struct._file));
 	s_assert_struct._line = line;
 
+	while (getTxBusyFlag()); // OK message
 	NVIC_SystemReset();
 	while (1) {}; // never reached to here
 }

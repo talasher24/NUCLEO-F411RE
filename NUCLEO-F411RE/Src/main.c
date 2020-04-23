@@ -109,6 +109,8 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
+  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+
   wakeupStandbyMode();
 
 

@@ -1,36 +1,50 @@
 
 
 #include <lsm6dsl.h>
-#include "Buffer.h"
+#include "main.h"
+
+#include "COM.h"
+#include "i2c.h"
+#include "usart.h"
 
 
-extern I2C_HandleTypeDef hi2c1;
-extern UART_HandleTypeDef huart2;
-extern void uart_print(char* token);
-extern s_Buff s_uart_buffer;
-
-stmdev_ctx_t dev_ctx;
+static stmdev_ctx_t dev_ctx;
 char data[100];
 
-int32_t LSM6DSL_Write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+lsm6dsl_mode_t lsm6dsl_mode;
+lsm6dsl_is_connected_t lsm6dsl_is_connected;
+
+void LSM6DSL_ProcessHanlder(void)
+{
+	if (lsm6dsl_mode == LSM6DSL_MODE_PER_SAMPLE)
+	{
+		LSM6DSL_perSampleProcess();
+	}
+	else if (lsm6dsl_mode == LSM6DSL_MODE_FIFO)
+	{
+		LSM6DSL_FIFO_Process();
+	}
+}
+
+int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 {
     HAL_I2C_Mem_Write(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
     return 0;
 }
 
-int32_t LSM6DSL_Read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 {
 	HAL_I2C_Mem_Read(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
 	return 0;
 }
 
-void LSM6DSL_Init (void)
+void LSM6DSL_init (void)
 {
 	lsm6dsl_is_connected = LSM6DSL_DISCONNECTED;
 
 	/* Initialize mems driver interface */
-	dev_ctx.write_reg = LSM6DSL_Write;
-	dev_ctx.read_reg = LSM6DSL_Read;
+	dev_ctx.write_reg = LSM6DSL_write;
+	dev_ctx.read_reg = LSM6DSL_read;
 	dev_ctx.handle = &hi2c1;
 
 	/* Check device ID */
@@ -38,7 +52,7 @@ void LSM6DSL_Init (void)
 	lsm6dsl_device_id_get(&dev_ctx, &whoamI);
 	if ( whoamI != LSM6DSL_ID )
 	{
-		uart_print("lsm6dsl device not found\n");
+		uartPrint("lsm6dsl device not found\n");
 		return;
 		//while(1); /* device not found */
 	}
@@ -74,17 +88,17 @@ void LSM6DSL_Init (void)
 	lsm6dsl_is_connected = LSM6DSL_CONNECTED;
 }
 
-void LSM6DSL_Per_Sample_Init(void)
+void LSM6DSL_perSampleInit(void)
 {
 
 	if (lsm6dsl_is_connected == LSM6DSL_DISCONNECTED)
 	{
-		uart_print("LSM6DSL is not connected!\n");
+		uartPrint("LSM6DSL is not connected!\n");
 		return;
 	}
 	if (lsm6dsl_mode == LSM6DSL_MODE_FIFO)
 	{
-		uart_print("Need to disable FIFO mode first\n");
+		uartPrint("Need to disable FIFO mode first\n");
 		return;
 	}
 
@@ -107,7 +121,7 @@ void LSM6DSL_Per_Sample_Init(void)
 	lsm6dsl_mode = LSM6DSL_MODE_PER_SAMPLE;
 }
 
-void LSM6DSL_Per_Sample_Process (void)
+void LSM6DSL_perSampleProcess (void)
 {
 	/*
 	 * Read output only if new value is available
@@ -127,7 +141,7 @@ void LSM6DSL_Per_Sample_Process (void)
 	  sprintf(data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
 	  			  acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
 
-	  uart_print(data);
+	  uartPrint(data);
 	}
 	if (reg.status_reg.gda)
 	{
@@ -140,11 +154,11 @@ void LSM6DSL_Per_Sample_Process (void)
 	  sprintf(data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
 			  angular_rate_mdps[0], angular_rate_mdps[1], angular_rate_mdps[2]);
 
-	  uart_print(data);
+	  uartPrint(data);
 	}
 }
 
-void LSM6DSL_Per_Sample_Disable (void)
+void LSM6DSL_perSampleDisable (void)
 {
 	lsm6dsl_int1_route_t reg;
 
@@ -160,12 +174,12 @@ void LSM6DSL_FIFO_Init(void)
 {
 	if (lsm6dsl_is_connected == LSM6DSL_DISCONNECTED)
 	{
-		uart_print("LSM6DSL is not connected!\n");
+		uartPrint("LSM6DSL is not connected!\n");
 		return;
 	}
 	if (lsm6dsl_mode == LSM6DSL_MODE_PER_SAMPLE)
 	{
-		uart_print("Need to disable PER_SAMPLE mode first\n");
+		uartPrint("Need to disable PER_SAMPLE mode first\n");
 		return;
 	}
 
@@ -234,7 +248,7 @@ void LSM6DSL_FIFO_Read_All_Data(void)
 
 	uint16_t unread_acc_and_gyro_samples = unread_int16_fifo_samples / ACC_AND_GYRO_SINGLE_FIFO_SAMPLE;
 	sprintf(data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
-	uart_print(data);
+	uartPrint(data);
 
 	while (unread_acc_and_gyro_samples > 0)
 	{
@@ -255,28 +269,6 @@ void LSM6DSL_FIFO_Read_All_Data(void)
 		}
 		LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(unread_acc_and_gyro_samples_cycle);
 		unread_acc_and_gyro_samples -= unread_acc_and_gyro_samples_cycle;
-
-
-		/*if ((unread_int16_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE) >= SAMPLES_TO_READ) 		// reading 10 GYRO & ACC samples each
-		{
-			lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, ACC_GYRO_BUF_BYTES_SIZE);
-			for (int i = 0; i < ACC_AND_GYRO_FIFO_WATERMARK; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
-			{
-				LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(i);
-			}
-			LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(SAMPLES_TO_READ);
-			unread_int16_fifo_samples -= ACC_AND_GYRO_FIFO_WATERMARK;
-		}
-		else 																				//reading less than 10 GYRO & ACC samples each
-		{ 	//should be an if condition to ensure that unread_int16_fifo_samples is grater than 6
-			lsm6dsl_fifo_raw_data_get(&dev_ctx, data_raw_acc_gy_Buf->u8bit, unread_int16_fifo_samples * FIFO_SAMPLE_TO_BYTE_RATIO);
-			for (int i = 0; i < unread_int16_fifo_samples; i = i + ACC_AND_GYRO_SINGLE_FIFO_SAMPLE)
-			{
-				LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(i);
-			}
-			LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(unread_int16_fifo_samples/ACC_AND_GYRO_SINGLE_FIFO_SAMPLE);
-			unread_int16_fifo_samples = 0;
-		}*/
 	}
 }
 
@@ -294,7 +286,7 @@ void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex)
 void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider)
 {
 	sprintf(data, "%d samples average:\n", divider);
-	uart_print(data);
+	uartPrint(data);
 
 	acceleration_g_Sum[0] = lsm6dsl_from_fs8g_to_mg( acceleration_g_Sum[0] / divider )/1000;
 	acceleration_g_Sum[1] = lsm6dsl_from_fs8g_to_mg( acceleration_g_Sum[1] / divider )/1000;
@@ -303,7 +295,7 @@ void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider)
 	sprintf(data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
 			acceleration_g_Sum[0], acceleration_g_Sum[1], acceleration_g_Sum[2]);
 
-	uart_print(data);
+	uartPrint(data);
 
 	angular_rate_dps_Sum[0] = lsm6dsl_from_fs500dps_to_mdps( angular_rate_dps_Sum[0] / divider )/1000;
 	angular_rate_dps_Sum[1] = lsm6dsl_from_fs500dps_to_mdps( angular_rate_dps_Sum[1] / divider )/1000;
@@ -312,7 +304,7 @@ void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider)
 	sprintf(data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
 				angular_rate_dps_Sum[0], angular_rate_dps_Sum[1], angular_rate_dps_Sum[2]);
 
-	uart_print(data);
+	uartPrint(data);
 }
 
 void LSM6DSL_FIFO_Set_FIFO_Mode(void)
@@ -356,7 +348,7 @@ void LSM6DSL_FIFO_Interrupt_Disable(void)
 
 void LSM6DSL_Mode_Disable(void)
 {
-	LSM6DSL_Per_Sample_Disable();
+	LSM6DSL_perSampleDisable();
 	LSM6DSL_FIFO_Disable();
 	lsm6dsl_mode = LSM6DSL_MODE_IDLE;
 }

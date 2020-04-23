@@ -5,52 +5,45 @@
  *      Author: ADMIN
  */
 
+
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include "main.h"
-#include <Flash.h>
-#include <lsm6dsl.h>
+#include "Com.h"
+#include "Flash.h"
+#include "lsm6dsl.h"
 #include "Commands.h"
-#include "Buffer.h"
 #include "Types.h"
 #include "Debug.h"
+#include "crc.h"
+#include "rtc.h"
+#include "tim.h"
 
 
- extern TIM_HandleTypeDef htim3;
- extern CRC_HandleTypeDef hcrc;
- extern RTC_HandleTypeDef hrtc;
-
- extern void MX_RTC_Init(void);
- extern void uart_print(char* token);
- extern s_Buff s_uart_buffer;
- extern assert_struct s_assert_struct;
- extern stmdev_ctx_t dev_ctx;
-
-
-
-void ping_callBack(char* token)
+void pingCallback(char* token)
 {
-	uart_print(token);
+	uartPrint(token);
 }
 
-void get_version_callback(char* token)
+void getVersionCallback(char* token)
 {
-	uart_print(VERSION);
+	uartPrint(VERSION);
 }
 
-void pwm_start_callback(char* token)
+void pwmStartCallback(char* token)
 {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 }
 
-void pwm_stop_callback(char* token)
+void pwmStopCallback(char* token)
 {
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
 }
 
-void pwm_dc_callback(char* token)
+void pwmDcCallback(char* token)
 {
 	token = strtok(NULL, " ");
 	if(strlen(token) <= 0)
@@ -63,7 +56,7 @@ void pwm_dc_callback(char* token)
 	htim3.Instance->CCR1 = dc;
 }
 
-void crc_whole_flash_calc_callback(char* token)
+void crcWholeFlashCalcCallback(char* token)
 {
 	char temp [9];
 	uint32_t crcFlashResult;
@@ -73,16 +66,17 @@ void crc_whole_flash_calc_callback(char* token)
 	crcFlashResult = HAL_CRC_Calculate(&hcrc, p_flash_start_address, flashSize);
 
 	sprintf(temp, "%x\n", (unsigned int)crcFlashResult);
-	uart_print(temp);
+	uartPrint(temp);
 }
 
-void iwdg_test_callback(char* token)
+void iwdgTestCallback(char* token)
 {
-	uart_print(OK);
+#ifdef IWDG_ENABLE
 	while(1);
+#endif
 }
 
-void flash_lock_callback(char* token)
+void flashLockCallback(char* token)
 {
 
 	/*RDP protects the whole internal flash from reading from outside, via debugger interface.
@@ -125,43 +119,43 @@ void flash_lock_callback(char* token)
 		/*
 		//DEBUG - use for writing data to flash
 		uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
-		MY_FLASH_SetSectorAddrs(7, sector_7_addr);
+		flashSetSectorAddress(7, sector_7_addr);
 		uint32_t myTestWrite[1] = {0xDEADBEEF}; 		//0xFFFFFFFF, 0xDEADBEEF
-		MY_FLASH_WriteN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
+		flashWriteN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
 		*/
 	}
 }
 
-void set_SN_callback(char* token)
+void setSNCallback(char* token)
 {
-	/*if (WRP_sector_disable() != HAL_OK)
+	/*if (flashWrpSectorDisable() != HAL_OK)
 	{
 		Error_Handler();
 	}*/
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
-	MY_FLASH_SetSectorAddrs(7, sector_7_addr);
+	flashSetSectorAddress(7, sector_7_addr);
 	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
-	MY_FLASH_WriteN(0, myTestWrite, 1, DATA_TYPE_32);
+	flashWriteN(0, myTestWrite, 1, DATA_TYPE_32);
 
-	/*if (WRP_sector_enable() != HAL_OK)
+	/*if (flashWrpSectorEnable() != HAL_OK)
 	{
 		Error_Handler();
 	}*/
 }
 
-void get_SN_callback(char* token)
+void getSNCallback(char* token)
 {
 	char temp [9];
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
-	MY_FLASH_SetSectorAddrs(7, sector_7_addr);
+	flashSetSectorAddress(7, sector_7_addr);
 	uint32_t myTestRead[1];
-	MY_FLASH_ReadN(0, myTestRead, 1, DATA_TYPE_32);
+	flashReadN(0, myTestRead, 1, DATA_TYPE_32);
 
 	sprintf(temp, "%x\n", (unsigned int)myTestRead[0]);
-	uart_print(temp);
+	uartPrint(temp);
 }
 
-void start_tick_callback(char* token)
+void startTickCallback(char* token)
 {
 	RTC_AlarmTypeDef sAlarm = {0};
 	  /** Enable the Alarm A
@@ -183,43 +177,43 @@ void start_tick_callback(char* token)
 	  }
 }
 
-void stop_tick_callback(char* token)
+void stopTickCallback(char* token)
 {
 	HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
 }
 
-void assert_0_callback(char* token)
+void assert0Callback(char* token)
 {
 	assert_param(0);
 }
 
-void clear_assert_flag_callback(char* token)
+void clearAssertFlagCallback(char* token)
 {
-	s_assert_struct.flag = ASSERT_FLAG_OFF;
+	assertResetFlag();
 }
 
-void lsm6dsl_per_sample_enable_callback(char* token)
+void lsm6dslPerSampleEnableCallback(char* token)
 {
-	LSM6DSL_Per_Sample_Init();
+	LSM6DSL_perSampleInit();
 }
 
-void lsm6dsl_fifo_enable_callback(char* token)
+void lsm6dslFifoEnableCallback(char* token)
 {
 	LSM6DSL_FIFO_Init();
 }
 
-void lsm6dsl_disable_callback(char* token)
+void lsm6dslDisableCallback(char* token)
 {
 	LSM6DSL_Mode_Disable();
 }
 
-void enter_stop_mode_callback(char* token)
+void enterStopModeCallback(char* token)
 {
-	enter_stop_mode();
+	enterStopMode();
 }
 
-void enter_standby_mode_callback(char* token)
+void enterStandbyModeCallback(char* token)
 {
-	enter_standby_mode();
+	enterStandbyMode();
 }
 

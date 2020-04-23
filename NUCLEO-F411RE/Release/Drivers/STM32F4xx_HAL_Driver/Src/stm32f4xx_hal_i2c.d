@@ -1,4 +1,5 @@
-Src/Buffer.o: ../Src/Buffer.c ../Inc/Buffer.h \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o: \
+ ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -32,9 +33,7 @@ Src/Buffer.o: ../Src/Buffer.c ../Inc/Buffer.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/main.h
-
-../Inc/Buffer.h:
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -103,5 +102,3 @@ Src/Buffer.o: ../Src/Buffer.c ../Inc/Buffer.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-
-../Inc/main.h:

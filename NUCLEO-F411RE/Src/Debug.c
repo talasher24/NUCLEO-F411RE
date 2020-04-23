@@ -1,37 +1,66 @@
 
 
-#include <Buffer.h>
-#include <Debug.h>
+#include <string.h>
+#include <stdio.h>
+
 #include <main.h>
-#include <stm32f411xe.h>
-#include <stm32f4xx.h>
-#include <stm32f4xx_hal_def.h>
-#include <stm32f4xx_hal_gpio.h>
-#include <stm32f4xx_hal_iwdg.h>
-#include <stm32f4xx_hal_pwr.h>
-#include <stm32f4xx_hal_rcc.h>
-#include <stm32f4xx_hal_rtc.h>
-#include <stm32f4xx_hal_rtc_ex.h>
+
+#include "Debug.h"
+#include "COM.h"
+#include "rtc.h"
 
 
 
-extern IWDG_HandleTypeDef hiwdg;
-extern RTC_HandleTypeDef hrtc;
+
 extern void SystemClock_Config(void);
 
-extern s_Buff s_uart_buffer;
 
-extern void uart_print(char* token);
+static reset_cause_t reset_cause;
+__attribute__((section(".noinit"))) static assert_struct s_assert_struct;
 
 
-#ifdef IWDG_ENABLE
-void kickDog(void)
+void assertRecord(uint8_t *file, uint32_t line)
 {
-	HAL_IWDG_Refresh(&hiwdg);
-}
-#endif
+	s_assert_struct.flag = ASSERT_FLAG_ON;
+	for (int i = 0; i < sizeof(s_assert_struct._file); i++)
+	{
+		s_assert_struct._file [i]  = 0;
+	}
 
-reset_cause_t reset_cause_get(void)
+	strncpy((char*)s_assert_struct._file, (char*)file, sizeof(s_assert_struct._file));
+	s_assert_struct._line = line;
+
+	NVIC_SystemReset();
+	while (1) {}; // never reached to here
+}
+
+void assertMsgPrint(void)
+{
+	if (s_assert_struct.flag == ASSERT_FLAG_ON)
+	{
+		char temp [100];
+		sprintf(temp, "Problem found! Path: %s\tLine: %u\n", s_assert_struct._file, (unsigned int)s_assert_struct._line);
+		uartPrint(temp);
+	}
+}
+
+void assertResetFlag(void)
+{
+	s_assert_struct.flag = ASSERT_FLAG_OFF;
+}
+
+
+void printResetCause(void)
+{
+	reset_cause = resetCauseGet();
+
+	char temp [100];
+	sprintf(temp, "The system reset cause is \%s\"\n", resetCauseGetName(reset_cause));
+	uartPrint(temp);
+}
+
+
+reset_cause_t resetCauseGet(void)
 {
     reset_cause_t reset_cause;
 
@@ -74,7 +103,7 @@ reset_cause_t reset_cause_get(void)
 }
 
 
-const char * reset_cause_get_name(reset_cause_t reset_cause)
+const char * resetCauseGetName(reset_cause_t reset_cause)
 {
     const char * reset_cause_name = "TBD";
 
@@ -109,27 +138,23 @@ const char * reset_cause_get_name(reset_cause_t reset_cause)
     return reset_cause_name;
 }
 
-void enter_sleep_mode(void)
+void enterSleepMode(void)
 {
-	//uart_print("SLEEP MODE is ON\n");
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	while (s_uart_buffer.tx_busy);
 
 	// Enters to sleep mode
 	HAL_SuspendTick();
 	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 	HAL_ResumeTick();
 
-	//uart_print("SLEEP MODE is OFF\n");
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	//while (s_uart_buffer.tx_busy);
 }
 
-void enter_stop_mode(void)
+void enterStopMode(void)
 {
 
 	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	uart_print("STOP MODE is ON\n");
+	uartPrint("STOP MODE is ON\n");
 
 	/* enable the RTC Wakeup */
 	if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
@@ -138,7 +163,7 @@ void enter_stop_mode(void)
 	}
 
 	// Enters to stop mode
-	while (s_uart_buffer.tx_busy);
+	while (getTxBusyFlag());
 	HAL_SuspendTick();
 	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 
@@ -149,11 +174,11 @@ void enter_stop_mode(void)
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 
 	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	uart_print("STOP MODE is OFF\n");
+	uartPrint("STOP MODE is OFF\n");
 
 }
 
-void wakeup_stop_mode(void)
+void wakeupStopMode(void)
 {
 	SystemClock_Config();
 	HAL_ResumeTick();
@@ -162,7 +187,7 @@ void wakeup_stop_mode(void)
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 }
 
-void enter_standby_mode(void)
+void enterStandbyMode(void)
 {
 	/* Clear the WU FLAG */
 	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
@@ -187,19 +212,19 @@ void enter_standby_mode(void)
 	 {
 		 Error_Handler();
 	 }
-	 uart_print("STANDBY MODE is ON\n");
+	 uartPrint("STANDBY MODE is ON\n");
 
 	 /* Enter the standby mode */
 	 HAL_PWR_EnterSTANDBYMode();
 }
 
-void wakeup_standby_mode(void)
+void wakeupStandbyMode(void)
 {
 	if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
 	{
 		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);  // clear the flag
 
-		uart_print("Wakeup from STANDBY MODE\n");
+		uartPrint("Wakeup from STANDBY MODE\n");
 
 		/** Blink the LED **/
 		for (int i=0; i<20; i++)

@@ -1,0 +1,9 @@
+COM.c:19:6:readyCommandProcess	8	static
+COM.c:30:6:COM_whichCommand	16	static
+COM.c:45:6:uartPrint	16	static
+COM.c:56:6:halUartReceiveDma	8	static
+COM.c:61:6:txBusyFlagEnable	4	static
+COM.c:66:6:txBusyFlagDisable	4	static
+COM.c:71:6:getTxBusyFlag	4	static
+COM.c:76:6:charHandler	4	static
+COM.c:99:6:bufferInit	24	static

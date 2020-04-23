@@ -1,13 +1,15 @@
 
-#ifndef Debug_H__
+#ifndef Debug_H
 
-#define Debug_H__
+#define Debug_H
 
 
 /*------------#define------------*/
 
 #include "stm32f4xx_hal.h"
 #include <stdbool.h>
+
+
 
 //#define IWDG_ENABLE
 
@@ -16,10 +18,6 @@
 #define ASSERT_FLAG_OFF 0x55
 
 bool int1_occurred;
-
-#ifdef IWDG_ENABLE
-void kickDog(void);
-#endif
 
 typedef struct {
 	char _file [60];
@@ -39,18 +37,25 @@ typedef enum reset_cause_t
     RESET_CAUSE_BROWNOUT_RESET,
 } reset_cause_t;
 
-reset_cause_t reset_cause_get(void);
-const char * reset_cause_get_name(reset_cause_t reset_cause);
+void assertRecord(uint8_t *file, uint32_t line);
+void assertMsgPrint(void);
+void assertResetFlag(void);
 
-void enter_sleep_mode(void);
-
-void enter_stop_mode(void);
-void wakeup_stop_mode(void);
-
-void enter_standby_mode(void);
-void wakeup_standby_mode(void);
+void printResetCause(void);
 
 
+reset_cause_t resetCauseGet(void);
+const char * resetCauseGetName(reset_cause_t reset_cause);
+
+void enterSleepMode(void);
+
+void enterStopMode(void);
+void wakeupStopMode(void);
+
+void enterStandbyMode(void);
+void wakeupStandbyMode(void);
 
 
-#endif // Debug_H__
+
+
+#endif // Debug_H

@@ -1,7 +1,7 @@
 
-#ifndef __MY_FLASH_H__
+#ifndef MY_FLASH_H
 
-#define __MY_FLASH_H__
+#define MY_FLASH_H
 
 #include "stm32f4xx_hal.h"
 
@@ -18,21 +18,21 @@ typedef enum
 
 //functions prototypes
 //1. Erase Sector
-//static void MY_FLASH_EraseSector(void); //uncomment this when writing
+//static void FlashEraseSector(void); //uncomment this when erasing sector
 
 //2. Set Sector Adress
-void MY_FLASH_SetSectorAddrs(uint8_t sector, uint32_t addrs);
+void flashSetSectorAddress(uint8_t sector, uint32_t addrs);
 //3. Write Flash
-void MY_FLASH_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
+void flashWriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
 //4. Read Flash
-void MY_FLASH_ReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType);
+void flashReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType);
 //5. Write OTP
-void MY_FLASH_OTP_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
+void flashOtpWriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
 
-HAL_StatusTypeDef WRP_sector_enable (void);
+HAL_StatusTypeDef flashWrpSectorEnable (void);
 
-HAL_StatusTypeDef WRP_sector_disable (void);
+HAL_StatusTypeDef flashWrpSectorDisable (void);
 
-#endif // __MY_FLASH_H__
+#endif // MY_FLASH_H
 
 

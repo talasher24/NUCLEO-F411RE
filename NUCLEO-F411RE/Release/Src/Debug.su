@@ -1,0 +1,11 @@
+Debug.c:22:6:assertRecord	16	static,ignoring_inline_asm
+Debug.c:37:6:assertMsgPrint	112	static
+Debug.c:47:6:assertResetFlag	0	static
+Debug.c:63:15:resetCauseGet	0	static
+Debug.c:53:6:printResetCause	112	static
+Debug.c:106:14:resetCauseGetName	0	static
+Debug.c:141:6:enterSleepMode	8	static
+Debug.c:153:6:enterStopMode	8	static
+Debug.c:181:6:wakeupStopMode	8	static
+Debug.c:190:6:enterStandbyMode	8	static
+Debug.c:221:6:wakeupStandbyMode	16	static

@@ -1,0 +1,6 @@
+Flash.c:23:6:flashSetSectorAddress	0	static
+Flash.c:30:6:flashWriteN	24	static
+Flash.c:70:6:flashReadN	8	static
+Flash.c:103:6:flashOtpWriteN	24	static
+Flash.c:143:19:flashWrpSectorEnable	40	static
+Flash.c:208:19:flashWrpSectorDisable	40	static

@@ -1,7 +1,7 @@
 
-#ifndef __MY_LSM6DSL_H__
+#ifndef MY_LSM6DSL_H
 
-#define __MY_LSM6DSL_H__
+#define MY_LSM6DSL_H
 
 #include "stm32f4xx_hal.h"
 
@@ -52,17 +52,17 @@ axis3bit16_t data_raw_acc_gy_Buf[ACC_GYRO_BUF_BYTES_SIZE];
 float acceleration_g_Sum[3];
 float angular_rate_dps_Sum[3];
 
-lsm6dsl_mode_t lsm6dsl_mode;
-lsm6dsl_is_connected_t lsm6dsl_is_connected;
 
 
-void LSM6DSL_Init (void);
-int32_t LSM6DSL_Write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
-int32_t LSM6DSL_Read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+void LSM6DSL_ProcessHanlder(void);
 
-void LSM6DSL_Per_Sample_Init(void);
-void LSM6DSL_Per_Sample_Process (void);
-void LSM6DSL_Per_Sample_Disable (void);
+void LSM6DSL_init (void);
+int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
+
+void LSM6DSL_perSampleInit(void);
+void LSM6DSL_perSampleProcess (void);
+void LSM6DSL_perSampleDisable (void);
 
 void LSM6DSL_FIFO_Init(void);
 void LSM6DSL_FIFO_Process(void);
@@ -80,4 +80,4 @@ void LSM6DSL_Mode_Disable(void);
 
 
 
-#endif // __MY_LSM6DSL_H__
+#endif // MY_LSM6DSL_H

@@ -1,12 +1,12 @@
 
-#ifndef Types_H__
+#ifndef Types_H
 
-#define Types_H__
+#define Types_H
 
 
 /*------------#define------------*/
 
-#define VERSION "0.0.41\n"
+#define VERSION "0.0.42\n"
 
 #define HELLO_WORLD "Hello World\n"
 
@@ -14,5 +14,5 @@
 
 #define OK "OK\n"
 
-#endif // Types_H__
+#endif // Types_H
 

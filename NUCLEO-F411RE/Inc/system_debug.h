@@ -38,7 +38,7 @@
  void SYSTEM_DEBUG_printResetCause(void);
 
  void SYSTEM_DEBUG_enterSleepMode(void);
- void SYSTEM_DEBUG_enterStopMode(void);
+ void SYSTEM_DEBUG_enterStopMode(uint32_t wake_up_time);
  void SYSTEM_DEBUG_enterStandbyMode(void);
  void SYSTEM_DEBUG_wakeupStandbyMode(void);
 

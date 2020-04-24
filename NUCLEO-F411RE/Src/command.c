@@ -63,7 +63,7 @@
 
 #define LSM6DSL_DISABLE "lsm6dsl_disable\n"
 
-#define ENTER_STOP_MODE "enter_stop_mode\n"
+#define ENTER_STOP_MODE "enter_stop_mode"
 
 #define ENTER_STANDBY_MODE "enter_standby_mode\n"
 
@@ -151,10 +151,6 @@ void COMMAND_pwmStopCallback(char* token)
 void COMMAND_pwmDcCallback(char* token)
 {
 	token = strtok(NULL, " ");
-	if(strlen(token) <= 0)
-	{
-		return;
-	}
 	int32_t dc = atoi(token);
 	if (dc > 100) dc = 100;
 	if (dc < 0)   dc = 0;
@@ -314,7 +310,9 @@ void COMMAND_lsm6dslDisableCallback(char* token)
 
 void COMMAND_enterStopModeCallback(char* token)
 {
-	SYSTEM_DEBUG_enterStopMode();
+	token = strtok(NULL, " ");
+	uint32_t wake_up_time = atoi(token);
+	SYSTEM_DEBUG_enterStopMode(wake_up_time);
 }
 
 void COMMAND_enterStandbyModeCallback(char* token)

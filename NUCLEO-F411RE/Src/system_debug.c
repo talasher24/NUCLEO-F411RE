@@ -196,14 +196,15 @@ void SYSTEM_DEBUG_enterSleepMode(void)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
-void SYSTEM_DEBUG_enterStopMode(void)
+void SYSTEM_DEBUG_enterStopMode(uint32_t wake_up_time)
 {
+	const float wakeup_time_base = 0.00048;
+	uint32_t wakeup_counter = wake_up_time / wakeup_time_base;
 
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 	COM_uartPrint("STOP MODE is ON\n");
 
 	/* enable the RTC Wakeup */
-	if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+	if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, wakeup_counter, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
 	{
 		Error_Handler();
 	}
@@ -219,9 +220,7 @@ void SYSTEM_DEBUG_enterStopMode(void)
 	/** Deactivate the RTC wakeup  **/
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	COM_uartPrint("STOP MODE is OFF\n");
-
 }
 
 void SYSTEM_DEBUG_enterStandbyMode(void)
@@ -237,13 +236,13 @@ void SYSTEM_DEBUG_enterStandbyMode(void)
 
 	 /* enable the RTC Wakeup */
 	    /*  RTC Wake-up Interrupt Generation:
-	      Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
+	      Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSE or LSI))
 	      ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
 
-	      To configure the wake up timer to 5s the WakeUpCounter is set to 0x2710:
+	      To configure the wake up timer to 5s the WakeUpCounter is set to 0x28b0:
 	      RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
-	      Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
-	      ==> WakeUpCounter = ~5s/0.0005s = 20000 = 0x2710
+	      Wake-up Time Base = 16 /(32.768KHz) = 0.00048 seconds
+	      ==> WakeUpCounter = ~5s/0.00048s = 10416 = 0x28b0
 	    */
 	 if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x2710, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
 	 {

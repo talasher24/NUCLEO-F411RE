@@ -1,19 +1,25 @@
 /*
- * Buffer.c
+ * com.h
  *
- *  Created on: Apr 6, 2020
+ *  Created on: Mar 26, 2020
  *      Author: Tal Asher
  */
 
 /******************************************************************************
 * Includes
 *******************************************************************************/
+
+#include <string.h>
 #include "main.h"
-#include "COM.h"
+#include "usart.h"
+#include "com.h"
+#include "command.h"
+#include "types.h"
 
 /******************************************************************************
 * Module Preprocessor Constants
 *******************************************************************************/
+
 #define BUFFER_SIZE 100
 
 /******************************************************************************
@@ -23,127 +29,113 @@
 /******************************************************************************
 * Module Typedefs
 *******************************************************************************/
+
 typedef struct {
-	uint8_t _p_rx_buffer[BUFFER_SIZE];
-	uint8_t _rx_index;
-	uint8_t _rx_single_char;
-	bool _rx_ready_command;
-	uint8_t _p_tx_buffer[BUFFER_SIZE];
-	bool tx_busy;
-}s_Buff;
+	uint8_t p_rx_buffer[BUFFER_SIZE];
+	uint8_t rx_index;
+	uint8_t rx_single_char;
+	bool 	rx_ready_command;
+	uint8_t p_tx_buffer[BUFFER_SIZE];
+	bool 	tx_busy;
+} uart_buffer_t;
+
 /******************************************************************************
 * Module Variable Definitions
 *******************************************************************************/
-static s_Buff s_uart_buffer;
+
+static uart_buffer_t Uart_Buffer;
 
 /******************************************************************************
 * Function Prototypes
 *******************************************************************************/
-void setReadyCommandFlagOn(void);
-void setReadyCommandFlagOff(void);
-void COM_whichCommand(void);
-void bufferInit(uint8_t* rxBuffer);
-void setTxBusyFlagOn(void);
+
+void COM_setReadyCommandFlagOn(void);
+void COM_bufferInit(uint8_t* p_buffer);
+void COM_setTxBusyFlagOn(void);
+
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
 
-bool getReadyCommandFlag(void)
+bool COM_getReadyCommandFlag(void)
 {
-	return s_uart_buffer._rx_ready_command;
+	return Uart_Buffer.rx_ready_command;
 }
 
-void setReadyCommandFlagOn(void)
+void COM_setReadyCommandFlagOn(void)
 {
-	s_uart_buffer._rx_ready_command = true;
+	Uart_Buffer.rx_ready_command = true;
 }
 
-void setReadyCommandFlagOff(void)
+void COM_setReadyCommandFlagOff(void)
 {
-	s_uart_buffer._rx_ready_command = false;
+	Uart_Buffer.rx_ready_command = false;
 }
 
-void readyCommandProcess(void)
+void COM_readyCommandProcess(void)
 {
-	COM_whichCommand();
-	bufferInit(s_uart_buffer._p_rx_buffer);
-	s_uart_buffer._rx_index = 0;
-	setReadyCommandFlagOff();
+	char* token = strtok((char*)Uart_Buffer.p_rx_buffer, " ");
+	COMMAND_findCommand(token);
+	COM_bufferInit(Uart_Buffer.p_rx_buffer);
+	Uart_Buffer.rx_index = 0;
 }
 
-void COM_whichCommand (void)
+void COM_uartPrint(char* token)
 {
-	char* token = strtok((char*)s_uart_buffer._p_rx_buffer, " ");
+	while (COM_getTxBusyFlag());
 
-	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
-	{
-		if (strncmp(token, commands[i]._name, commands[i]._size)==0)
-		{
-			uartPrint(OK);
-			commands[i].func_ptr(token);
-			return;
-		}
-	}
+	strncpy((char*)Uart_Buffer.p_tx_buffer, token, sizeof(Uart_Buffer.p_tx_buffer));
+	while (HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen(token)) != HAL_OK);
+	COM_setTxBusyFlagOn();
 }
 
-void uartPrint(char* token)
+void COM_halUartReceiveDma(void)
 {
-	while (getTxBusyFlag());
-
-	//memcpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
-	strncpy((char*)s_uart_buffer._p_tx_buffer, token, sizeof(s_uart_buffer._p_tx_buffer));
-
-	while (HAL_UART_Transmit_DMA(&huart2, s_uart_buffer._p_tx_buffer, strlen(token)) != HAL_OK);
-	setTxBusyFlagOn();
+	HAL_UART_Receive_DMA(&huart2, &Uart_Buffer.rx_single_char, 1);
 }
 
-void halUartReceiveDma(void)
+void COM_setTxBusyFlagOn(void)
 {
-	HAL_UART_Receive_DMA(&huart2, &s_uart_buffer._rx_single_char, 1);
+	Uart_Buffer.tx_busy = true;
 }
 
-void setTxBusyFlagOn(void)
+void COM_setTxBusyFlagOff(void)
 {
-	s_uart_buffer.tx_busy = true;
+	Uart_Buffer.tx_busy = false;
 }
 
-void setTxBusyFlagOff(void)
+bool COM_getTxBusyFlag(void)
 {
-	s_uart_buffer.tx_busy = false;
+	return Uart_Buffer.tx_busy;
 }
 
-bool getTxBusyFlag(void)
+void COM_charHandler(void)
 {
-	return s_uart_buffer.tx_busy;
-}
-
-void charHandler(void)
-{
-	if (getReadyCommandFlag())
+	if (COM_getReadyCommandFlag())
 	{
 		return;
 	}
 
-	if (s_uart_buffer._rx_single_char != '\n')
+	if (Uart_Buffer.rx_single_char != '\n')
 	{
-		if(s_uart_buffer._rx_index < BUFFER_SIZE)
+		if(Uart_Buffer.rx_index < BUFFER_SIZE)
 	{
-			s_uart_buffer._p_rx_buffer[s_uart_buffer._rx_index] = s_uart_buffer._rx_single_char;
-			s_uart_buffer._rx_index++;
+			Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
+			Uart_Buffer.rx_index++;
 	}
 	}
 	else
 	{
-		s_uart_buffer._p_rx_buffer[s_uart_buffer._rx_index] = s_uart_buffer._rx_single_char;
-		s_uart_buffer._rx_index++;
-		setReadyCommandFlagOn();
+		Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
+		Uart_Buffer.rx_index++;
+		COM_setReadyCommandFlagOn();
 	}
 }
 
-void bufferInit(uint8_t* rxBuffer)
+void COM_bufferInit(uint8_t* p_buffer)
 {
 	for(int i = 0; i < BUFFER_SIZE; i++){
-		rxBuffer[i] = 0;
+		p_buffer[i] = 0;
 	}
 }
 

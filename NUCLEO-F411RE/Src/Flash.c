@@ -1,15 +1,18 @@
 /*
- * Flash.c
+ * flash.c
  *
- *  Created on: Apr 5, 2020
- *      Author: ADMIN
+ *  Created on: Mar 26, 2020
+ *      Author: Tal Asher
  */
 
 /******************************************************************************
 * Includes
 *******************************************************************************/
+
 #include "main.h"
-#include "Flash.h"
+#include "flash.h"
+#include "com.h"
+
 /******************************************************************************
 * Module Preprocessor Constants
 *******************************************************************************/
@@ -25,35 +28,40 @@
 /******************************************************************************
 * Module Variable Definitions
 *******************************************************************************/
-static uint32_t MY_SectorAddrs;
-static uint8_t MY_SectorNum;
+
+static uint32_t Sector_Addrs;
+static uint8_t Sector_Num;
+
 /******************************************************************************
 * Function Prototypes
 *******************************************************************************/
 
+static void FLASH_eraseSector(void);
+
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
-static void FlashEraseSector(void)
+
+static void FLASH_eraseSector(void)
 {
 	HAL_FLASH_Unlock();
 	//Erase the required Flash sector
-	FLASH_Erase_Sector(MY_SectorNum, FLASH_VOLTAGE_RANGE_3);
+	FLASH_Erase_Sector(Sector_Num, FLASH_VOLTAGE_RANGE_3);
 	HAL_FLASH_Lock();
 }
 
-void flashSetSectorAddress(uint8_t sector, uint32_t addrs)
+void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
 {
-	MY_SectorNum = sector;
-	MY_SectorAddrs = addrs;
+	Sector_Num = sector;
+	Sector_Addrs = addrs;
 }
 
-void flashWriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
 {
-	uint32_t flashAddress = MY_SectorAddrs + idx;
+	uint32_t flashAddress = Sector_Addrs + idx;
 
 	//Erase sector before write
-	FlashEraseSector();
+	FLASH_eraseSector();
 
 	//Unlock Flash
 	HAL_FLASH_Unlock();
@@ -88,9 +96,9 @@ void flashWriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType
 	HAL_FLASH_Lock();
 }
 
-void flashReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
 {
-	uint32_t flashAddress = MY_SectorAddrs + idx;
+	uint32_t flashAddress = Sector_Addrs + idx;
 
 	switch(dataType)
 	{
@@ -120,47 +128,7 @@ void flashReadN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
 	}
 }
 
-void flashOtpWriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
-{
-	uint32_t flashAddress = MY_SectorAddrs + idx;
-
-	//Erase sector before write
-	//FlashEraseSector();
-
-	//Unlock Flash
-	HAL_FLASH_Unlock();
-	//Write to Flash
-	switch(dataType)
-	{
-		case DATA_TYPE_8:
-				for(uint32_t i=0; i<Nsize; i++)
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)wrBuf)[i]);
-					flashAddress++;
-				}
-			break;
-
-		case DATA_TYPE_16:
-				for(uint32_t i=0; i<Nsize; i++)
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)wrBuf)[i]);
-					flashAddress+=2;
-				}
-			break;
-
-		case DATA_TYPE_32:
-				for(uint32_t i=0; i<Nsize; i++)
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)wrBuf)[i]);
-					flashAddress+=4;
-				}
-			break;
-	}
-	//Lock the Flash space
-	HAL_FLASH_Lock();
-}
-
-HAL_StatusTypeDef flashWrpSectorEnable (void)
+HAL_StatusTypeDef FLASH_wrpSectorEnable (void)
 {
 	HAL_StatusTypeDef status = HAL_ERROR;
 
@@ -211,21 +179,21 @@ HAL_StatusTypeDef flashWrpSectorEnable (void)
 		/* Check if FLASH_WRP_SECTORS are write protected */
 		if (SectorsWRPStatus == 0)
 		{
-			status = HAL_OK; //uartPrint("wrp enabled\n");
+			status = HAL_OK; //COM_uartPrint("wrp enabled\n");
 		}
 		else
 		{
-		  uartPrint("wrp not enabled\n");
+		  COM_uartPrint("wrp not enabled\n");
 		}
 	}
 	else
 	{
-		status = HAL_OK; //uartPrint("wrp is already enabled\n");
+		status = HAL_OK; //COM_uartPrint("wrp is already enabled\n");
 	}
 	return status;
 }
 
-HAL_StatusTypeDef flashWrpSectorDisable (void)
+HAL_StatusTypeDef FLASH_wrpSectorDisable (void)
 {
 	HAL_StatusTypeDef status = HAL_ERROR;
 
@@ -276,16 +244,16 @@ HAL_StatusTypeDef flashWrpSectorDisable (void)
 		/* Check if FLASH_WRP_SECTORS write protection is disabled */
 		if (SectorsWRPStatus == FLASH_WRP_SECTORS)
 		{
-			status = HAL_OK; //uartPrint("wrp disabled\n");
+			status = HAL_OK; //COM_uartPrint("wrp disabled\n");
 		}
 		else
 		{
-		  uartPrint("wrp not disabled\n");
+		  COM_uartPrint("wrp not disabled\n");
 		}
 	}
 	else
 	{
-		status = HAL_OK; //uartPrint("wrp is already disabled\n");
+		status = HAL_OK; //COM_uartPrint("wrp is already disabled\n");
 	}
 	return status;
 }

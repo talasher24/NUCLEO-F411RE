@@ -1,5 +1,5 @@
 /*
- * Com.h
+ * com.h
  *
  *  Created on: Mar 26, 2020
  *      Author: Tal Asher
@@ -11,27 +11,46 @@
  extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
+ /******************************************************************************
+ * Includes
+ *******************************************************************************/
 
-/* USER CODE BEGIN Includes */
+#include <stdbool.h>
 
-/* USER CODE END Includes */
+ /******************************************************************************
+ * Module Preprocessor Constants
+ *******************************************************************************/
 
-/* USER CODE BEGIN Private defines */
+ /******************************************************************************
+ * Module Preprocessor Macros
+ *******************************************************************************/
 
-/* USER CODE END Private defines */
+ /******************************************************************************
+ * Module Typedefs
+ *******************************************************************************/
 
-/* USER CODE BEGIN Prototypes */
+ /******************************************************************************
+ * Module Variable Definitions
+ *******************************************************************************/
 
- bool getReadyCommandFlag(void);
- void readyCommandProcess(void);
- void uartPrint(char* token);
- void halUartReceiveDma(void);
- void charHandler(void);
- void setTxBusyFlagOff(void);
- bool getTxBusyFlag(void);
+ /******************************************************************************
+ * Function Prototypes
+ *******************************************************************************/
 
-/* USER CODE END Prototypes */
+ bool COM_getReadyCommandFlag(void);
+ void COM_setReadyCommandFlagOff(void);
+ void COM_readyCommandProcess(void);
+ void COM_uartPrint(char* token);
+ void COM_halUartReceiveDma(void);
+ void COM_charHandler(void);
+ void COM_setTxBusyFlagOff(void);
+ bool COM_getTxBusyFlag(void);
+
+ /******************************************************************************
+ * Function Definitions
+ *******************************************************************************/
+
+
 #ifdef __cplusplus
 }
 #endif

@@ -1,5 +1,5 @@
 /*
- * LSM6DSL.h
+ * lsm6dsl.h
  *
  *  Created on: Mar 26, 2020
  *      Author: Tal Asher
@@ -11,44 +11,47 @@
  extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
+ /******************************************************************************
+ * Includes
+ *******************************************************************************/
 
-/* USER CODE BEGIN Includes */
+#include <stdbool.h>
 
-/* USER CODE END Includes */
+ /******************************************************************************
+ * Module Preprocessor Constants
+ *******************************************************************************/
 
-/* USER CODE BEGIN Private defines */
+ /******************************************************************************
+ * Module Preprocessor Macros
+ *******************************************************************************/
 
-/* USER CODE END Private defines */
+ /******************************************************************************
+ * Module Typedefs
+ *******************************************************************************/
 
-/* USER CODE BEGIN Prototypes */
+ /******************************************************************************
+ * Module Variable Definitions
+ *******************************************************************************/
 
- void LSM6DSL_ProcessHanlder(void);
+ /******************************************************************************
+ * Function Prototypes
+ *******************************************************************************/
 
+ void LSM6DSL_processHanlder(void);
  void LSM6DSL_init (void);
- int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
- int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
-
  void LSM6DSL_perSampleInit(void);
- void LSM6DSL_perSampleProcess (void);
- void LSM6DSL_perSampleDisable (void);
 
- void LSM6DSL_FIFO_Init(void);
- void LSM6DSL_FIFO_Process(void);
- void LSM6DSL_FIFO_Disable(void);
- void LSM6DSL_FIFO_Read_All_Data(void);
- void LSM6DSL_FIFO_Acc_And_Gyro_Read_Single_SAMPLE(uint16_t SampleIndex);
- void LSM6DSL_FIFO_Calc_Acc_Gyro_Avg_And_Print(uint16_t divider);
- void LSM6DSL_FIFO_Set_FIFO_Mode(void);
- void LSM6DSL_FIFO_Set_Bypass_Mode(void);
- void LSM6DSL_FIFO_Interrupt_Enable(void);
- void LSM6DSL_FIFO_Interrupt_Disable(void);
- void LSM6DSL_Mode_Disable(void);
+ void LSM6DSL_fifoInit(void);
+ void LSM6DSL_modesDisable(void);
 
  bool LSM6DSL_getInterruptFlag(void);
  void LSM6DSL_setInterruptFlagOn(void);
  void LSM6DSL_setInterruptFlagOff(void);
-/* USER CODE END Prototypes */
+
+ /******************************************************************************
+ * Function Definitions
+ *******************************************************************************/
+
 
 #ifdef __cplusplus
 }

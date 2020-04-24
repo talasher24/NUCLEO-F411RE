@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 #include "crc.h"
 #include "dma.h"
@@ -31,6 +32,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "flash.h"
+#include "lsm6dsl.h"
+#include "types.h"
+#include "com.h"
+#include "command.h"
+#include "system_debug.h"
 
 /* USER CODE END Includes */
 
@@ -104,22 +116,21 @@ int main(void)
   HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
   HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 
-  wakeupStandbyMode();
-
+  SYSTEM_DEBUG_wakeupStandbyMode();
 
 #ifdef IWDG_ENABLE
   MX_IWDG_Init();
 #endif
 
-  halUartReceiveDma();
+  COM_halUartReceiveDma();
 
-  assertMsgPrint();
+  SYSTEM_DEBUG_assertMsgPrint();
 
   LSM6DSL_init();
 
-  printResetCause();
+  SYSTEM_DEBUG_printResetCause();
 
-  uartPrint(HELLO_WORLD);
+  COM_uartPrint(HELLO_WORLD);
 
   /* USER CODE END 2 */
 
@@ -130,20 +141,21 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  enterSleepMode();
+	SYSTEM_DEBUG_enterSleepMode();
 
 #ifdef IWDG_ENABLE
 	  kickDog();
 #endif
 
-	if (getReadyCommandFlag())
+	if (COM_getReadyCommandFlag())
 	{
-		readyCommandProcess();
+		COM_readyCommandProcess();
+		COM_setReadyCommandFlagOff();
 	}
 
 	if (LSM6DSL_getInterruptFlag())
 	{
-		LSM6DSL_ProcessHanlder();
+		LSM6DSL_processHanlder();
 		LSM6DSL_setInterruptFlagOff();
 	}
   }
@@ -212,7 +224,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
-  setTxBusyFlagOff();
+  COM_setTxBusyFlagOff();
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -223,11 +235,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-  halUartReceiveDma();
+  COM_halUartReceiveDma();
 
-  charHandler();
+  COM_charHandler();
 }
-
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -249,7 +260,7 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_RTC_AlarmAEventCallback could be implemented in the user file
    */
-  uartPrint(TICK);
+  COM_uartPrint(TICK);
 }
 
 /* USER CODE END 4 */
@@ -262,7 +273,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-	uartPrint("Error");
+	COM_uartPrint("Error");
 	while(1);
   /* USER CODE END Error_Handler_Debug */
 }
@@ -279,7 +290,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 { 
   /* USER CODE BEGIN 6 */
 
-	assertRecord(file, line);
+	SYSTEM_DEBUG_assertRecord(file, line);
 
   /* USER CODE END 6 */
 }

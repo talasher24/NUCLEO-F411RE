@@ -1,4 +1,4 @@
-Src/Commands.o: ../Src/Commands.c ../Inc/main.h \
+Src/command.o: ../Src/command.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -32,11 +32,10 @@ Src/Commands.o: ../Src/Commands.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/crc.h \
- ../Inc/main.h ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h \
- ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/Flash.h \
- ../Inc/lsm6dsl.h ../Inc/Types.h ../Inc/COM.h ../Inc/Commands.h \
- ../Inc/Debug.h ../Inc/Commands.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Inc/command.h ../Inc/com.h ../Inc/flash.h ../Inc/lsm6dsl.h \
+ ../Inc/types.h ../Inc/system_debug.h ../Inc/crc.h ../Inc/main.h \
+ ../Inc/rtc.h ../Inc/tim.h
 
 ../Inc/main.h:
 
@@ -108,34 +107,22 @@ Src/Commands.o: ../Src/Commands.c ../Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
+../Inc/command.h:
+
+../Inc/com.h:
+
+../Inc/flash.h:
+
+../Inc/lsm6dsl.h:
+
+../Inc/types.h:
+
+../Inc/system_debug.h:
+
 ../Inc/crc.h:
 
 ../Inc/main.h:
 
-../Inc/dma.h:
-
-../Inc/i2c.h:
-
-../Inc/iwdg.h:
-
 ../Inc/rtc.h:
 
 ../Inc/tim.h:
-
-../Inc/usart.h:
-
-../Inc/gpio.h:
-
-../Inc/Flash.h:
-
-../Inc/lsm6dsl.h:
-
-../Inc/Types.h:
-
-../Inc/COM.h:
-
-../Inc/Commands.h:
-
-../Inc/Debug.h:
-
-../Inc/Commands.h:

@@ -36,7 +36,7 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  ../Inc/main.h ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h \
  ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/flash.h \
  ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/com.h ../Inc/command.h \
- ../Inc/system_debug.h
+ ../Inc/system_debug.h ../Inc/system_isr.h
 
 ../Inc/main.h:
 
@@ -137,3 +137,5 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 ../Inc/command.h:
 
 ../Inc/system_debug.h:
+
+../Inc/system_isr.h:

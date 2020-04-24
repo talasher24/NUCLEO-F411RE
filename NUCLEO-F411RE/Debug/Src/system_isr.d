@@ -1,4 +1,4 @@
-Src/COM.o: ../Src/COM.c ../Inc/main.h \
+Src/system_isr.o: ../Src/system_isr.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -32,8 +32,8 @@ Src/COM.o: ../Src/COM.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/usart.h \
- ../Inc/main.h ../Inc/com.h ../Inc/command.h ../Inc/types.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Inc/system_isr.h ../Inc/com.h ../Inc/lsm6dsl.h ../Inc/types.h
 
 ../Inc/main.h:
 
@@ -105,12 +105,10 @@ Src/COM.o: ../Src/COM.c ../Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-../Inc/usart.h:
-
-../Inc/main.h:
+../Inc/system_isr.h:
 
 ../Inc/com.h:
 
-../Inc/command.h:
+../Inc/lsm6dsl.h:
 
 ../Inc/types.h:

@@ -43,6 +43,7 @@
 #include "com.h"
 #include "command.h"
 #include "system_debug.h"
+#include "system_isr.h"
 
 /* USER CODE END Includes */
 
@@ -216,52 +217,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(huart);
-  /* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_TxCpltCallback could be implemented in the user file
-   */
-  COM_setTxBusyFlagOff();
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(huart);
-  /* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_RxCpltCallback could be implemented in the user file
-   */
-  COM_halUartReceiveDma();
-
-  COM_charHandler();
-}
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(GPIO_Pin);
-  /* NOTE: This function Should not be modified, when the callback is needed,
-           the HAL_GPIO_EXTI_Callback could be implemented in the user file
-   */
-  if (GPIO_Pin == GPIO_PIN_5)
-  {
-	  LSM6DSL_setInterruptFlagOn();
-  }
-}
-
-void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
-{
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(hrtc);
-  /* NOTE : This function should not be modified, when the callback is needed,
-            the HAL_RTC_AlarmAEventCallback could be implemented in the user file
-   */
-  COM_uartPrint(TICK);
-}
 
 /* USER CODE END 4 */
 

@@ -1,12 +1,12 @@
 /*
- * types.h
+ * system_isr.h
  *
  *  Created on: Mar 26, 2020
  *      Author: Tal Asher
  */
 
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef SYSTEM_ISR_H
+#define SYSTEM_ISR_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -19,10 +19,6 @@
  * Module Preprocessor Constants
  *******************************************************************************/
 
-#define VERSION 			"0.0.46\n"
-#define HELLO_WORLD 		"Hello World\n"
-#define TICK 				"tick\n"
-#define OK					"OK\n"
 
  /******************************************************************************
  * Module Preprocessor Macros
@@ -48,5 +44,5 @@
 #ifdef __cplusplus
 }
 #endif
-#endif // TYPES_H
+#endif // SYSTEM_ISR_H
 

@@ -19,7 +19,7 @@ Internal flash  - Uses read/write/erase, read/write protection
                   The next reboot should print the value that the pointer pointed to.          
 Watchdog        - Uses IWDG to detect and recover from computer malfunctions
 Reset cause     - Prints reset cause upon startup
-Low power mode  - Uses sleep and standby mode for power saving
+Low power mode  - Uses sleep, stop and standby mode for power saving
 ```
 MEMS sensors:
 ```
@@ -40,15 +40,17 @@ pwm_stop                        - Stops the PWM
 crc_whole_flash_calc            - Calculates the CRC of the whole flash and prints the result in hex format
 iwdg_test                       - Tests the watchdog i.e. enters infinite loop
 flash_lock                      - Locks the flash for reading
-set_SN                          - Saves the serial number in sector 7 - changes Linker file so the code won't overrun this sector
-get_SN                          - Reads the serial number from sector 7
+set_SN                          - Saves S/N in sector 7 - Linker file has been changed so the code won't overrun this sector
+get_SN                          - Reads the S/N from sector 7
 start_tick                      - Prints “tick” every 1 second using RTC
 stop_tick                       - Stops “tick” printing                      
 assert_0                        - Tests the assertion struct by generating assert(0)
 clear_assert_flag               - Resets assertion struct flag 
 lsm6dsl_per_sample_enable       - Enables Polling mode
 lsm6dsl_fifo_enable             - Enables FIFO modede
-lsm6dsl_disable                 - Disable Both Polling and FIFO mode
+lsm6dsl_disable                 - Disables Both Polling and FIFO mode
+enter_stop_mode X               - Puts the system into stop mode, system wakes up using RTC (X sec) or GPIO_EXT (PC13, LSM6DSL, etc.)
+enter_standby_mode              - Puts the system into stop mode, system wakes up using RTC (5 sec) or SYS_WKUP pin (PA0)
 ```
 
 ### Prerequisites

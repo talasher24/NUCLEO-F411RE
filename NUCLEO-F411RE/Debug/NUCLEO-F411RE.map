@@ -3160,21 +3160,25 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Src/com.o
  .bss           0x0000000000000000        0x0 Src/com.o
  .debug_macro   0x0000000000000000      0xa5a Src/com.o
- .debug_macro   0x0000000000000000       0x22 Src/com.o
- .debug_macro   0x0000000000000000      0x174 Src/com.o
  .debug_macro   0x0000000000000000      0x1a9 Src/com.o
  .debug_macro   0x0000000000000000       0x2e Src/com.o
  .debug_macro   0x0000000000000000       0x28 Src/com.o
+ .debug_macro   0x0000000000000000       0x22 Src/com.o
+ .debug_macro   0x0000000000000000       0x8e Src/com.o
+ .debug_macro   0x0000000000000000       0x51 Src/com.o
  .debug_macro   0x0000000000000000       0xef Src/com.o
  .debug_macro   0x0000000000000000       0x6a Src/com.o
  .debug_macro   0x0000000000000000      0x1df Src/com.o
  .debug_macro   0x0000000000000000       0x1c Src/com.o
  .debug_macro   0x0000000000000000       0x22 Src/com.o
+ .debug_macro   0x0000000000000000       0xdf Src/com.o
  .debug_macro   0x0000000000000000     0x102d Src/com.o
  .debug_macro   0x0000000000000000      0x11f Src/com.o
  .debug_macro   0x0000000000000000     0xb937 Src/com.o
  .debug_macro   0x0000000000000000       0x43 Src/com.o
  .debug_macro   0x0000000000000000     0x3659 Src/com.o
+ .debug_macro   0x0000000000000000      0x174 Src/com.o
+ .debug_macro   0x0000000000000000       0x5a Src/com.o
  .debug_macro   0x0000000000000000      0x447 Src/com.o
  .debug_macro   0x0000000000000000      0x9fe Src/com.o
  .debug_macro   0x0000000000000000      0x15f Src/com.o
@@ -3280,43 +3284,30 @@ Discarded input sections
  .group         0x0000000000000000        0xc Src/command.o
  .group         0x0000000000000000        0xc Src/command.o
  .group         0x0000000000000000        0xc Src/command.o
+ .group         0x0000000000000000        0xc Src/command.o
  .text          0x0000000000000000        0x0 Src/command.o
  .data          0x0000000000000000        0x0 Src/command.o
  .bss           0x0000000000000000        0x0 Src/command.o
  .debug_macro   0x0000000000000000      0xa5a Src/command.o
- .debug_macro   0x0000000000000000       0x22 Src/command.o
- .debug_macro   0x0000000000000000       0x22 Src/command.o
- .debug_macro   0x0000000000000000       0x40 Src/command.o
- .debug_macro   0x0000000000000000       0x18 Src/command.o
- .debug_macro   0x0000000000000000       0x94 Src/command.o
- .debug_macro   0x0000000000000000       0x3c Src/command.o
- .debug_macro   0x0000000000000000       0x34 Src/command.o
- .debug_macro   0x0000000000000000      0x174 Src/command.o
- .debug_macro   0x0000000000000000       0x57 Src/command.o
- .debug_macro   0x0000000000000000       0x52 Src/command.o
- .debug_macro   0x0000000000000000       0x1f Src/command.o
- .debug_macro   0x0000000000000000       0x43 Src/command.o
- .debug_macro   0x0000000000000000       0x20 Src/command.o
- .debug_macro   0x0000000000000000      0x1a3 Src/command.o
- .debug_macro   0x0000000000000000      0x330 Src/command.o
- .debug_macro   0x0000000000000000       0x10 Src/command.o
- .debug_macro   0x0000000000000000       0x35 Src/command.o
- .debug_macro   0x0000000000000000       0x20 Src/command.o
- .debug_macro   0x0000000000000000       0x6a Src/command.o
  .debug_macro   0x0000000000000000      0x1a9 Src/command.o
  .debug_macro   0x0000000000000000       0x2e Src/command.o
  .debug_macro   0x0000000000000000       0x28 Src/command.o
+ .debug_macro   0x0000000000000000       0x22 Src/command.o
+ .debug_macro   0x0000000000000000       0x8e Src/command.o
+ .debug_macro   0x0000000000000000       0x51 Src/command.o
  .debug_macro   0x0000000000000000       0xef Src/command.o
+ .debug_macro   0x0000000000000000       0x6a Src/command.o
  .debug_macro   0x0000000000000000      0x1df Src/command.o
  .debug_macro   0x0000000000000000       0x1c Src/command.o
  .debug_macro   0x0000000000000000       0x22 Src/command.o
- .debug_macro   0x0000000000000000       0xd9 Src/command.o
+ .debug_macro   0x0000000000000000       0xdf Src/command.o
  .debug_macro   0x0000000000000000     0x102d Src/command.o
  .debug_macro   0x0000000000000000      0x11f Src/command.o
  .debug_macro   0x0000000000000000     0xb937 Src/command.o
  .debug_macro   0x0000000000000000       0x43 Src/command.o
  .debug_macro   0x0000000000000000     0x3659 Src/command.o
- .debug_macro   0x0000000000000000       0x54 Src/command.o
+ .debug_macro   0x0000000000000000      0x174 Src/command.o
+ .debug_macro   0x0000000000000000       0x5a Src/command.o
  .debug_macro   0x0000000000000000      0x447 Src/command.o
  .debug_macro   0x0000000000000000      0x9fe Src/command.o
  .debug_macro   0x0000000000000000      0x15f Src/command.o
@@ -3345,6 +3336,20 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 Src/command.o
  .debug_macro   0x0000000000000000      0x126 Src/command.o
  .debug_macro   0x0000000000000000       0x22 Src/command.o
+ .debug_macro   0x0000000000000000       0x22 Src/command.o
+ .debug_macro   0x0000000000000000       0x46 Src/command.o
+ .debug_macro   0x0000000000000000       0x18 Src/command.o
+ .debug_macro   0x0000000000000000       0x3c Src/command.o
+ .debug_macro   0x0000000000000000       0x34 Src/command.o
+ .debug_macro   0x0000000000000000       0x52 Src/command.o
+ .debug_macro   0x0000000000000000       0x1f Src/command.o
+ .debug_macro   0x0000000000000000       0x43 Src/command.o
+ .debug_macro   0x0000000000000000       0x20 Src/command.o
+ .debug_macro   0x0000000000000000      0x1a3 Src/command.o
+ .debug_macro   0x0000000000000000      0x32a Src/command.o
+ .debug_macro   0x0000000000000000       0x10 Src/command.o
+ .debug_macro   0x0000000000000000       0x35 Src/command.o
+ .debug_macro   0x0000000000000000       0x20 Src/command.o
  .group         0x0000000000000000        0xc Src/crc.o
  .group         0x0000000000000000        0xc Src/crc.o
  .group         0x0000000000000000        0xc Src/crc.o
@@ -3589,16 +3594,40 @@ Discarded input sections
  .group         0x0000000000000000        0xc Src/flash.o
  .group         0x0000000000000000        0xc Src/flash.o
  .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
+ .group         0x0000000000000000        0xc Src/flash.o
  .text          0x0000000000000000        0x0 Src/flash.o
  .data          0x0000000000000000        0x0 Src/flash.o
  .bss           0x0000000000000000        0x0 Src/flash.o
  .rodata        0x0000000000000000       0x26 Src/flash.o
  .text.FLASH_wrpSectorEnable
-                0x0000000000000000       0x9c Src/flash.o
+                0x0000000000000000       0x7c Src/flash.o
  .text.FLASH_wrpSectorDisable
-                0x0000000000000000       0x9c Src/flash.o
+                0x0000000000000000       0x7c Src/flash.o
  .debug_macro   0x0000000000000000      0xa5a Src/flash.o
- .debug_macro   0x0000000000000000       0x22 Src/flash.o
  .debug_macro   0x0000000000000000      0x1a9 Src/flash.o
  .debug_macro   0x0000000000000000       0x2e Src/flash.o
  .debug_macro   0x0000000000000000       0x28 Src/flash.o
@@ -3645,6 +3674,31 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x47 Src/flash.o
  .debug_macro   0x0000000000000000      0x287 Src/flash.o
  .debug_macro   0x0000000000000000      0x126 Src/flash.o
+ .debug_macro   0x0000000000000000       0x10 Src/flash.o
+ .debug_macro   0x0000000000000000       0x22 Src/flash.o
+ .debug_macro   0x0000000000000000       0x46 Src/flash.o
+ .debug_macro   0x0000000000000000       0x18 Src/flash.o
+ .debug_macro   0x0000000000000000       0x3c Src/flash.o
+ .debug_macro   0x0000000000000000       0x34 Src/flash.o
+ .debug_macro   0x0000000000000000       0x35 Src/flash.o
+ .debug_macro   0x0000000000000000      0x32a Src/flash.o
+ .debug_macro   0x0000000000000000       0x10 Src/flash.o
+ .debug_macro   0x0000000000000000       0x52 Src/flash.o
+ .debug_macro   0x0000000000000000       0x1f Src/flash.o
+ .debug_macro   0x0000000000000000       0x43 Src/flash.o
+ .debug_macro   0x0000000000000000       0x20 Src/flash.o
+ .debug_macro   0x0000000000000000      0x1a3 Src/flash.o
+ .debug_macro   0x0000000000000000       0x10 Src/flash.o
+ .debug_macro   0x0000000000000000       0x1c Src/flash.o
+ .debug_macro   0x0000000000000000       0x52 Src/flash.o
+ .debug_macro   0x0000000000000000       0x40 Src/flash.o
+ .debug_macro   0x0000000000000000       0x10 Src/flash.o
+ .debug_macro   0x0000000000000000       0x40 Src/flash.o
+ .debug_macro   0x0000000000000000       0xd7 Src/flash.o
+ .debug_macro   0x0000000000000000       0x1c Src/flash.o
+ .debug_macro   0x0000000000000000       0x3d Src/flash.o
+ .debug_macro   0x0000000000000000       0x16 Src/flash.o
+ .debug_macro   0x0000000000000000      0x145 Src/flash.o
  .group         0x0000000000000000        0xc Src/gpio.o
  .group         0x0000000000000000        0xc Src/gpio.o
  .group         0x0000000000000000        0xc Src/gpio.o
@@ -4029,54 +4083,37 @@ Discarded input sections
  .group         0x0000000000000000        0xc Src/lsm6dsl.o
  .group         0x0000000000000000        0xc Src/lsm6dsl.o
  .group         0x0000000000000000        0xc Src/lsm6dsl.o
- .group         0x0000000000000000        0xc Src/lsm6dsl.o
  .text          0x0000000000000000        0x0 Src/lsm6dsl.o
  .data          0x0000000000000000        0x0 Src/lsm6dsl.o
  .bss           0x0000000000000000        0x0 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0xa5a Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x22 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x22 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x40 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x8e Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x51 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0xef Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x6a Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000      0x1df Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x46 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x18 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x94 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x3c Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x34 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x57 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000      0x330 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000      0x174 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x52 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x1f Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x43 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x20 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x1a3 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x6a Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x52 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x40 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x40 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0xd7 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x3d Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x16 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000      0x145 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x35 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x20 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x1a9 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x2e Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x28 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0xef Src/lsm6dsl.o
- .debug_macro   0x0000000000000000      0x1df Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x22 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0xd9 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000     0x102d Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x11f Src/lsm6dsl.o
  .debug_macro   0x0000000000000000     0xb937 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000       0x43 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000     0x3659 Src/lsm6dsl.o
- .debug_macro   0x0000000000000000       0x54 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x447 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x9fe Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x15f Src/lsm6dsl.o
@@ -4104,6 +4141,21 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x47 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x287 Src/lsm6dsl.o
  .debug_macro   0x0000000000000000      0x126 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x35 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x52 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x40 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x10 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x40 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0xd7 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x1c Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x3d Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x16 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000      0x145 Src/lsm6dsl.o
+ .debug_macro   0x0000000000000000       0x20 Src/lsm6dsl.o
  .group         0x0000000000000000        0xc Src/lsm6dsl_reg.o
  .group         0x0000000000000000        0xc Src/lsm6dsl_reg.o
  .group         0x0000000000000000        0xc Src/lsm6dsl_reg.o
@@ -4558,6 +4610,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xef Src/lsm6dsl_reg.o
  .debug_macro   0x0000000000000000       0x6a Src/lsm6dsl_reg.o
  .debug_macro   0x0000000000000000      0x1df Src/lsm6dsl_reg.o
+ .debug_macro   0x0000000000000000       0x46 Src/lsm6dsl_reg.o
  .debug_macro   0x0000000000000000       0x18 Src/lsm6dsl_reg.o
  .debug_macro   0x0000000000000000       0x3c Src/lsm6dsl_reg.o
  .debug_macro   0x0000000000000000       0x34 Src/lsm6dsl_reg.o
@@ -4623,7 +4676,6 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Src/main.o
  .bss           0x0000000000000000        0x0 Src/main.o
  .debug_macro   0x0000000000000000      0xa5a Src/main.o
- .debug_macro   0x0000000000000000       0x22 Src/main.o
  .debug_macro   0x0000000000000000      0x1a9 Src/main.o
  .debug_macro   0x0000000000000000       0x2e Src/main.o
  .debug_macro   0x0000000000000000       0x28 Src/main.o
@@ -4670,6 +4722,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x47 Src/main.o
  .debug_macro   0x0000000000000000      0x287 Src/main.o
  .debug_macro   0x0000000000000000      0x126 Src/main.o
+ .debug_macro   0x0000000000000000       0x22 Src/main.o
  .debug_macro   0x0000000000000000       0x22 Src/main.o
  .group         0x0000000000000000        0xc Src/rtc.o
  .group         0x0000000000000000        0xc Src/rtc.o
@@ -5329,52 +5382,25 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Src/system_debug.o
  .bss           0x0000000000000000        0x0 Src/system_debug.o
  .debug_macro   0x0000000000000000      0xa5a Src/system_debug.o
- .debug_macro   0x0000000000000000       0x22 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x22 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x40 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x18 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x94 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x3c Src/system_debug.o
- .debug_macro   0x0000000000000000       0x34 Src/system_debug.o
- .debug_macro   0x0000000000000000      0x174 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x57 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x52 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x1f Src/system_debug.o
- .debug_macro   0x0000000000000000       0x43 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x20 Src/system_debug.o
- .debug_macro   0x0000000000000000      0x1a3 Src/system_debug.o
- .debug_macro   0x0000000000000000      0x330 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x35 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x20 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
- .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x6a Src/system_debug.o
- .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
- .debug_macro   0x0000000000000000       0x52 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x40 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x40 Src/system_debug.o
- .debug_macro   0x0000000000000000       0xd7 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
- .debug_macro   0x0000000000000000       0x3d Src/system_debug.o
- .debug_macro   0x0000000000000000       0x16 Src/system_debug.o
- .debug_macro   0x0000000000000000      0x145 Src/system_debug.o
  .debug_macro   0x0000000000000000      0x1a9 Src/system_debug.o
  .debug_macro   0x0000000000000000       0x2e Src/system_debug.o
  .debug_macro   0x0000000000000000       0x28 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x22 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x8e Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x51 Src/system_debug.o
  .debug_macro   0x0000000000000000       0xef Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x6a Src/system_debug.o
  .debug_macro   0x0000000000000000      0x1df Src/system_debug.o
  .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
  .debug_macro   0x0000000000000000       0x22 Src/system_debug.o
- .debug_macro   0x0000000000000000       0xd9 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0xdf Src/system_debug.o
  .debug_macro   0x0000000000000000     0x102d Src/system_debug.o
  .debug_macro   0x0000000000000000      0x11f Src/system_debug.o
  .debug_macro   0x0000000000000000     0xb937 Src/system_debug.o
  .debug_macro   0x0000000000000000       0x43 Src/system_debug.o
  .debug_macro   0x0000000000000000     0x3659 Src/system_debug.o
- .debug_macro   0x0000000000000000       0x54 Src/system_debug.o
+ .debug_macro   0x0000000000000000      0x174 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x5a Src/system_debug.o
  .debug_macro   0x0000000000000000      0x447 Src/system_debug.o
  .debug_macro   0x0000000000000000      0x9fe Src/system_debug.o
  .debug_macro   0x0000000000000000      0x15f Src/system_debug.o
@@ -5402,6 +5428,33 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x47 Src/system_debug.o
  .debug_macro   0x0000000000000000      0x287 Src/system_debug.o
  .debug_macro   0x0000000000000000      0x126 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x22 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x46 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x18 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x3c Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x34 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x52 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x1f Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x43 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x20 Src/system_debug.o
+ .debug_macro   0x0000000000000000      0x1a3 Src/system_debug.o
+ .debug_macro   0x0000000000000000      0x32a Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x35 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x20 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x52 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x40 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x10 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x40 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0xd7 Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x1c Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x3d Src/system_debug.o
+ .debug_macro   0x0000000000000000       0x16 Src/system_debug.o
+ .debug_macro   0x0000000000000000      0x145 Src/system_debug.o
  .group         0x0000000000000000        0xc Src/system_isr.o
  .group         0x0000000000000000        0xc Src/system_isr.o
  .group         0x0000000000000000        0xc Src/system_isr.o
@@ -7547,7 +7600,7 @@ LOAD c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000000001058       0x22 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x26399
+.debug_info     0x0000000000000000    0x26b7a
  .debug_info    0x0000000000000000      0x8d5 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_info    0x00000000000008d5      0xdae Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_info    0x0000000000001683      0x43a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o
@@ -7568,25 +7621,25 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_info    0x000000000000e74d     0x180d Src/command.o
  .debug_info    0x000000000000ff5a      0x503 Src/crc.o
  .debug_info    0x000000000001045d      0x504 Src/dma.o
- .debug_info    0x0000000000010961      0x486 Src/flash.o
- .debug_info    0x0000000000010de7      0x66a Src/gpio.o
- .debug_info    0x0000000000011451      0xa0c Src/i2c.o
- .debug_info    0x0000000000011e5d     0x3df8 Src/lsm6dsl.o
- .debug_info    0x0000000000015c55     0x8b5b Src/lsm6dsl_reg.o
- .debug_info    0x000000000001e7b0     0x140b Src/main.o
- .debug_info    0x000000000001fbbb      0x81e Src/rtc.o
- .debug_info    0x00000000000203d9      0x38c Src/stm32f4xx_hal_msp.o
- .debug_info    0x0000000000020765      0xabf Src/stm32f4xx_hal_timebase_tim.o
- .debug_info    0x0000000000021224      0xc93 Src/stm32f4xx_it.o
- .debug_info    0x0000000000021eb7      0x91c Src/sysmem.o
- .debug_info    0x00000000000227d3     0x1400 Src/system_debug.o
- .debug_info    0x0000000000023bd3      0xbf9 Src/system_isr.o
- .debug_info    0x00000000000247cc      0x57e Src/system_stm32f4xx.o
- .debug_info    0x0000000000024d4a      0xb0b Src/tim.o
- .debug_info    0x0000000000025855      0xb22 Src/usart.o
- .debug_info    0x0000000000026377       0x22 Startup/startup_stm32f411retx.o
+ .debug_info    0x0000000000010961      0xc67 Src/flash.o
+ .debug_info    0x00000000000115c8      0x66a Src/gpio.o
+ .debug_info    0x0000000000011c32      0xa0c Src/i2c.o
+ .debug_info    0x000000000001263e     0x3df8 Src/lsm6dsl.o
+ .debug_info    0x0000000000016436     0x8b5b Src/lsm6dsl_reg.o
+ .debug_info    0x000000000001ef91     0x140b Src/main.o
+ .debug_info    0x000000000002039c      0x81e Src/rtc.o
+ .debug_info    0x0000000000020bba      0x38c Src/stm32f4xx_hal_msp.o
+ .debug_info    0x0000000000020f46      0xabf Src/stm32f4xx_hal_timebase_tim.o
+ .debug_info    0x0000000000021a05      0xc93 Src/stm32f4xx_it.o
+ .debug_info    0x0000000000022698      0x91c Src/sysmem.o
+ .debug_info    0x0000000000022fb4     0x1400 Src/system_debug.o
+ .debug_info    0x00000000000243b4      0xbf9 Src/system_isr.o
+ .debug_info    0x0000000000024fad      0x57e Src/system_stm32f4xx.o
+ .debug_info    0x000000000002552b      0xb0b Src/tim.o
+ .debug_info    0x0000000000026036      0xb22 Src/usart.o
+ .debug_info    0x0000000000026b58       0x22 Startup/startup_stm32f411retx.o
 
-.debug_abbrev   0x0000000000000000     0x449b
+.debug_abbrev   0x0000000000000000     0x4543
  .debug_abbrev  0x0000000000000000      0x1f2 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_abbrev  0x00000000000001f2      0x2fa Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_abbrev  0x00000000000004ec      0x18e Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o
@@ -7607,23 +7660,23 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_abbrev  0x0000000000002352      0x266 Src/command.o
  .debug_abbrev  0x00000000000025b8      0x168 Src/crc.o
  .debug_abbrev  0x0000000000002720      0x107 Src/dma.o
- .debug_abbrev  0x0000000000002827      0x16f Src/flash.o
- .debug_abbrev  0x0000000000002996      0x13d Src/gpio.o
- .debug_abbrev  0x0000000000002ad3      0x199 Src/i2c.o
- .debug_abbrev  0x0000000000002c6c      0x3b0 Src/lsm6dsl.o
- .debug_abbrev  0x000000000000301c      0x2c8 Src/lsm6dsl_reg.o
- .debug_abbrev  0x00000000000032e4      0x1b7 Src/main.o
- .debug_abbrev  0x000000000000349b      0x159 Src/rtc.o
- .debug_abbrev  0x00000000000035f4      0x109 Src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x00000000000036fd      0x1ac Src/stm32f4xx_hal_timebase_tim.o
- .debug_abbrev  0x00000000000038a9      0x181 Src/stm32f4xx_it.o
- .debug_abbrev  0x0000000000003a2a      0x1bb Src/sysmem.o
- .debug_abbrev  0x0000000000003be5      0x293 Src/system_debug.o
- .debug_abbrev  0x0000000000003e78      0x17a Src/system_isr.o
- .debug_abbrev  0x0000000000003ff2      0x12b Src/system_stm32f4xx.o
- .debug_abbrev  0x000000000000411d      0x1b9 Src/tim.o
- .debug_abbrev  0x00000000000042d6      0x1b3 Src/usart.o
- .debug_abbrev  0x0000000000004489       0x12 Startup/startup_stm32f411retx.o
+ .debug_abbrev  0x0000000000002827      0x217 Src/flash.o
+ .debug_abbrev  0x0000000000002a3e      0x13d Src/gpio.o
+ .debug_abbrev  0x0000000000002b7b      0x199 Src/i2c.o
+ .debug_abbrev  0x0000000000002d14      0x3b0 Src/lsm6dsl.o
+ .debug_abbrev  0x00000000000030c4      0x2c8 Src/lsm6dsl_reg.o
+ .debug_abbrev  0x000000000000338c      0x1b7 Src/main.o
+ .debug_abbrev  0x0000000000003543      0x159 Src/rtc.o
+ .debug_abbrev  0x000000000000369c      0x109 Src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x00000000000037a5      0x1ac Src/stm32f4xx_hal_timebase_tim.o
+ .debug_abbrev  0x0000000000003951      0x181 Src/stm32f4xx_it.o
+ .debug_abbrev  0x0000000000003ad2      0x1bb Src/sysmem.o
+ .debug_abbrev  0x0000000000003c8d      0x293 Src/system_debug.o
+ .debug_abbrev  0x0000000000003f20      0x17a Src/system_isr.o
+ .debug_abbrev  0x000000000000409a      0x12b Src/system_stm32f4xx.o
+ .debug_abbrev  0x00000000000041c5      0x1b9 Src/tim.o
+ .debug_abbrev  0x000000000000437e      0x1b3 Src/usart.o
+ .debug_abbrev  0x0000000000004531       0x12 Startup/startup_stm32f411retx.o
 
 .debug_aranges  0x0000000000000000     0x1ee0
  .debug_aranges
@@ -7740,7 +7793,7 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_ranges  0x0000000000001c78       0x20 Src/usart.o
  .debug_ranges  0x0000000000001c98       0x20 Startup/startup_stm32f411retx.o
 
-.debug_macro    0x0000000000000000    0x1b442
+.debug_macro    0x0000000000000000    0x1b60d
  .debug_macro   0x0000000000000000      0x274 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_macro   0x0000000000000274      0xa5a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_macro   0x0000000000000cce      0x1a9 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
@@ -7804,71 +7857,68 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_macro   0x00000000000165a8      0x215 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
  .debug_macro   0x00000000000167bd      0x214 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
  .debug_macro   0x00000000000169d1      0x215 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
- .debug_macro   0x0000000000016be6      0x30f Src/com.o
- .debug_macro   0x0000000000016ef5       0x22 Src/com.o
- .debug_macro   0x0000000000016f17       0x40 Src/com.o
- .debug_macro   0x0000000000016f57       0x18 Src/com.o
- .debug_macro   0x0000000000016f6f       0x94 Src/com.o
- .debug_macro   0x0000000000017003       0x3c Src/com.o
- .debug_macro   0x000000000001703f       0x34 Src/com.o
- .debug_macro   0x0000000000017073       0x57 Src/com.o
- .debug_macro   0x00000000000170ca       0x52 Src/com.o
- .debug_macro   0x000000000001711c       0x1f Src/com.o
- .debug_macro   0x000000000001713b       0x43 Src/com.o
- .debug_macro   0x000000000001717e       0x20 Src/com.o
- .debug_macro   0x000000000001719e      0x1a3 Src/com.o
- .debug_macro   0x0000000000017341      0x330 Src/com.o
- .debug_macro   0x0000000000017671       0x10 Src/com.o
- .debug_macro   0x0000000000017681       0x35 Src/com.o
- .debug_macro   0x00000000000176b6       0x20 Src/com.o
- .debug_macro   0x00000000000176d6       0xd9 Src/com.o
- .debug_macro   0x00000000000177af       0x54 Src/com.o
- .debug_macro   0x0000000000017803       0x22 Src/com.o
- .debug_macro   0x0000000000017825      0x4b2 Src/command.o
- .debug_macro   0x0000000000017cd7       0x16 Src/command.o
- .debug_macro   0x0000000000017ced       0x16 Src/command.o
- .debug_macro   0x0000000000017d03       0x29 Src/command.o
- .debug_macro   0x0000000000017d2c       0x1c Src/command.o
- .debug_macro   0x0000000000017d48       0x10 Src/command.o
- .debug_macro   0x0000000000017d58       0x10 Src/command.o
- .debug_macro   0x0000000000017d68       0x1c Src/command.o
- .debug_macro   0x0000000000017d84       0x52 Src/command.o
- .debug_macro   0x0000000000017dd6       0x40 Src/command.o
- .debug_macro   0x0000000000017e16       0x10 Src/command.o
- .debug_macro   0x0000000000017e26       0x40 Src/command.o
- .debug_macro   0x0000000000017e66       0xd7 Src/command.o
- .debug_macro   0x0000000000017f3d       0x1c Src/command.o
- .debug_macro   0x0000000000017f59       0x3d Src/command.o
- .debug_macro   0x0000000000017f96       0x16 Src/command.o
- .debug_macro   0x0000000000017fac      0x145 Src/command.o
- .debug_macro   0x00000000000180f1      0x228 Src/crc.o
- .debug_macro   0x0000000000018319      0x228 Src/dma.o
- .debug_macro   0x0000000000018541      0x24f Src/flash.o
- .debug_macro   0x0000000000018790      0x228 Src/gpio.o
- .debug_macro   0x00000000000189b8      0x228 Src/i2c.o
- .debug_macro   0x0000000000018be0      0x41b Src/lsm6dsl.o
- .debug_macro   0x0000000000018ffb       0x16 Src/lsm6dsl.o
- .debug_macro   0x0000000000019011       0x97 Src/lsm6dsl.o
- .debug_macro   0x00000000000190a8       0xfd Src/lsm6dsl.o
- .debug_macro   0x00000000000191a5       0x16 Src/lsm6dsl.o
- .debug_macro   0x00000000000191bb      0x1e1 Src/lsm6dsl.o
- .debug_macro   0x000000000001939c      0x3b5 Src/lsm6dsl.o
- .debug_macro   0x0000000000019751      0x115 Src/lsm6dsl_reg.o
- .debug_macro   0x0000000000019866       0x46 Src/lsm6dsl_reg.o
- .debug_macro   0x00000000000198ac      0x2ac Src/main.o
- .debug_macro   0x0000000000019b58      0x228 Src/rtc.o
- .debug_macro   0x0000000000019d80      0x21e Src/stm32f4xx_hal_msp.o
- .debug_macro   0x0000000000019f9e      0x214 Src/stm32f4xx_hal_timebase_tim.o
- .debug_macro   0x000000000001a1b2      0x228 Src/stm32f4xx_it.o
- .debug_macro   0x000000000001a3da      0x1ae Src/sysmem.o
- .debug_macro   0x000000000001a588      0x23b Src/sysmem.o
- .debug_macro   0x000000000001a7c3      0x3d1 Src/system_debug.o
- .debug_macro   0x000000000001ab94      0x244 Src/system_isr.o
- .debug_macro   0x000000000001add8      0x21a Src/system_stm32f4xx.o
- .debug_macro   0x000000000001aff2      0x228 Src/tim.o
- .debug_macro   0x000000000001b21a      0x228 Src/usart.o
+ .debug_macro   0x0000000000016be6      0x315 Src/com.o
+ .debug_macro   0x0000000000016efb       0x22 Src/com.o
+ .debug_macro   0x0000000000016f1d       0x22 Src/com.o
+ .debug_macro   0x0000000000016f3f       0x46 Src/com.o
+ .debug_macro   0x0000000000016f85       0x18 Src/com.o
+ .debug_macro   0x0000000000016f9d       0x3c Src/com.o
+ .debug_macro   0x0000000000016fd9       0x34 Src/com.o
+ .debug_macro   0x000000000001700d       0x52 Src/com.o
+ .debug_macro   0x000000000001705f       0x1f Src/com.o
+ .debug_macro   0x000000000001707e       0x43 Src/com.o
+ .debug_macro   0x00000000000170c1       0x20 Src/com.o
+ .debug_macro   0x00000000000170e1      0x1a3 Src/com.o
+ .debug_macro   0x0000000000017284      0x32a Src/com.o
+ .debug_macro   0x00000000000175ae       0x10 Src/com.o
+ .debug_macro   0x00000000000175be       0x35 Src/com.o
+ .debug_macro   0x00000000000175f3       0x20 Src/com.o
+ .debug_macro   0x0000000000017613      0x4b1 Src/command.o
+ .debug_macro   0x0000000000017ac4       0x10 Src/command.o
+ .debug_macro   0x0000000000017ad4       0x16 Src/command.o
+ .debug_macro   0x0000000000017aea       0x16 Src/command.o
+ .debug_macro   0x0000000000017b00       0x29 Src/command.o
+ .debug_macro   0x0000000000017b29       0x1c Src/command.o
+ .debug_macro   0x0000000000017b45       0x10 Src/command.o
+ .debug_macro   0x0000000000017b55       0x10 Src/command.o
+ .debug_macro   0x0000000000017b65       0x1c Src/command.o
+ .debug_macro   0x0000000000017b81       0x52 Src/command.o
+ .debug_macro   0x0000000000017bd3       0x40 Src/command.o
+ .debug_macro   0x0000000000017c13       0x10 Src/command.o
+ .debug_macro   0x0000000000017c23       0x40 Src/command.o
+ .debug_macro   0x0000000000017c63       0xd7 Src/command.o
+ .debug_macro   0x0000000000017d3a       0x1c Src/command.o
+ .debug_macro   0x0000000000017d56       0x3d Src/command.o
+ .debug_macro   0x0000000000017d93       0x16 Src/command.o
+ .debug_macro   0x0000000000017da9      0x145 Src/command.o
+ .debug_macro   0x0000000000017eee      0x228 Src/crc.o
+ .debug_macro   0x0000000000018116      0x228 Src/dma.o
+ .debug_macro   0x000000000001833e      0x39e Src/flash.o
+ .debug_macro   0x00000000000186dc       0x16 Src/flash.o
+ .debug_macro   0x00000000000186f2      0x228 Src/gpio.o
+ .debug_macro   0x000000000001891a      0x228 Src/i2c.o
+ .debug_macro   0x0000000000018b42      0x41b Src/lsm6dsl.o
+ .debug_macro   0x0000000000018f5d      0x330 Src/lsm6dsl.o
+ .debug_macro   0x000000000001928d      0x1e1 Src/lsm6dsl.o
+ .debug_macro   0x000000000001946e      0x3b5 Src/lsm6dsl.o
+ .debug_macro   0x0000000000019823       0xd9 Src/lsm6dsl.o
+ .debug_macro   0x00000000000198fc       0x54 Src/lsm6dsl.o
+ .debug_macro   0x0000000000019950       0x16 Src/lsm6dsl.o
+ .debug_macro   0x0000000000019966      0x115 Src/lsm6dsl_reg.o
+ .debug_macro   0x0000000000019a7b      0x2a2 Src/main.o
+ .debug_macro   0x0000000000019d1d      0x228 Src/rtc.o
+ .debug_macro   0x0000000000019f45      0x21e Src/stm32f4xx_hal_msp.o
+ .debug_macro   0x000000000001a163      0x214 Src/stm32f4xx_hal_timebase_tim.o
+ .debug_macro   0x000000000001a377      0x228 Src/stm32f4xx_it.o
+ .debug_macro   0x000000000001a59f      0x1ae Src/sysmem.o
+ .debug_macro   0x000000000001a74d      0x23b Src/sysmem.o
+ .debug_macro   0x000000000001a988      0x3d7 Src/system_debug.o
+ .debug_macro   0x000000000001ad5f      0x244 Src/system_isr.o
+ .debug_macro   0x000000000001afa3      0x21a Src/system_stm32f4xx.o
+ .debug_macro   0x000000000001b1bd      0x228 Src/tim.o
+ .debug_macro   0x000000000001b3e5      0x228 Src/usart.o
 
-.debug_line     0x0000000000000000    0x1b597
+.debug_line     0x0000000000000000    0x1b757
  .debug_line    0x0000000000000000      0x964 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_line    0x0000000000000964      0xc2f Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_line    0x0000000000001593      0x811 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o
@@ -7889,23 +7939,23 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_line    0x0000000000010589      0xb82 Src/command.o
  .debug_line    0x000000000001110b      0x767 Src/crc.o
  .debug_line    0x0000000000011872      0x745 Src/dma.o
- .debug_line    0x0000000000011fb7      0x87a Src/flash.o
- .debug_line    0x0000000000012831      0x757 Src/gpio.o
- .debug_line    0x0000000000012f88      0x779 Src/i2c.o
- .debug_line    0x0000000000013701      0xbc8 Src/lsm6dsl.o
- .debug_line    0x00000000000142c9     0x1cc2 Src/lsm6dsl_reg.o
- .debug_line    0x0000000000015f8b      0x845 Src/main.o
- .debug_line    0x00000000000167d0      0x796 Src/rtc.o
- .debug_line    0x0000000000016f66      0x749 Src/stm32f4xx_hal_msp.o
- .debug_line    0x00000000000176af      0x77c Src/stm32f4xx_hal_timebase_tim.o
- .debug_line    0x0000000000017e2b      0x87b Src/stm32f4xx_it.o
- .debug_line    0x00000000000186a6      0x559 Src/sysmem.o
- .debug_line    0x0000000000018bff      0xac2 Src/system_debug.o
- .debug_line    0x00000000000196c1      0x7bd Src/system_isr.o
- .debug_line    0x0000000000019e7e      0x763 Src/system_stm32f4xx.o
- .debug_line    0x000000000001a5e1      0x79b Src/tim.o
- .debug_line    0x000000000001ad7c      0x79b Src/usart.o
- .debug_line    0x000000000001b517       0x80 Startup/startup_stm32f411retx.o
+ .debug_line    0x0000000000011fb7      0xa47 Src/flash.o
+ .debug_line    0x00000000000129fe      0x757 Src/gpio.o
+ .debug_line    0x0000000000013155      0x779 Src/i2c.o
+ .debug_line    0x00000000000138ce      0xbc8 Src/lsm6dsl.o
+ .debug_line    0x0000000000014496     0x1cc2 Src/lsm6dsl_reg.o
+ .debug_line    0x0000000000016158      0x838 Src/main.o
+ .debug_line    0x0000000000016990      0x796 Src/rtc.o
+ .debug_line    0x0000000000017126      0x749 Src/stm32f4xx_hal_msp.o
+ .debug_line    0x000000000001786f      0x77c Src/stm32f4xx_hal_timebase_tim.o
+ .debug_line    0x0000000000017feb      0x87b Src/stm32f4xx_it.o
+ .debug_line    0x0000000000018866      0x559 Src/sysmem.o
+ .debug_line    0x0000000000018dbf      0xac2 Src/system_debug.o
+ .debug_line    0x0000000000019881      0x7bd Src/system_isr.o
+ .debug_line    0x000000000001a03e      0x763 Src/system_stm32f4xx.o
+ .debug_line    0x000000000001a7a1      0x79b Src/tim.o
+ .debug_line    0x000000000001af3c      0x79b Src/usart.o
+ .debug_line    0x000000000001b6d7       0x80 Startup/startup_stm32f411retx.o
 
 .debug_str      0x0000000000000000    0x9d3ce
  .debug_str     0x0000000000000000    0x8ccf3 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
@@ -7940,26 +7990,26 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
                                       0x8cfec (size before relaxing)
  .debug_str     0x0000000000091211      0x6c0 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
                                       0x8cf2c (size before relaxing)
- .debug_str     0x00000000000918d1     0x3120 Src/com.o
-                                      0x8fae5 (size before relaxing)
- .debug_str     0x00000000000949f1     0x1850 Src/command.o
-                                      0x915b9 (size before relaxing)
- .debug_str     0x0000000000096241       0x23 Src/crc.o
+ .debug_str     0x00000000000918d1     0x310d Src/com.o
+                                      0x8fae7 (size before relaxing)
+ .debug_str     0x00000000000949de     0x1850 Src/command.o
+                                      0x915bb (size before relaxing)
+ .debug_str     0x000000000009622e       0x23 Src/crc.o
                                       0x8c7a0 (size before relaxing)
- .debug_str     0x0000000000096264       0x22 Src/dma.o
+ .debug_str     0x0000000000096251       0x22 Src/dma.o
                                       0x8c9f7 (size before relaxing)
- .debug_str     0x0000000000096286      0x10d Src/flash.o
-                                      0x8c78b (size before relaxing)
- .debug_str     0x0000000000096393       0x25 Src/gpio.o
+ .debug_str     0x0000000000096273      0x10d Src/flash.o
+                                      0x9083c (size before relaxing)
+ .debug_str     0x0000000000096380       0x25 Src/gpio.o
                                       0x8ca97 (size before relaxing)
- .debug_str     0x00000000000963b8       0x33 Src/i2c.o
+ .debug_str     0x00000000000963a5       0x33 Src/i2c.o
                                       0x8cc1a (size before relaxing)
- .debug_str     0x00000000000963eb     0x38c3 Src/lsm6dsl.o
+ .debug_str     0x00000000000963d8     0x38d6 Src/lsm6dsl.o
                                       0x94719 (size before relaxing)
  .debug_str     0x0000000000099cae     0x2bdd Src/lsm6dsl_reg.o
                                        0xcc35 (size before relaxing)
  .debug_str     0x000000000009c88b       0x97 Src/main.o
-                                      0x8d491 (size before relaxing)
+                                      0x8d486 (size before relaxing)
  .debug_str     0x000000000009c922       0x23 Src/rtc.o
                                       0x8cc5b (size before relaxing)
  .debug_str     0x000000000009c945       0x1b Src/stm32f4xx_hal_msp.o
@@ -7971,7 +8021,7 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_str     0x000000000009cb29      0x4b9 Src/sysmem.o
                                        0x7af1 (size before relaxing)
  .debug_str     0x000000000009cfe2      0x2c0 Src/system_debug.o
-                                      0x90dc4 (size before relaxing)
+                                      0x90dc6 (size before relaxing)
  .debug_str     0x000000000009d2a2       0x22 Src/system_isr.o
                                       0x8ce35 (size before relaxing)
  .debug_str     0x000000000009d2c4       0x5a Src/system_stm32f4xx.o

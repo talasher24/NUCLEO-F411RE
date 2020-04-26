@@ -9,12 +9,12 @@
 * Includes
 *******************************************************************************/
 
-#include <com.h>
+#include "stm32f4xx_hal.h"
+#include "system_debug.h"
+#include "com.h"
+#include "rtc.h"
 #include <string.h>
 #include <stdio.h>
-#include "system_debug.h"
-#include "rtc.h"
-#include "stm32f4xx_hal.h"
 
 /******************************************************************************
 * Module Preprocessor Constants

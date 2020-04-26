@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include <com.h>
+
 #include "main.h"
 #include "crc.h"
 #include "dma.h"
@@ -33,9 +33,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "com.h"
 #include "lsm6dsl.h"
 #include "types.h"
-#include "command.h"
 #include "system_debug.h"
 
 /* USER CODE END Includes */

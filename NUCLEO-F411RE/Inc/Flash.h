@@ -15,8 +15,6 @@
  * Includes
  *******************************************************************************/
 
-#include "stm32f4xx_hal.h"
-
  /******************************************************************************
  * Module Preprocessor Constants
  *******************************************************************************/
@@ -48,8 +46,8 @@
  void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs);
  void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType);
  void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType);
- HAL_StatusTypeDef FLASH_wrpSectorEnable (void);
- HAL_StatusTypeDef FLASH_wrpSectorDisable (void);
+ void FLASH_wrpSectorEnable (void);
+ void FLASH_wrpSectorDisable (void);
 
  /******************************************************************************
  * Function Definitions

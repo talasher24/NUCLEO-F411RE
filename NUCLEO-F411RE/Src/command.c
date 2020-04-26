@@ -9,19 +9,21 @@
 * Includes
 *******************************************************************************/
 
-#include <com.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "command.h"
+#include "stm32f4xx_hal.h"
+#include "com.h"
 #include "flash.h"
 #include "lsm6dsl.h"
 #include "types.h"
 #include "system_debug.h"
+
 #include "crc.h"
 #include "rtc.h"
 #include "tim.h"
-#include "stm32f4xx_hal.h"
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /******************************************************************************
 * Module Preprocessor Constants
@@ -229,19 +231,15 @@ void COMMAND_flashLockCallback(char* token)
 
 void COMMAND_setSNCallback(char* token)
 {
-	/*if (FLASH_wrpSectorDisable() != HAL_OK)
-	{
-		Error_Handler();
-	}*/
+	//if (FLASH_wrpSectorDisable();
+
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
 	FLASH_setSectorAddress(7, sector_7_addr);
 	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
 	FLASH_writeN(0, myTestWrite, 1, DATA_TYPE_32);
 
-	/*if (FLASH_wrpSectorEnable() != HAL_OK)
-	{
-		Error_Handler();
-	}*/
+	//FLASH_wrpSectorEnable();
+
 }
 
 void COMMAND_getSNCallback(char* token)

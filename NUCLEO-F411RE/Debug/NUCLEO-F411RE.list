@@ -31,23 +31,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  13 .ARM.attributes 00000030  00000000  00000000  0002025c  2**0
                   CONTENTS, READONLY
- 14 .debug_info   00026399  00000000  00000000  0002028c  2**0
+ 14 .debug_info   00026b7a  00000000  00000000  0002028c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_abbrev 0000449b  00000000  00000000  00046625  2**0
+ 15 .debug_abbrev 00004543  00000000  00000000  00046e06  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_aranges 00001ee0  00000000  00000000  0004aac0  2**3
+ 16 .debug_aranges 00001ee0  00000000  00000000  0004b350  2**3
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_ranges 00001cb8  00000000  00000000  0004c9a0  2**3
+ 17 .debug_ranges 00001cb8  00000000  00000000  0004d230  2**3
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_macro  0001b442  00000000  00000000  0004e658  2**0
+ 18 .debug_macro  0001b60d  00000000  00000000  0004eee8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_line   0001b597  00000000  00000000  00069a9a  2**0
+ 19 .debug_line   0001b757  00000000  00000000  0006a4f5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_str    0009d3ce  00000000  00000000  00085031  2**0
+ 20 .debug_str    0009d3ce  00000000  00000000  00085c4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .comment      0000007b  00000000  00000000  001223ff  2**0
+ 21 .comment      0000007b  00000000  00000000  0012301a  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  00008ae8  00000000  00000000  0012247c  2**2
+ 22 .debug_frame  00008ae8  00000000  00000000  00123098  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -21880,10 +21880,8 @@ void COMMAND_setSNCallback(char* token)
  8009086:	b084      	sub	sp, #16
  8009088:	af00      	add	r7, sp, #0
  800908a:	6078      	str	r0, [r7, #4]
-	/*if (FLASH_wrpSectorDisable() != HAL_OK)
-	{
-		Error_Handler();
-	}*/
+	//if (FLASH_wrpSectorDisable();
+
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
  800908c:	4b09      	ldr	r3, [pc, #36]	; (80090b4 <COMMAND_setSNCallback+0x30>)
  800908e:	60fb      	str	r3, [r7, #12]
@@ -21901,10 +21899,8 @@ void COMMAND_setSNCallback(char* token)
  80090a4:	2000      	movs	r0, #0
  80090a6:	f000 f953 	bl	8009350 <FLASH_writeN>
 
-	/*if (FLASH_wrpSectorEnable() != HAL_OK)
-	{
-		Error_Handler();
-	}*/
+	//FLASH_wrpSectorEnable();
+
 }
  80090aa:	bf00      	nop
  80090ac:	3710      	adds	r7, #16
@@ -22055,7 +22051,7 @@ void COMMAND_assert0Callback(char* token)
  8009198:	af00      	add	r7, sp, #0
  800919a:	6078      	str	r0, [r7, #4]
 	assert_param(0);
- 800919c:	f44f 7190 	mov.w	r1, #288	; 0x120
+ 800919c:	f44f 718f 	mov.w	r1, #286	; 0x11e
  80091a0:	4803      	ldr	r0, [pc, #12]	; (80091b0 <COMMAND_assert0Callback+0x1c>)
  80091a2:	f001 ff8b 	bl	800b0bc <assert_failed>
 }

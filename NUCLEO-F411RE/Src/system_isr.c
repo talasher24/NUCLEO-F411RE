@@ -9,8 +9,8 @@
  * Includes
  *******************************************************************************/
 
-#include <com.h>
 #include "system_isr.h"
+#include "com.h"
 #include "lsm6dsl.h"
 #include "types.h"
 #include "stm32f4xx_hal.h"

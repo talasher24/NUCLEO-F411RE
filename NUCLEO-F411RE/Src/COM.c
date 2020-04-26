@@ -9,12 +9,12 @@
 * Includes
 *******************************************************************************/
 
-#include <com.h>
-#include <string.h>
+#include "com.h"
 #include "usart.h"
 #include "command.h"
 #include "types.h"
 #include "stm32f4xx_hal.h"
+#include <string.h>
 
 /******************************************************************************
 * Module Preprocessor Constants

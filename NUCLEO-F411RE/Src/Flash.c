@@ -9,9 +9,10 @@
 * Includes
 *******************************************************************************/
 
-#include <com.h>
-#include "flash.h"
 #include "main.h"
+#include "flash.h"
+#include "com.h"
+#include <stdio.h>
 
 /******************************************************************************
 * Module Preprocessor Constants
@@ -128,10 +129,8 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
 	}
 }
 
-HAL_StatusTypeDef FLASH_wrpSectorEnable (void)
+void FLASH_wrpSectorEnable (void)
 {
-	HAL_StatusTypeDef status = HAL_ERROR;
-
 	/* Private define ------------------------------------------------------------*/
 	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
 	/* Private variables ---------------------------------------------------------*/
@@ -179,7 +178,7 @@ HAL_StatusTypeDef FLASH_wrpSectorEnable (void)
 		/* Check if FLASH_WRP_SECTORS are write protected */
 		if (SectorsWRPStatus == 0)
 		{
-			status = HAL_OK; //COM_uartPrint("wrp enabled\n");
+			//COM_uartPrint("wrp enabled\n");
 		}
 		else
 		{
@@ -188,15 +187,12 @@ HAL_StatusTypeDef FLASH_wrpSectorEnable (void)
 	}
 	else
 	{
-		status = HAL_OK; //COM_uartPrint("wrp is already enabled\n");
+		//COM_uartPrint("wrp is already enabled\n");
 	}
-	return status;
 }
 
-HAL_StatusTypeDef FLASH_wrpSectorDisable (void)
+void FLASH_wrpSectorDisable (void)
 {
-	HAL_StatusTypeDef status = HAL_ERROR;
-
 	/* Private define ------------------------------------------------------------*/
 	#define FLASH_WRP_SECTORS   (/*OB_WRP_SECTOR_6 |*/ OB_WRP_SECTOR_7) /* sectors 6 and 7  */
 	/* Private variables ---------------------------------------------------------*/
@@ -244,7 +240,7 @@ HAL_StatusTypeDef FLASH_wrpSectorDisable (void)
 		/* Check if FLASH_WRP_SECTORS write protection is disabled */
 		if (SectorsWRPStatus == FLASH_WRP_SECTORS)
 		{
-			status = HAL_OK; //COM_uartPrint("wrp disabled\n");
+			//COM_uartPrint("wrp disabled\n");
 		}
 		else
 		{
@@ -253,8 +249,7 @@ HAL_StatusTypeDef FLASH_wrpSectorDisable (void)
 	}
 	else
 	{
-		status = HAL_OK; //COM_uartPrint("wrp is already disabled\n");
+		//COM_uartPrint("wrp is already disabled\n");
 	}
-	return status;
 }
 

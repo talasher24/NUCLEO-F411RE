@@ -9,9 +9,9 @@
 * Includes
 *******************************************************************************/
 
-#include "main.h"
+#include <com.h>
 #include "flash.h"
-#include "com.h"
+#include "main.h"
 
 /******************************************************************************
 * Module Preprocessor Constants

@@ -9,12 +9,12 @@
 * Includes
 *******************************************************************************/
 
+#include <com.h>
 #include <string.h>
-#include "main.h"
 #include "usart.h"
-#include "com.h"
 #include "command.h"
 #include "types.h"
+#include "stm32f4xx_hal.h"
 
 /******************************************************************************
 * Module Preprocessor Constants
@@ -49,9 +49,9 @@ static uart_buffer_t Uart_Buffer;
 * Function Prototypes
 *******************************************************************************/
 
-void COM_setReadyCommandFlagOn(void);
-void COM_bufferInit(uint8_t* p_buffer);
-void COM_setTxBusyFlagOn(void);
+static void COM_setReadyCommandFlagOn(void);
+static void COM_bufferInit(uint8_t* p_buffer);
+static void COM_setTxBusyFlagOn(void);
 
 /******************************************************************************
 * Function Definitions
@@ -62,7 +62,7 @@ bool COM_getReadyCommandFlag(void)
 	return Uart_Buffer.rx_ready_command;
 }
 
-void COM_setReadyCommandFlagOn(void)
+static void COM_setReadyCommandFlagOn(void)
 {
 	Uart_Buffer.rx_ready_command = true;
 }
@@ -83,9 +83,8 @@ void COM_readyCommandProcess(void)
 void COM_uartPrint(char* token)
 {
 	while (COM_getTxBusyFlag());
-
 	strncpy((char*)Uart_Buffer.p_tx_buffer, token, sizeof(Uart_Buffer.p_tx_buffer));
-	while (HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen(token)) != HAL_OK);
+	HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen(token));
 	COM_setTxBusyFlagOn();
 }
 
@@ -94,7 +93,7 @@ void COM_halUartReceiveDma(void)
 	HAL_UART_Receive_DMA(&huart2, &Uart_Buffer.rx_single_char, 1);
 }
 
-void COM_setTxBusyFlagOn(void)
+static void COM_setTxBusyFlagOn(void)
 {
 	Uart_Buffer.tx_busy = true;
 }
@@ -119,24 +118,20 @@ void COM_charHandler(void)
 	if (Uart_Buffer.rx_single_char != '\n')
 	{
 		if(Uart_Buffer.rx_index < BUFFER_SIZE)
-	{
+		{
 			Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
 			Uart_Buffer.rx_index++;
-	}
+		}
 	}
 	else
 	{
-		Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
-		Uart_Buffer.rx_index++;
 		COM_setReadyCommandFlagOn();
 	}
 }
 
-void COM_bufferInit(uint8_t* p_buffer)
+static void COM_bufferInit(uint8_t* p_buffer)
 {
-	for(int i = 0; i < BUFFER_SIZE; i++){
-		p_buffer[i] = 0;
-	}
+	memset(p_buffer, 0, BUFFER_SIZE);
 }
 
 

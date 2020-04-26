@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-
+#include <com.h>
 #include "main.h"
 #include "crc.h"
 #include "dma.h"
@@ -33,17 +33,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "flash.h"
 #include "lsm6dsl.h"
 #include "types.h"
-#include "com.h"
 #include "command.h"
 #include "system_debug.h"
-#include "system_isr.h"
 
 /* USER CODE END Includes */
 
@@ -86,7 +79,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  uwTickPrio = TICK_INT_PRIORITY;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -120,18 +113,18 @@ int main(void)
   SYSTEM_DEBUG_wakeupStandbyMode();
 
 #ifdef IWDG_ENABLE
-  MX_IWDG_Init();
+	MX_IWDG_Init();
 #endif
 
   COM_halUartReceiveDma();
+
+  COM_uartPrint(HELLO_WORLD);
 
   SYSTEM_DEBUG_assertMsgPrint();
 
   LSM6DSL_init();
 
   SYSTEM_DEBUG_printResetCause();
-
-  COM_uartPrint(HELLO_WORLD);
 
   /* USER CODE END 2 */
 
@@ -145,19 +138,19 @@ int main(void)
 	SYSTEM_DEBUG_enterSleepMode();
 
 #ifdef IWDG_ENABLE
-	  kickDog();
+	kickDog();
 #endif
 
 	if (COM_getReadyCommandFlag())
 	{
-		COM_readyCommandProcess();
-		COM_setReadyCommandFlagOff();
+	  COM_readyCommandProcess();
+	  COM_setReadyCommandFlagOff();
 	}
 
 	if (LSM6DSL_getInterruptFlag())
 	{
-		LSM6DSL_processHanlder();
-		LSM6DSL_setInterruptFlagOff();
+	  LSM6DSL_processHanlder();
+	  LSM6DSL_setInterruptFlagOff();
 	}
   }
   /* USER CODE END 3 */

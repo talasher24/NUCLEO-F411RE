@@ -9,14 +9,14 @@
 * Includes
 *******************************************************************************/
 
+#include <com.h>
 #include <stdio.h>
 #include <string.h>
-#include "main.h"
 #include "usart.h"
 #include "lsm6dsl.h"
 #include "lsm6dsl_reg.h"
-#include "com.h"
 #include "i2c.h"
+#include "stm32f4xx_hal.h"
 
 /******************************************************************************
 * Module Preprocessor Constants

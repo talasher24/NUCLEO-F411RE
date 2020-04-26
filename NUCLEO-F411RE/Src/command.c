@@ -9,12 +9,11 @@
 * Includes
 *******************************************************************************/
 
+#include <com.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 #include "command.h"
-#include "com.h"
 #include "flash.h"
 #include "lsm6dsl.h"
 #include "types.h"
@@ -22,6 +21,7 @@
 #include "crc.h"
 #include "rtc.h"
 #include "tim.h"
+#include "stm32f4xx_hal.h"
 
 /******************************************************************************
 * Module Preprocessor Constants
@@ -29,43 +29,43 @@
 
 #define NUM_OF_COMMANDS 19
 
-#define PING_COMMAND_NAME "ping\n"
+#define PING_COMMAND_NAME "ping"
 
-#define GET_VERSION_COMMAND_NAME "get_version\n"
+#define GET_VERSION_COMMAND_NAME "get_version"
 
-#define PWM_START_COMMAND_NAME "pwm_start\n"
+#define PWM_START_COMMAND_NAME "pwm_start"
 
-#define PWM_STOP_COMMAND_NAME "pwm_stop\n"
+#define PWM_STOP_COMMAND_NAME "pwm_stop"
 
 #define PWM_DC_COMMAND_NAME "pwm_dc"
 
-#define CRC_WHOLE_FLASH_CALC "crc_whole_flash_calc\n"
+#define CRC_WHOLE_FLASH_CALC "crc_whole_flash_calc"
 
-#define IWDG_TEST "iwdg_test\n"
+#define IWDG_TEST "iwdg_test"
 
-#define FLASH_LOCK "flash_lock\n"
+#define FLASH_LOCK "flash_lock"
 
-#define set_SN "set_SN\n"
+#define set_SN "set_SN"
 
-#define get_SN "get_SN\n"
+#define get_SN "get_SN"
 
-#define START_TICK "start_tick\n"
+#define START_TICK "start_tick"
 
-#define STOP_TICK "stop_tick\n"
+#define STOP_TICK "stop_tick"
 
-#define ASSERT_0 "assert_0\n"
+#define ASSERT_0 "assert_0"
 
-#define CLEAR_ASSERT_FLAG "clear_assert_flag\n"
+#define CLEAR_ASSERT_FLAG "clear_assert_flag"
 
-#define LSM6DSL_PER_SAMPLE_ENABLE "lsm6dsl_per_sample_enable\n"
+#define LSM6DSL_PER_SAMPLE_ENABLE "lsm6dsl_per_sample_enable"
 
-#define LSM6DSL_FIFO_ENABLE "lsm6dsl_fifo_enable\n"
+#define LSM6DSL_FIFO_ENABLE "lsm6dsl_fifo_enable"
 
-#define LSM6DSL_DISABLE "lsm6dsl_disable\n"
+#define LSM6DSL_DISABLE "lsm6dsl_disable"
 
 #define ENTER_STOP_MODE "enter_stop_mode"
 
-#define ENTER_STANDBY_MODE "enter_standby_mode\n"
+#define ENTER_STANDBY_MODE "enter_standby_mode"
 
 /******************************************************************************
 * Module Preprocessor Macros

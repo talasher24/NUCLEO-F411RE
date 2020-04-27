@@ -117,7 +117,7 @@
 * Function Definitions
 *******************************************************************************/
 
-void COMMAND_findCommand (char* token)
+void COMMAND_findAndExecuteCommand (char* token)
 {
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{

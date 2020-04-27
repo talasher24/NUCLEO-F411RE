@@ -1,4 +1,4 @@
-command.c:120:6:COMMAND_findCommand	24	static
+command.c:120:6:COMMAND_findAndExecuteCommand	24	static
 command.c:133:6:COMMAND_pingCallback	16	static
 command.c:138:6:COMMAND_getVersionCallback	16	static
 command.c:143:6:COMMAND_pwmStartCallback	16	static

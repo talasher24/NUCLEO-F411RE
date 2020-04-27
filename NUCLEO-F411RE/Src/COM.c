@@ -75,9 +75,8 @@ void COM_setReadyCommandFlagOff(void)
 void COM_readyCommandProcess(void)
 {
 	char* token = strtok((char*)Uart_Buffer.p_rx_buffer, " ");
-	COMMAND_findCommand(token);
+	COMMAND_findAndExecuteCommand(token);
 	COM_bufferInit(Uart_Buffer.p_rx_buffer);
-	Uart_Buffer.rx_index = 0;
 }
 
 void COM_uartPrint(char* token)
@@ -131,7 +130,8 @@ void COM_charHandler(void)
 
 static void COM_bufferInit(uint8_t* p_buffer)
 {
-	memset(p_buffer, 0, BUFFER_SIZE);
+	memset(Uart_Buffer.p_rx_buffer, 0, sizeof(uint8_t) * Uart_Buffer.rx_index);
+	Uart_Buffer.rx_index = 0;
 }
 
 

@@ -37,7 +37,7 @@
  * Function Prototypes
  *******************************************************************************/
 
- void COMMAND_findCommand(char* token);
+ void COMMAND_findAndExecuteCommand(char* token);
 
  void COMMAND_pingCallback(char* token);
  void COMMAND_getVersionCallback(char* token);

@@ -1,12 +1,12 @@
 /*
- * types.h
+ * com.h
  *
  *  Created on: Mar 26, 2020
  *      Author: Tal Asher
  */
 
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef COM_H
+#define COM_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -15,14 +15,11 @@
  * Includes
  *******************************************************************************/
 
+#include <stdbool.h>
+
  /******************************************************************************
  * Module Preprocessor Constants
  *******************************************************************************/
-
-#define VERSION 			"0.0.53\n"
-#define HELLO_WORLD 		"Hello World\n"
-#define TICK 				"tick\n"
-#define OK					"OK\n"
 
  /******************************************************************************
  * Module Preprocessor Macros
@@ -40,6 +37,15 @@
  * Function Prototypes
  *******************************************************************************/
 
+ bool COM_getReadyCommandFlag(void);
+ void COM_setReadyCommandFlagOff(void);
+ void COM_readyCommandProcess(void);
+ void COM_uartPrint(char* token);
+ void COM_halUartReceiveDma(void);
+ void COM_charHandler(void);
+ void COM_setTxBusyFlagOff(void);
+ bool COM_getTxBusyFlag(void);
+
  /******************************************************************************
  * Function Definitions
  *******************************************************************************/
@@ -48,5 +54,6 @@
 #ifdef __cplusplus
 }
 #endif
-#endif // TYPES_H
+#endif // COM_H
+
 

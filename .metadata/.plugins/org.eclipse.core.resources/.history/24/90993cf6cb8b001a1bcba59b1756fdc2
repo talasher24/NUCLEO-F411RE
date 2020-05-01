@@ -252,3 +252,4 @@ void FLASH_wrpSectorDisable (void)
 		//COM_uartPrint("wrp is already disabled\n");
 	}
 }
+

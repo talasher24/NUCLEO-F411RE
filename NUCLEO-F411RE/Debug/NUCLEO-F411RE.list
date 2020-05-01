@@ -1725,7 +1725,7 @@ HAL_StatusTypeDef HAL_CRC_Init(CRC_HandleTypeDef *hcrc)
     /* Init the low level hardware */
     HAL_CRC_MspInit(hcrc);
  8001194:	6878      	ldr	r0, [r7, #4]
- 8001196:	f009 f8e3 	bl	800a360 <HAL_CRC_MspInit>
+ 8001196:	f008 fff1 	bl	800a17c <HAL_CRC_MspInit>
   }
 
   /* Change CRC peripheral state */
@@ -24137,7 +24137,7 @@ void COM_readyCommandProcess(void)
  8009c32:	6078      	str	r0, [r7, #4]
 	COMMAND_findAndExecuteCommand(token);
  8009c34:	6878      	ldr	r0, [r7, #4]
- 8009c36:	f000 f997 	bl	8009f68 <COMMAND_findAndExecuteCommand>
+ 8009c36:	f000 f8a5 	bl	8009d84 <COMMAND_findAndExecuteCommand>
 	COM_bufferInit(Uart_Buffer.p_rx_buffer);
  8009c3a:	4804      	ldr	r0, [pc, #16]	; (8009c4c <COM_readyCommandProcess+0x28>)
  8009c3c:	f000 f88c 	bl	8009d58 <COM_bufferInit>
@@ -24341,1105 +24341,1105 @@ static void COM_bufferInit(uint8_t* p_buffer)
  8009d7e:	bd80      	pop	{r7, pc}
  8009d80:	200003b4 	.word	0x200003b4
 
-08009d84 <FLASH_eraseSector>:
-/******************************************************************************
-* Function Definitions
-*******************************************************************************/
-
-static void FLASH_eraseSector(void)
-{
- 8009d84:	b580      	push	{r7, lr}
- 8009d86:	af00      	add	r7, sp, #0
-	HAL_FLASH_Unlock();
- 8009d88:	f7f7 ffba 	bl	8001d00 <HAL_FLASH_Unlock>
-	//Erase the required Flash sector
-	FLASH_Erase_Sector(Sector_Num, FLASH_VOLTAGE_RANGE_3);
- 8009d8c:	4b04      	ldr	r3, [pc, #16]	; (8009da0 <FLASH_eraseSector+0x1c>)
- 8009d8e:	781b      	ldrb	r3, [r3, #0]
- 8009d90:	2102      	movs	r1, #2
- 8009d92:	4618      	mov	r0, r3
- 8009d94:	f7f8 fa7a 	bl	800228c <FLASH_Erase_Sector>
-	HAL_FLASH_Lock();
- 8009d98:	f7f7 ffd4 	bl	8001d44 <HAL_FLASH_Lock>
-}
- 8009d9c:	bf00      	nop
- 8009d9e:	bd80      	pop	{r7, pc}
- 8009da0:	20000484 	.word	0x20000484
-
-08009da4 <FLASH_setSectorAddress>:
-
-void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
-{
- 8009da4:	b480      	push	{r7}
- 8009da6:	b083      	sub	sp, #12
- 8009da8:	af00      	add	r7, sp, #0
- 8009daa:	4603      	mov	r3, r0
- 8009dac:	6039      	str	r1, [r7, #0]
- 8009dae:	71fb      	strb	r3, [r7, #7]
-	Sector_Num = sector;
- 8009db0:	4a05      	ldr	r2, [pc, #20]	; (8009dc8 <FLASH_setSectorAddress+0x24>)
- 8009db2:	79fb      	ldrb	r3, [r7, #7]
- 8009db4:	7013      	strb	r3, [r2, #0]
-	Sector_Addrs = addrs;
- 8009db6:	4a05      	ldr	r2, [pc, #20]	; (8009dcc <FLASH_setSectorAddress+0x28>)
- 8009db8:	683b      	ldr	r3, [r7, #0]
- 8009dba:	6013      	str	r3, [r2, #0]
-}
- 8009dbc:	bf00      	nop
- 8009dbe:	370c      	adds	r7, #12
- 8009dc0:	46bd      	mov	sp, r7
- 8009dc2:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8009dc6:	4770      	bx	lr
- 8009dc8:	20000484 	.word	0x20000484
- 8009dcc:	20000480 	.word	0x20000480
-
-08009dd0 <FLASH_writeN>:
-
-void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
-{
- 8009dd0:	b590      	push	{r4, r7, lr}
- 8009dd2:	b089      	sub	sp, #36	; 0x24
- 8009dd4:	af00      	add	r7, sp, #0
- 8009dd6:	60f8      	str	r0, [r7, #12]
- 8009dd8:	60b9      	str	r1, [r7, #8]
- 8009dda:	607a      	str	r2, [r7, #4]
- 8009ddc:	70fb      	strb	r3, [r7, #3]
-	uint32_t flashAddress = Sector_Addrs + idx;
- 8009dde:	4b34      	ldr	r3, [pc, #208]	; (8009eb0 <FLASH_writeN+0xe0>)
- 8009de0:	681b      	ldr	r3, [r3, #0]
- 8009de2:	68fa      	ldr	r2, [r7, #12]
- 8009de4:	4413      	add	r3, r2
- 8009de6:	61fb      	str	r3, [r7, #28]
-
-	//Erase sector before write
-	FLASH_eraseSector();
- 8009de8:	f7ff ffcc 	bl	8009d84 <FLASH_eraseSector>
-
-	//Unlock Flash
-	HAL_FLASH_Unlock();
- 8009dec:	f7f7 ff88 	bl	8001d00 <HAL_FLASH_Unlock>
-	//Write to Flash
-	switch(dataType)
- 8009df0:	78fb      	ldrb	r3, [r7, #3]
- 8009df2:	2b01      	cmp	r3, #1
- 8009df4:	d01e      	beq.n	8009e34 <FLASH_writeN+0x64>
- 8009df6:	2b02      	cmp	r3, #2
- 8009df8:	d038      	beq.n	8009e6c <FLASH_writeN+0x9c>
- 8009dfa:	2b00      	cmp	r3, #0
- 8009dfc:	d151      	bne.n	8009ea2 <FLASH_writeN+0xd2>
-	{
-		case DATA_TYPE_8:
-				for(uint32_t i=0; i<Nsize; i++)
- 8009dfe:	2300      	movs	r3, #0
- 8009e00:	61bb      	str	r3, [r7, #24]
- 8009e02:	e012      	b.n	8009e2a <FLASH_writeN+0x5a>
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)wrBuf)[i]);
- 8009e04:	68ba      	ldr	r2, [r7, #8]
- 8009e06:	69bb      	ldr	r3, [r7, #24]
- 8009e08:	4413      	add	r3, r2
- 8009e0a:	781b      	ldrb	r3, [r3, #0]
- 8009e0c:	b2db      	uxtb	r3, r3
- 8009e0e:	f04f 0400 	mov.w	r4, #0
- 8009e12:	461a      	mov	r2, r3
- 8009e14:	4623      	mov	r3, r4
- 8009e16:	69f9      	ldr	r1, [r7, #28]
- 8009e18:	2000      	movs	r0, #0
- 8009e1a:	f7f7 ff0b 	bl	8001c34 <HAL_FLASH_Program>
-					flashAddress++;
- 8009e1e:	69fb      	ldr	r3, [r7, #28]
- 8009e20:	3301      	adds	r3, #1
- 8009e22:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009e24:	69bb      	ldr	r3, [r7, #24]
- 8009e26:	3301      	adds	r3, #1
- 8009e28:	61bb      	str	r3, [r7, #24]
- 8009e2a:	69ba      	ldr	r2, [r7, #24]
- 8009e2c:	687b      	ldr	r3, [r7, #4]
- 8009e2e:	429a      	cmp	r2, r3
- 8009e30:	d3e8      	bcc.n	8009e04 <FLASH_writeN+0x34>
-				}
-			break;
- 8009e32:	e036      	b.n	8009ea2 <FLASH_writeN+0xd2>
-
-		case DATA_TYPE_16:
-				for(uint32_t i=0; i<Nsize; i++)
- 8009e34:	2300      	movs	r3, #0
- 8009e36:	617b      	str	r3, [r7, #20]
- 8009e38:	e013      	b.n	8009e62 <FLASH_writeN+0x92>
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)wrBuf)[i]);
- 8009e3a:	697b      	ldr	r3, [r7, #20]
- 8009e3c:	005b      	lsls	r3, r3, #1
- 8009e3e:	68ba      	ldr	r2, [r7, #8]
- 8009e40:	4413      	add	r3, r2
- 8009e42:	881b      	ldrh	r3, [r3, #0]
- 8009e44:	b29b      	uxth	r3, r3
- 8009e46:	f04f 0400 	mov.w	r4, #0
- 8009e4a:	461a      	mov	r2, r3
- 8009e4c:	4623      	mov	r3, r4
- 8009e4e:	69f9      	ldr	r1, [r7, #28]
- 8009e50:	2001      	movs	r0, #1
- 8009e52:	f7f7 feef 	bl	8001c34 <HAL_FLASH_Program>
-					flashAddress+=2;
- 8009e56:	69fb      	ldr	r3, [r7, #28]
- 8009e58:	3302      	adds	r3, #2
- 8009e5a:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009e5c:	697b      	ldr	r3, [r7, #20]
- 8009e5e:	3301      	adds	r3, #1
- 8009e60:	617b      	str	r3, [r7, #20]
- 8009e62:	697a      	ldr	r2, [r7, #20]
- 8009e64:	687b      	ldr	r3, [r7, #4]
- 8009e66:	429a      	cmp	r2, r3
- 8009e68:	d3e7      	bcc.n	8009e3a <FLASH_writeN+0x6a>
-				}
-			break;
- 8009e6a:	e01a      	b.n	8009ea2 <FLASH_writeN+0xd2>
-
-		case DATA_TYPE_32:
-				for(uint32_t i=0; i<Nsize; i++)
- 8009e6c:	2300      	movs	r3, #0
- 8009e6e:	613b      	str	r3, [r7, #16]
- 8009e70:	e012      	b.n	8009e98 <FLASH_writeN+0xc8>
-				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)wrBuf)[i]);
- 8009e72:	693b      	ldr	r3, [r7, #16]
- 8009e74:	009b      	lsls	r3, r3, #2
- 8009e76:	68ba      	ldr	r2, [r7, #8]
- 8009e78:	4413      	add	r3, r2
- 8009e7a:	681b      	ldr	r3, [r3, #0]
- 8009e7c:	f04f 0400 	mov.w	r4, #0
- 8009e80:	461a      	mov	r2, r3
- 8009e82:	4623      	mov	r3, r4
- 8009e84:	69f9      	ldr	r1, [r7, #28]
- 8009e86:	2002      	movs	r0, #2
- 8009e88:	f7f7 fed4 	bl	8001c34 <HAL_FLASH_Program>
-					flashAddress+=4;
- 8009e8c:	69fb      	ldr	r3, [r7, #28]
- 8009e8e:	3304      	adds	r3, #4
- 8009e90:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009e92:	693b      	ldr	r3, [r7, #16]
- 8009e94:	3301      	adds	r3, #1
- 8009e96:	613b      	str	r3, [r7, #16]
- 8009e98:	693a      	ldr	r2, [r7, #16]
- 8009e9a:	687b      	ldr	r3, [r7, #4]
- 8009e9c:	429a      	cmp	r2, r3
- 8009e9e:	d3e8      	bcc.n	8009e72 <FLASH_writeN+0xa2>
-				}
-			break;
- 8009ea0:	bf00      	nop
-	}
-	//Lock the Flash space
-	HAL_FLASH_Lock();
- 8009ea2:	f7f7 ff4f 	bl	8001d44 <HAL_FLASH_Lock>
-}
- 8009ea6:	bf00      	nop
- 8009ea8:	3724      	adds	r7, #36	; 0x24
- 8009eaa:	46bd      	mov	sp, r7
- 8009eac:	bd90      	pop	{r4, r7, pc}
- 8009eae:	bf00      	nop
- 8009eb0:	20000480 	.word	0x20000480
-
-08009eb4 <FLASH_readN>:
-
-void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
-{
- 8009eb4:	b480      	push	{r7}
- 8009eb6:	b089      	sub	sp, #36	; 0x24
- 8009eb8:	af00      	add	r7, sp, #0
- 8009eba:	60f8      	str	r0, [r7, #12]
- 8009ebc:	60b9      	str	r1, [r7, #8]
- 8009ebe:	607a      	str	r2, [r7, #4]
- 8009ec0:	70fb      	strb	r3, [r7, #3]
-	uint32_t flashAddress = Sector_Addrs + idx;
- 8009ec2:	4b28      	ldr	r3, [pc, #160]	; (8009f64 <FLASH_readN+0xb0>)
- 8009ec4:	681b      	ldr	r3, [r3, #0]
- 8009ec6:	68fa      	ldr	r2, [r7, #12]
- 8009ec8:	4413      	add	r3, r2
- 8009eca:	61fb      	str	r3, [r7, #28]
-
-	switch(dataType)
- 8009ecc:	78fb      	ldrb	r3, [r7, #3]
- 8009ece:	2b01      	cmp	r3, #1
- 8009ed0:	d018      	beq.n	8009f04 <FLASH_readN+0x50>
- 8009ed2:	2b02      	cmp	r3, #2
- 8009ed4:	d02b      	beq.n	8009f2e <FLASH_readN+0x7a>
- 8009ed6:	2b00      	cmp	r3, #0
- 8009ed8:	d000      	beq.n	8009edc <FLASH_readN+0x28>
-					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
-					flashAddress+=4;
-				}
-			break;
-	}
-}
- 8009eda:	e03d      	b.n	8009f58 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
- 8009edc:	2300      	movs	r3, #0
- 8009ede:	61bb      	str	r3, [r7, #24]
- 8009ee0:	e00b      	b.n	8009efa <FLASH_readN+0x46>
-					*((uint8_t *)rdBuf + i) = *(uint8_t *)flashAddress;
- 8009ee2:	69fa      	ldr	r2, [r7, #28]
- 8009ee4:	68b9      	ldr	r1, [r7, #8]
- 8009ee6:	69bb      	ldr	r3, [r7, #24]
- 8009ee8:	440b      	add	r3, r1
- 8009eea:	7812      	ldrb	r2, [r2, #0]
- 8009eec:	701a      	strb	r2, [r3, #0]
-					flashAddress++;
- 8009eee:	69fb      	ldr	r3, [r7, #28]
- 8009ef0:	3301      	adds	r3, #1
- 8009ef2:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009ef4:	69bb      	ldr	r3, [r7, #24]
- 8009ef6:	3301      	adds	r3, #1
- 8009ef8:	61bb      	str	r3, [r7, #24]
- 8009efa:	69ba      	ldr	r2, [r7, #24]
- 8009efc:	687b      	ldr	r3, [r7, #4]
- 8009efe:	429a      	cmp	r2, r3
- 8009f00:	d3ef      	bcc.n	8009ee2 <FLASH_readN+0x2e>
-			break;
- 8009f02:	e029      	b.n	8009f58 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
- 8009f04:	2300      	movs	r3, #0
- 8009f06:	617b      	str	r3, [r7, #20]
- 8009f08:	e00c      	b.n	8009f24 <FLASH_readN+0x70>
-					*((uint16_t *)rdBuf + i) = *(uint16_t *)flashAddress;
- 8009f0a:	69fa      	ldr	r2, [r7, #28]
- 8009f0c:	697b      	ldr	r3, [r7, #20]
- 8009f0e:	005b      	lsls	r3, r3, #1
- 8009f10:	68b9      	ldr	r1, [r7, #8]
- 8009f12:	440b      	add	r3, r1
- 8009f14:	8812      	ldrh	r2, [r2, #0]
- 8009f16:	801a      	strh	r2, [r3, #0]
-					flashAddress+=2;
- 8009f18:	69fb      	ldr	r3, [r7, #28]
- 8009f1a:	3302      	adds	r3, #2
- 8009f1c:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009f1e:	697b      	ldr	r3, [r7, #20]
- 8009f20:	3301      	adds	r3, #1
- 8009f22:	617b      	str	r3, [r7, #20]
- 8009f24:	697a      	ldr	r2, [r7, #20]
- 8009f26:	687b      	ldr	r3, [r7, #4]
- 8009f28:	429a      	cmp	r2, r3
- 8009f2a:	d3ee      	bcc.n	8009f0a <FLASH_readN+0x56>
-			break;
- 8009f2c:	e014      	b.n	8009f58 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
- 8009f2e:	2300      	movs	r3, #0
- 8009f30:	613b      	str	r3, [r7, #16]
- 8009f32:	e00c      	b.n	8009f4e <FLASH_readN+0x9a>
-					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
- 8009f34:	69fa      	ldr	r2, [r7, #28]
- 8009f36:	693b      	ldr	r3, [r7, #16]
- 8009f38:	009b      	lsls	r3, r3, #2
- 8009f3a:	68b9      	ldr	r1, [r7, #8]
- 8009f3c:	440b      	add	r3, r1
- 8009f3e:	6812      	ldr	r2, [r2, #0]
- 8009f40:	601a      	str	r2, [r3, #0]
-					flashAddress+=4;
- 8009f42:	69fb      	ldr	r3, [r7, #28]
- 8009f44:	3304      	adds	r3, #4
- 8009f46:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
- 8009f48:	693b      	ldr	r3, [r7, #16]
- 8009f4a:	3301      	adds	r3, #1
- 8009f4c:	613b      	str	r3, [r7, #16]
- 8009f4e:	693a      	ldr	r2, [r7, #16]
- 8009f50:	687b      	ldr	r3, [r7, #4]
- 8009f52:	429a      	cmp	r2, r3
- 8009f54:	d3ee      	bcc.n	8009f34 <FLASH_readN+0x80>
-			break;
- 8009f56:	bf00      	nop
-}
- 8009f58:	bf00      	nop
- 8009f5a:	3724      	adds	r7, #36	; 0x24
- 8009f5c:	46bd      	mov	sp, r7
- 8009f5e:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8009f62:	4770      	bx	lr
- 8009f64:	20000480 	.word	0x20000480
-
-08009f68 <COMMAND_findAndExecuteCommand>:
+08009d84 <COMMAND_findAndExecuteCommand>:
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
 
 void COMMAND_findAndExecuteCommand (char* token)
 {
- 8009f68:	b580      	push	{r7, lr}
- 8009f6a:	b084      	sub	sp, #16
- 8009f6c:	af00      	add	r7, sp, #0
- 8009f6e:	6078      	str	r0, [r7, #4]
+ 8009d84:	b580      	push	{r7, lr}
+ 8009d86:	b084      	sub	sp, #16
+ 8009d88:	af00      	add	r7, sp, #0
+ 8009d8a:	6078      	str	r0, [r7, #4]
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
- 8009f70:	2300      	movs	r3, #0
- 8009f72:	73fb      	strb	r3, [r7, #15]
- 8009f74:	e02a      	b.n	8009fcc <COMMAND_findAndExecuteCommand+0x64>
+ 8009d8c:	2300      	movs	r3, #0
+ 8009d8e:	73fb      	strb	r3, [r7, #15]
+ 8009d90:	e02a      	b.n	8009de8 <COMMAND_findAndExecuteCommand+0x64>
 	{
 		if (strncmp(token, Commands[i].name, Commands[i].size)==0)
- 8009f76:	7bfa      	ldrb	r2, [r7, #15]
- 8009f78:	4917      	ldr	r1, [pc, #92]	; (8009fd8 <COMMAND_findAndExecuteCommand+0x70>)
- 8009f7a:	4613      	mov	r3, r2
- 8009f7c:	005b      	lsls	r3, r3, #1
- 8009f7e:	4413      	add	r3, r2
- 8009f80:	009b      	lsls	r3, r3, #2
- 8009f82:	440b      	add	r3, r1
- 8009f84:	6818      	ldr	r0, [r3, #0]
- 8009f86:	7bfa      	ldrb	r2, [r7, #15]
- 8009f88:	4913      	ldr	r1, [pc, #76]	; (8009fd8 <COMMAND_findAndExecuteCommand+0x70>)
- 8009f8a:	4613      	mov	r3, r2
- 8009f8c:	005b      	lsls	r3, r3, #1
- 8009f8e:	4413      	add	r3, r2
- 8009f90:	009b      	lsls	r3, r3, #2
- 8009f92:	440b      	add	r3, r1
- 8009f94:	3304      	adds	r3, #4
- 8009f96:	781b      	ldrb	r3, [r3, #0]
- 8009f98:	461a      	mov	r2, r3
- 8009f9a:	4601      	mov	r1, r0
- 8009f9c:	6878      	ldr	r0, [r7, #4]
- 8009f9e:	f003 fc9d 	bl	800d8dc <strncmp>
- 8009fa2:	4603      	mov	r3, r0
- 8009fa4:	2b00      	cmp	r3, #0
- 8009fa6:	d10e      	bne.n	8009fc6 <COMMAND_findAndExecuteCommand+0x5e>
+ 8009d92:	7bfa      	ldrb	r2, [r7, #15]
+ 8009d94:	4917      	ldr	r1, [pc, #92]	; (8009df4 <COMMAND_findAndExecuteCommand+0x70>)
+ 8009d96:	4613      	mov	r3, r2
+ 8009d98:	005b      	lsls	r3, r3, #1
+ 8009d9a:	4413      	add	r3, r2
+ 8009d9c:	009b      	lsls	r3, r3, #2
+ 8009d9e:	440b      	add	r3, r1
+ 8009da0:	6818      	ldr	r0, [r3, #0]
+ 8009da2:	7bfa      	ldrb	r2, [r7, #15]
+ 8009da4:	4913      	ldr	r1, [pc, #76]	; (8009df4 <COMMAND_findAndExecuteCommand+0x70>)
+ 8009da6:	4613      	mov	r3, r2
+ 8009da8:	005b      	lsls	r3, r3, #1
+ 8009daa:	4413      	add	r3, r2
+ 8009dac:	009b      	lsls	r3, r3, #2
+ 8009dae:	440b      	add	r3, r1
+ 8009db0:	3304      	adds	r3, #4
+ 8009db2:	781b      	ldrb	r3, [r3, #0]
+ 8009db4:	461a      	mov	r2, r3
+ 8009db6:	4601      	mov	r1, r0
+ 8009db8:	6878      	ldr	r0, [r7, #4]
+ 8009dba:	f003 fd8f 	bl	800d8dc <strncmp>
+ 8009dbe:	4603      	mov	r3, r0
+ 8009dc0:	2b00      	cmp	r3, #0
+ 8009dc2:	d10e      	bne.n	8009de2 <COMMAND_findAndExecuteCommand+0x5e>
 		{
 			COM_uartPrint(OK);
- 8009fa8:	480c      	ldr	r0, [pc, #48]	; (8009fdc <COMMAND_findAndExecuteCommand+0x74>)
- 8009faa:	f7ff fe51 	bl	8009c50 <COM_uartPrint>
+ 8009dc4:	480c      	ldr	r0, [pc, #48]	; (8009df8 <COMMAND_findAndExecuteCommand+0x74>)
+ 8009dc6:	f7ff ff43 	bl	8009c50 <COM_uartPrint>
 			Commands[i].func_ptr(token);
- 8009fae:	7bfa      	ldrb	r2, [r7, #15]
- 8009fb0:	4909      	ldr	r1, [pc, #36]	; (8009fd8 <COMMAND_findAndExecuteCommand+0x70>)
- 8009fb2:	4613      	mov	r3, r2
- 8009fb4:	005b      	lsls	r3, r3, #1
- 8009fb6:	4413      	add	r3, r2
- 8009fb8:	009b      	lsls	r3, r3, #2
- 8009fba:	440b      	add	r3, r1
- 8009fbc:	3308      	adds	r3, #8
- 8009fbe:	681b      	ldr	r3, [r3, #0]
- 8009fc0:	6878      	ldr	r0, [r7, #4]
- 8009fc2:	4798      	blx	r3
+ 8009dca:	7bfa      	ldrb	r2, [r7, #15]
+ 8009dcc:	4909      	ldr	r1, [pc, #36]	; (8009df4 <COMMAND_findAndExecuteCommand+0x70>)
+ 8009dce:	4613      	mov	r3, r2
+ 8009dd0:	005b      	lsls	r3, r3, #1
+ 8009dd2:	4413      	add	r3, r2
+ 8009dd4:	009b      	lsls	r3, r3, #2
+ 8009dd6:	440b      	add	r3, r1
+ 8009dd8:	3308      	adds	r3, #8
+ 8009dda:	681b      	ldr	r3, [r3, #0]
+ 8009ddc:	6878      	ldr	r0, [r7, #4]
+ 8009dde:	4798      	blx	r3
 			return;
- 8009fc4:	e005      	b.n	8009fd2 <COMMAND_findAndExecuteCommand+0x6a>
+ 8009de0:	e005      	b.n	8009dee <COMMAND_findAndExecuteCommand+0x6a>
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
- 8009fc6:	7bfb      	ldrb	r3, [r7, #15]
- 8009fc8:	3301      	adds	r3, #1
- 8009fca:	73fb      	strb	r3, [r7, #15]
- 8009fcc:	7bfb      	ldrb	r3, [r7, #15]
- 8009fce:	2b12      	cmp	r3, #18
- 8009fd0:	d9d1      	bls.n	8009f76 <COMMAND_findAndExecuteCommand+0xe>
+ 8009de2:	7bfb      	ldrb	r3, [r7, #15]
+ 8009de4:	3301      	adds	r3, #1
+ 8009de6:	73fb      	strb	r3, [r7, #15]
+ 8009de8:	7bfb      	ldrb	r3, [r7, #15]
+ 8009dea:	2b12      	cmp	r3, #18
+ 8009dec:	d9d1      	bls.n	8009d92 <COMMAND_findAndExecuteCommand+0xe>
 		}
 	}
 }
- 8009fd2:	3710      	adds	r7, #16
- 8009fd4:	46bd      	mov	sp, r7
- 8009fd6:	bd80      	pop	{r7, pc}
- 8009fd8:	0800f8cc 	.word	0x0800f8cc
- 8009fdc:	0800f588 	.word	0x0800f588
+ 8009dee:	3710      	adds	r7, #16
+ 8009df0:	46bd      	mov	sp, r7
+ 8009df2:	bd80      	pop	{r7, pc}
+ 8009df4:	0800f8cc 	.word	0x0800f8cc
+ 8009df8:	0800f588 	.word	0x0800f588
 
-08009fe0 <COMMAND_pingCallback>:
+08009dfc <COMMAND_pingCallback>:
 
 void COMMAND_pingCallback(char* token)
 {
- 8009fe0:	b580      	push	{r7, lr}
- 8009fe2:	b082      	sub	sp, #8
- 8009fe4:	af00      	add	r7, sp, #0
- 8009fe6:	6078      	str	r0, [r7, #4]
+ 8009dfc:	b580      	push	{r7, lr}
+ 8009dfe:	b082      	sub	sp, #8
+ 8009e00:	af00      	add	r7, sp, #0
+ 8009e02:	6078      	str	r0, [r7, #4]
 	COM_uartPrint(token);
- 8009fe8:	6878      	ldr	r0, [r7, #4]
- 8009fea:	f7ff fe31 	bl	8009c50 <COM_uartPrint>
+ 8009e04:	6878      	ldr	r0, [r7, #4]
+ 8009e06:	f7ff ff23 	bl	8009c50 <COM_uartPrint>
 }
- 8009fee:	bf00      	nop
- 8009ff0:	3708      	adds	r7, #8
- 8009ff2:	46bd      	mov	sp, r7
- 8009ff4:	bd80      	pop	{r7, pc}
+ 8009e0a:	bf00      	nop
+ 8009e0c:	3708      	adds	r7, #8
+ 8009e0e:	46bd      	mov	sp, r7
+ 8009e10:	bd80      	pop	{r7, pc}
 	...
 
-08009ff8 <COMMAND_getVersionCallback>:
+08009e14 <COMMAND_getVersionCallback>:
 
 void COMMAND_getVersionCallback(char* token)
 {
- 8009ff8:	b580      	push	{r7, lr}
- 8009ffa:	b082      	sub	sp, #8
- 8009ffc:	af00      	add	r7, sp, #0
- 8009ffe:	6078      	str	r0, [r7, #4]
+ 8009e14:	b580      	push	{r7, lr}
+ 8009e16:	b082      	sub	sp, #8
+ 8009e18:	af00      	add	r7, sp, #0
+ 8009e1a:	6078      	str	r0, [r7, #4]
 	COM_uartPrint(VERSION);
- 800a000:	4803      	ldr	r0, [pc, #12]	; (800a010 <COMMAND_getVersionCallback+0x18>)
- 800a002:	f7ff fe25 	bl	8009c50 <COM_uartPrint>
+ 8009e1c:	4803      	ldr	r0, [pc, #12]	; (8009e2c <COMMAND_getVersionCallback+0x18>)
+ 8009e1e:	f7ff ff17 	bl	8009c50 <COM_uartPrint>
 }
- 800a006:	bf00      	nop
- 800a008:	3708      	adds	r7, #8
- 800a00a:	46bd      	mov	sp, r7
- 800a00c:	bd80      	pop	{r7, pc}
- 800a00e:	bf00      	nop
- 800a010:	0800f58c 	.word	0x0800f58c
+ 8009e22:	bf00      	nop
+ 8009e24:	3708      	adds	r7, #8
+ 8009e26:	46bd      	mov	sp, r7
+ 8009e28:	bd80      	pop	{r7, pc}
+ 8009e2a:	bf00      	nop
+ 8009e2c:	0800f58c 	.word	0x0800f58c
 
-0800a014 <COMMAND_pwmStartCallback>:
+08009e30 <COMMAND_pwmStartCallback>:
 
 void COMMAND_pwmStartCallback(char* token)
 {
- 800a014:	b580      	push	{r7, lr}
- 800a016:	b082      	sub	sp, #8
- 800a018:	af00      	add	r7, sp, #0
- 800a01a:	6078      	str	r0, [r7, #4]
+ 8009e30:	b580      	push	{r7, lr}
+ 8009e32:	b082      	sub	sp, #8
+ 8009e34:	af00      	add	r7, sp, #0
+ 8009e36:	6078      	str	r0, [r7, #4]
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
- 800a01c:	2100      	movs	r1, #0
- 800a01e:	4803      	ldr	r0, [pc, #12]	; (800a02c <COMMAND_pwmStartCallback+0x18>)
- 800a020:	f7fc f9e8 	bl	80063f4 <HAL_TIM_PWM_Start>
+ 8009e38:	2100      	movs	r1, #0
+ 8009e3a:	4803      	ldr	r0, [pc, #12]	; (8009e48 <COMMAND_pwmStartCallback+0x18>)
+ 8009e3c:	f7fc fada 	bl	80063f4 <HAL_TIM_PWM_Start>
 }
- 800a024:	bf00      	nop
- 800a026:	3708      	adds	r7, #8
- 800a028:	46bd      	mov	sp, r7
- 800a02a:	bd80      	pop	{r7, pc}
- 800a02c:	20000bc4 	.word	0x20000bc4
+ 8009e40:	bf00      	nop
+ 8009e42:	3708      	adds	r7, #8
+ 8009e44:	46bd      	mov	sp, r7
+ 8009e46:	bd80      	pop	{r7, pc}
+ 8009e48:	20000bc4 	.word	0x20000bc4
 
-0800a030 <COMMAND_pwmStopCallback>:
+08009e4c <COMMAND_pwmStopCallback>:
 
 void COMMAND_pwmStopCallback(char* token)
 {
- 800a030:	b580      	push	{r7, lr}
- 800a032:	b082      	sub	sp, #8
- 800a034:	af00      	add	r7, sp, #0
- 800a036:	6078      	str	r0, [r7, #4]
+ 8009e4c:	b580      	push	{r7, lr}
+ 8009e4e:	b082      	sub	sp, #8
+ 8009e50:	af00      	add	r7, sp, #0
+ 8009e52:	6078      	str	r0, [r7, #4]
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
- 800a038:	2100      	movs	r1, #0
- 800a03a:	4803      	ldr	r0, [pc, #12]	; (800a048 <COMMAND_pwmStopCallback+0x18>)
- 800a03c:	f7fc fa8e 	bl	800655c <HAL_TIM_PWM_Stop>
+ 8009e54:	2100      	movs	r1, #0
+ 8009e56:	4803      	ldr	r0, [pc, #12]	; (8009e64 <COMMAND_pwmStopCallback+0x18>)
+ 8009e58:	f7fc fb80 	bl	800655c <HAL_TIM_PWM_Stop>
 }
- 800a040:	bf00      	nop
- 800a042:	3708      	adds	r7, #8
- 800a044:	46bd      	mov	sp, r7
- 800a046:	bd80      	pop	{r7, pc}
- 800a048:	20000bc4 	.word	0x20000bc4
+ 8009e5c:	bf00      	nop
+ 8009e5e:	3708      	adds	r7, #8
+ 8009e60:	46bd      	mov	sp, r7
+ 8009e62:	bd80      	pop	{r7, pc}
+ 8009e64:	20000bc4 	.word	0x20000bc4
 
-0800a04c <COMMAND_pwmDcCallback>:
+08009e68 <COMMAND_pwmDcCallback>:
 
 void COMMAND_pwmDcCallback(char* token)
 {
- 800a04c:	b580      	push	{r7, lr}
- 800a04e:	b084      	sub	sp, #16
- 800a050:	af00      	add	r7, sp, #0
- 800a052:	6078      	str	r0, [r7, #4]
+ 8009e68:	b580      	push	{r7, lr}
+ 8009e6a:	b084      	sub	sp, #16
+ 8009e6c:	af00      	add	r7, sp, #0
+ 8009e6e:	6078      	str	r0, [r7, #4]
 	token = strtok(NULL, " ");
- 800a054:	490d      	ldr	r1, [pc, #52]	; (800a08c <COMMAND_pwmDcCallback+0x40>)
- 800a056:	2000      	movs	r0, #0
- 800a058:	f003 fc68 	bl	800d92c <strtok>
- 800a05c:	6078      	str	r0, [r7, #4]
+ 8009e70:	490d      	ldr	r1, [pc, #52]	; (8009ea8 <COMMAND_pwmDcCallback+0x40>)
+ 8009e72:	2000      	movs	r0, #0
+ 8009e74:	f003 fd5a 	bl	800d92c <strtok>
+ 8009e78:	6078      	str	r0, [r7, #4]
 	int32_t dc = atoi(token);
- 800a05e:	6878      	ldr	r0, [r7, #4]
- 800a060:	f002 fe61 	bl	800cd26 <atoi>
- 800a064:	60f8      	str	r0, [r7, #12]
+ 8009e7a:	6878      	ldr	r0, [r7, #4]
+ 8009e7c:	f002 ff53 	bl	800cd26 <atoi>
+ 8009e80:	60f8      	str	r0, [r7, #12]
 	if (dc > 100) dc = 100;
- 800a066:	68fb      	ldr	r3, [r7, #12]
- 800a068:	2b64      	cmp	r3, #100	; 0x64
- 800a06a:	dd01      	ble.n	800a070 <COMMAND_pwmDcCallback+0x24>
- 800a06c:	2364      	movs	r3, #100	; 0x64
- 800a06e:	60fb      	str	r3, [r7, #12]
+ 8009e82:	68fb      	ldr	r3, [r7, #12]
+ 8009e84:	2b64      	cmp	r3, #100	; 0x64
+ 8009e86:	dd01      	ble.n	8009e8c <COMMAND_pwmDcCallback+0x24>
+ 8009e88:	2364      	movs	r3, #100	; 0x64
+ 8009e8a:	60fb      	str	r3, [r7, #12]
 	if (dc < 0)   dc = 0;
- 800a070:	68fb      	ldr	r3, [r7, #12]
- 800a072:	2b00      	cmp	r3, #0
- 800a074:	da01      	bge.n	800a07a <COMMAND_pwmDcCallback+0x2e>
- 800a076:	2300      	movs	r3, #0
- 800a078:	60fb      	str	r3, [r7, #12]
+ 8009e8c:	68fb      	ldr	r3, [r7, #12]
+ 8009e8e:	2b00      	cmp	r3, #0
+ 8009e90:	da01      	bge.n	8009e96 <COMMAND_pwmDcCallback+0x2e>
+ 8009e92:	2300      	movs	r3, #0
+ 8009e94:	60fb      	str	r3, [r7, #12]
 	htim3.Instance->CCR1 = dc;
- 800a07a:	4b05      	ldr	r3, [pc, #20]	; (800a090 <COMMAND_pwmDcCallback+0x44>)
- 800a07c:	681b      	ldr	r3, [r3, #0]
- 800a07e:	68fa      	ldr	r2, [r7, #12]
- 800a080:	635a      	str	r2, [r3, #52]	; 0x34
+ 8009e96:	4b05      	ldr	r3, [pc, #20]	; (8009eac <COMMAND_pwmDcCallback+0x44>)
+ 8009e98:	681b      	ldr	r3, [r3, #0]
+ 8009e9a:	68fa      	ldr	r2, [r7, #12]
+ 8009e9c:	635a      	str	r2, [r3, #52]	; 0x34
 }
- 800a082:	bf00      	nop
- 800a084:	3710      	adds	r7, #16
- 800a086:	46bd      	mov	sp, r7
- 800a088:	bd80      	pop	{r7, pc}
- 800a08a:	bf00      	nop
- 800a08c:	0800f594 	.word	0x0800f594
- 800a090:	20000bc4 	.word	0x20000bc4
+ 8009e9e:	bf00      	nop
+ 8009ea0:	3710      	adds	r7, #16
+ 8009ea2:	46bd      	mov	sp, r7
+ 8009ea4:	bd80      	pop	{r7, pc}
+ 8009ea6:	bf00      	nop
+ 8009ea8:	0800f594 	.word	0x0800f594
+ 8009eac:	20000bc4 	.word	0x20000bc4
 
-0800a094 <COMMAND_crcWholeFlashCalcCallback>:
+08009eb0 <COMMAND_crcWholeFlashCalcCallback>:
 
 void COMMAND_crcWholeFlashCalcCallback(char* token)
 {
- 800a094:	b580      	push	{r7, lr}
- 800a096:	b088      	sub	sp, #32
- 800a098:	af00      	add	r7, sp, #0
- 800a09a:	6078      	str	r0, [r7, #4]
+ 8009eb0:	b580      	push	{r7, lr}
+ 8009eb2:	b088      	sub	sp, #32
+ 8009eb4:	af00      	add	r7, sp, #0
+ 8009eb6:	6078      	str	r0, [r7, #4]
 	char temp [9];
 	uint32_t crcFlashResult;
 	uint32_t flashSize = 0x20000;
- 800a09c:	f44f 3300 	mov.w	r3, #131072	; 0x20000
- 800a0a0:	61fb      	str	r3, [r7, #28]
+ 8009eb8:	f44f 3300 	mov.w	r3, #131072	; 0x20000
+ 8009ebc:	61fb      	str	r3, [r7, #28]
 	uint32_t *p_flash_start_address = (uint32_t *) FLASH_START_ADDRESS;
- 800a0a2:	f04f 6300 	mov.w	r3, #134217728	; 0x8000000
- 800a0a6:	61bb      	str	r3, [r7, #24]
+ 8009ebe:	f04f 6300 	mov.w	r3, #134217728	; 0x8000000
+ 8009ec2:	61bb      	str	r3, [r7, #24]
 
 	crcFlashResult = HAL_CRC_Calculate(&hcrc, p_flash_start_address, flashSize);
- 800a0a8:	69fa      	ldr	r2, [r7, #28]
- 800a0aa:	69b9      	ldr	r1, [r7, #24]
- 800a0ac:	4809      	ldr	r0, [pc, #36]	; (800a0d4 <COMMAND_crcWholeFlashCalcCallback+0x40>)
- 800a0ae:	f7f7 f881 	bl	80011b4 <HAL_CRC_Calculate>
- 800a0b2:	6178      	str	r0, [r7, #20]
+ 8009ec4:	69fa      	ldr	r2, [r7, #28]
+ 8009ec6:	69b9      	ldr	r1, [r7, #24]
+ 8009ec8:	4809      	ldr	r0, [pc, #36]	; (8009ef0 <COMMAND_crcWholeFlashCalcCallback+0x40>)
+ 8009eca:	f7f7 f973 	bl	80011b4 <HAL_CRC_Calculate>
+ 8009ece:	6178      	str	r0, [r7, #20]
 
 	sprintf(temp, "%x\n", (unsigned int)crcFlashResult);
- 800a0b4:	f107 0308 	add.w	r3, r7, #8
- 800a0b8:	697a      	ldr	r2, [r7, #20]
- 800a0ba:	4907      	ldr	r1, [pc, #28]	; (800a0d8 <COMMAND_crcWholeFlashCalcCallback+0x44>)
- 800a0bc:	4618      	mov	r0, r3
- 800a0be:	f003 fbed 	bl	800d89c <siprintf>
+ 8009ed0:	f107 0308 	add.w	r3, r7, #8
+ 8009ed4:	697a      	ldr	r2, [r7, #20]
+ 8009ed6:	4907      	ldr	r1, [pc, #28]	; (8009ef4 <COMMAND_crcWholeFlashCalcCallback+0x44>)
+ 8009ed8:	4618      	mov	r0, r3
+ 8009eda:	f003 fcdf 	bl	800d89c <siprintf>
 	COM_uartPrint(temp);
- 800a0c2:	f107 0308 	add.w	r3, r7, #8
- 800a0c6:	4618      	mov	r0, r3
- 800a0c8:	f7ff fdc2 	bl	8009c50 <COM_uartPrint>
+ 8009ede:	f107 0308 	add.w	r3, r7, #8
+ 8009ee2:	4618      	mov	r0, r3
+ 8009ee4:	f7ff feb4 	bl	8009c50 <COM_uartPrint>
 }
- 800a0cc:	bf00      	nop
- 800a0ce:	3720      	adds	r7, #32
- 800a0d0:	46bd      	mov	sp, r7
- 800a0d2:	bd80      	pop	{r7, pc}
- 800a0d4:	20000af8 	.word	0x20000af8
- 800a0d8:	0800f598 	.word	0x0800f598
+ 8009ee8:	bf00      	nop
+ 8009eea:	3720      	adds	r7, #32
+ 8009eec:	46bd      	mov	sp, r7
+ 8009eee:	bd80      	pop	{r7, pc}
+ 8009ef0:	20000af8 	.word	0x20000af8
+ 8009ef4:	0800f598 	.word	0x0800f598
 
-0800a0dc <COMMAND_iwdgTestCallback>:
+08009ef8 <COMMAND_iwdgTestCallback>:
 
 void COMMAND_iwdgTestCallback(char* token)
 {
- 800a0dc:	b480      	push	{r7}
- 800a0de:	b083      	sub	sp, #12
- 800a0e0:	af00      	add	r7, sp, #0
- 800a0e2:	6078      	str	r0, [r7, #4]
+ 8009ef8:	b480      	push	{r7}
+ 8009efa:	b083      	sub	sp, #12
+ 8009efc:	af00      	add	r7, sp, #0
+ 8009efe:	6078      	str	r0, [r7, #4]
 #ifdef IWDG_ENABLE
 	while(1);
 #endif
 }
- 800a0e4:	bf00      	nop
- 800a0e6:	370c      	adds	r7, #12
- 800a0e8:	46bd      	mov	sp, r7
- 800a0ea:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800a0ee:	4770      	bx	lr
+ 8009f00:	bf00      	nop
+ 8009f02:	370c      	adds	r7, #12
+ 8009f04:	46bd      	mov	sp, r7
+ 8009f06:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8009f0a:	4770      	bx	lr
 
-0800a0f0 <COMMAND_flashLockCallback>:
+08009f0c <COMMAND_flashLockCallback>:
 
 void COMMAND_flashLockCallback(char* token)
 {
- 800a0f0:	b580      	push	{r7, lr}
- 800a0f2:	b08a      	sub	sp, #40	; 0x28
- 800a0f4:	af00      	add	r7, sp, #0
- 800a0f6:	6078      	str	r0, [r7, #4]
+ 8009f0c:	b580      	push	{r7, lr}
+ 8009f0e:	b08a      	sub	sp, #40	; 0x28
+ 8009f10:	af00      	add	r7, sp, #0
+ 8009f12:	6078      	str	r0, [r7, #4]
 	 *It does not prevent one part of code to read another part, or even rewrite.
 	 *PCROP allows you to use debugger to debug your code,
 	 *but protects reading and rewriting the "secret" part.*/
 
 	FLASH_OBProgramInitTypeDef obConfig;
 	HAL_FLASHEx_OBGetConfig(&obConfig);
- 800a0f8:	f107 030c 	add.w	r3, r7, #12
- 800a0fc:	4618      	mov	r0, r3
- 800a0fe:	f7f8 f8a1 	bl	8002244 <HAL_FLASHEx_OBGetConfig>
+ 8009f14:	f107 030c 	add.w	r3, r7, #12
+ 8009f18:	4618      	mov	r0, r3
+ 8009f1a:	f7f8 f993 	bl	8002244 <HAL_FLASHEx_OBGetConfig>
 
 	if (obConfig.RDPLevel == OB_RDP_LEVEL_0) {
- 800a102:	69fb      	ldr	r3, [r7, #28]
- 800a104:	2baa      	cmp	r3, #170	; 0xaa
- 800a106:	d130      	bne.n	800a16a <COMMAND_flashLockCallback+0x7a>
+ 8009f1e:	69fb      	ldr	r3, [r7, #28]
+ 8009f20:	2baa      	cmp	r3, #170	; 0xaa
+ 8009f22:	d130      	bne.n	8009f86 <COMMAND_flashLockCallback+0x7a>
 		obConfig.RDPLevel = OB_RDP_LEVEL_1;
- 800a108:	2355      	movs	r3, #85	; 0x55
- 800a10a:	61fb      	str	r3, [r7, #28]
+ 8009f24:	2355      	movs	r3, #85	; 0x55
+ 8009f26:	61fb      	str	r3, [r7, #28]
 		obConfig.OptionType = OPTIONBYTE_RDP;
- 800a10c:	2302      	movs	r3, #2
- 800a10e:	60fb      	str	r3, [r7, #12]
+ 8009f28:	2302      	movs	r3, #2
+ 8009f2a:	60fb      	str	r3, [r7, #12]
 
 		if (HAL_FLASH_Unlock() != HAL_OK)
- 800a110:	f7f7 fdf6 	bl	8001d00 <HAL_FLASH_Unlock>
- 800a114:	4603      	mov	r3, r0
- 800a116:	2b00      	cmp	r3, #0
- 800a118:	d001      	beq.n	800a11e <COMMAND_flashLockCallback+0x2e>
+ 8009f2c:	f7f7 fee8 	bl	8001d00 <HAL_FLASH_Unlock>
+ 8009f30:	4603      	mov	r3, r0
+ 8009f32:	2b00      	cmp	r3, #0
+ 8009f34:	d001      	beq.n	8009f3a <COMMAND_flashLockCallback+0x2e>
 		{
 			Error_Handler();
- 800a11a:	f002 f85f 	bl	800c1dc <Error_Handler>
+ 8009f36:	f002 f951 	bl	800c1dc <Error_Handler>
 		}
 		if (HAL_FLASH_OB_Unlock() != HAL_OK)
- 800a11e:	f7f7 fe21 	bl	8001d64 <HAL_FLASH_OB_Unlock>
- 800a122:	4603      	mov	r3, r0
- 800a124:	2b00      	cmp	r3, #0
- 800a126:	d001      	beq.n	800a12c <COMMAND_flashLockCallback+0x3c>
+ 8009f3a:	f7f7 ff13 	bl	8001d64 <HAL_FLASH_OB_Unlock>
+ 8009f3e:	4603      	mov	r3, r0
+ 8009f40:	2b00      	cmp	r3, #0
+ 8009f42:	d001      	beq.n	8009f48 <COMMAND_flashLockCallback+0x3c>
 		{
 			Error_Handler();
- 800a128:	f002 f858 	bl	800c1dc <Error_Handler>
+ 8009f44:	f002 f94a 	bl	800c1dc <Error_Handler>
 		}
 		if (HAL_FLASHEx_OBProgram(&obConfig) != HAL_OK)
- 800a12c:	f107 030c 	add.w	r3, r7, #12
- 800a130:	4618      	mov	r0, r3
- 800a132:	f7f8 f801 	bl	8002138 <HAL_FLASHEx_OBProgram>
- 800a136:	4603      	mov	r3, r0
- 800a138:	2b00      	cmp	r3, #0
- 800a13a:	d001      	beq.n	800a140 <COMMAND_flashLockCallback+0x50>
+ 8009f48:	f107 030c 	add.w	r3, r7, #12
+ 8009f4c:	4618      	mov	r0, r3
+ 8009f4e:	f7f8 f8f3 	bl	8002138 <HAL_FLASHEx_OBProgram>
+ 8009f52:	4603      	mov	r3, r0
+ 8009f54:	2b00      	cmp	r3, #0
+ 8009f56:	d001      	beq.n	8009f5c <COMMAND_flashLockCallback+0x50>
 		{
 			Error_Handler();
- 800a13c:	f002 f84e 	bl	800c1dc <Error_Handler>
+ 8009f58:	f002 f940 	bl	800c1dc <Error_Handler>
 		}
 		if (HAL_FLASH_OB_Launch() != HAL_OK)
- 800a140:	f7f7 fe3c 	bl	8001dbc <HAL_FLASH_OB_Launch>
- 800a144:	4603      	mov	r3, r0
- 800a146:	2b00      	cmp	r3, #0
- 800a148:	d001      	beq.n	800a14e <COMMAND_flashLockCallback+0x5e>
+ 8009f5c:	f7f7 ff2e 	bl	8001dbc <HAL_FLASH_OB_Launch>
+ 8009f60:	4603      	mov	r3, r0
+ 8009f62:	2b00      	cmp	r3, #0
+ 8009f64:	d001      	beq.n	8009f6a <COMMAND_flashLockCallback+0x5e>
 		{
 			Error_Handler();
- 800a14a:	f002 f847 	bl	800c1dc <Error_Handler>
+ 8009f66:	f002 f939 	bl	800c1dc <Error_Handler>
 		}
 		if (HAL_FLASH_OB_Lock() != HAL_OK)
- 800a14e:	f7f7 fe25 	bl	8001d9c <HAL_FLASH_OB_Lock>
- 800a152:	4603      	mov	r3, r0
- 800a154:	2b00      	cmp	r3, #0
- 800a156:	d001      	beq.n	800a15c <COMMAND_flashLockCallback+0x6c>
+ 8009f6a:	f7f7 ff17 	bl	8001d9c <HAL_FLASH_OB_Lock>
+ 8009f6e:	4603      	mov	r3, r0
+ 8009f70:	2b00      	cmp	r3, #0
+ 8009f72:	d001      	beq.n	8009f78 <COMMAND_flashLockCallback+0x6c>
 		{
 			Error_Handler();
- 800a158:	f002 f840 	bl	800c1dc <Error_Handler>
+ 8009f74:	f002 f932 	bl	800c1dc <Error_Handler>
 		}
 		if (HAL_FLASH_Lock() != HAL_OK)
- 800a15c:	f7f7 fdf2 	bl	8001d44 <HAL_FLASH_Lock>
- 800a160:	4603      	mov	r3, r0
- 800a162:	2b00      	cmp	r3, #0
- 800a164:	d001      	beq.n	800a16a <COMMAND_flashLockCallback+0x7a>
+ 8009f78:	f7f7 fee4 	bl	8001d44 <HAL_FLASH_Lock>
+ 8009f7c:	4603      	mov	r3, r0
+ 8009f7e:	2b00      	cmp	r3, #0
+ 8009f80:	d001      	beq.n	8009f86 <COMMAND_flashLockCallback+0x7a>
 		{
 			Error_Handler();
- 800a166:	f002 f839 	bl	800c1dc <Error_Handler>
+ 8009f82:	f002 f92b 	bl	800c1dc <Error_Handler>
 		FLASH_setSectorAddress(7, sector_7_addr);
 		uint32_t myTestWrite[1] = {0xDEADBEEF}; 		//0xFFFFFFFF, 0xDEADBEEF
 		FLASH_writeN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
 		*/
 	}
 }
- 800a16a:	bf00      	nop
- 800a16c:	3728      	adds	r7, #40	; 0x28
- 800a16e:	46bd      	mov	sp, r7
- 800a170:	bd80      	pop	{r7, pc}
+ 8009f86:	bf00      	nop
+ 8009f88:	3728      	adds	r7, #40	; 0x28
+ 8009f8a:	46bd      	mov	sp, r7
+ 8009f8c:	bd80      	pop	{r7, pc}
 	...
 
-0800a174 <COMMAND_setSNCallback>:
+08009f90 <COMMAND_setSNCallback>:
 
 void COMMAND_setSNCallback(char* token)
 {
- 800a174:	b580      	push	{r7, lr}
- 800a176:	b084      	sub	sp, #16
- 800a178:	af00      	add	r7, sp, #0
- 800a17a:	6078      	str	r0, [r7, #4]
+ 8009f90:	b580      	push	{r7, lr}
+ 8009f92:	b084      	sub	sp, #16
+ 8009f94:	af00      	add	r7, sp, #0
+ 8009f96:	6078      	str	r0, [r7, #4]
 	//if (FLASH_wrpSectorDisable();
 
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
- 800a17c:	4b09      	ldr	r3, [pc, #36]	; (800a1a4 <COMMAND_setSNCallback+0x30>)
- 800a17e:	60fb      	str	r3, [r7, #12]
+ 8009f98:	4b09      	ldr	r3, [pc, #36]	; (8009fc0 <COMMAND_setSNCallback+0x30>)
+ 8009f9a:	60fb      	str	r3, [r7, #12]
 	FLASH_setSectorAddress(7, sector_7_addr);
- 800a180:	68f9      	ldr	r1, [r7, #12]
- 800a182:	2007      	movs	r0, #7
- 800a184:	f7ff fe0e 	bl	8009da4 <FLASH_setSectorAddress>
+ 8009f9c:	68f9      	ldr	r1, [r7, #12]
+ 8009f9e:	2007      	movs	r0, #7
+ 8009fa0:	f000 f946 	bl	800a230 <FLASH_setSectorAddress>
 	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
- 800a188:	4b07      	ldr	r3, [pc, #28]	; (800a1a8 <COMMAND_setSNCallback+0x34>)
- 800a18a:	60bb      	str	r3, [r7, #8]
+ 8009fa4:	4b07      	ldr	r3, [pc, #28]	; (8009fc4 <COMMAND_setSNCallback+0x34>)
+ 8009fa6:	60bb      	str	r3, [r7, #8]
 	FLASH_writeN(0, myTestWrite, 1, DATA_TYPE_32);
- 800a18c:	f107 0108 	add.w	r1, r7, #8
- 800a190:	2302      	movs	r3, #2
- 800a192:	2201      	movs	r2, #1
- 800a194:	2000      	movs	r0, #0
- 800a196:	f7ff fe1b 	bl	8009dd0 <FLASH_writeN>
+ 8009fa8:	f107 0108 	add.w	r1, r7, #8
+ 8009fac:	2302      	movs	r3, #2
+ 8009fae:	2201      	movs	r2, #1
+ 8009fb0:	2000      	movs	r0, #0
+ 8009fb2:	f000 f953 	bl	800a25c <FLASH_writeN>
 
 	//FLASH_wrpSectorEnable();
 
 }
- 800a19a:	bf00      	nop
- 800a19c:	3710      	adds	r7, #16
- 800a19e:	46bd      	mov	sp, r7
- 800a1a0:	bd80      	pop	{r7, pc}
- 800a1a2:	bf00      	nop
- 800a1a4:	08060000 	.word	0x08060000
- 800a1a8:	deadbeef 	.word	0xdeadbeef
+ 8009fb6:	bf00      	nop
+ 8009fb8:	3710      	adds	r7, #16
+ 8009fba:	46bd      	mov	sp, r7
+ 8009fbc:	bd80      	pop	{r7, pc}
+ 8009fbe:	bf00      	nop
+ 8009fc0:	08060000 	.word	0x08060000
+ 8009fc4:	deadbeef 	.word	0xdeadbeef
 
-0800a1ac <COMMAND_getSNCallback>:
+08009fc8 <COMMAND_getSNCallback>:
 
 void COMMAND_getSNCallback(char* token)
 {
- 800a1ac:	b580      	push	{r7, lr}
- 800a1ae:	b088      	sub	sp, #32
- 800a1b0:	af00      	add	r7, sp, #0
- 800a1b2:	6078      	str	r0, [r7, #4]
+ 8009fc8:	b580      	push	{r7, lr}
+ 8009fca:	b088      	sub	sp, #32
+ 8009fcc:	af00      	add	r7, sp, #0
+ 8009fce:	6078      	str	r0, [r7, #4]
 	char temp [9];
 	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
- 800a1b4:	4b0e      	ldr	r3, [pc, #56]	; (800a1f0 <COMMAND_getSNCallback+0x44>)
- 800a1b6:	61fb      	str	r3, [r7, #28]
+ 8009fd0:	4b0e      	ldr	r3, [pc, #56]	; (800a00c <COMMAND_getSNCallback+0x44>)
+ 8009fd2:	61fb      	str	r3, [r7, #28]
 	FLASH_setSectorAddress(7, sector_7_addr);
- 800a1b8:	69f9      	ldr	r1, [r7, #28]
- 800a1ba:	2007      	movs	r0, #7
- 800a1bc:	f7ff fdf2 	bl	8009da4 <FLASH_setSectorAddress>
+ 8009fd4:	69f9      	ldr	r1, [r7, #28]
+ 8009fd6:	2007      	movs	r0, #7
+ 8009fd8:	f000 f92a 	bl	800a230 <FLASH_setSectorAddress>
 	uint32_t myTestRead[1];
 	FLASH_readN(0, myTestRead, 1, DATA_TYPE_32);
- 800a1c0:	f107 010c 	add.w	r1, r7, #12
- 800a1c4:	2302      	movs	r3, #2
- 800a1c6:	2201      	movs	r2, #1
- 800a1c8:	2000      	movs	r0, #0
- 800a1ca:	f7ff fe73 	bl	8009eb4 <FLASH_readN>
+ 8009fdc:	f107 010c 	add.w	r1, r7, #12
+ 8009fe0:	2302      	movs	r3, #2
+ 8009fe2:	2201      	movs	r2, #1
+ 8009fe4:	2000      	movs	r0, #0
+ 8009fe6:	f000 f9ab 	bl	800a340 <FLASH_readN>
 
 	sprintf(temp, "%x\n", (unsigned int)myTestRead[0]);
- 800a1ce:	68fa      	ldr	r2, [r7, #12]
- 800a1d0:	f107 0310 	add.w	r3, r7, #16
- 800a1d4:	4907      	ldr	r1, [pc, #28]	; (800a1f4 <COMMAND_getSNCallback+0x48>)
- 800a1d6:	4618      	mov	r0, r3
- 800a1d8:	f003 fb60 	bl	800d89c <siprintf>
+ 8009fea:	68fa      	ldr	r2, [r7, #12]
+ 8009fec:	f107 0310 	add.w	r3, r7, #16
+ 8009ff0:	4907      	ldr	r1, [pc, #28]	; (800a010 <COMMAND_getSNCallback+0x48>)
+ 8009ff2:	4618      	mov	r0, r3
+ 8009ff4:	f003 fc52 	bl	800d89c <siprintf>
 	COM_uartPrint(temp);
- 800a1dc:	f107 0310 	add.w	r3, r7, #16
- 800a1e0:	4618      	mov	r0, r3
- 800a1e2:	f7ff fd35 	bl	8009c50 <COM_uartPrint>
+ 8009ff8:	f107 0310 	add.w	r3, r7, #16
+ 8009ffc:	4618      	mov	r0, r3
+ 8009ffe:	f7ff fe27 	bl	8009c50 <COM_uartPrint>
 }
- 800a1e6:	bf00      	nop
- 800a1e8:	3720      	adds	r7, #32
- 800a1ea:	46bd      	mov	sp, r7
- 800a1ec:	bd80      	pop	{r7, pc}
- 800a1ee:	bf00      	nop
- 800a1f0:	08060000 	.word	0x08060000
- 800a1f4:	0800f598 	.word	0x0800f598
+ 800a002:	bf00      	nop
+ 800a004:	3720      	adds	r7, #32
+ 800a006:	46bd      	mov	sp, r7
+ 800a008:	bd80      	pop	{r7, pc}
+ 800a00a:	bf00      	nop
+ 800a00c:	08060000 	.word	0x08060000
+ 800a010:	0800f598 	.word	0x0800f598
 
-0800a1f8 <COMMAND_startTickCallback>:
+0800a014 <COMMAND_startTickCallback>:
 
 void COMMAND_startTickCallback(char* token)
 {
- 800a1f8:	b580      	push	{r7, lr}
- 800a1fa:	b08c      	sub	sp, #48	; 0x30
- 800a1fc:	af00      	add	r7, sp, #0
- 800a1fe:	6078      	str	r0, [r7, #4]
+ 800a014:	b580      	push	{r7, lr}
+ 800a016:	b08c      	sub	sp, #48	; 0x30
+ 800a018:	af00      	add	r7, sp, #0
+ 800a01a:	6078      	str	r0, [r7, #4]
 	RTC_AlarmTypeDef sAlarm = {0};
- 800a200:	f107 0308 	add.w	r3, r7, #8
- 800a204:	2228      	movs	r2, #40	; 0x28
- 800a206:	2100      	movs	r1, #0
- 800a208:	4618      	mov	r0, r3
- 800a20a:	f002 fdd0 	bl	800cdae <memset>
+ 800a01c:	f107 0308 	add.w	r3, r7, #8
+ 800a020:	2228      	movs	r2, #40	; 0x28
+ 800a022:	2100      	movs	r1, #0
+ 800a024:	4618      	mov	r0, r3
+ 800a026:	f002 fec2 	bl	800cdae <memset>
 	  /** Enable the Alarm A
 	  */
 	  sAlarm.AlarmTime.Hours = 0;
- 800a20e:	2300      	movs	r3, #0
- 800a210:	723b      	strb	r3, [r7, #8]
+ 800a02a:	2300      	movs	r3, #0
+ 800a02c:	723b      	strb	r3, [r7, #8]
 	  sAlarm.AlarmTime.Minutes = 0;
- 800a212:	2300      	movs	r3, #0
- 800a214:	727b      	strb	r3, [r7, #9]
+ 800a02e:	2300      	movs	r3, #0
+ 800a030:	727b      	strb	r3, [r7, #9]
 	  sAlarm.AlarmTime.Seconds = 1;
- 800a216:	2301      	movs	r3, #1
- 800a218:	72bb      	strb	r3, [r7, #10]
+ 800a032:	2301      	movs	r3, #1
+ 800a034:	72bb      	strb	r3, [r7, #10]
 	  sAlarm.AlarmTime.SubSeconds = 0;
- 800a21a:	2300      	movs	r3, #0
- 800a21c:	60fb      	str	r3, [r7, #12]
+ 800a036:	2300      	movs	r3, #0
+ 800a038:	60fb      	str	r3, [r7, #12]
 	  sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
- 800a21e:	2300      	movs	r3, #0
- 800a220:	617b      	str	r3, [r7, #20]
+ 800a03a:	2300      	movs	r3, #0
+ 800a03c:	617b      	str	r3, [r7, #20]
 	  sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
- 800a222:	2300      	movs	r3, #0
- 800a224:	61bb      	str	r3, [r7, #24]
+ 800a03e:	2300      	movs	r3, #0
+ 800a040:	61bb      	str	r3, [r7, #24]
 	  sAlarm.AlarmMask = RTC_ALARMMASK_ALL;
- 800a226:	f04f 3380 	mov.w	r3, #2155905152	; 0x80808080
- 800a22a:	61fb      	str	r3, [r7, #28]
+ 800a042:	f04f 3380 	mov.w	r3, #2155905152	; 0x80808080
+ 800a046:	61fb      	str	r3, [r7, #28]
 	  sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
- 800a22c:	2300      	movs	r3, #0
- 800a22e:	623b      	str	r3, [r7, #32]
+ 800a048:	2300      	movs	r3, #0
+ 800a04a:	623b      	str	r3, [r7, #32]
 	  sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
- 800a230:	2300      	movs	r3, #0
- 800a232:	627b      	str	r3, [r7, #36]	; 0x24
+ 800a04c:	2300      	movs	r3, #0
+ 800a04e:	627b      	str	r3, [r7, #36]	; 0x24
 	  sAlarm.AlarmDateWeekDay = 1;
- 800a234:	2301      	movs	r3, #1
- 800a236:	f887 3028 	strb.w	r3, [r7, #40]	; 0x28
+ 800a050:	2301      	movs	r3, #1
+ 800a052:	f887 3028 	strb.w	r3, [r7, #40]	; 0x28
 	  sAlarm.Alarm = RTC_ALARM_A;
- 800a23a:	f44f 7380 	mov.w	r3, #256	; 0x100
- 800a23e:	62fb      	str	r3, [r7, #44]	; 0x2c
+ 800a056:	f44f 7380 	mov.w	r3, #256	; 0x100
+ 800a05a:	62fb      	str	r3, [r7, #44]	; 0x2c
 	  if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BIN) != HAL_OK)
- 800a240:	f107 0308 	add.w	r3, r7, #8
- 800a244:	2200      	movs	r2, #0
- 800a246:	4619      	mov	r1, r3
- 800a248:	4805      	ldr	r0, [pc, #20]	; (800a260 <COMMAND_startTickCallback+0x68>)
- 800a24a:	f7fb f959 	bl	8005500 <HAL_RTC_SetAlarm_IT>
- 800a24e:	4603      	mov	r3, r0
- 800a250:	2b00      	cmp	r3, #0
- 800a252:	d001      	beq.n	800a258 <COMMAND_startTickCallback+0x60>
+ 800a05c:	f107 0308 	add.w	r3, r7, #8
+ 800a060:	2200      	movs	r2, #0
+ 800a062:	4619      	mov	r1, r3
+ 800a064:	4805      	ldr	r0, [pc, #20]	; (800a07c <COMMAND_startTickCallback+0x68>)
+ 800a066:	f7fb fa4b 	bl	8005500 <HAL_RTC_SetAlarm_IT>
+ 800a06a:	4603      	mov	r3, r0
+ 800a06c:	2b00      	cmp	r3, #0
+ 800a06e:	d001      	beq.n	800a074 <COMMAND_startTickCallback+0x60>
 	  {
 	    Error_Handler();
- 800a254:	f001 ffc2 	bl	800c1dc <Error_Handler>
+ 800a070:	f002 f8b4 	bl	800c1dc <Error_Handler>
 	  }
 }
- 800a258:	bf00      	nop
- 800a25a:	3730      	adds	r7, #48	; 0x30
- 800a25c:	46bd      	mov	sp, r7
- 800a25e:	bd80      	pop	{r7, pc}
- 800a260:	20000b64 	.word	0x20000b64
+ 800a074:	bf00      	nop
+ 800a076:	3730      	adds	r7, #48	; 0x30
+ 800a078:	46bd      	mov	sp, r7
+ 800a07a:	bd80      	pop	{r7, pc}
+ 800a07c:	20000b64 	.word	0x20000b64
 
-0800a264 <COMMAND_stopTickCallback>:
+0800a080 <COMMAND_stopTickCallback>:
 
 void COMMAND_stopTickCallback(char* token)
 {
- 800a264:	b580      	push	{r7, lr}
- 800a266:	b082      	sub	sp, #8
- 800a268:	af00      	add	r7, sp, #0
- 800a26a:	6078      	str	r0, [r7, #4]
+ 800a080:	b580      	push	{r7, lr}
+ 800a082:	b082      	sub	sp, #8
+ 800a084:	af00      	add	r7, sp, #0
+ 800a086:	6078      	str	r0, [r7, #4]
 	HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
- 800a26c:	f44f 7180 	mov.w	r1, #256	; 0x100
- 800a270:	4803      	ldr	r0, [pc, #12]	; (800a280 <COMMAND_stopTickCallback+0x1c>)
- 800a272:	f7fb fc2f 	bl	8005ad4 <HAL_RTC_DeactivateAlarm>
+ 800a088:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 800a08c:	4803      	ldr	r0, [pc, #12]	; (800a09c <COMMAND_stopTickCallback+0x1c>)
+ 800a08e:	f7fb fd21 	bl	8005ad4 <HAL_RTC_DeactivateAlarm>
 }
- 800a276:	bf00      	nop
- 800a278:	3708      	adds	r7, #8
- 800a27a:	46bd      	mov	sp, r7
- 800a27c:	bd80      	pop	{r7, pc}
- 800a27e:	bf00      	nop
- 800a280:	20000b64 	.word	0x20000b64
+ 800a092:	bf00      	nop
+ 800a094:	3708      	adds	r7, #8
+ 800a096:	46bd      	mov	sp, r7
+ 800a098:	bd80      	pop	{r7, pc}
+ 800a09a:	bf00      	nop
+ 800a09c:	20000b64 	.word	0x20000b64
 
-0800a284 <COMMAND_assert0Callback>:
+0800a0a0 <COMMAND_assert0Callback>:
 
 void COMMAND_assert0Callback(char* token)
 {
- 800a284:	b580      	push	{r7, lr}
- 800a286:	b082      	sub	sp, #8
- 800a288:	af00      	add	r7, sp, #0
- 800a28a:	6078      	str	r0, [r7, #4]
+ 800a0a0:	b580      	push	{r7, lr}
+ 800a0a2:	b082      	sub	sp, #8
+ 800a0a4:	af00      	add	r7, sp, #0
+ 800a0a6:	6078      	str	r0, [r7, #4]
 	assert_param(0);
- 800a28c:	f44f 718f 	mov.w	r1, #286	; 0x11e
- 800a290:	4803      	ldr	r0, [pc, #12]	; (800a2a0 <COMMAND_assert0Callback+0x1c>)
- 800a292:	f001 ffab 	bl	800c1ec <assert_failed>
+ 800a0a8:	f44f 718f 	mov.w	r1, #286	; 0x11e
+ 800a0ac:	4803      	ldr	r0, [pc, #12]	; (800a0bc <COMMAND_assert0Callback+0x1c>)
+ 800a0ae:	f002 f89d 	bl	800c1ec <assert_failed>
 }
- 800a296:	bf00      	nop
- 800a298:	3708      	adds	r7, #8
- 800a29a:	46bd      	mov	sp, r7
- 800a29c:	bd80      	pop	{r7, pc}
- 800a29e:	bf00      	nop
- 800a2a0:	0800f59c 	.word	0x0800f59c
+ 800a0b2:	bf00      	nop
+ 800a0b4:	3708      	adds	r7, #8
+ 800a0b6:	46bd      	mov	sp, r7
+ 800a0b8:	bd80      	pop	{r7, pc}
+ 800a0ba:	bf00      	nop
+ 800a0bc:	0800f59c 	.word	0x0800f59c
 
-0800a2a4 <COMMAND_clearAssertFlagCallback>:
+0800a0c0 <COMMAND_clearAssertFlagCallback>:
 
 void COMMAND_clearAssertFlagCallback(char* token)
 {
- 800a2a4:	b580      	push	{r7, lr}
- 800a2a6:	b082      	sub	sp, #8
- 800a2a8:	af00      	add	r7, sp, #0
- 800a2aa:	6078      	str	r0, [r7, #4]
+ 800a0c0:	b580      	push	{r7, lr}
+ 800a0c2:	b082      	sub	sp, #8
+ 800a0c4:	af00      	add	r7, sp, #0
+ 800a0c6:	6078      	str	r0, [r7, #4]
 	SYSTEM_DEBUG_assertResetFlag();
- 800a2ac:	f002 f9d2 	bl	800c654 <SYSTEM_DEBUG_assertResetFlag>
+ 800a0c8:	f002 fac4 	bl	800c654 <SYSTEM_DEBUG_assertResetFlag>
 }
- 800a2b0:	bf00      	nop
- 800a2b2:	3708      	adds	r7, #8
- 800a2b4:	46bd      	mov	sp, r7
- 800a2b6:	bd80      	pop	{r7, pc}
+ 800a0cc:	bf00      	nop
+ 800a0ce:	3708      	adds	r7, #8
+ 800a0d0:	46bd      	mov	sp, r7
+ 800a0d2:	bd80      	pop	{r7, pc}
 
-0800a2b8 <COMMAND_lsm6dslPerSampleEnableCallback>:
+0800a0d4 <COMMAND_lsm6dslPerSampleEnableCallback>:
 
 void COMMAND_lsm6dslPerSampleEnableCallback(char* token)
 {
- 800a2b8:	b580      	push	{r7, lr}
- 800a2ba:	b082      	sub	sp, #8
- 800a2bc:	af00      	add	r7, sp, #0
- 800a2be:	6078      	str	r0, [r7, #4]
+ 800a0d4:	b580      	push	{r7, lr}
+ 800a0d6:	b082      	sub	sp, #8
+ 800a0d8:	af00      	add	r7, sp, #0
+ 800a0da:	6078      	str	r0, [r7, #4]
 	LSM6DSL_perSampleInit();
- 800a2c0:	f000 fb50 	bl	800a964 <LSM6DSL_perSampleInit>
+ 800a0dc:	f000 fc42 	bl	800a964 <LSM6DSL_perSampleInit>
 }
- 800a2c4:	bf00      	nop
- 800a2c6:	3708      	adds	r7, #8
- 800a2c8:	46bd      	mov	sp, r7
- 800a2ca:	bd80      	pop	{r7, pc}
+ 800a0e0:	bf00      	nop
+ 800a0e2:	3708      	adds	r7, #8
+ 800a0e4:	46bd      	mov	sp, r7
+ 800a0e6:	bd80      	pop	{r7, pc}
 
-0800a2cc <COMMAND_lsm6dslFifoEnableCallback>:
+0800a0e8 <COMMAND_lsm6dslFifoEnableCallback>:
 
 void COMMAND_lsm6dslFifoEnableCallback(char* token)
 {
- 800a2cc:	b580      	push	{r7, lr}
- 800a2ce:	b082      	sub	sp, #8
- 800a2d0:	af00      	add	r7, sp, #0
- 800a2d2:	6078      	str	r0, [r7, #4]
+ 800a0e8:	b580      	push	{r7, lr}
+ 800a0ea:	b082      	sub	sp, #8
+ 800a0ec:	af00      	add	r7, sp, #0
+ 800a0ee:	6078      	str	r0, [r7, #4]
 	LSM6DSL_fifoInit();
- 800a2d4:	f000 fc5e 	bl	800ab94 <LSM6DSL_fifoInit>
+ 800a0f0:	f000 fd50 	bl	800ab94 <LSM6DSL_fifoInit>
 }
- 800a2d8:	bf00      	nop
- 800a2da:	3708      	adds	r7, #8
- 800a2dc:	46bd      	mov	sp, r7
- 800a2de:	bd80      	pop	{r7, pc}
+ 800a0f4:	bf00      	nop
+ 800a0f6:	3708      	adds	r7, #8
+ 800a0f8:	46bd      	mov	sp, r7
+ 800a0fa:	bd80      	pop	{r7, pc}
 
-0800a2e0 <COMMAND_lsm6dslDisableCallback>:
+0800a0fc <COMMAND_lsm6dslDisableCallback>:
 
 void COMMAND_lsm6dslDisableCallback(char* token)
 {
- 800a2e0:	b580      	push	{r7, lr}
- 800a2e2:	b082      	sub	sp, #8
- 800a2e4:	af00      	add	r7, sp, #0
- 800a2e6:	6078      	str	r0, [r7, #4]
+ 800a0fc:	b580      	push	{r7, lr}
+ 800a0fe:	b082      	sub	sp, #8
+ 800a100:	af00      	add	r7, sp, #0
+ 800a102:	6078      	str	r0, [r7, #4]
 	LSM6DSL_modesDisable();
- 800a2e8:	f000 ff0a 	bl	800b100 <LSM6DSL_modesDisable>
+ 800a104:	f000 fffc 	bl	800b100 <LSM6DSL_modesDisable>
 }
- 800a2ec:	bf00      	nop
- 800a2ee:	3708      	adds	r7, #8
- 800a2f0:	46bd      	mov	sp, r7
- 800a2f2:	bd80      	pop	{r7, pc}
+ 800a108:	bf00      	nop
+ 800a10a:	3708      	adds	r7, #8
+ 800a10c:	46bd      	mov	sp, r7
+ 800a10e:	bd80      	pop	{r7, pc}
 
-0800a2f4 <COMMAND_enterStopModeCallback>:
+0800a110 <COMMAND_enterStopModeCallback>:
 
 void COMMAND_enterStopModeCallback(char* token)
 {
- 800a2f4:	b580      	push	{r7, lr}
- 800a2f6:	b084      	sub	sp, #16
- 800a2f8:	af00      	add	r7, sp, #0
- 800a2fa:	6078      	str	r0, [r7, #4]
+ 800a110:	b580      	push	{r7, lr}
+ 800a112:	b084      	sub	sp, #16
+ 800a114:	af00      	add	r7, sp, #0
+ 800a116:	6078      	str	r0, [r7, #4]
 	token = strtok(NULL, " ");
- 800a2fc:	4908      	ldr	r1, [pc, #32]	; (800a320 <COMMAND_enterStopModeCallback+0x2c>)
- 800a2fe:	2000      	movs	r0, #0
- 800a300:	f003 fb14 	bl	800d92c <strtok>
- 800a304:	6078      	str	r0, [r7, #4]
+ 800a118:	4908      	ldr	r1, [pc, #32]	; (800a13c <COMMAND_enterStopModeCallback+0x2c>)
+ 800a11a:	2000      	movs	r0, #0
+ 800a11c:	f003 fc06 	bl	800d92c <strtok>
+ 800a120:	6078      	str	r0, [r7, #4]
 	uint32_t wake_up_time = atoi(token);
- 800a306:	6878      	ldr	r0, [r7, #4]
- 800a308:	f002 fd0d 	bl	800cd26 <atoi>
- 800a30c:	4603      	mov	r3, r0
- 800a30e:	60fb      	str	r3, [r7, #12]
+ 800a122:	6878      	ldr	r0, [r7, #4]
+ 800a124:	f002 fdff 	bl	800cd26 <atoi>
+ 800a128:	4603      	mov	r3, r0
+ 800a12a:	60fb      	str	r3, [r7, #12]
 	SYSTEM_DEBUG_enterStopMode(wake_up_time);
- 800a310:	68f8      	ldr	r0, [r7, #12]
- 800a312:	f002 fa6f 	bl	800c7f4 <SYSTEM_DEBUG_enterStopMode>
+ 800a12c:	68f8      	ldr	r0, [r7, #12]
+ 800a12e:	f002 fb61 	bl	800c7f4 <SYSTEM_DEBUG_enterStopMode>
 }
- 800a316:	bf00      	nop
- 800a318:	3710      	adds	r7, #16
- 800a31a:	46bd      	mov	sp, r7
- 800a31c:	bd80      	pop	{r7, pc}
- 800a31e:	bf00      	nop
- 800a320:	0800f594 	.word	0x0800f594
+ 800a132:	bf00      	nop
+ 800a134:	3710      	adds	r7, #16
+ 800a136:	46bd      	mov	sp, r7
+ 800a138:	bd80      	pop	{r7, pc}
+ 800a13a:	bf00      	nop
+ 800a13c:	0800f594 	.word	0x0800f594
 
-0800a324 <COMMAND_enterStandbyModeCallback>:
+0800a140 <COMMAND_enterStandbyModeCallback>:
 
 void COMMAND_enterStandbyModeCallback(char* token)
 {
- 800a324:	b580      	push	{r7, lr}
- 800a326:	b082      	sub	sp, #8
- 800a328:	af00      	add	r7, sp, #0
- 800a32a:	6078      	str	r0, [r7, #4]
+ 800a140:	b580      	push	{r7, lr}
+ 800a142:	b082      	sub	sp, #8
+ 800a144:	af00      	add	r7, sp, #0
+ 800a146:	6078      	str	r0, [r7, #4]
 	SYSTEM_DEBUG_enterStandbyMode();
- 800a32c:	f002 faa6 	bl	800c87c <SYSTEM_DEBUG_enterStandbyMode>
+ 800a148:	f002 fb98 	bl	800c87c <SYSTEM_DEBUG_enterStandbyMode>
 }
- 800a330:	bf00      	nop
- 800a332:	3708      	adds	r7, #8
- 800a334:	46bd      	mov	sp, r7
- 800a336:	bd80      	pop	{r7, pc}
+ 800a14c:	bf00      	nop
+ 800a14e:	3708      	adds	r7, #8
+ 800a150:	46bd      	mov	sp, r7
+ 800a152:	bd80      	pop	{r7, pc}
 
-0800a338 <MX_CRC_Init>:
+0800a154 <MX_CRC_Init>:
 
 CRC_HandleTypeDef hcrc;
 
 /* CRC init function */
 void MX_CRC_Init(void)
 {
- 800a338:	b580      	push	{r7, lr}
- 800a33a:	af00      	add	r7, sp, #0
+ 800a154:	b580      	push	{r7, lr}
+ 800a156:	af00      	add	r7, sp, #0
 
   hcrc.Instance = CRC;
- 800a33c:	4b06      	ldr	r3, [pc, #24]	; (800a358 <MX_CRC_Init+0x20>)
- 800a33e:	4a07      	ldr	r2, [pc, #28]	; (800a35c <MX_CRC_Init+0x24>)
- 800a340:	601a      	str	r2, [r3, #0]
+ 800a158:	4b06      	ldr	r3, [pc, #24]	; (800a174 <MX_CRC_Init+0x20>)
+ 800a15a:	4a07      	ldr	r2, [pc, #28]	; (800a178 <MX_CRC_Init+0x24>)
+ 800a15c:	601a      	str	r2, [r3, #0]
   if (HAL_CRC_Init(&hcrc) != HAL_OK)
- 800a342:	4805      	ldr	r0, [pc, #20]	; (800a358 <MX_CRC_Init+0x20>)
- 800a344:	f7f6 ff0c 	bl	8001160 <HAL_CRC_Init>
- 800a348:	4603      	mov	r3, r0
- 800a34a:	2b00      	cmp	r3, #0
- 800a34c:	d001      	beq.n	800a352 <MX_CRC_Init+0x1a>
+ 800a15e:	4805      	ldr	r0, [pc, #20]	; (800a174 <MX_CRC_Init+0x20>)
+ 800a160:	f7f6 fffe 	bl	8001160 <HAL_CRC_Init>
+ 800a164:	4603      	mov	r3, r0
+ 800a166:	2b00      	cmp	r3, #0
+ 800a168:	d001      	beq.n	800a16e <MX_CRC_Init+0x1a>
   {
     Error_Handler();
- 800a34e:	f001 ff45 	bl	800c1dc <Error_Handler>
+ 800a16a:	f002 f837 	bl	800c1dc <Error_Handler>
   }
 
 }
- 800a352:	bf00      	nop
- 800a354:	bd80      	pop	{r7, pc}
- 800a356:	bf00      	nop
- 800a358:	20000af8 	.word	0x20000af8
- 800a35c:	40023000 	.word	0x40023000
+ 800a16e:	bf00      	nop
+ 800a170:	bd80      	pop	{r7, pc}
+ 800a172:	bf00      	nop
+ 800a174:	20000af8 	.word	0x20000af8
+ 800a178:	40023000 	.word	0x40023000
 
-0800a360 <HAL_CRC_MspInit>:
+0800a17c <HAL_CRC_MspInit>:
 
 void HAL_CRC_MspInit(CRC_HandleTypeDef* crcHandle)
 {
- 800a360:	b480      	push	{r7}
- 800a362:	b085      	sub	sp, #20
- 800a364:	af00      	add	r7, sp, #0
- 800a366:	6078      	str	r0, [r7, #4]
+ 800a17c:	b480      	push	{r7}
+ 800a17e:	b085      	sub	sp, #20
+ 800a180:	af00      	add	r7, sp, #0
+ 800a182:	6078      	str	r0, [r7, #4]
 
   if(crcHandle->Instance==CRC)
- 800a368:	687b      	ldr	r3, [r7, #4]
- 800a36a:	681b      	ldr	r3, [r3, #0]
- 800a36c:	4a0b      	ldr	r2, [pc, #44]	; (800a39c <HAL_CRC_MspInit+0x3c>)
- 800a36e:	4293      	cmp	r3, r2
- 800a370:	d10d      	bne.n	800a38e <HAL_CRC_MspInit+0x2e>
+ 800a184:	687b      	ldr	r3, [r7, #4]
+ 800a186:	681b      	ldr	r3, [r3, #0]
+ 800a188:	4a0b      	ldr	r2, [pc, #44]	; (800a1b8 <HAL_CRC_MspInit+0x3c>)
+ 800a18a:	4293      	cmp	r3, r2
+ 800a18c:	d10d      	bne.n	800a1aa <HAL_CRC_MspInit+0x2e>
   {
   /* USER CODE BEGIN CRC_MspInit 0 */
 
   /* USER CODE END CRC_MspInit 0 */
     /* CRC clock enable */
     __HAL_RCC_CRC_CLK_ENABLE();
- 800a372:	2300      	movs	r3, #0
- 800a374:	60fb      	str	r3, [r7, #12]
- 800a376:	4b0a      	ldr	r3, [pc, #40]	; (800a3a0 <HAL_CRC_MspInit+0x40>)
- 800a378:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 800a37a:	4a09      	ldr	r2, [pc, #36]	; (800a3a0 <HAL_CRC_MspInit+0x40>)
- 800a37c:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
- 800a380:	6313      	str	r3, [r2, #48]	; 0x30
- 800a382:	4b07      	ldr	r3, [pc, #28]	; (800a3a0 <HAL_CRC_MspInit+0x40>)
- 800a384:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 800a386:	f403 5380 	and.w	r3, r3, #4096	; 0x1000
- 800a38a:	60fb      	str	r3, [r7, #12]
- 800a38c:	68fb      	ldr	r3, [r7, #12]
+ 800a18e:	2300      	movs	r3, #0
+ 800a190:	60fb      	str	r3, [r7, #12]
+ 800a192:	4b0a      	ldr	r3, [pc, #40]	; (800a1bc <HAL_CRC_MspInit+0x40>)
+ 800a194:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 800a196:	4a09      	ldr	r2, [pc, #36]	; (800a1bc <HAL_CRC_MspInit+0x40>)
+ 800a198:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 800a19c:	6313      	str	r3, [r2, #48]	; 0x30
+ 800a19e:	4b07      	ldr	r3, [pc, #28]	; (800a1bc <HAL_CRC_MspInit+0x40>)
+ 800a1a0:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 800a1a2:	f403 5380 	and.w	r3, r3, #4096	; 0x1000
+ 800a1a6:	60fb      	str	r3, [r7, #12]
+ 800a1a8:	68fb      	ldr	r3, [r7, #12]
   /* USER CODE BEGIN CRC_MspInit 1 */
 
   /* USER CODE END CRC_MspInit 1 */
   }
 }
- 800a38e:	bf00      	nop
- 800a390:	3714      	adds	r7, #20
- 800a392:	46bd      	mov	sp, r7
- 800a394:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800a398:	4770      	bx	lr
- 800a39a:	bf00      	nop
- 800a39c:	40023000 	.word	0x40023000
- 800a3a0:	40023800 	.word	0x40023800
+ 800a1aa:	bf00      	nop
+ 800a1ac:	3714      	adds	r7, #20
+ 800a1ae:	46bd      	mov	sp, r7
+ 800a1b0:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800a1b4:	4770      	bx	lr
+ 800a1b6:	bf00      	nop
+ 800a1b8:	40023000 	.word	0x40023000
+ 800a1bc:	40023800 	.word	0x40023800
 
-0800a3a4 <MX_DMA_Init>:
+0800a1c0 <MX_DMA_Init>:
 
 /** 
   * Enable DMA controller clock
   */
 void MX_DMA_Init(void) 
 {
- 800a3a4:	b580      	push	{r7, lr}
- 800a3a6:	b082      	sub	sp, #8
- 800a3a8:	af00      	add	r7, sp, #0
+ 800a1c0:	b580      	push	{r7, lr}
+ 800a1c2:	b082      	sub	sp, #8
+ 800a1c4:	af00      	add	r7, sp, #0
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
- 800a3aa:	2300      	movs	r3, #0
- 800a3ac:	607b      	str	r3, [r7, #4]
- 800a3ae:	4b10      	ldr	r3, [pc, #64]	; (800a3f0 <MX_DMA_Init+0x4c>)
- 800a3b0:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 800a3b2:	4a0f      	ldr	r2, [pc, #60]	; (800a3f0 <MX_DMA_Init+0x4c>)
- 800a3b4:	f443 1300 	orr.w	r3, r3, #2097152	; 0x200000
- 800a3b8:	6313      	str	r3, [r2, #48]	; 0x30
- 800a3ba:	4b0d      	ldr	r3, [pc, #52]	; (800a3f0 <MX_DMA_Init+0x4c>)
- 800a3bc:	6b1b      	ldr	r3, [r3, #48]	; 0x30
- 800a3be:	f403 1300 	and.w	r3, r3, #2097152	; 0x200000
- 800a3c2:	607b      	str	r3, [r7, #4]
- 800a3c4:	687b      	ldr	r3, [r7, #4]
+ 800a1c6:	2300      	movs	r3, #0
+ 800a1c8:	607b      	str	r3, [r7, #4]
+ 800a1ca:	4b10      	ldr	r3, [pc, #64]	; (800a20c <MX_DMA_Init+0x4c>)
+ 800a1cc:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 800a1ce:	4a0f      	ldr	r2, [pc, #60]	; (800a20c <MX_DMA_Init+0x4c>)
+ 800a1d0:	f443 1300 	orr.w	r3, r3, #2097152	; 0x200000
+ 800a1d4:	6313      	str	r3, [r2, #48]	; 0x30
+ 800a1d6:	4b0d      	ldr	r3, [pc, #52]	; (800a20c <MX_DMA_Init+0x4c>)
+ 800a1d8:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 800a1da:	f403 1300 	and.w	r3, r3, #2097152	; 0x200000
+ 800a1de:	607b      	str	r3, [r7, #4]
+ 800a1e0:	687b      	ldr	r3, [r7, #4]
 
   /* DMA interrupt init */
   /* DMA1_Stream5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 5, 0);
- 800a3c6:	2200      	movs	r2, #0
- 800a3c8:	2105      	movs	r1, #5
- 800a3ca:	2010      	movs	r0, #16
- 800a3cc:	f7f6 fe84 	bl	80010d8 <HAL_NVIC_SetPriority>
+ 800a1e2:	2200      	movs	r2, #0
+ 800a1e4:	2105      	movs	r1, #5
+ 800a1e6:	2010      	movs	r0, #16
+ 800a1e8:	f7f6 ff76 	bl	80010d8 <HAL_NVIC_SetPriority>
   HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
- 800a3d0:	2010      	movs	r0, #16
- 800a3d2:	f7f6 fead 	bl	8001130 <HAL_NVIC_EnableIRQ>
+ 800a1ec:	2010      	movs	r0, #16
+ 800a1ee:	f7f6 ff9f 	bl	8001130 <HAL_NVIC_EnableIRQ>
   /* DMA1_Stream6_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 5, 0);
- 800a3d6:	2200      	movs	r2, #0
- 800a3d8:	2105      	movs	r1, #5
- 800a3da:	2011      	movs	r0, #17
- 800a3dc:	f7f6 fe7c 	bl	80010d8 <HAL_NVIC_SetPriority>
+ 800a1f2:	2200      	movs	r2, #0
+ 800a1f4:	2105      	movs	r1, #5
+ 800a1f6:	2011      	movs	r0, #17
+ 800a1f8:	f7f6 ff6e 	bl	80010d8 <HAL_NVIC_SetPriority>
   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
- 800a3e0:	2011      	movs	r0, #17
- 800a3e2:	f7f6 fea5 	bl	8001130 <HAL_NVIC_EnableIRQ>
+ 800a1fc:	2011      	movs	r0, #17
+ 800a1fe:	f7f6 ff97 	bl	8001130 <HAL_NVIC_EnableIRQ>
 
 }
- 800a3e6:	bf00      	nop
- 800a3e8:	3708      	adds	r7, #8
- 800a3ea:	46bd      	mov	sp, r7
- 800a3ec:	bd80      	pop	{r7, pc}
- 800a3ee:	bf00      	nop
- 800a3f0:	40023800 	.word	0x40023800
+ 800a202:	bf00      	nop
+ 800a204:	3708      	adds	r7, #8
+ 800a206:	46bd      	mov	sp, r7
+ 800a208:	bd80      	pop	{r7, pc}
+ 800a20a:	bf00      	nop
+ 800a20c:	40023800 	.word	0x40023800
+
+0800a210 <FLASH_eraseSector>:
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
+
+static void FLASH_eraseSector(void)
+{
+ 800a210:	b580      	push	{r7, lr}
+ 800a212:	af00      	add	r7, sp, #0
+	HAL_FLASH_Unlock();
+ 800a214:	f7f7 fd74 	bl	8001d00 <HAL_FLASH_Unlock>
+	//Erase the required Flash sector
+	FLASH_Erase_Sector(Sector_Num, FLASH_VOLTAGE_RANGE_3);
+ 800a218:	4b04      	ldr	r3, [pc, #16]	; (800a22c <FLASH_eraseSector+0x1c>)
+ 800a21a:	781b      	ldrb	r3, [r3, #0]
+ 800a21c:	2102      	movs	r1, #2
+ 800a21e:	4618      	mov	r0, r3
+ 800a220:	f7f8 f834 	bl	800228c <FLASH_Erase_Sector>
+	HAL_FLASH_Lock();
+ 800a224:	f7f7 fd8e 	bl	8001d44 <HAL_FLASH_Lock>
+}
+ 800a228:	bf00      	nop
+ 800a22a:	bd80      	pop	{r7, pc}
+ 800a22c:	20000484 	.word	0x20000484
+
+0800a230 <FLASH_setSectorAddress>:
+
+void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
+{
+ 800a230:	b480      	push	{r7}
+ 800a232:	b083      	sub	sp, #12
+ 800a234:	af00      	add	r7, sp, #0
+ 800a236:	4603      	mov	r3, r0
+ 800a238:	6039      	str	r1, [r7, #0]
+ 800a23a:	71fb      	strb	r3, [r7, #7]
+	Sector_Num = sector;
+ 800a23c:	4a05      	ldr	r2, [pc, #20]	; (800a254 <FLASH_setSectorAddress+0x24>)
+ 800a23e:	79fb      	ldrb	r3, [r7, #7]
+ 800a240:	7013      	strb	r3, [r2, #0]
+	Sector_Addrs = addrs;
+ 800a242:	4a05      	ldr	r2, [pc, #20]	; (800a258 <FLASH_setSectorAddress+0x28>)
+ 800a244:	683b      	ldr	r3, [r7, #0]
+ 800a246:	6013      	str	r3, [r2, #0]
+}
+ 800a248:	bf00      	nop
+ 800a24a:	370c      	adds	r7, #12
+ 800a24c:	46bd      	mov	sp, r7
+ 800a24e:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800a252:	4770      	bx	lr
+ 800a254:	20000484 	.word	0x20000484
+ 800a258:	20000480 	.word	0x20000480
+
+0800a25c <FLASH_writeN>:
+
+void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
+{
+ 800a25c:	b590      	push	{r4, r7, lr}
+ 800a25e:	b089      	sub	sp, #36	; 0x24
+ 800a260:	af00      	add	r7, sp, #0
+ 800a262:	60f8      	str	r0, [r7, #12]
+ 800a264:	60b9      	str	r1, [r7, #8]
+ 800a266:	607a      	str	r2, [r7, #4]
+ 800a268:	70fb      	strb	r3, [r7, #3]
+	uint32_t flashAddress = Sector_Addrs + idx;
+ 800a26a:	4b34      	ldr	r3, [pc, #208]	; (800a33c <FLASH_writeN+0xe0>)
+ 800a26c:	681b      	ldr	r3, [r3, #0]
+ 800a26e:	68fa      	ldr	r2, [r7, #12]
+ 800a270:	4413      	add	r3, r2
+ 800a272:	61fb      	str	r3, [r7, #28]
+
+	//Erase sector before write
+	FLASH_eraseSector();
+ 800a274:	f7ff ffcc 	bl	800a210 <FLASH_eraseSector>
+
+	//Unlock Flash
+	HAL_FLASH_Unlock();
+ 800a278:	f7f7 fd42 	bl	8001d00 <HAL_FLASH_Unlock>
+	//Write to Flash
+	switch(dataType)
+ 800a27c:	78fb      	ldrb	r3, [r7, #3]
+ 800a27e:	2b01      	cmp	r3, #1
+ 800a280:	d01e      	beq.n	800a2c0 <FLASH_writeN+0x64>
+ 800a282:	2b02      	cmp	r3, #2
+ 800a284:	d038      	beq.n	800a2f8 <FLASH_writeN+0x9c>
+ 800a286:	2b00      	cmp	r3, #0
+ 800a288:	d151      	bne.n	800a32e <FLASH_writeN+0xd2>
+	{
+		case DATA_TYPE_8:
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a28a:	2300      	movs	r3, #0
+ 800a28c:	61bb      	str	r3, [r7, #24]
+ 800a28e:	e012      	b.n	800a2b6 <FLASH_writeN+0x5a>
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)wrBuf)[i]);
+ 800a290:	68ba      	ldr	r2, [r7, #8]
+ 800a292:	69bb      	ldr	r3, [r7, #24]
+ 800a294:	4413      	add	r3, r2
+ 800a296:	781b      	ldrb	r3, [r3, #0]
+ 800a298:	b2db      	uxtb	r3, r3
+ 800a29a:	f04f 0400 	mov.w	r4, #0
+ 800a29e:	461a      	mov	r2, r3
+ 800a2a0:	4623      	mov	r3, r4
+ 800a2a2:	69f9      	ldr	r1, [r7, #28]
+ 800a2a4:	2000      	movs	r0, #0
+ 800a2a6:	f7f7 fcc5 	bl	8001c34 <HAL_FLASH_Program>
+					flashAddress++;
+ 800a2aa:	69fb      	ldr	r3, [r7, #28]
+ 800a2ac:	3301      	adds	r3, #1
+ 800a2ae:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a2b0:	69bb      	ldr	r3, [r7, #24]
+ 800a2b2:	3301      	adds	r3, #1
+ 800a2b4:	61bb      	str	r3, [r7, #24]
+ 800a2b6:	69ba      	ldr	r2, [r7, #24]
+ 800a2b8:	687b      	ldr	r3, [r7, #4]
+ 800a2ba:	429a      	cmp	r2, r3
+ 800a2bc:	d3e8      	bcc.n	800a290 <FLASH_writeN+0x34>
+				}
+			break;
+ 800a2be:	e036      	b.n	800a32e <FLASH_writeN+0xd2>
+
+		case DATA_TYPE_16:
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a2c0:	2300      	movs	r3, #0
+ 800a2c2:	617b      	str	r3, [r7, #20]
+ 800a2c4:	e013      	b.n	800a2ee <FLASH_writeN+0x92>
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)wrBuf)[i]);
+ 800a2c6:	697b      	ldr	r3, [r7, #20]
+ 800a2c8:	005b      	lsls	r3, r3, #1
+ 800a2ca:	68ba      	ldr	r2, [r7, #8]
+ 800a2cc:	4413      	add	r3, r2
+ 800a2ce:	881b      	ldrh	r3, [r3, #0]
+ 800a2d0:	b29b      	uxth	r3, r3
+ 800a2d2:	f04f 0400 	mov.w	r4, #0
+ 800a2d6:	461a      	mov	r2, r3
+ 800a2d8:	4623      	mov	r3, r4
+ 800a2da:	69f9      	ldr	r1, [r7, #28]
+ 800a2dc:	2001      	movs	r0, #1
+ 800a2de:	f7f7 fca9 	bl	8001c34 <HAL_FLASH_Program>
+					flashAddress+=2;
+ 800a2e2:	69fb      	ldr	r3, [r7, #28]
+ 800a2e4:	3302      	adds	r3, #2
+ 800a2e6:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a2e8:	697b      	ldr	r3, [r7, #20]
+ 800a2ea:	3301      	adds	r3, #1
+ 800a2ec:	617b      	str	r3, [r7, #20]
+ 800a2ee:	697a      	ldr	r2, [r7, #20]
+ 800a2f0:	687b      	ldr	r3, [r7, #4]
+ 800a2f2:	429a      	cmp	r2, r3
+ 800a2f4:	d3e7      	bcc.n	800a2c6 <FLASH_writeN+0x6a>
+				}
+			break;
+ 800a2f6:	e01a      	b.n	800a32e <FLASH_writeN+0xd2>
+
+		case DATA_TYPE_32:
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a2f8:	2300      	movs	r3, #0
+ 800a2fa:	613b      	str	r3, [r7, #16]
+ 800a2fc:	e012      	b.n	800a324 <FLASH_writeN+0xc8>
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)wrBuf)[i]);
+ 800a2fe:	693b      	ldr	r3, [r7, #16]
+ 800a300:	009b      	lsls	r3, r3, #2
+ 800a302:	68ba      	ldr	r2, [r7, #8]
+ 800a304:	4413      	add	r3, r2
+ 800a306:	681b      	ldr	r3, [r3, #0]
+ 800a308:	f04f 0400 	mov.w	r4, #0
+ 800a30c:	461a      	mov	r2, r3
+ 800a30e:	4623      	mov	r3, r4
+ 800a310:	69f9      	ldr	r1, [r7, #28]
+ 800a312:	2002      	movs	r0, #2
+ 800a314:	f7f7 fc8e 	bl	8001c34 <HAL_FLASH_Program>
+					flashAddress+=4;
+ 800a318:	69fb      	ldr	r3, [r7, #28]
+ 800a31a:	3304      	adds	r3, #4
+ 800a31c:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a31e:	693b      	ldr	r3, [r7, #16]
+ 800a320:	3301      	adds	r3, #1
+ 800a322:	613b      	str	r3, [r7, #16]
+ 800a324:	693a      	ldr	r2, [r7, #16]
+ 800a326:	687b      	ldr	r3, [r7, #4]
+ 800a328:	429a      	cmp	r2, r3
+ 800a32a:	d3e8      	bcc.n	800a2fe <FLASH_writeN+0xa2>
+				}
+			break;
+ 800a32c:	bf00      	nop
+	}
+	//Lock the Flash space
+	HAL_FLASH_Lock();
+ 800a32e:	f7f7 fd09 	bl	8001d44 <HAL_FLASH_Lock>
+}
+ 800a332:	bf00      	nop
+ 800a334:	3724      	adds	r7, #36	; 0x24
+ 800a336:	46bd      	mov	sp, r7
+ 800a338:	bd90      	pop	{r4, r7, pc}
+ 800a33a:	bf00      	nop
+ 800a33c:	20000480 	.word	0x20000480
+
+0800a340 <FLASH_readN>:
+
+void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
+{
+ 800a340:	b480      	push	{r7}
+ 800a342:	b089      	sub	sp, #36	; 0x24
+ 800a344:	af00      	add	r7, sp, #0
+ 800a346:	60f8      	str	r0, [r7, #12]
+ 800a348:	60b9      	str	r1, [r7, #8]
+ 800a34a:	607a      	str	r2, [r7, #4]
+ 800a34c:	70fb      	strb	r3, [r7, #3]
+	uint32_t flashAddress = Sector_Addrs + idx;
+ 800a34e:	4b28      	ldr	r3, [pc, #160]	; (800a3f0 <FLASH_readN+0xb0>)
+ 800a350:	681b      	ldr	r3, [r3, #0]
+ 800a352:	68fa      	ldr	r2, [r7, #12]
+ 800a354:	4413      	add	r3, r2
+ 800a356:	61fb      	str	r3, [r7, #28]
+
+	switch(dataType)
+ 800a358:	78fb      	ldrb	r3, [r7, #3]
+ 800a35a:	2b01      	cmp	r3, #1
+ 800a35c:	d018      	beq.n	800a390 <FLASH_readN+0x50>
+ 800a35e:	2b02      	cmp	r3, #2
+ 800a360:	d02b      	beq.n	800a3ba <FLASH_readN+0x7a>
+ 800a362:	2b00      	cmp	r3, #0
+ 800a364:	d000      	beq.n	800a368 <FLASH_readN+0x28>
+					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
+					flashAddress+=4;
+				}
+			break;
+	}
+}
+ 800a366:	e03d      	b.n	800a3e4 <FLASH_readN+0xa4>
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a368:	2300      	movs	r3, #0
+ 800a36a:	61bb      	str	r3, [r7, #24]
+ 800a36c:	e00b      	b.n	800a386 <FLASH_readN+0x46>
+					*((uint8_t *)rdBuf + i) = *(uint8_t *)flashAddress;
+ 800a36e:	69fa      	ldr	r2, [r7, #28]
+ 800a370:	68b9      	ldr	r1, [r7, #8]
+ 800a372:	69bb      	ldr	r3, [r7, #24]
+ 800a374:	440b      	add	r3, r1
+ 800a376:	7812      	ldrb	r2, [r2, #0]
+ 800a378:	701a      	strb	r2, [r3, #0]
+					flashAddress++;
+ 800a37a:	69fb      	ldr	r3, [r7, #28]
+ 800a37c:	3301      	adds	r3, #1
+ 800a37e:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a380:	69bb      	ldr	r3, [r7, #24]
+ 800a382:	3301      	adds	r3, #1
+ 800a384:	61bb      	str	r3, [r7, #24]
+ 800a386:	69ba      	ldr	r2, [r7, #24]
+ 800a388:	687b      	ldr	r3, [r7, #4]
+ 800a38a:	429a      	cmp	r2, r3
+ 800a38c:	d3ef      	bcc.n	800a36e <FLASH_readN+0x2e>
+			break;
+ 800a38e:	e029      	b.n	800a3e4 <FLASH_readN+0xa4>
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a390:	2300      	movs	r3, #0
+ 800a392:	617b      	str	r3, [r7, #20]
+ 800a394:	e00c      	b.n	800a3b0 <FLASH_readN+0x70>
+					*((uint16_t *)rdBuf + i) = *(uint16_t *)flashAddress;
+ 800a396:	69fa      	ldr	r2, [r7, #28]
+ 800a398:	697b      	ldr	r3, [r7, #20]
+ 800a39a:	005b      	lsls	r3, r3, #1
+ 800a39c:	68b9      	ldr	r1, [r7, #8]
+ 800a39e:	440b      	add	r3, r1
+ 800a3a0:	8812      	ldrh	r2, [r2, #0]
+ 800a3a2:	801a      	strh	r2, [r3, #0]
+					flashAddress+=2;
+ 800a3a4:	69fb      	ldr	r3, [r7, #28]
+ 800a3a6:	3302      	adds	r3, #2
+ 800a3a8:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a3aa:	697b      	ldr	r3, [r7, #20]
+ 800a3ac:	3301      	adds	r3, #1
+ 800a3ae:	617b      	str	r3, [r7, #20]
+ 800a3b0:	697a      	ldr	r2, [r7, #20]
+ 800a3b2:	687b      	ldr	r3, [r7, #4]
+ 800a3b4:	429a      	cmp	r2, r3
+ 800a3b6:	d3ee      	bcc.n	800a396 <FLASH_readN+0x56>
+			break;
+ 800a3b8:	e014      	b.n	800a3e4 <FLASH_readN+0xa4>
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a3ba:	2300      	movs	r3, #0
+ 800a3bc:	613b      	str	r3, [r7, #16]
+ 800a3be:	e00c      	b.n	800a3da <FLASH_readN+0x9a>
+					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
+ 800a3c0:	69fa      	ldr	r2, [r7, #28]
+ 800a3c2:	693b      	ldr	r3, [r7, #16]
+ 800a3c4:	009b      	lsls	r3, r3, #2
+ 800a3c6:	68b9      	ldr	r1, [r7, #8]
+ 800a3c8:	440b      	add	r3, r1
+ 800a3ca:	6812      	ldr	r2, [r2, #0]
+ 800a3cc:	601a      	str	r2, [r3, #0]
+					flashAddress+=4;
+ 800a3ce:	69fb      	ldr	r3, [r7, #28]
+ 800a3d0:	3304      	adds	r3, #4
+ 800a3d2:	61fb      	str	r3, [r7, #28]
+				for(uint32_t i=0; i<Nsize; i++)
+ 800a3d4:	693b      	ldr	r3, [r7, #16]
+ 800a3d6:	3301      	adds	r3, #1
+ 800a3d8:	613b      	str	r3, [r7, #16]
+ 800a3da:	693a      	ldr	r2, [r7, #16]
+ 800a3dc:	687b      	ldr	r3, [r7, #4]
+ 800a3de:	429a      	cmp	r2, r3
+ 800a3e0:	d3ee      	bcc.n	800a3c0 <FLASH_readN+0x80>
+			break;
+ 800a3e2:	bf00      	nop
+}
+ 800a3e4:	bf00      	nop
+ 800a3e6:	3724      	adds	r7, #36	; 0x24
+ 800a3e8:	46bd      	mov	sp, r7
+ 800a3ea:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800a3ee:	4770      	bx	lr
+ 800a3f0:	20000480 	.word	0x20000480
 
 0800a3f4 <vApplicationGetIdleTaskMemory>:
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
@@ -29908,9 +29908,9 @@ int main(void)
   MX_GPIO_Init();
  800c04e:	f7fe fa39 	bl	800a4c4 <MX_GPIO_Init>
   MX_DMA_Init();
- 800c052:	f7fe f9a7 	bl	800a3a4 <MX_DMA_Init>
+ 800c052:	f7fe f8b5 	bl	800a1c0 <MX_DMA_Init>
   MX_CRC_Init();
- 800c056:	f7fe f96f 	bl	800a338 <MX_CRC_Init>
+ 800c056:	f7fe f87d 	bl	800a154 <MX_CRC_Init>
   MX_RTC_Init();
  800c05a:	f000 f8d5 	bl	800c208 <MX_RTC_Init>
   MX_USART2_UART_Init();

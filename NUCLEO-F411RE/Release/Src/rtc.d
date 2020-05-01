@@ -34,8 +34,8 @@ Src/rtc.o: ../Src/rtc.c ../Inc/rtc.h ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/crc.h \
  ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h ../Inc/tim.h \
- ../Inc/usart.h ../Inc/gpio.h ../Inc/Flash.h ../Inc/lsm6dsl.h \
- ../Inc/Types.h ../Inc/COM.h ../Inc/Commands.h ../Inc/Debug.h
+ ../Inc/usart.h ../Inc/gpio.h ../Inc/flash.h ../Inc/lsm6dsl.h \
+ ../Inc/types.h ../Inc/com.h ../Inc/commands.h ../Inc/debug.h
 
 ../Inc/rtc.h:
 
@@ -125,14 +125,14 @@ Src/rtc.o: ../Src/rtc.c ../Inc/rtc.h ../Inc/main.h \
 
 ../Inc/gpio.h:
 
-../Inc/Flash.h:
+../Inc/flash.h:
 
 ../Inc/lsm6dsl.h:
 
-../Inc/Types.h:
+../Inc/types.h:
 
-../Inc/COM.h:
+../Inc/com.h:
 
-../Inc/Commands.h:
+../Inc/commands.h:
 
-../Inc/Debug.h:
+../Inc/debug.h:

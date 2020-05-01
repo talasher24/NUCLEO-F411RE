@@ -1,4 +1,4 @@
-Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c ../Inc/main.h \
+Src/Debug.o: ../Src/Debug.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -36,7 +36,7 @@ Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c ../Inc/main.h \
  ../Inc/main.h ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h \
  ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/flash.h \
  ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/com.h ../Inc/commands.h \
- ../Inc/debug.h ../Inc/stm32f4xx_it.h
+ ../Inc/debug.h ../Inc/debug.h
 
 ../Inc/main.h:
 
@@ -138,4 +138,4 @@ Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c ../Inc/main.h \
 
 ../Inc/debug.h:
 
-../Inc/stm32f4xx_it.h:
+../Inc/debug.h:

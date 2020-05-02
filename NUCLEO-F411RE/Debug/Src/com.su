@@ -8,4 +8,4 @@ com.c:95:13:COM_setTxBusyFlagOn	4	static
 com.c:100:6:COM_setTxBusyFlagOff	4	static
 com.c:105:6:COM_getTxBusyFlag	4	static
 com.c:110:6:COM_charHandler	8	static
-com.c:131:13:COM_bufferInit	16	static
+com.c:133:13:COM_bufferInit	16	static

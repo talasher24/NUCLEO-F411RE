@@ -42,7 +42,7 @@
  void COM_readyCommandProcess(void);
  void COM_uartPrint(char* token);
  void COM_halUartReceiveDma(void);
- void COM_charHandler(void);
+ bool COM_charHandler(void);
  void COM_setTxBusyFlagOff(void);
  bool COM_getTxBusyFlag(void);
 

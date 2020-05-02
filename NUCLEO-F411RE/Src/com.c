@@ -1,5 +1,5 @@
 /*
- * com.h
+ * com.c
  *
  *  Created on: Mar 26, 2020
  *      Author: Tal Asher
@@ -107,11 +107,11 @@ bool COM_getTxBusyFlag(void)
 	return Uart_Buffer.tx_busy;
 }
 
-void COM_charHandler(void)
+bool COM_charHandler(void)
 {
 	if (COM_getReadyCommandFlag())
 	{
-		return;
+		return false;
 	}
 
 	if (Uart_Buffer.rx_single_char != '\n')
@@ -125,7 +125,9 @@ void COM_charHandler(void)
 	else
 	{
 		COM_setReadyCommandFlagOn();
+		return true;
 	}
+	return false;
 }
 
 static void COM_bufferInit(uint8_t* p_buffer)

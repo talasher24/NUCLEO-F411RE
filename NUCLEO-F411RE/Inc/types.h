@@ -19,7 +19,7 @@
  * Module Preprocessor Constants
  *******************************************************************************/
 
-#define VERSION 			"0.0.54\n"
+#define VERSION 			"0.0.55\n"
 #define HELLO_WORLD 		"Hello World\n"
 #define TICK 				"tick\n"
 #define OK					"OK\n"

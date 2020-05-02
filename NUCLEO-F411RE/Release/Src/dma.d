@@ -35,7 +35,7 @@ Src/dma.o: ../Src/dma.c ../Inc/dma.h ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/crc.h \
  ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h ../Inc/tim.h \
  ../Inc/usart.h ../Inc/gpio.h ../Inc/flash.h ../Inc/lsm6dsl.h \
- ../Inc/Types.h ../Inc/com.h ../Inc/commands.h ../Inc/debug.h
+ ../Inc/types.h ../Inc/com.h ../Inc/commands.h ../Inc/debug.h
 
 ../Inc/dma.h:
 

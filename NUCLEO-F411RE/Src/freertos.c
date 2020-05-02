@@ -40,8 +40,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define RX_BIT    		0x01
-#define LSM6DSL_BIT    	0x02
+#define READY_COMMAND_SIGNAL	0x01
+#define LSM6DSL_SIGNAL   		0x02
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -108,7 +108,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -127,28 +127,34 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
-
+	osEvent evt;
   /* Infinite loop */
-  for(;;)
-  {
-	  //SYSTEM_DEBUG_enterSleepMode();
+
+	for(;;)
+	{
+		//SYSTEM_DEBUG_enterSleepMode();
 
 #ifdef IWDG_ENABLE
-	  kickDog();
+		kickDog();
 #endif
 
-	  if (COM_getReadyCommandFlag())
-	  {
-		  COM_readyCommandProcess();
-		  COM_setReadyCommandFlagOff();
-	  }
+		evt = osSignalWait(READY_COMMAND_SIGNAL | LSM6DSL_SIGNAL, osWaitForever);
 
-	  if (LSM6DSL_getInterruptFlag())
-	  {
-		  LSM6DSL_processHanlder();
-		  LSM6DSL_setInterruptFlagOff();
-	  }
-  }
+		if (evt.status == osEventSignal)
+		{
+			if (evt.value.signals & READY_COMMAND_SIGNAL)
+			{
+				//evt.value.signals &= ~READY_COMMAND_SIGNAL;
+				COM_readyCommandProcess();
+				COM_setReadyCommandFlagOff();
+			}
+			if (evt.value.signals & LSM6DSL_SIGNAL)
+			{
+				//evt.value.signals &= ~LSM6DSL_SIGNAL;
+				LSM6DSL_processHanlder();
+			}
+		}
+	}
   /* USER CODE END StartDefaultTask */
 }
 
@@ -163,7 +169,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	 */
 	COM_halUartReceiveDma();
 
-	COM_charHandler();
+	if (COM_charHandler())
+	{
+		osSignalSet(defaultTaskHandle, READY_COMMAND_SIGNAL);
+	}
+
+
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -175,7 +186,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	*/
 	if (GPIO_Pin == GPIO_PIN_5)
 	{
-		LSM6DSL_setInterruptFlagOn();
+		//LSM6DSL_setInterruptFlagOn();
+		osSignalSet(defaultTaskHandle, LSM6DSL_SIGNAL);
 	}
 }
 

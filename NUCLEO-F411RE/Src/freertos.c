@@ -30,6 +30,7 @@
 #include "lsm6dsl.h"
 #include "types.h"
 #include "system_debug.h"
+#include "system_isr.h"
 
 /* USER CODE END Includes */
 
@@ -40,8 +41,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define READY_COMMAND_SIGNAL	0x01
-#define LSM6DSL_SIGNAL   		0x02
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -54,6 +54,7 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
+osTimerId Timer01Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -61,11 +62,15 @@ osThreadId defaultTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
+void Timer01Callback(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+
+/* GetTimerTaskMemory prototype (linked to static allocation support) */
+void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTaskStackBuffer, uint32_t *pulTimerTaskStackSize );
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
@@ -79,6 +84,19 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
   /* place for user code */
 }                   
 /* USER CODE END GET_IDLE_TASK_MEMORY */
+
+/* USER CODE BEGIN GET_TIMER_TASK_MEMORY */
+static StaticTask_t xTimerTaskTCBBuffer;
+static StackType_t xTimerStack[configTIMER_TASK_STACK_DEPTH];
+  
+void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTaskStackBuffer, uint32_t *pulTimerTaskStackSize )  
+{
+  *ppxTimerTaskTCBBuffer = &xTimerTaskTCBBuffer;
+  *ppxTimerTaskStackBuffer = &xTimerStack[0];
+  *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+  /* place for user code */
+}                   
+/* USER CODE END GET_TIMER_TASK_MEMORY */
 
 /**
   * @brief  FreeRTOS initialization
@@ -97,6 +115,11 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* definition and creation of Timer01 */
+  osTimerDef(Timer01, Timer01Callback);
+  Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
@@ -144,13 +167,11 @@ void StartDefaultTask(void const * argument)
 		{
 			if (evt.value.signals & READY_COMMAND_SIGNAL)
 			{
-				//evt.value.signals &= ~READY_COMMAND_SIGNAL;
 				COM_readyCommandProcess();
 				COM_setReadyCommandFlagOff();
 			}
 			if (evt.value.signals & LSM6DSL_SIGNAL)
 			{
-				//evt.value.signals &= ~LSM6DSL_SIGNAL;
 				LSM6DSL_processHanlder();
 			}
 		}
@@ -158,38 +179,16 @@ void StartDefaultTask(void const * argument)
   /* USER CODE END StartDefaultTask */
 }
 
+/* Timer01Callback function */
+__weak void Timer01Callback(void const * argument)
+{
+  /* USER CODE BEGIN Timer01Callback */
+  
+  /* USER CODE END Timer01Callback */
+}
+
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	/* Prevent unused argument(s) compilation warning */
-	UNUSED(huart);
-	/* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_RxCpltCallback could be implemented in the user file
-	 */
-	COM_halUartReceiveDma();
-
-	if (COM_charHandler())
-	{
-		osSignalSet(defaultTaskHandle, READY_COMMAND_SIGNAL);
-	}
-
-
-}
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	/* Prevent unused argument(s) compilation warning */
-	UNUSED(GPIO_Pin);
-	/* NOTE: This function Should not be modified, when the callback is needed,
-		   the HAL_GPIO_EXTI_Callback could be implemented in the user file
-	*/
-	if (GPIO_Pin == GPIO_PIN_5)
-	{
-		//LSM6DSL_setInterruptFlagOn();
-		osSignalSet(defaultTaskHandle, LSM6DSL_SIGNAL);
-	}
-}
 
 /* USER CODE END Application */
 

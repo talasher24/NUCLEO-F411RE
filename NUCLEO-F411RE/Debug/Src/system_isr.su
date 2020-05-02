@@ -1,2 +1,5 @@
-system_isr.c:42:6:HAL_UART_TxCpltCallback	16	static
-system_isr.c:56:6:HAL_RTC_AlarmAEventCallback	16	static
+system_isr.c:45:6:HAL_UART_TxCpltCallback	16	static
+system_isr.c:55:6:HAL_UART_RxCpltCallback	16	static
+system_isr.c:70:6:HAL_GPIO_EXTI_Callback	16	static
+system_isr.c:84:6:HAL_RTC_AlarmAEventCallback	16	static
+system_isr.c:94:6:Timer01Callback	16	static

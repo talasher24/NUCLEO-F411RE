@@ -50,7 +50,8 @@ Src/freertos.o: ../Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h ../Inc/com.h \
- ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/system_debug.h
+ ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/system_debug.h \
+ ../Inc/system_isr.h
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
@@ -163,3 +164,5 @@ Src/freertos.o: ../Src/freertos.c \
 ../Inc/types.h:
 
 ../Inc/system_debug.h:
+
+../Inc/system_isr.h:

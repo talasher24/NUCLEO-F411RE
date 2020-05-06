@@ -33,7 +33,6 @@ Src/command.o: ../Src/command.c ../Inc/command.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/com.h \
- ../Inc/flash.h ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/system_debug.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Inc/FreeRTOSConfig.h \
@@ -50,8 +49,9 @@ Src/command.o: ../Src/command.c ../Inc/command.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h ../Inc/crc.h \
- ../Inc/main.h ../Inc/rtc.h ../Inc/tim.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Inc/flash.h ../Inc/lsm6dsl.h ../Inc/types.h ../Inc/system_debug.h \
+ ../Inc/crc.h ../Inc/main.h ../Inc/rtc.h ../Inc/tim.h
 
 ../Inc/command.h:
 
@@ -125,14 +125,6 @@ Src/command.o: ../Src/command.c ../Inc/command.h \
 
 ../Inc/com.h:
 
-../Inc/flash.h:
-
-../Inc/lsm6dsl.h:
-
-../Inc/types.h:
-
-../Inc/system_debug.h:
-
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -166,6 +158,14 @@ Src/command.o: ../Src/command.c ../Inc/command.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Inc/flash.h:
+
+../Inc/lsm6dsl.h:
+
+../Inc/types.h:
+
+../Inc/system_debug.h:
 
 ../Inc/crc.h:
 

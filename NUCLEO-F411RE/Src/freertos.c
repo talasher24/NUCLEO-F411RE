@@ -51,7 +51,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+osMailQId  txMailQueueHandle;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osTimerId Timer01Handle;
@@ -105,7 +105,8 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-       
+  osMailQDef(txMailQueue, 16, queue_message_t);
+  txMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -150,6 +151,16 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+	COM_halUartReceiveDma();
+
+	COM_uartPrint(HELLO_WORLD);
+
+	SYSTEM_DEBUG_assertMsgPrint();
+
+	LSM6DSL_init();
+
+	SYSTEM_DEBUG_printResetCause();
+
 	osEvent evt;
   /* Infinite loop */
 
@@ -168,7 +179,6 @@ void StartDefaultTask(void const * argument)
 			if (evt.value.signals & READY_COMMAND_SIGNAL)
 			{
 				COM_readyCommandProcess();
-				COM_setReadyCommandFlagOff();
 			}
 			if (evt.value.signals & LSM6DSL_SIGNAL)
 			{

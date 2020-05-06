@@ -116,16 +116,6 @@ int main(void)
 	MX_IWDG_Init();
 #endif
 
-  COM_halUartReceiveDma();
-
-  COM_uartPrint(HELLO_WORLD);
-
-  SYSTEM_DEBUG_assertMsgPrint();
-
-  LSM6DSL_init();
-
-  SYSTEM_DEBUG_printResetCause();
-
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

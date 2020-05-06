@@ -15,12 +15,11 @@
 #include "types.h"
 #include "stm32f4xx_hal.h"
 #include <string.h>
+#include <string.h>
 
 /******************************************************************************
 * Module Preprocessor Constants
 *******************************************************************************/
-
-#define BUFFER_SIZE 100
 
 /******************************************************************************
 * Module Preprocessor Macros
@@ -44,12 +43,14 @@ typedef struct {
 *******************************************************************************/
 
 static uart_buffer_t Uart_Buffer;
+extern osMailQId  txMailQueueHandle;
 
 /******************************************************************************
 * Function Prototypes
 *******************************************************************************/
 
 static void COM_setReadyCommandFlagOn(void);
+static void COM_setReadyCommandFlagOff(void);
 static void COM_bufferInit(uint8_t* p_buffer);
 static void COM_setTxBusyFlagOn(void);
 
@@ -67,7 +68,7 @@ static void COM_setReadyCommandFlagOn(void)
 	Uart_Buffer.rx_ready_command = true;
 }
 
-void COM_setReadyCommandFlagOff(void)
+static void COM_setReadyCommandFlagOff(void)
 {
 	Uart_Buffer.rx_ready_command = false;
 }
@@ -77,14 +78,43 @@ void COM_readyCommandProcess(void)
 	char* token = strtok((char*)Uart_Buffer.p_rx_buffer, " ");
 	COMMAND_findAndExecuteCommand(token);
 	COM_bufferInit(Uart_Buffer.p_rx_buffer);
+	COM_setReadyCommandFlagOff();
 }
 
 void COM_uartPrint(char* token)
 {
-	while (COM_getTxBusyFlag());
-	strncpy((char*)Uart_Buffer.p_tx_buffer, token, sizeof(Uart_Buffer.p_tx_buffer));
-	HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen(token));
-	COM_setTxBusyFlagOn();
+	queue_message_t *queue_msg_set;
+	queue_msg_set = osMailAlloc(txMailQueueHandle, 0);
+	strncpy((char*)queue_msg_set->p_buffer, token, sizeof(queue_msg_set->p_buffer));
+	osMailPut(txMailQueueHandle, queue_msg_set);
+	if (!COM_getTxBusyFlag())
+	{
+		HAL_UART_TxCpltCallback(&huart2);
+	}
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  /* Prevent unused argument(s) compilation warning */
+	UNUSED(huart);
+  /* NOTE: This function should not be modified, when the callback is needed,
+           the HAL_UART_TxCpltCallback could be implemented in the user file
+   */
+	osEvent evt;
+	evt = osMailGet(txMailQueueHandle, 0);
+	if (evt.status != osEventMail)
+	{
+		COM_setTxBusyFlagOff();
+	}
+	else
+	{
+		queue_message_t *queue_msg_get;
+		queue_msg_get = evt.value.p;
+		strncpy((char*)Uart_Buffer.p_tx_buffer, (char*)queue_msg_get->p_buffer, sizeof(Uart_Buffer.p_tx_buffer));
+		osMailFree(txMailQueueHandle, queue_msg_get);
+		HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen((char*)Uart_Buffer.p_tx_buffer));
+		COM_setTxBusyFlagOn();
+	}
 }
 
 void COM_halUartReceiveDma(void)
@@ -135,5 +165,3 @@ static void COM_bufferInit(uint8_t* p_buffer)
 	memset(Uart_Buffer.p_rx_buffer, 0, sizeof(uint8_t) * Uart_Buffer.rx_index);
 	Uart_Buffer.rx_index = 0;
 }
-
-

@@ -12,7 +12,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:IKS01A2_DataLogTerminal\ Debug/
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LSM_F411\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MyProject\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MyProject\ Debug/activeLaunchTarget=null\:---
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:NUCLEO-F411RE\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:NUCLEO-F411RE\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PH1_IRQ\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:mems1\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:try\ Debug/activeLaunchMode=debug

@@ -51,10 +51,9 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-osMailQId  txMailQueueHandle;
+
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osTimerId Timer01Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -62,7 +61,6 @@ osTimerId Timer01Handle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-void Timer01Callback(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -105,8 +103,7 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-  osMailQDef(txMailQueue, 16, queue_message_t);
-  txMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
+
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -116,11 +113,6 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
-
-  /* Create the timer(s) */
-  /* definition and creation of Timer01 */
-  osTimerDef(Timer01, Timer01Callback);
-  Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
@@ -151,7 +143,14 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+
+	COM_init();
+
+	SYSTEM_ISR_init();
+
 	COM_halUartReceiveDma();
+
+	SYSTEM_DEBUG_wakeupStandbyMode();
 
 	COM_uartPrint(HELLO_WORLD);
 
@@ -187,14 +186,6 @@ void StartDefaultTask(void const * argument)
 		}
 	}
   /* USER CODE END StartDefaultTask */
-}
-
-/* Timer01Callback function */
-__weak void Timer01Callback(void const * argument)
-{
-  /* USER CODE BEGIN Timer01Callback */
-  
-  /* USER CODE END Timer01Callback */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -4148,3 +4148,15 @@ Reason: (2) ST-LINK DLL error.
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-06 01:34:02.283
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-06 18:07:53.843
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 225 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-06 18:07:53.844
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-06 18:07:53.844
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 225 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-06 18:07:53.845
+!MESSAGE Existing sessions are:

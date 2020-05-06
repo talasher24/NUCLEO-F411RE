@@ -45,6 +45,7 @@
  * Function Prototypes
  *******************************************************************************/
 
+ void COM_init(void);
  bool COM_getReadyCommandFlag(void);
  void COM_readyCommandProcess(void);
  void COM_uartPrint(char* token);

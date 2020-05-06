@@ -38,6 +38,10 @@
  * Function Prototypes
  *******************************************************************************/
 
+ void SYSTEM_ISR_init(void);
+ void SYSTEM_ISR_osTimerStart(uint32_t osTimer01_time);
+ void SYSTEM_ISR_osTimerStop(void);
+
  /******************************************************************************
  * Function Definitions
  *******************************************************************************/

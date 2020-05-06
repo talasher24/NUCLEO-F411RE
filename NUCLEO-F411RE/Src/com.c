@@ -43,7 +43,7 @@ typedef struct {
 *******************************************************************************/
 
 static uart_buffer_t Uart_Buffer;
-extern osMailQId  txMailQueueHandle;
+osMailQId  txMailQueueHandle;
 
 /******************************************************************************
 * Function Prototypes
@@ -57,6 +57,12 @@ static void COM_setTxBusyFlagOn(void);
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
+
+void COM_init(void)
+{
+	osMailQDef(txMailQueue, 16, queue_message_t);
+	txMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
+}
 
 bool COM_getReadyCommandFlag(void)
 {
@@ -85,6 +91,11 @@ void COM_uartPrint(char* token)
 {
 	queue_message_t *queue_msg_set;
 	queue_msg_set = osMailAlloc(txMailQueueHandle, 0);
+	if (queue_msg_set == NULL)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		return;
+	}
 	strncpy((char*)queue_msg_set->p_buffer, token, sizeof(queue_msg_set->p_buffer));
 	osMailPut(txMailQueueHandle, queue_msg_set);
 	if (!COM_getTxBusyFlag())
@@ -112,7 +123,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 		queue_msg_get = evt.value.p;
 		strncpy((char*)Uart_Buffer.p_tx_buffer, (char*)queue_msg_get->p_buffer, sizeof(Uart_Buffer.p_tx_buffer));
 		osMailFree(txMailQueueHandle, queue_msg_get);
-		HAL_UART_Transmit_DMA(&huart2, Uart_Buffer.p_tx_buffer, strlen((char*)Uart_Buffer.p_tx_buffer));
+		HAL_UART_Transmit_DMA(huart, Uart_Buffer.p_tx_buffer, strlen((char*)Uart_Buffer.p_tx_buffer));
 		COM_setTxBusyFlagOn();
 	}
 }

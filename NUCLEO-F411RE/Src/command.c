@@ -16,7 +16,7 @@
 #include "lsm6dsl.h"
 #include "types.h"
 #include "system_debug.h"
-#include "cmsis_os.h"
+#include "system_isr.h"
 
 #include "crc.h"
 #include "rtc.h"
@@ -92,8 +92,6 @@
 * Module Variable Definitions
 *******************************************************************************/
 
- extern osTimerId Timer01Handle;
-
  const command_t Commands [NUM_OF_COMMANDS] = {
 		{PING_COMMAND_NAME, 			sizeof(PING_COMMAND_NAME), 			COMMAND_pingCallback						},
  		{GET_VERSION_COMMAND_NAME, 		sizeof(GET_VERSION_COMMAND_NAME), 	COMMAND_getVersionCallback					},
@@ -141,7 +139,7 @@ void COMMAND_findAndExecuteCommand (char* token)
 
 void COMMAND_pingCallback(char* token)
 {
-	COM_uartPrint(token);
+	COM_uartPrint(PING);
 }
 
 void COMMAND_getVersionCallback(char* token)
@@ -329,11 +327,14 @@ void COMMAND_enterStandbyModeCallback(char* token)
 
 void COMMAND_startOsTimerCallback(char* token)
 {
-	osTimerStart(Timer01Handle, 5000);
+	token = strtok(NULL, " ");
+	uint32_t osTimer01_time = atoi(token);
+	osTimer01_time *= 1000;
+	SYSTEM_ISR_osTimerStart(osTimer01_time);
 }
 
 void COMMAND_stopOsTimerCallback(char* token)
 {
-	osTimerStop(Timer01Handle);
+	SYSTEM_ISR_osTimerStop();
 }
 

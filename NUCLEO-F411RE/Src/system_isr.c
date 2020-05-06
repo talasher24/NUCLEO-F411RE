@@ -9,11 +9,11 @@
  * Includes
  *******************************************************************************/
 
+#include "stm32f4xx_hal.h"
 #include "system_isr.h"
 #include "com.h"
 #include "lsm6dsl.h"
 #include "types.h"
-#include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
 
  /******************************************************************************
@@ -33,14 +33,33 @@
  *******************************************************************************/
 
 extern osThreadId defaultTaskHandle;
+osTimerId Timer01Handle;
 
  /******************************************************************************
  * Function Prototypes
  *******************************************************************************/
 
+void Timer01Callback(void const * argument);
+
  /******************************************************************************
  * Function Definitions
  *******************************************************************************/
+
+void SYSTEM_ISR_init(void)
+{
+	osTimerDef(Timer01, Timer01Callback);
+	Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
+}
+
+void SYSTEM_ISR_osTimerStart(uint32_t osTimer01_time)
+{
+	osTimerStart(Timer01Handle, osTimer01_time);
+}
+
+void SYSTEM_ISR_osTimerStop(void)
+{
+	osTimerStop(Timer01Handle);
+}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {

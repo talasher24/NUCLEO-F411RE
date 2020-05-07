@@ -1,5 +1,7 @@
-system_isr.c:42:6:HAL_UART_TxCpltCallback	16	static
-system_isr.c:52:6:HAL_UART_RxCpltCallback	16	static
-system_isr.c:65:6:HAL_GPIO_EXTI_Callback	16	static
-system_isr.c:78:6:HAL_RTC_AlarmAEventCallback	16	static
-system_isr.c:96:6:HAL_TIM_PeriodElapsedCallback	16	static
+system_isr.c:48:6:SYSTEM_ISR_init	16	static
+system_isr.c:54:6:SYSTEM_ISR_osTimerStart	16	static
+system_isr.c:59:6:SYSTEM_ISR_osTimerStop	8	static
+system_isr.c:64:6:HAL_UART_RxCpltCallback	16	static
+system_isr.c:79:6:HAL_GPIO_EXTI_Callback	16	static
+system_isr.c:93:6:HAL_RTC_AlarmAEventCallback	16	static
+system_isr.c:103:6:Timer01Callback	16	static

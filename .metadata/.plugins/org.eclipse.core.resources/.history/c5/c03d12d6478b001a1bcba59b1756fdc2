@@ -1,0 +1,96 @@
+/*
+ * cruntime_opt.c
+ *
+ *  Created on: Nov 28, 2016
+ *      Author: Gregory
+ */
+
+
+/*********************************************************************
+ * INCLUDES
+ */
+
+#include <stddef.h>
+#include <cmsis_os.h>
+#include <string.h>
+/*********************************************************************
+ * MACROS
+ */
+
+/*********************************************************************
+ * CONSTANTS
+ */
+
+/*********************************************************************
+ * TYPEDEFS
+ */
+
+/*********************************************************************
+ * GLOBAL VARIABLES
+ */
+
+/*********************************************************************
+ * EXTERNAL VARIABLES
+ */
+
+/*********************************************************************
+ * EXTERNAL FUNCTIONS
+ */
+
+/*********************************************************************
+ * LOCAL VARIABLES
+ */
+
+/*********************************************************************
+ * LOCAL FUNCTIONS
+ */
+void *pvPortCalloc(size_t count, size_t size)
+{
+  void *p;
+
+  /* allocate 'count' objects of size 'size' */
+  p = pvPortMalloc(count * size);
+  if (p) {
+    /* zero the memory */
+    memset(p, 0, count * size);
+  }
+  return p;
+}
+
+void *pvPortRealloc(void *mem, size_t newsize)
+{
+    if (newsize == 0) {
+        vPortFree(mem);
+        return NULL;
+    }
+
+    void *p;
+    p = pvPortMalloc(newsize);
+    if (p) {
+        /* zero the memory */
+        if (mem != NULL) {
+            memcpy(p, mem, newsize);
+            vPortFree(mem);
+        }
+    }
+    return p;
+}
+/*********************************************************************
+ * PUBLIC FUNCTIONS
+ */
+
+void * __wrap_malloc(size_t s) {
+	return pvPortMalloc(s);
+}
+
+void __wrap_free(void * ptr) {
+	vPortFree(ptr);
+}
+
+void * __wrap_calloc (size_t count, size_t eltsize) {
+	return pvPortCalloc(count, eltsize);
+}
+
+void * __wrap_realloc(void * __r, size_t __size) {
+	return pvPortRealloc(__r, __size);
+}

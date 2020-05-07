@@ -19,6 +19,8 @@
  * Module Preprocessor Constants
  *******************************************************************************/
 
+#define READY_COMMAND_SIGNAL	0x01
+#define LSM6DSL_SIGNAL   		0x02
 
  /******************************************************************************
  * Module Preprocessor Macros
@@ -35,6 +37,10 @@
  /******************************************************************************
  * Function Prototypes
  *******************************************************************************/
+
+ void SYSTEM_ISR_init(void);
+ void SYSTEM_ISR_osTimerStart(uint32_t osTimer01_time);
+ void SYSTEM_ISR_osTimerStop(void);
 
  /******************************************************************************
  * Function Definitions

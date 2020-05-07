@@ -55,6 +55,7 @@
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId terminalTaskHandle;
+osThreadId lsm6dslTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -63,6 +64,7 @@ osThreadId terminalTaskHandle;
 
 void StartDefaultTask(void const * argument);
 void StartTerminalTask(void const * argument);
+void StartLsm6dslTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -133,6 +135,10 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
   terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
 
+  /* definition and creation of lsm6dslTask */
+  osThreadDef(lsm6dslTask, StartLsm6dslTask, osPriorityIdle, 0, 256);
+  lsm6dslTaskHandle = osThreadCreate(osThread(lsm6dslTask), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -166,26 +172,28 @@ void StartDefaultTask(void const * argument)
 
 	SYSTEM_DEBUG_printResetCause();
 
-	osEvent evt;
+	osStatus status;
+
+	status = osThreadTerminate (defaultTaskHandle);
+
+	if (status == osOK)
+	{
+	    // Thread was terminated successfully
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		// Failed to terminate a thread
+	}
+
   /* Infinite loop */
 
 	for(;;)
 	{
 		//SYSTEM_DEBUG_enterSleepMode();
-
 #ifdef IWDG_ENABLE
 		kickDog();
 #endif
-
-		evt = osSignalWait(LSM6DSL_SIGNAL, osWaitForever);
-
-		if (evt.status == osEventSignal)
-		{
-			if (evt.value.signals & LSM6DSL_SIGNAL)
-			{
-				LSM6DSL_processHanlder();
-			}
-		}
 	}
   /* USER CODE END StartDefaultTask */
 }
@@ -206,6 +214,32 @@ void StartTerminalTask(void const * argument)
 	  COM_readyCommandProcess();
   }
   /* USER CODE END StartTerminalTask */
+}
+
+/* USER CODE BEGIN Header_StartLsm6dslTask */
+/**
+* @brief Function implementing the lsm6dslTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartLsm6dslTask */
+void StartLsm6dslTask(void const * argument)
+{
+  /* USER CODE BEGIN StartLsm6dslTask */
+	osEvent evt;
+  /* Infinite loop */
+	for(;;)
+	{
+		evt = osSignalWait(LSM6DSL_SIGNAL, osWaitForever);
+		if (evt.status == osEventSignal)
+		{
+			if (evt.value.signals & LSM6DSL_SIGNAL)
+			{
+				LSM6DSL_processHanlder();
+			}
+		}
+	}
+  /* USER CODE END StartLsm6dslTask */
 }
 
 /* Private application code --------------------------------------------------*/

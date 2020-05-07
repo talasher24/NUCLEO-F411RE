@@ -32,7 +32,7 @@
  * Module Variable Definitions
  *******************************************************************************/
 
-extern osThreadId defaultTaskHandle;
+extern osThreadId lsm6dslTaskHandle;
 osTimerId Timer01Handle;
 
  /******************************************************************************
@@ -70,7 +70,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	*/
 	if (GPIO_Pin == GPIO_PIN_5)
 	{
-		osSignalSet(defaultTaskHandle, LSM6DSL_SIGNAL);
+		osSignalSet(lsm6dslTaskHandle, LSM6DSL_SIGNAL);
 	}
 }
 

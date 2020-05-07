@@ -1,0 +1,5 @@
+flash.c:54:6:FLASH_setSectorAddress	0	static
+flash.c:60:6:FLASH_writeN	24	static
+flash.c:100:6:FLASH_readN	8	static
+flash.c:132:6:FLASH_wrpSectorEnable	40	static
+flash.c:194:6:FLASH_wrpSectorDisable	40	static

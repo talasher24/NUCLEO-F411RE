@@ -9,11 +9,12 @@
  * Includes
  *******************************************************************************/
 
+#include "stm32f4xx_hal.h"
 #include "system_isr.h"
 #include "com.h"
 #include "lsm6dsl.h"
 #include "types.h"
-#include "stm32f4xx_hal.h"
+#include "cmsis_os.h"
 
  /******************************************************************************
  * Module Preprocessor Constants
@@ -31,78 +32,61 @@
  * Module Variable Definitions
  *******************************************************************************/
 
+extern osThreadId lsm6dslTaskHandle;
+osTimerId Timer01Handle;
+
  /******************************************************************************
  * Function Prototypes
  *******************************************************************************/
+
+void Timer01Callback(void const * argument);
 
  /******************************************************************************
  * Function Definitions
  *******************************************************************************/
 
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+void SYSTEM_ISR_init(void)
 {
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(huart);
-  /* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_TxCpltCallback could be implemented in the user file
-   */
-  COM_setTxBusyFlagOff();
+	osTimerDef(Timer01, Timer01Callback);
+	Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+void SYSTEM_ISR_osTimerStart(uint32_t timer_period_milisec)
 {
+	osTimerStart(Timer01Handle, timer_period_milisec);
+}
 
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(huart);
-  /* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_RxCpltCallback could be implemented in the user file
-   */
-  COM_halUartReceiveDma();
-
-  COM_charHandler();
+void SYSTEM_ISR_osTimerStop(void)
+{
+	osTimerStop(Timer01Handle);
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  /* Prevent unused argument(s) compilation warning */
-  UNUSED(GPIO_Pin);
-  /* NOTE: This function Should not be modified, when the callback is needed,
-           the HAL_GPIO_EXTI_Callback could be implemented in the user file
-   */
-  if (GPIO_Pin == GPIO_PIN_5)
-  {
-	  LSM6DSL_setInterruptFlagOn();
-  }
+	/* Prevent unused argument(s) compilation warning */
+	UNUSED(GPIO_Pin);
+	/* NOTE: This function Should not be modified, when the callback is needed,
+		   the HAL_GPIO_EXTI_Callback could be implemented in the user file
+	*/
+	if (GPIO_Pin == GPIO_PIN_5)
+	{
+		osSignalSet(lsm6dslTaskHandle, LSM6DSL_SIGNAL);
+	}
 }
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
-  UNUSED(hrtc);
+	UNUSED(hrtc);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_RTC_AlarmAEventCallback could be implemented in the user file
    */
-  COM_uartPrint(TICK);
+	COM_uartPrint(TICK);
 }
 
-/**
- * @brief  Period elapsed callback in non blocking mode
- * @note   This function is called  when TIM5 interrupt took place, inside
- * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
- * a global variable "uwTick" used as application time base.
- * @param  htim : TIM handle
- * @retval None
- */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+void Timer01Callback(void const * argument)
 {
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM5) {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
+  /* USER CODE BEGIN Timer01Callback */
+	COM_uartPrint(TIMER01_MESSAGE);
+  /* USER CODE END Timer01Callback */
 }
-

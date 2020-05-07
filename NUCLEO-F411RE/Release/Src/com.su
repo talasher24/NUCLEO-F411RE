@@ -1,0 +1,9 @@
+com.c:61:6:COM_getReadyCommandFlag	0	static
+com.c:71:6:COM_setReadyCommandFlagOff	0	static
+com.c:76:6:COM_readyCommandProcess	8	static
+com.c:83:6:COM_uartPrint	120	static
+com.c:100:6:HAL_UART_TxCpltCallback	24	static
+com.c:120:6:COM_halUartReceiveDma	0	static
+com.c:130:6:COM_setTxBusyFlagOff	0	static
+com.c:135:6:COM_getTxBusyFlag	0	static
+com.c:140:6:COM_charHandler	0	static

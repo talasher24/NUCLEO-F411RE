@@ -1,0 +1,5 @@
+freertos.c:189:13:Timer01Callback	0	static
+freertos.c:156:6:StartDefaultTask	24	static
+freertos.c:80:6:vApplicationGetIdleTaskMemory	0	static
+freertos.c:93:6:vApplicationGetTimerTaskMemory	0	static
+freertos.c:107:6:MX_FREERTOS_Init	72	static

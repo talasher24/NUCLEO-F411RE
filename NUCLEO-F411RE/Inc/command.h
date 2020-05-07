@@ -58,6 +58,8 @@
  void COMMAND_lsm6dslDisableCallback(char* token);
  void COMMAND_enterStopModeCallback(char* token);
  void COMMAND_enterStandbyModeCallback(char* token);
+ void COMMAND_startOsTimerCallback(char* token);
+ void COMMAND_stopOsTimerCallback(char* token);
 
  /******************************************************************************
  * Function Definitions

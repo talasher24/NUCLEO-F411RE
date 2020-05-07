@@ -16,6 +16,7 @@
 #include "lsm6dsl.h"
 #include "types.h"
 #include "system_debug.h"
+#include "system_isr.h"
 
 #include "crc.h"
 #include "rtc.h"
@@ -29,7 +30,7 @@
 * Module Preprocessor Constants
 *******************************************************************************/
 
-#define NUM_OF_COMMANDS 19
+#define NUM_OF_COMMANDS 21
 
 #define PING_COMMAND_NAME "ping"
 
@@ -69,6 +70,10 @@
 
 #define ENTER_STANDBY_MODE "enter_standby_mode"
 
+#define START_OS_TIMER "start_os_timer"
+
+#define STOP_OS_TIMER "stop_os_timer"
+
 /******************************************************************************
 * Module Preprocessor Macros
 *******************************************************************************/
@@ -106,7 +111,9 @@
  		{LSM6DSL_FIFO_ENABLE, 			sizeof(LSM6DSL_FIFO_ENABLE), 		COMMAND_lsm6dslFifoEnableCallback			},
  		{LSM6DSL_DISABLE, 				sizeof(LSM6DSL_DISABLE), 			COMMAND_lsm6dslDisableCallback				},
  		{ENTER_STOP_MODE, 				sizeof(ENTER_STOP_MODE), 			COMMAND_enterStopModeCallback				},
- 		{ENTER_STANDBY_MODE, 			sizeof(ENTER_STANDBY_MODE), 		COMMAND_enterStandbyModeCallback			}
+ 		{ENTER_STANDBY_MODE, 			sizeof(ENTER_STANDBY_MODE), 		COMMAND_enterStandbyModeCallback			},
+		{START_OS_TIMER, 				sizeof(START_OS_TIMER), 			COMMAND_startOsTimerCallback				},
+		{STOP_OS_TIMER, 				sizeof(STOP_OS_TIMER), 				COMMAND_stopOsTimerCallback					}
  };
 
 /******************************************************************************
@@ -132,7 +139,7 @@ void COMMAND_findAndExecuteCommand (char* token)
 
 void COMMAND_pingCallback(char* token)
 {
-	COM_uartPrint(token);
+	COM_uartPrint(PING);
 }
 
 void COMMAND_getVersionCallback(char* token)
@@ -190,7 +197,8 @@ void COMMAND_flashLockCallback(char* token)
 	FLASH_OBProgramInitTypeDef obConfig;
 	HAL_FLASHEx_OBGetConfig(&obConfig);
 
-	if (obConfig.RDPLevel == OB_RDP_LEVEL_0) {
+	if (obConfig.RDPLevel == OB_RDP_LEVEL_0)
+	{
 		obConfig.RDPLevel = OB_RDP_LEVEL_1;
 		obConfig.OptionType = OPTIONBYTE_RDP;
 
@@ -316,5 +324,17 @@ void COMMAND_enterStopModeCallback(char* token)
 void COMMAND_enterStandbyModeCallback(char* token)
 {
 	SYSTEM_DEBUG_enterStandbyMode();
+}
+
+void COMMAND_startOsTimerCallback(char* token)
+{
+	token = strtok(NULL, " ");
+	uint32_t timer_period_milisec = atoi(token) * 1000;
+	SYSTEM_ISR_osTimerStart(timer_period_milisec);
+}
+
+void COMMAND_stopOsTimerCallback(char* token)
+{
+	SYSTEM_ISR_osTimerStop();
 }
 

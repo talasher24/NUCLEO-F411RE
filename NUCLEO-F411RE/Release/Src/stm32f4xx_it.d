@@ -32,11 +32,17 @@ Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/crc.h \
- ../Inc/main.h ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h \
- ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/Flash.h \
- ../Inc/lsm6dsl.h ../Inc/Types.h ../Inc/COM.h ../Inc/Commands.h \
- ../Inc/Debug.h ../Inc/stm32f4xx_it.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Inc/stm32f4xx_it.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 
 ../Inc/main.h:
 
@@ -108,34 +114,22 @@ Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c ../Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-../Inc/crc.h:
-
-../Inc/main.h:
-
-../Inc/dma.h:
-
-../Inc/i2c.h:
-
-../Inc/iwdg.h:
-
-../Inc/rtc.h:
-
-../Inc/tim.h:
-
-../Inc/usart.h:
-
-../Inc/gpio.h:
-
-../Inc/Flash.h:
-
-../Inc/lsm6dsl.h:
-
-../Inc/Types.h:
-
-../Inc/COM.h:
-
-../Inc/Commands.h:
-
-../Inc/Debug.h:
-
 ../Inc/stm32f4xx_it.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+
+../Inc/FreeRTOSConfig.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:

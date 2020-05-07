@@ -19,8 +19,7 @@
  * Module Preprocessor Constants
  *******************************************************************************/
 
-#define READY_COMMAND_SIGNAL	0x01
-#define LSM6DSL_SIGNAL   		0x02
+#define LSM6DSL_SIGNAL   		0x01
 
  /******************************************************************************
  * Module Preprocessor Macros

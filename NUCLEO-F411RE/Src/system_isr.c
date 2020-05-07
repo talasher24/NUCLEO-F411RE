@@ -51,29 +51,14 @@ void SYSTEM_ISR_init(void)
 	Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 }
 
-void SYSTEM_ISR_osTimerStart(uint32_t osTimer01_time)
+void SYSTEM_ISR_osTimerStart(uint32_t timer_period_milisec)
 {
-	osTimerStart(Timer01Handle, osTimer01_time);
+	osTimerStart(Timer01Handle, timer_period_milisec);
 }
 
 void SYSTEM_ISR_osTimerStop(void)
 {
 	osTimerStop(Timer01Handle);
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	/* Prevent unused argument(s) compilation warning */
-	UNUSED(huart);
-	/* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_UART_RxCpltCallback could be implemented in the user file
-	 */
-	COM_halUartReceiveDma();
-
-	if (COM_charHandler())
-	{
-		osSignalSet(defaultTaskHandle, READY_COMMAND_SIGNAL);
-	}
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -85,7 +70,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	*/
 	if (GPIO_Pin == GPIO_PIN_5)
 	{
-		//LSM6DSL_setInterruptFlagOn();
 		osSignalSet(defaultTaskHandle, LSM6DSL_SIGNAL);
 	}
 }

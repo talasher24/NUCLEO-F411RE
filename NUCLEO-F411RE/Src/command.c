@@ -197,7 +197,8 @@ void COMMAND_flashLockCallback(char* token)
 	FLASH_OBProgramInitTypeDef obConfig;
 	HAL_FLASHEx_OBGetConfig(&obConfig);
 
-	if (obConfig.RDPLevel == OB_RDP_LEVEL_0) {
+	if (obConfig.RDPLevel == OB_RDP_LEVEL_0)
+	{
 		obConfig.RDPLevel = OB_RDP_LEVEL_1;
 		obConfig.OptionType = OPTIONBYTE_RDP;
 
@@ -328,9 +329,8 @@ void COMMAND_enterStandbyModeCallback(char* token)
 void COMMAND_startOsTimerCallback(char* token)
 {
 	token = strtok(NULL, " ");
-	uint32_t osTimer01_time = atoi(token);
-	osTimer01_time *= 1000;
-	SYSTEM_ISR_osTimerStart(osTimer01_time);
+	uint32_t timer_period_milisec = atoi(token) * 1000;
+	SYSTEM_ISR_osTimerStart(timer_period_milisec);
 }
 
 void COMMAND_stopOsTimerCallback(char* token)

@@ -43,7 +43,8 @@ typedef struct {
 *******************************************************************************/
 
 static uart_buffer_t Uart_Buffer;
-osMailQId  txMailQueueHandle;
+static osMailQId  txMailQueueHandle;
+static osMailQId  rxMailQueueHandle;
 
 /******************************************************************************
 * Function Prototypes
@@ -62,6 +63,9 @@ void COM_init(void)
 {
 	osMailQDef(txMailQueue, 16, queue_message_t);
 	txMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
+
+	osMailQDef(rxMailQueue, 16, queue_message_t);
+	rxMailQueueHandle = osMailCreate(osMailQ(rxMailQueue), NULL);
 }
 
 bool COM_getReadyCommandFlag(void)
@@ -81,10 +85,41 @@ static void COM_setReadyCommandFlagOff(void)
 
 void COM_readyCommandProcess(void)
 {
-	char* token = strtok((char*)Uart_Buffer.p_rx_buffer, " ");
-	COMMAND_findAndExecuteCommand(token);
-	COM_bufferInit(Uart_Buffer.p_rx_buffer);
-	COM_setReadyCommandFlagOff();
+	osEvent evt;
+	evt = osMailGet(rxMailQueueHandle, 0);
+	if (evt.status == osEventMail)
+	{
+		queue_message_t *queue_msg_get;
+		queue_msg_get = evt.value.p;
+		char* token = strtok((char*)queue_msg_get->p_buffer, " ");
+		COMMAND_findAndExecuteCommand(token);
+		osMailFree(rxMailQueueHandle, queue_msg_get);
+	}
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	/* Prevent unused argument(s) compilation warning */
+	UNUSED(huart);
+	/* NOTE: This function should not be modified, when the callback is needed,
+           the HAL_UART_RxCpltCallback could be implemented in the user file
+	 */
+	COM_halUartReceiveDma();
+
+	if (COM_charHandler())
+	{
+		queue_message_t *queue_msg_set;
+		queue_msg_set = osMailAlloc(rxMailQueueHandle, 0);
+		if (queue_msg_set == NULL)
+		{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			return;
+		}
+		strncpy((char*)queue_msg_set->p_buffer, (char*)Uart_Buffer.p_rx_buffer, sizeof(queue_msg_set->p_buffer));
+		COM_bufferInit(Uart_Buffer.p_rx_buffer);
+		COM_setReadyCommandFlagOff();
+		osMailPut(rxMailQueueHandle, queue_msg_set);
+	}
 }
 
 void COM_uartPrint(char* token)

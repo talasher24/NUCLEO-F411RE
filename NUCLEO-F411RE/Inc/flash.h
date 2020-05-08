@@ -19,8 +19,6 @@
  * Module Preprocessor Constants
  *******************************************************************************/
 
-#define FLASH_START_ADDRESS      0x08000000
-
  /******************************************************************************
  * Module Preprocessor Macros
  *******************************************************************************/
@@ -48,6 +46,10 @@
  void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType);
  void FLASH_wrpSectorEnable (void);
  void FLASH_wrpSectorDisable (void);
+ void FLASH_crcWholeFlashCalc(void);
+ void FLASH_lock(void);
+ void FLASH_setSerialNumberInSector7(void);
+ void FLASH_getSerialNumberFromSector7(void);
 
  /******************************************************************************
  * Function Definitions

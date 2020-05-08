@@ -50,7 +50,8 @@ Src/flash.o: ../Src/flash.c ../Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h ../Inc/crc.h \
+ ../Inc/main.h
 
 ../Inc/main.h:
 
@@ -159,3 +160,7 @@ Src/flash.o: ../Src/flash.c ../Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Inc/crc.h:
+
+../Inc/main.h:

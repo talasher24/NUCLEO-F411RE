@@ -51,12 +51,12 @@ void SYSTEM_ISR_init(void)
 	Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 }
 
-void SYSTEM_ISR_osTimerStart(uint32_t timer_period_milisec)
+void SYSTEM_ISR_osTimer01Start(uint32_t timer_period_milisec)
 {
 	osTimerStart(Timer01Handle, timer_period_milisec);
 }
 
-void SYSTEM_ISR_osTimerStop(void)
+void SYSTEM_ISR_osTimer01Stop(void)
 {
 	osTimerStop(Timer01Handle);
 }

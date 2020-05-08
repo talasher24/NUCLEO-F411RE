@@ -40,6 +40,10 @@ void MX_RTC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
+void RTC_activateAlarmA(void);
+
+void RTC_deactivateAlarmA(void);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

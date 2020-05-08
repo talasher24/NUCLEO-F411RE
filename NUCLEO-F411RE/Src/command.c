@@ -18,7 +18,6 @@
 #include "system_debug.h"
 #include "system_isr.h"
 
-#include "crc.h"
 #include "rtc.h"
 #include "tim.h"
 
@@ -124,7 +123,7 @@
 * Function Definitions
 *******************************************************************************/
 
-void COMMAND_findAndExecuteCommand (char* token)
+void COMMAND_findAndExecuteCommand(char* token)
 {
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{
@@ -168,15 +167,7 @@ void COMMAND_pwmDcCallback(char* token)
 
 void COMMAND_crcWholeFlashCalcCallback(char* token)
 {
-	char temp [9];
-	uint32_t crcFlashResult;
-	uint32_t flashSize = 0x20000;
-	uint32_t *p_flash_start_address = (uint32_t *) FLASH_START_ADDRESS;
-
-	crcFlashResult = HAL_CRC_Calculate(&hcrc, p_flash_start_address, flashSize);
-
-	sprintf(temp, "%x\n", (unsigned int)crcFlashResult);
-	COM_uartPrint(temp);
+	FLASH_crcWholeFlashCalc();
 }
 
 void COMMAND_iwdgTestCallback(char* token)
@@ -188,105 +179,27 @@ void COMMAND_iwdgTestCallback(char* token)
 
 void COMMAND_flashLockCallback(char* token)
 {
-
-	/*RDP protects the whole internal flash from reading from outside, via debugger interface.
-	 *It does not prevent one part of code to read another part, or even rewrite.
-	 *PCROP allows you to use debugger to debug your code,
-	 *but protects reading and rewriting the "secret" part.*/
-
-	FLASH_OBProgramInitTypeDef obConfig;
-	HAL_FLASHEx_OBGetConfig(&obConfig);
-
-	if (obConfig.RDPLevel == OB_RDP_LEVEL_0)
-	{
-		obConfig.RDPLevel = OB_RDP_LEVEL_1;
-		obConfig.OptionType = OPTIONBYTE_RDP;
-
-		if (HAL_FLASH_Unlock() != HAL_OK)
-		{
-			Error_Handler();
-		}
-		if (HAL_FLASH_OB_Unlock() != HAL_OK)
-		{
-			Error_Handler();
-		}
-		if (HAL_FLASHEx_OBProgram(&obConfig) != HAL_OK)
-		{
-			Error_Handler();
-		}
-		if (HAL_FLASH_OB_Launch() != HAL_OK)
-		{
-			Error_Handler();
-		}
-		if (HAL_FLASH_OB_Lock() != HAL_OK)
-		{
-			Error_Handler();
-		}
-		if (HAL_FLASH_Lock() != HAL_OK)
-		{
-			Error_Handler();
-		}
-
-		/*
-		//DEBUG - use for writing data to flash
-		uint32_t sector_7_addr       = 0x08060000;		//Sector 7 address
-		FLASH_setSectorAddress(7, sector_7_addr);
-		uint32_t myTestWrite[1] = {0xDEADBEEF}; 		//0xFFFFFFFF, 0xDEADBEEF
-		FLASH_writeN(131072-4, myTestWrite2, 1, DATA_TYPE_32);
-		*/
-	}
+	FLASH_lock();
 }
 
 void COMMAND_setSNCallback(char* token)
 {
-	//if (FLASH_wrpSectorDisable();
-
-	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
-	FLASH_setSectorAddress(7, sector_7_addr);
-	uint32_t myTestWrite[1] = {0xDEADBEEF}; //0xFFFFFFFF, 0xDEADBEEF
-	FLASH_writeN(0, myTestWrite, 1, DATA_TYPE_32);
-
-	//FLASH_wrpSectorEnable();
-
+	FLASH_setSerialNumberInSector7();
 }
 
 void COMMAND_getSNCallback(char* token)
 {
-	char temp [9];
-	uint32_t sector_7_addr = 0x08060000;		//Sector 7 address
-	FLASH_setSectorAddress(7, sector_7_addr);
-	uint32_t myTestRead[1];
-	FLASH_readN(0, myTestRead, 1, DATA_TYPE_32);
-
-	sprintf(temp, "%x\n", (unsigned int)myTestRead[0]);
-	COM_uartPrint(temp);
+	FLASH_getSerialNumberFromSector7();
 }
 
 void COMMAND_startTickCallback(char* token)
 {
-	RTC_AlarmTypeDef sAlarm = {0};
-	  /** Enable the Alarm A
-	  */
-	  sAlarm.AlarmTime.Hours = 0;
-	  sAlarm.AlarmTime.Minutes = 0;
-	  sAlarm.AlarmTime.Seconds = 1;
-	  sAlarm.AlarmTime.SubSeconds = 0;
-	  sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-	  sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
-	  sAlarm.AlarmMask = RTC_ALARMMASK_ALL;
-	  sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
-	  sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
-	  sAlarm.AlarmDateWeekDay = 1;
-	  sAlarm.Alarm = RTC_ALARM_A;
-	  if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BIN) != HAL_OK)
-	  {
-	    Error_Handler();
-	  }
+	RTC_activateAlarmA();
 }
 
 void COMMAND_stopTickCallback(char* token)
 {
-	HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
+	RTC_deactivateAlarmA();
 }
 
 void COMMAND_assert0Callback(char* token)
@@ -330,11 +243,11 @@ void COMMAND_startOsTimerCallback(char* token)
 {
 	token = strtok(NULL, " ");
 	uint32_t timer_period_milisec = atoi(token) * 1000;
-	SYSTEM_ISR_osTimerStart(timer_period_milisec);
+	SYSTEM_ISR_osTimer01Start(timer_period_milisec);
 }
 
 void COMMAND_stopOsTimerCallback(char* token)
 {
-	SYSTEM_ISR_osTimerStop();
+	SYSTEM_ISR_osTimer01Stop();
 }
 

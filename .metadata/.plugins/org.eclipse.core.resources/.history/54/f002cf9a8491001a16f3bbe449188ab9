@@ -59,11 +59,6 @@ static void COM_setTxBusyFlagOn(void);
 * Function Definitions
 *******************************************************************************/
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COM_init(void)
 {
 	osMailQDef(txMailQueue, 16, queue_message_t);
@@ -73,41 +68,21 @@ void COM_init(void)
 	rxMailQueueHandle = osMailCreate(osMailQ(rxMailQueue), NULL);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 bool COM_getReadyCommandFlag(void)
 {
 	return Uart_Buffer.rx_ready_command;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void COM_setReadyCommandFlagOn(void)
 {
 	Uart_Buffer.rx_ready_command = true;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void COM_setReadyCommandFlagOff(void)
 {
 	Uart_Buffer.rx_ready_command = false;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COM_readyCommandProcess(void)
 {
 	osEvent evt;
@@ -122,11 +97,6 @@ void COM_readyCommandProcess(void)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	/* Prevent unused argument(s) compilation warning */
@@ -152,11 +122,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COM_uartPrint(char* token)
 {
 	queue_message_t *queue_msg_set;
@@ -174,11 +139,6 @@ void COM_uartPrint(char* token)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -203,51 +163,26 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COM_halUartReceiveDma(void)
 {
 	HAL_UART_Receive_DMA(&huart2, &Uart_Buffer.rx_single_char, 1);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void COM_setTxBusyFlagOn(void)
 {
 	Uart_Buffer.tx_busy = true;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COM_setTxBusyFlagOff(void)
 {
 	Uart_Buffer.tx_busy = false;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 bool COM_getTxBusyFlag(void)
 {
 	return Uart_Buffer.tx_busy;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 bool COM_charHandler(void)
 {
 	if (COM_getReadyCommandFlag())
@@ -271,11 +206,6 @@ bool COM_charHandler(void)
 	return false;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void COM_bufferInit(uint8_t* p_buffer)
 {
 	memset(Uart_Buffer.p_rx_buffer, 0, sizeof(uint8_t) * Uart_Buffer.rx_index);

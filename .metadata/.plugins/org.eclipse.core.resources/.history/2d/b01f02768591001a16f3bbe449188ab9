@@ -123,11 +123,6 @@
 * Function Definitions
 *******************************************************************************/
 
- /**
-   * @brief 	XXX
-   * @param 	XXX
-   * @retval	XXX
-   */
 void COMMAND_findAndExecuteCommand(char* token)
 {
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
@@ -141,21 +136,11 @@ void COMMAND_findAndExecuteCommand(char* token)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_pingCallback(char* token)
 {
 	COM_uartPrint(PING);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_getVersionCallback(char* token)
 {
 	COM_uartPrint(VERSION);
@@ -166,21 +151,11 @@ void COMMAND_pwmStartCallback(char* token)
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_pwmStopCallback(char* token)
 {
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_pwmDcCallback(char* token)
 {
 	token = strtok(NULL, " ");
@@ -190,21 +165,11 @@ void COMMAND_pwmDcCallback(char* token)
 	htim3.Instance->CCR1 = dc;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_crcWholeFlashCalcCallback(char* token)
 {
 	FLASH_crcWholeFlashCalc();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_iwdgTestCallback(char* token)
 {
 #ifdef IWDG_ENABLE
@@ -212,111 +177,56 @@ void COMMAND_iwdgTestCallback(char* token)
 #endif
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_flashLockCallback(char* token)
 {
 	FLASH_lock();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_setSNCallback(char* token)
 {
 	FLASH_setSerialNumberInSector7();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_getSNCallback(char* token)
 {
 	FLASH_getSerialNumberFromSector7();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_startTickCallback(char* token)
 {
 	RTC_activateAlarmA();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_stopTickCallback(char* token)
 {
 	RTC_deactivateAlarmA();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_assert0Callback(char* token)
 {
 	assert_param(0);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_clearAssertFlagCallback(char* token)
 {
 	SYSTEM_DEBUG_assertResetFlag();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_lsm6dslPerSampleEnableCallback(char* token)
 {
 	LSM6DSL_perSampleInit();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_lsm6dslFifoEnableCallback(char* token)
 {
 	LSM6DSL_fifoInit();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_lsm6dslDisableCallback(char* token)
 {
 	LSM6DSL_modesDisable();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_enterStopModeCallback(char* token)
 {
 	token = strtok(NULL, " ");
@@ -324,21 +234,11 @@ void COMMAND_enterStopModeCallback(char* token)
 	SYSTEM_DEBUG_enterStopMode(wake_up_time);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_enterStandbyModeCallback(char* token)
 {
 	SYSTEM_DEBUG_enterStandbyMode();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_startOsTimerCallback(char* token)
 {
 	token = strtok(NULL, " ");
@@ -346,11 +246,6 @@ void COMMAND_startOsTimerCallback(char* token)
 	SYSTEM_ISR_osTimer01Start(timer_period_milisec);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void COMMAND_stopOsTimerCallback(char* token)
 {
 	SYSTEM_ISR_osTimer01Stop();

@@ -46,11 +46,6 @@ static void FLASH_eraseSector(void);
 * Function Definitions
 *******************************************************************************/
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void FLASH_eraseSector(void)
 {
 	HAL_FLASH_Unlock();
@@ -59,22 +54,12 @@ static void FLASH_eraseSector(void)
 	HAL_FLASH_Lock();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
 {
 	Sector_Num = sector;
 	Sector_Addrs = addrs;
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
 {
 	uint32_t flashAddress = Sector_Addrs + idx;
@@ -115,11 +100,6 @@ void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataTyp
 	HAL_FLASH_Lock();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
 {
 	uint32_t flashAddress = Sector_Addrs + idx;
@@ -152,11 +132,6 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_wrpSectorEnable (void)
 {
 	/* Private define ------------------------------------------------------------*/
@@ -219,11 +194,6 @@ void FLASH_wrpSectorEnable (void)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_wrpSectorDisable (void)
 {
 	/* Private define ------------------------------------------------------------*/
@@ -286,11 +256,6 @@ void FLASH_wrpSectorDisable (void)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_crcWholeFlashCalc(void)
 {
 	char temp [9];
@@ -304,11 +269,6 @@ void FLASH_crcWholeFlashCalc(void)
 	COM_uartPrint(temp);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_lock(void)
 {
 	/*RDP protects the whole internal flash from reading from outside, via debugger interface.
@@ -359,11 +319,6 @@ void FLASH_lock(void)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_setSerialNumberInSector7(void)
 {
 	//if (FLASH_wrpSectorDisable();
@@ -376,11 +331,6 @@ void FLASH_setSerialNumberInSector7(void)
 	//FLASH_wrpSectorEnable();
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void FLASH_getSerialNumberFromSector7(void)
 {
 	char temp [9];

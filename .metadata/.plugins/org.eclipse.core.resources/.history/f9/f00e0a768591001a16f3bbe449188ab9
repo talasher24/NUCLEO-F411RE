@@ -45,42 +45,22 @@ void Timer01Callback(void const * argument);
  * Function Definitions
  *******************************************************************************/
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void SYSTEM_ISR_init(void)
 {
 	osTimerDef(Timer01, Timer01Callback);
 	Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerPeriodic, NULL);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void SYSTEM_ISR_osTimer01Start(uint32_t timer_period_milisec)
 {
 	osTimerStart(Timer01Handle, timer_period_milisec);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void SYSTEM_ISR_osTimer01Stop(void)
 {
 	osTimerStop(Timer01Handle);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	/* Prevent unused argument(s) compilation warning */
@@ -94,11 +74,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -109,11 +84,6 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 	COM_uartPrint(TICK);
 }
 
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 void Timer01Callback(void const * argument)
 {
   /* USER CODE BEGIN Timer01Callback */

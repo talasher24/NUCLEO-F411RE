@@ -51,8 +51,8 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h ../Inc/crc.h \
  ../Inc/main.h ../Inc/dma.h ../Inc/i2c.h ../Inc/iwdg.h ../Inc/rtc.h \
- ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/com.h ../Inc/lsm6dsl.h \
- ../Inc/types.h ../Inc/system_debug.h
+ ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Inc/com.h \
+ ../Inc/system_debug.h
 
 ../Inc/main.h:
 
@@ -177,9 +177,5 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 ../Inc/gpio.h:
 
 ../Inc/com.h:
-
-../Inc/lsm6dsl.h:
-
-../Inc/types.h:
 
 ../Inc/system_debug.h:

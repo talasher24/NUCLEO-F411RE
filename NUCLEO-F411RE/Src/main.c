@@ -33,8 +33,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "com.h"
-#include "lsm6dsl.h"
-#include "types.h"
 #include "system_debug.h"
 
 /* USER CODE END Includes */

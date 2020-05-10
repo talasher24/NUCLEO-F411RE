@@ -33,10 +33,13 @@ typedef struct {
 	uint8_t p_rx_buffer[BUFFER_SIZE];
 	uint8_t rx_index;
 	uint8_t rx_single_char;
-	bool 	rx_ready_command;
 	uint8_t p_tx_buffer[BUFFER_SIZE];
 	bool 	tx_busy;
 } uart_buffer_t;
+
+typedef struct {
+	 uint8_t p_buffer[BUFFER_SIZE];
+} queue_message_t;
 
 /******************************************************************************
 * Module Variable Definitions
@@ -50,8 +53,8 @@ static osMailQId  rxMailQueueHandle;
 * Function Prototypes
 *******************************************************************************/
 
-static void COM_setReadyCommandFlagOn(void);
-static void COM_setReadyCommandFlagOff(void);
+static void COM_halUartReceiveDma(void);
+static bool COM_charHandler(void);
 static void COM_bufferInit(uint8_t* p_buffer);
 static void COM_setTxBusyFlagOn(void);
 
@@ -71,6 +74,8 @@ void COM_init(void)
 
 	osMailQDef(rxMailQueue, 16, queue_message_t);
 	rxMailQueueHandle = osMailCreate(osMailQ(rxMailQueue), NULL);
+
+	COM_halUartReceiveDma();
 }
 
 /**
@@ -78,48 +83,9 @@ void COM_init(void)
   * @param 	XXX
   * @retval	XXX
   */
-bool COM_getReadyCommandFlag(void)
+static void COM_halUartReceiveDma(void)
 {
-	return Uart_Buffer.rx_ready_command;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-static void COM_setReadyCommandFlagOn(void)
-{
-	Uart_Buffer.rx_ready_command = true;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-static void COM_setReadyCommandFlagOff(void)
-{
-	Uart_Buffer.rx_ready_command = false;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-void COM_readyCommandProcess(void)
-{
-	osEvent evt;
-	evt = osMailGet(rxMailQueueHandle, 0);
-	if (evt.status == osEventMail)
-	{
-		queue_message_t *queue_msg_get;
-		queue_msg_get = evt.value.p;
-		char* token = strtok((char*)queue_msg_get->p_buffer, " ");
-		COMMAND_findAndExecuteCommand(token);
-		osMailFree(rxMailQueueHandle, queue_msg_get);
-	}
+	HAL_UART_Receive_DMA(&huart2, &Uart_Buffer.rx_single_char, 1);
 }
 
 /**
@@ -147,8 +113,48 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		}
 		strncpy((char*)queue_msg_set->p_buffer, (char*)Uart_Buffer.p_rx_buffer, sizeof(queue_msg_set->p_buffer));
 		COM_bufferInit(Uart_Buffer.p_rx_buffer);
-		COM_setReadyCommandFlagOff();
 		osMailPut(rxMailQueueHandle, queue_msg_set);
+	}
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static bool COM_charHandler(void)
+{
+	if (Uart_Buffer.rx_single_char != '\n')
+	{
+		if(Uart_Buffer.rx_index < BUFFER_SIZE)
+		{
+			Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
+			Uart_Buffer.rx_index++;
+		}
+	}
+	else
+	{
+		return true;
+	}
+	return false;
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+void COM_readyCommandProcess(void)
+{
+	osEvent evt;
+	evt = osMailGet(rxMailQueueHandle, 0);
+	if (evt.status == osEventMail)
+	{
+		queue_message_t *queue_msg_get;
+		queue_msg_get = evt.value.p;
+		char* token = strtok((char*)queue_msg_get->p_buffer, " ");
+		COMMAND_findAndExecuteCommand(token);
+		osMailFree(rxMailQueueHandle, queue_msg_get);
 	}
 }
 
@@ -208,16 +214,6 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   * @param 	XXX
   * @retval	XXX
   */
-void COM_halUartReceiveDma(void)
-{
-	HAL_UART_Receive_DMA(&huart2, &Uart_Buffer.rx_single_char, 1);
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
 static void COM_setTxBusyFlagOn(void)
 {
 	Uart_Buffer.tx_busy = true;
@@ -241,34 +237,6 @@ void COM_setTxBusyFlagOff(void)
 bool COM_getTxBusyFlag(void)
 {
 	return Uart_Buffer.tx_busy;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-bool COM_charHandler(void)
-{
-	if (COM_getReadyCommandFlag())
-	{
-		return false;
-	}
-
-	if (Uart_Buffer.rx_single_char != '\n')
-	{
-		if(Uart_Buffer.rx_index < BUFFER_SIZE)
-		{
-			Uart_Buffer.p_rx_buffer[Uart_Buffer.rx_index] = Uart_Buffer.rx_single_char;
-			Uart_Buffer.rx_index++;
-		}
-	}
-	else
-	{
-		COM_setReadyCommandFlagOn();
-		return true;
-	}
-	return false;
 }
 
 /**

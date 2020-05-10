@@ -33,10 +33,6 @@
  * Module Typedefs
  *******************************************************************************/
 
- typedef struct {
- 	 uint8_t p_buffer[BUFFER_SIZE];
- } queue_message_t;
-
  /******************************************************************************
  * Module Variable Definitions
  *******************************************************************************/
@@ -46,11 +42,8 @@
  *******************************************************************************/
 
  void COM_init(void);
- bool COM_getReadyCommandFlag(void);
  void COM_readyCommandProcess(void);
  void COM_uartPrint(char* token);
- void COM_halUartReceiveDma(void);
- bool COM_charHandler(void);
  void COM_setTxBusyFlagOff(void);
  bool COM_getTxBusyFlag(void);
 

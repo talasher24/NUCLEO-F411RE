@@ -31,6 +31,7 @@
 
 typedef struct {
 	uint8_t p_rx_buffer[BUFFER_SIZE];
+	uint8_t rx_index;
 	uint8_t rx_single_char;
 	uint8_t p_tx_buffer[BUFFER_SIZE];
 	bool 	tx_busy;

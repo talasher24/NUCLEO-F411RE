@@ -31,6 +31,7 @@
 
 typedef struct {
 	uint8_t p_rx_buffer[BUFFER_SIZE];
+	uint8_t rx_index;
 	uint8_t rx_single_char;
 	uint8_t p_tx_buffer[BUFFER_SIZE];
 	bool 	tx_busy;
@@ -247,6 +248,6 @@ bool COM_getTxBusyFlag(void)
   */
 static void COM_bufferInit(uint8_t* p_buffer)
 {
-	memset(Uart_Buffer.p_rx_buffer, 0, sizeof(uint8_t) * Rx_Msg_Index);
+	memset(Uart_Buffer.p_rx_buffer, 0, sizeof(uint8_t)  Rx_Msg_Index);
 	Rx_Msg_Index = 0;
 }

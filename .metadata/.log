@@ -4573,3 +4573,15 @@ java.lang.RuntimeException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2020-05-10 14:16:01.706
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-10 14:22:24.613
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 58 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-10 14:22:24.613
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-10 14:22:24.613
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 58 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-10 14:22:24.613
+!MESSAGE Existing sessions are:

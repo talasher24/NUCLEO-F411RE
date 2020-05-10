@@ -92,27 +92,27 @@
 *******************************************************************************/
 
  const command_t P_COMMANDS [NUM_OF_COMMANDS] = {
-		{PING_COMMAND_NAME, 			strlen(PING_COMMAND_NAME), 			COMMAND_pingCallback						},
-		{GET_VERSION_COMMAND_NAME, 		strlen(GET_VERSION_COMMAND_NAME), 	COMMAND_getVersionCallback					},
-		{PWM_START_COMMAND_NAME, 		strlen(PWM_START_COMMAND_NAME), 	COMMAND_pwmStartCallback					},
-		{PWM_STOP_COMMAND_NAME, 		strlen(PWM_STOP_COMMAND_NAME), 		COMMAND_pwmStopCallback						},
-		{PWM_DC_COMMAND_NAME, 			strlen(PWM_DC_COMMAND_NAME), 		COMMAND_pwmDcCallback						},
-		{CRC_WHOLE_FLASH_CALC, 			strlen(CRC_WHOLE_FLASH_CALC), 		COMMAND_crcWholeFlashCalcCallback			},
-		{IWDG_TEST, 					strlen(IWDG_TEST), 					COMMAND_iwdgTestCallback					},
-		{FLASH_LOCK, 					strlen(FLASH_LOCK), 				COMMAND_flashLockCallback					},
-		{set_SN, 						strlen(set_SN), 					COMMAND_setSNCallback						},
-		{get_SN, 						strlen(get_SN), 					COMMAND_getSNCallback						},
-		{START_TICK, 					strlen(START_TICK), 				COMMAND_startTickCallback					},
-		{STOP_TICK, 					strlen(STOP_TICK), 					COMMAND_stopTickCallback					},
-		{ASSERT_0, 						strlen(ASSERT_0), 					COMMAND_assert0Callback						},
-		{CLEAR_ASSERT_FLAG, 			strlen(CLEAR_ASSERT_FLAG), 			COMMAND_clearAssertFlagCallback				},
-		{LSM6DSL_PER_SAMPLE_ENABLE, 	strlen(LSM6DSL_PER_SAMPLE_ENABLE), 	COMMAND_lsm6dslPerSampleEnableCallback		},
-		{LSM6DSL_FIFO_ENABLE, 			strlen(LSM6DSL_FIFO_ENABLE), 		COMMAND_lsm6dslFifoEnableCallback			},
-		{LSM6DSL_DISABLE, 				strlen(LSM6DSL_DISABLE), 			COMMAND_lsm6dslDisableCallback				},
-		{ENTER_STOP_MODE, 				strlen(ENTER_STOP_MODE), 			COMMAND_enterStopModeCallback				},
-		{ENTER_STANDBY_MODE, 			strlen(ENTER_STANDBY_MODE), 		COMMAND_enterStandbyModeCallback			},
-		{START_OS_TIMER, 				strlen(START_OS_TIMER), 			COMMAND_startOsTimerCallback				},
-		{STOP_OS_TIMER, 				strlen(STOP_OS_TIMER), 				COMMAND_stopOsTimerCallback					}
+		{PING_COMMAND_NAME, 			sizeof(PING_COMMAND_NAME), 			COMMAND_pingCallback						},
+ 		{GET_VERSION_COMMAND_NAME, 		sizeof(GET_VERSION_COMMAND_NAME), 	COMMAND_getVersionCallback					},
+ 		{PWM_START_COMMAND_NAME, 		sizeof(PWM_START_COMMAND_NAME), 	COMMAND_pwmStartCallback					},
+ 		{PWM_STOP_COMMAND_NAME, 		sizeof(PWM_STOP_COMMAND_NAME), 		COMMAND_pwmStopCallback						},
+ 		{PWM_DC_COMMAND_NAME, 			sizeof(PWM_DC_COMMAND_NAME), 		COMMAND_pwmDcCallback						},
+ 		{CRC_WHOLE_FLASH_CALC, 			sizeof(CRC_WHOLE_FLASH_CALC), 		COMMAND_crcWholeFlashCalcCallback			},
+ 		{IWDG_TEST, 					sizeof(IWDG_TEST), 					COMMAND_iwdgTestCallback					},
+ 		{FLASH_LOCK, 					sizeof(FLASH_LOCK), 				COMMAND_flashLockCallback					},
+ 		{set_SN, 						sizeof(set_SN), 					COMMAND_setSNCallback						},
+ 		{get_SN, 						sizeof(get_SN), 					COMMAND_getSNCallback						},
+ 		{START_TICK, 					sizeof(START_TICK), 				COMMAND_startTickCallback					},
+ 		{STOP_TICK, 					sizeof(STOP_TICK), 					COMMAND_stopTickCallback					},
+ 		{ASSERT_0, 						sizeof(ASSERT_0), 					COMMAND_assert0Callback						},
+ 		{CLEAR_ASSERT_FLAG, 			sizeof(CLEAR_ASSERT_FLAG), 			COMMAND_clearAssertFlagCallback				},
+ 		{LSM6DSL_PER_SAMPLE_ENABLE, 	sizeof(LSM6DSL_PER_SAMPLE_ENABLE), 	COMMAND_lsm6dslPerSampleEnableCallback		},
+ 		{LSM6DSL_FIFO_ENABLE, 			sizeof(LSM6DSL_FIFO_ENABLE), 		COMMAND_lsm6dslFifoEnableCallback			},
+ 		{LSM6DSL_DISABLE, 				sizeof(LSM6DSL_DISABLE), 			COMMAND_lsm6dslDisableCallback				},
+ 		{ENTER_STOP_MODE, 				sizeof(ENTER_STOP_MODE), 			COMMAND_enterStopModeCallback				},
+ 		{ENTER_STANDBY_MODE, 			sizeof(ENTER_STANDBY_MODE), 		COMMAND_enterStandbyModeCallback			},
+		{START_OS_TIMER, 				sizeof(START_OS_TIMER), 			COMMAND_startOsTimerCallback				},
+		{STOP_OS_TIMER, 				sizeof(STOP_OS_TIMER), 				COMMAND_stopOsTimerCallback					}
  };
 
 /******************************************************************************

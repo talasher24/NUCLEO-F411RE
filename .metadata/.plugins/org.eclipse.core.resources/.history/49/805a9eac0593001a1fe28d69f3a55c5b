@@ -30,6 +30,11 @@
 *******************************************************************************/
 
 typedef struct {
+	uint8_t p_tx_buffer[BUFFER_SIZE];
+	bool 	tx_busy;
+} uart_buffer_t;
+
+typedef struct {
 	 uint8_t p_buffer[BUFFER_SIZE];
 } queue_message_t;
 
@@ -37,10 +42,10 @@ typedef struct {
 * Module Variable Definitions
 *******************************************************************************/
 
-static bool tx_busy;
-static uint8_t Rx_Msg_Index;
-static queue_message_t *P_Tx_Current_Msg;
+static queue_message_t *queue_msg_get;
 static queue_message_t *P_Rx_Current_Msg;
+static uint8_t Rx_Msg_Index;
+static uart_buffer_t Uart_Buffer;
 static osMailQId  txMailQueueHandle;
 static osMailQId  rxMailQueueHandle;
 
@@ -195,7 +200,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 	if (COM_getTxBusyFlag())
 	{
-		osMailFree(txMailQueueHandle, P_Tx_Current_Msg);
+		osMailFree(txMailQueueHandle, queue_msg_get);
 	}
 
 	osEvent evt;
@@ -206,8 +211,8 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 	}
 	else
 	{
-		P_Tx_Current_Msg = evt.value.p;
-		HAL_UART_Transmit_DMA(huart, P_Tx_Current_Msg->p_buffer, strlen((char*)P_Tx_Current_Msg->p_buffer));
+		queue_msg_get = evt.value.p;
+		HAL_UART_Transmit_DMA(huart, queue_msg_get->p_buffer, strlen((char*)queue_msg_get->p_buffer));
 		COM_setTxBusyFlagOn();
 	}
 }
@@ -219,7 +224,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   */
 static void COM_setTxBusyFlagOn(void)
 {
-	tx_busy = true;
+	Uart_Buffer.tx_busy = true;
 }
 
 /**
@@ -229,7 +234,7 @@ static void COM_setTxBusyFlagOn(void)
   */
 static void COM_setTxBusyFlagOff(void)
 {
-	tx_busy = false;
+	Uart_Buffer.tx_busy = false;
 }
 
 /**
@@ -239,7 +244,7 @@ static void COM_setTxBusyFlagOff(void)
   */
 bool COM_getTxBusyFlag(void)
 {
-	return tx_busy;
+	return Uart_Buffer.tx_busy;
 }
 
 /**

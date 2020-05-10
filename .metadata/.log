@@ -4633,3 +4633,15 @@ java.lang.RuntimeException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-11 00:17:34.586
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-11 00:33:21.682
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-11 00:33:21.682
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-11 00:33:21.683
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-11 00:33:21.683
+!MESSAGE Existing sessions are:

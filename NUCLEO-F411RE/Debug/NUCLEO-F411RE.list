@@ -33,21 +33,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  14 .debug_info   00032b4b  00000000  00000000  00030294  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_abbrev 00005c55  00000000  00000000  00062ddf  2**0
+ 15 .debug_abbrev 00005c3d  00000000  00000000  00062ddf  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_aranges 000025e0  00000000  00000000  00068a38  2**3
+ 16 .debug_aranges 000025e0  00000000  00000000  00068a20  2**3
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_ranges 00002348  00000000  00000000  0006b018  2**3
+ 17 .debug_ranges 00002348  00000000  00000000  0006b000  2**3
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_macro  0001e320  00000000  00000000  0006d360  2**0
+ 18 .debug_macro  0001e320  00000000  00000000  0006d348  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_line   000219e8  00000000  00000000  0008b680  2**0
+ 19 .debug_line   000219e8  00000000  00000000  0008b668  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_str    000a6a9d  00000000  00000000  000ad068  2**0
+ 20 .debug_str    000a6a9d  00000000  00000000  000ad050  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .comment      0000007b  00000000  00000000  00153b05  2**0
+ 21 .comment      0000007b  00000000  00000000  00153aed  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  0000a8bc  00000000  00000000  00153b80  2**2
+ 22 .debug_frame  0000a8bc  00000000  00000000  00153b68  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -31089,7 +31089,7 @@ static void COM_setTxBusyFlagOn(void)
   * @param 	XXX
   * @retval	XXX
   */
-void COM_setTxBusyFlagOff(void)
+static void COM_setTxBusyFlagOff(void)
 {
  800c2b4:	b480      	push	{r7}
  800c2b6:	af00      	add	r7, sp, #0

@@ -4567,3 +4567,9 @@ java.lang.RuntimeException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2020-05-10 14:12:32.339
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2020-05-10 14:15:59.242
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2020-05-10 14:16:01.706
+!MESSAGE Won't launch debug session since we failed to locate the binary.

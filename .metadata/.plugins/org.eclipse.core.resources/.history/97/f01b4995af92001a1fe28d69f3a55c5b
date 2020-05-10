@@ -56,7 +56,6 @@ static osMailQId  rxMailQueueHandle;
 static void COM_halUartReceiveDma(void);
 static bool COM_charHandler(void);
 static void COM_bufferInit(uint8_t* p_buffer);
-static void COM_setTxBusyFlagOff(void);
 static void COM_setTxBusyFlagOn(void);
 
 /******************************************************************************
@@ -225,7 +224,7 @@ static void COM_setTxBusyFlagOn(void)
   * @param 	XXX
   * @retval	XXX
   */
-static void COM_setTxBusyFlagOff(void)
+void COM_setTxBusyFlagOff(void)
 {
 	Uart_Buffer.tx_busy = false;
 }

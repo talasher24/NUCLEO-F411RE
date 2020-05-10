@@ -8483,7 +8483,6 @@ LOAD c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000800c298       0x1c Src/com.o
  .text.COM_setTxBusyFlagOff
                 0x000000000800c2b4       0x1c Src/com.o
-                0x000000000800c2b4                COM_setTxBusyFlagOff
  .text.COM_getTxBusyFlag
                 0x000000000800c2d0       0x18 Src/com.o
                 0x000000000800c2d0                COM_getTxBusyFlag
@@ -9720,7 +9719,7 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_info    0x0000000000032007      0xb22 Src/usart.o
  .debug_info    0x0000000000032b29       0x22 Startup/startup_stm32f411retx.o
 
-.debug_abbrev   0x0000000000000000     0x5c55
+.debug_abbrev   0x0000000000000000     0x5c3d
  .debug_abbrev  0x0000000000000000      0x1f2 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_abbrev  0x00000000000001f2      0x2fa Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_abbrev  0x00000000000004ec      0x18e Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o
@@ -9743,28 +9742,28 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_abbrev  0x0000000000002996      0x338 Middlewares/Third_Party/FreeRTOS/Source/tasks.o
  .debug_abbrev  0x0000000000002cce      0x2bd Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .debug_abbrev  0x0000000000002f8b      0x2fa Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_abbrev  0x0000000000003285      0x2b0 Src/com.o
- .debug_abbrev  0x0000000000003535      0x257 Src/command.o
- .debug_abbrev  0x000000000000378c      0x168 Src/crc.o
- .debug_abbrev  0x00000000000038f4      0x107 Src/dma.o
- .debug_abbrev  0x00000000000039fb      0x240 Src/flash.o
- .debug_abbrev  0x0000000000003c3b      0x252 Src/freertos.o
- .debug_abbrev  0x0000000000003e8d      0x13d Src/gpio.o
- .debug_abbrev  0x0000000000003fca      0x30b Src/heap_useNewlib.o
- .debug_abbrev  0x00000000000042d5      0x199 Src/i2c.o
- .debug_abbrev  0x000000000000446e      0x3b0 Src/lsm6dsl.o
- .debug_abbrev  0x000000000000481e      0x2c8 Src/lsm6dsl_reg.o
- .debug_abbrev  0x0000000000004ae6      0x219 Src/main.o
- .debug_abbrev  0x0000000000004cff      0x171 Src/rtc.o
- .debug_abbrev  0x0000000000004e70      0x112 Src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x0000000000004f82      0x1ac Src/stm32f4xx_hal_timebase_tim.o
- .debug_abbrev  0x000000000000512e      0x1e3 Src/stm32f4xx_it.o
- .debug_abbrev  0x0000000000005311      0x293 Src/system_debug.o
- .debug_abbrev  0x00000000000055a4      0x208 Src/system_isr.o
- .debug_abbrev  0x00000000000057ac      0x12b Src/system_stm32f4xx.o
- .debug_abbrev  0x00000000000058d7      0x1b9 Src/tim.o
- .debug_abbrev  0x0000000000005a90      0x1b3 Src/usart.o
- .debug_abbrev  0x0000000000005c43       0x12 Startup/startup_stm32f411retx.o
+ .debug_abbrev  0x0000000000003285      0x298 Src/com.o
+ .debug_abbrev  0x000000000000351d      0x257 Src/command.o
+ .debug_abbrev  0x0000000000003774      0x168 Src/crc.o
+ .debug_abbrev  0x00000000000038dc      0x107 Src/dma.o
+ .debug_abbrev  0x00000000000039e3      0x240 Src/flash.o
+ .debug_abbrev  0x0000000000003c23      0x252 Src/freertos.o
+ .debug_abbrev  0x0000000000003e75      0x13d Src/gpio.o
+ .debug_abbrev  0x0000000000003fb2      0x30b Src/heap_useNewlib.o
+ .debug_abbrev  0x00000000000042bd      0x199 Src/i2c.o
+ .debug_abbrev  0x0000000000004456      0x3b0 Src/lsm6dsl.o
+ .debug_abbrev  0x0000000000004806      0x2c8 Src/lsm6dsl_reg.o
+ .debug_abbrev  0x0000000000004ace      0x219 Src/main.o
+ .debug_abbrev  0x0000000000004ce7      0x171 Src/rtc.o
+ .debug_abbrev  0x0000000000004e58      0x112 Src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x0000000000004f6a      0x1ac Src/stm32f4xx_hal_timebase_tim.o
+ .debug_abbrev  0x0000000000005116      0x1e3 Src/stm32f4xx_it.o
+ .debug_abbrev  0x00000000000052f9      0x293 Src/system_debug.o
+ .debug_abbrev  0x000000000000558c      0x208 Src/system_isr.o
+ .debug_abbrev  0x0000000000005794      0x12b Src/system_stm32f4xx.o
+ .debug_abbrev  0x00000000000058bf      0x1b9 Src/tim.o
+ .debug_abbrev  0x0000000000005a78      0x1b3 Src/usart.o
+ .debug_abbrev  0x0000000000005c2b       0x12 Startup/startup_stm32f411retx.o
 
 .debug_aranges  0x0000000000000000     0x25e0
  .debug_aranges

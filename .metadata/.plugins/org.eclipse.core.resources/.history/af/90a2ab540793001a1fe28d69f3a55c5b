@@ -37,7 +37,7 @@ typedef struct {
 * Module Variable Definitions
 *******************************************************************************/
 
-static bool Tx_Busy;
+static bool tx_busy;
 static uint8_t Rx_Msg_Index;
 static queue_message_t *P_Tx_Current_Msg;
 static queue_message_t *P_Rx_Current_Msg;
@@ -152,8 +152,8 @@ void COM_readyCommandProcess(void)
 	{
 		queue_message_t *queue_msg_get;
 		queue_msg_get = evt.value.p;
-		char* p_token = strtok((char*)queue_msg_get->p_buffer, " ");
-		COMMAND_findAndExecuteCommand(p_token);
+		char* token = strtok((char*)queue_msg_get->p_buffer, " ");
+		COMMAND_findAndExecuteCommand(token);
 		osMailFree(rxMailQueueHandle, queue_msg_get);
 	}
 }
@@ -163,7 +163,7 @@ void COM_readyCommandProcess(void)
   * @param 	XXX
   * @retval	XXX
   */
-void COM_uartPrint(char* p_token)
+void COM_uartPrint(char* token)
 {
 	queue_message_t *queue_msg_set;
 	queue_msg_set = osMailAlloc(txMailQueueHandle, 0);
@@ -172,7 +172,7 @@ void COM_uartPrint(char* p_token)
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 		return;
 	}
-	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));
+	strncpy((char*)queue_msg_set->p_buffer, token, sizeof(queue_msg_set->p_buffer));
 	osMailPut(txMailQueueHandle, queue_msg_set);
 	if (!COM_getTxBusyFlag())
 	{
@@ -219,7 +219,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   */
 static void COM_setTxBusyFlagOn(void)
 {
-	Tx_Busy = true;
+	tx_busy = true;
 }
 
 /**
@@ -229,7 +229,7 @@ static void COM_setTxBusyFlagOn(void)
   */
 static void COM_setTxBusyFlagOff(void)
 {
-	Tx_Busy = false;
+	tx_busy = false;
 }
 
 /**
@@ -239,7 +239,7 @@ static void COM_setTxBusyFlagOff(void)
   */
 bool COM_getTxBusyFlag(void)
 {
-	return Tx_Busy;
+	return tx_busy;
 }
 
 /**

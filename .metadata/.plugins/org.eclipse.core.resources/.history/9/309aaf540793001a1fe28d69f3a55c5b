@@ -82,7 +82,7 @@
 *******************************************************************************/
 
  typedef struct {
-	char* 	p_name;
+	char* 	name;
 	uint8_t size;
 	void 	(*func_ptr)(char*);
  } command_t;
@@ -128,14 +128,14 @@
    * @param 	XXX
    * @retval	XXX
    */
-void COMMAND_findAndExecuteCommand(char* p_token)
+void COMMAND_findAndExecuteCommand(char* token)
 {
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{
-		if (strncmp(p_token, P_COMMANDS[i].p_name, P_COMMANDS[i].size)==0)
+		if (strncmp(token, P_COMMANDS[i].name, P_COMMANDS[i].size)==0)
 		{
 			COM_uartPrint(OK);
-			P_COMMANDS[i].func_ptr(p_token);
+			P_COMMANDS[i].func_ptr(token);
 			return;
 		}
 	}
@@ -146,7 +146,7 @@ void COMMAND_findAndExecuteCommand(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pingCallback(char* p_token)
+void COMMAND_pingCallback(char* token)
 {
 	COM_uartPrint(PING);
 }
@@ -156,12 +156,12 @@ void COMMAND_pingCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_getVersionCallback(char* p_token)
+void COMMAND_getVersionCallback(char* token)
 {
 	COM_uartPrint(VERSION);
 }
 
-void COMMAND_pwmStartCallback(char* p_token)
+void COMMAND_pwmStartCallback(char* token)
 {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 }
@@ -171,7 +171,7 @@ void COMMAND_pwmStartCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pwmStopCallback(char* p_token)
+void COMMAND_pwmStopCallback(char* token)
 {
 	HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
 }
@@ -181,10 +181,10 @@ void COMMAND_pwmStopCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pwmDcCallback(char* p_token)
+void COMMAND_pwmDcCallback(char* token)
 {
-	p_token = strtok(NULL, " ");
-	int32_t dc = atoi(p_token);
+	token = strtok(NULL, " ");
+	int32_t dc = atoi(token);
 	if (dc > 100) dc = 100;
 	if (dc < 0)   dc = 0;
 	htim3.Instance->CCR1 = dc;
@@ -195,7 +195,7 @@ void COMMAND_pwmDcCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_crcWholeFlashCalcCallback(char* p_token)
+void COMMAND_crcWholeFlashCalcCallback(char* token)
 {
 	FLASH_crcWholeFlashCalc();
 }
@@ -205,7 +205,7 @@ void COMMAND_crcWholeFlashCalcCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_iwdgTestCallback(char* p_token)
+void COMMAND_iwdgTestCallback(char* token)
 {
 #ifdef IWDG_ENABLE
 	while(1);
@@ -217,7 +217,7 @@ void COMMAND_iwdgTestCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_flashLockCallback(char* p_token)
+void COMMAND_flashLockCallback(char* token)
 {
 	FLASH_lock();
 }
@@ -227,7 +227,7 @@ void COMMAND_flashLockCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_setSNCallback(char* p_token)
+void COMMAND_setSNCallback(char* token)
 {
 	FLASH_setSerialNumberInSector7();
 }
@@ -237,7 +237,7 @@ void COMMAND_setSNCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_getSNCallback(char* p_token)
+void COMMAND_getSNCallback(char* token)
 {
 	FLASH_getSerialNumberFromSector7();
 }
@@ -247,7 +247,7 @@ void COMMAND_getSNCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_startTickCallback(char* p_token)
+void COMMAND_startTickCallback(char* token)
 {
 	RTC_activateAlarmA();
 }
@@ -257,7 +257,7 @@ void COMMAND_startTickCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_stopTickCallback(char* p_token)
+void COMMAND_stopTickCallback(char* token)
 {
 	RTC_deactivateAlarmA();
 }
@@ -267,7 +267,7 @@ void COMMAND_stopTickCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_assert0Callback(char* p_token)
+void COMMAND_assert0Callback(char* token)
 {
 	assert_param(0);
 }
@@ -277,7 +277,7 @@ void COMMAND_assert0Callback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_clearAssertFlagCallback(char* p_token)
+void COMMAND_clearAssertFlagCallback(char* token)
 {
 	SYSTEM_DEBUG_assertResetFlag();
 }
@@ -287,7 +287,7 @@ void COMMAND_clearAssertFlagCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslPerSampleEnableCallback(char* p_token)
+void COMMAND_lsm6dslPerSampleEnableCallback(char* token)
 {
 	LSM6DSL_perSampleInit();
 }
@@ -297,7 +297,7 @@ void COMMAND_lsm6dslPerSampleEnableCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslFifoEnableCallback(char* p_token)
+void COMMAND_lsm6dslFifoEnableCallback(char* token)
 {
 	LSM6DSL_fifoInit();
 }
@@ -307,7 +307,7 @@ void COMMAND_lsm6dslFifoEnableCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslDisableCallback(char* p_token)
+void COMMAND_lsm6dslDisableCallback(char* token)
 {
 	LSM6DSL_modesDisable();
 }
@@ -317,10 +317,10 @@ void COMMAND_lsm6dslDisableCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_enterStopModeCallback(char* p_token)
+void COMMAND_enterStopModeCallback(char* token)
 {
-	p_token = strtok(NULL, " ");
-	uint32_t wake_up_time = atoi(p_token);
+	token = strtok(NULL, " ");
+	uint32_t wake_up_time = atoi(token);
 	SYSTEM_DEBUG_enterStopMode(wake_up_time);
 }
 
@@ -329,7 +329,7 @@ void COMMAND_enterStopModeCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_enterStandbyModeCallback(char* p_token)
+void COMMAND_enterStandbyModeCallback(char* token)
 {
 	SYSTEM_DEBUG_enterStandbyMode();
 }
@@ -339,10 +339,10 @@ void COMMAND_enterStandbyModeCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_startOsTimerCallback(char* p_token)
+void COMMAND_startOsTimerCallback(char* token)
 {
-	p_token = strtok(NULL, " ");
-	uint32_t timer_period_milisec = atoi(p_token) * 1000;
+	token = strtok(NULL, " ");
+	uint32_t timer_period_milisec = atoi(token) * 1000;
 	SYSTEM_ISR_osTimer01Start(timer_period_milisec);
 }
 
@@ -351,7 +351,7 @@ void COMMAND_startOsTimerCallback(char* p_token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_stopOsTimerCallback(char* p_token)
+void COMMAND_stopOsTimerCallback(char* token)
 {
 	SYSTEM_ISR_osTimer01Stop();
 }

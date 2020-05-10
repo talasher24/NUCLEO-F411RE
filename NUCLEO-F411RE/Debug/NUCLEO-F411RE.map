@@ -9384,7 +9384,7 @@ LOAD c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  *fill*         0x00000000200004a9        0x3 
  .bss.ulMaxPRIGROUPValue
                 0x00000000200004ac        0x4 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .bss.tx_busy   0x00000000200004b0        0x1 Src/com.o
+ .bss.Tx_Busy   0x00000000200004b0        0x1 Src/com.o
  .bss.Rx_Msg_Index
                 0x00000000200004b1        0x1 Src/com.o
  *fill*         0x00000000200004b2        0x2 
@@ -9433,7 +9433,7 @@ LOAD c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .bss.P_Angular_Rate_Dps_Sum
                 0x0000000020000f44        0xc Src/lsm6dsl.o
  .bss.Dev_Ctx   0x0000000020000f50        0xc Src/lsm6dsl.o
- .bss.Data      0x0000000020000f5c       0x64 Src/lsm6dsl.o
+ .bss.P_Data    0x0000000020000f5c       0x64 Src/lsm6dsl.o
  .bss.Lsm6dsl_Mode
                 0x0000000020000fc0        0x1 Src/lsm6dsl.o
  .bss.Lsm6dsl_Is_Connected
@@ -10105,7 +10105,7 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
  .debug_line    0x00000000000211cc      0x79b Src/usart.o
  .debug_line    0x0000000000021967       0x80 Startup/startup_stm32f411retx.o
 
-.debug_str      0x0000000000000000    0xa6a93
+.debug_str      0x0000000000000000    0xa6aa7
  .debug_str     0x0000000000000000    0x8cced Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0x8d067 (size before relaxing)
  .debug_str     0x000000000008cced      0x3e8 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -10150,49 +10150,49 @@ OUTPUT(NUCLEO-F411RE.elf elf32-littlearm)
                                        0xc5b9 (size before relaxing)
  .debug_str     0x000000000009d21b      0x803 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
                                        0xa115 (size before relaxing)
- .debug_str     0x000000000009da1e      0x2bf Src/com.o
-                                      0x95cc3 (size before relaxing)
- .debug_str     0x000000000009dcdd     0x1773 Src/command.o
-                                      0x9734e (size before relaxing)
- .debug_str     0x000000000009f450       0x2c Src/crc.o
+ .debug_str     0x000000000009da1e      0x2c1 Src/com.o
+                                      0x95cc5 (size before relaxing)
+ .debug_str     0x000000000009dcdf     0x177a Src/command.o
+                                      0x97352 (size before relaxing)
+ .debug_str     0x000000000009f459       0x2c Src/crc.o
                                       0x8c7a0 (size before relaxing)
- .debug_str     0x000000000009f47c       0x22 Src/dma.o
+ .debug_str     0x000000000009f485       0x22 Src/dma.o
                                       0x8c9f7 (size before relaxing)
- .debug_str     0x000000000009f49e      0x212 Src/flash.o
-                                      0x9696b (size before relaxing)
- .debug_str     0x000000000009f6b0      0x1b6 Src/freertos.o
+ .debug_str     0x000000000009f4a7      0x216 Src/flash.o
+                                      0x9696f (size before relaxing)
+ .debug_str     0x000000000009f6bd      0x1b6 Src/freertos.o
                                       0x9469e (size before relaxing)
- .debug_str     0x000000000009f866       0x25 Src/gpio.o
+ .debug_str     0x000000000009f873       0x25 Src/gpio.o
                                       0x8ca97 (size before relaxing)
- .debug_str     0x000000000009f88b      0x64c Src/heap_useNewlib.o
+ .debug_str     0x000000000009f898      0x64c Src/heap_useNewlib.o
                                        0xb585 (size before relaxing)
- .debug_str     0x000000000009fed7       0x33 Src/i2c.o
+ .debug_str     0x000000000009fee4       0x33 Src/i2c.o
                                       0x8cc1a (size before relaxing)
- .debug_str     0x000000000009ff0a     0x38bd Src/lsm6dsl.o
-                                      0x9a68d (size before relaxing)
- .debug_str     0x00000000000a37c7     0x2bdd Src/lsm6dsl_reg.o
+ .debug_str     0x000000000009ff17     0x38c4 Src/lsm6dsl.o
+                                      0x9a68f (size before relaxing)
+ .debug_str     0x00000000000a37db     0x2bdd Src/lsm6dsl_reg.o
                                        0xcc35 (size before relaxing)
- .debug_str     0x00000000000a63a4       0x97 Src/main.o
+ .debug_str     0x00000000000a63b8       0x97 Src/main.o
                                       0x94f1f (size before relaxing)
- .debug_str     0x00000000000a643b       0x4b Src/rtc.o
+ .debug_str     0x00000000000a644f       0x4b Src/rtc.o
                                       0x8cc83 (size before relaxing)
- .debug_str     0x00000000000a6486       0x1b Src/stm32f4xx_hal_msp.o
+ .debug_str     0x00000000000a649a       0x1b Src/stm32f4xx_hal_msp.o
                                       0x8c9fc (size before relaxing)
- .debug_str     0x00000000000a64a1       0x50 Src/stm32f4xx_hal_timebase_tim.o
+ .debug_str     0x00000000000a64b5       0x50 Src/stm32f4xx_hal_timebase_tim.o
                                       0x8cf0b (size before relaxing)
- .debug_str     0x00000000000a64f1      0x14e Src/stm32f4xx_it.o
+ .debug_str     0x00000000000a6505      0x14e Src/stm32f4xx_it.o
                                       0x92756 (size before relaxing)
- .debug_str     0x00000000000a663f      0x2c0 Src/system_debug.o
+ .debug_str     0x00000000000a6653      0x2c0 Src/system_debug.o
                                       0x96d3a (size before relaxing)
- .debug_str     0x00000000000a68ff       0x8a Src/system_isr.o
+ .debug_str     0x00000000000a6913       0x8a Src/system_isr.o
                                       0x9455c (size before relaxing)
- .debug_str     0x00000000000a6989       0x5a Src/system_stm32f4xx.o
+ .debug_str     0x00000000000a699d       0x5a Src/system_stm32f4xx.o
                                       0x8c6ed (size before relaxing)
- .debug_str     0x00000000000a69e3       0x51 Src/tim.o
+ .debug_str     0x00000000000a69f7       0x51 Src/tim.o
                                       0x8cc90 (size before relaxing)
- .debug_str     0x00000000000a6a34       0x2e Src/usart.o
+ .debug_str     0x00000000000a6a48       0x2e Src/usart.o
                                       0x8cef5 (size before relaxing)
- .debug_str     0x00000000000a6a62       0x31 Startup/startup_stm32f411retx.o
+ .debug_str     0x00000000000a6a76       0x31 Startup/startup_stm32f411retx.o
                                          0x73 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

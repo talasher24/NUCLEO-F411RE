@@ -70,7 +70,7 @@ static float P_Acceleration_G_Sum[3];
 static float P_Angular_Rate_Dps_Sum[3];
 
 static stmdev_ctx_t Dev_Ctx;
-static char P_Data[BUFFER_SIZE];
+static char Data[BUFFER_SIZE];
 
 static lsm6dsl_mode_t Lsm6dsl_Mode;
 static lsm6dsl_is_connected_t Lsm6dsl_Is_Connected;
@@ -252,10 +252,10 @@ static void LSM6DSL_perSampleProcess (void)
 	  P_Acceleration_Mg[1] = lsm6dsl_from_fs8g_to_mg( Data_Raw_Acceleration.i16bit[1]);
 	  P_Acceleration_Mg[2] = lsm6dsl_from_fs8g_to_mg( Data_Raw_Acceleration.i16bit[2]);
 
-	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
 	  			  P_Acceleration_Mg[0], P_Acceleration_Mg[1], P_Acceleration_Mg[2]);
 
-	  COM_uartPrint(P_Data);
+	  COM_uartPrint(Data);
 	}
 	if (reg.status_reg.gda)
 	{
@@ -265,10 +265,10 @@ static void LSM6DSL_perSampleProcess (void)
 	  P_Angular_Rate_Mdps[1] = lsm6dsl_from_fs500dps_to_mdps(Data_Raw_Angular_Rate.i16bit[1]);
 	  P_Angular_Rate_Mdps[2] = lsm6dsl_from_fs500dps_to_mdps(Data_Raw_Angular_Rate.i16bit[2]);
 
-	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
 			  P_Angular_Rate_Mdps[0], P_Angular_Rate_Mdps[1], P_Angular_Rate_Mdps[2]);
 
-	  COM_uartPrint(P_Data);
+	  COM_uartPrint(Data);
 	}
 }
 
@@ -386,8 +386,8 @@ static void LSM6DSL_fifoReadAllData(void)
 	lsm6dsl_fifo_data_level_get(&Dev_Ctx, &unread_int16_fifo_samples);
 
 	uint16_t unread_acc_and_gyro_samples = unread_int16_fifo_samples / ACC_AND_GYRO_SINGLE_FIFO_SAMPLE;
-	sprintf(P_Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
-	COM_uartPrint(P_Data);
+	sprintf(Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
+	COM_uartPrint(Data);
 
 	while (unread_acc_and_gyro_samples > 0)
 	{
@@ -434,26 +434,26 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
   */
 static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 {
-	sprintf(P_Data, "%d samples average:\n", divider);
-	COM_uartPrint(P_Data);
+	sprintf(Data, "%d samples average:\n", divider);
+	COM_uartPrint(Data);
 
 	P_Acceleration_G_Sum[0] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[0] / divider )/1000;
 	P_Acceleration_G_Sum[1] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[1] / divider )/1000;
 	P_Acceleration_G_Sum[2] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[2] / divider )/1000;
 
-	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
 			P_Acceleration_G_Sum[0], P_Acceleration_G_Sum[1], P_Acceleration_G_Sum[2]);
 
-	COM_uartPrint(P_Data);
+	COM_uartPrint(Data);
 
 	P_Angular_Rate_Dps_Sum[0] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[0] / divider )/1000;
 	P_Angular_Rate_Dps_Sum[1] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[1] / divider )/1000;
 	P_Angular_Rate_Dps_Sum[2] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[2] / divider )/1000;
 
-	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
 				P_Angular_Rate_Dps_Sum[0], P_Angular_Rate_Dps_Sum[1], P_Angular_Rate_Dps_Sum[2]);
 
-	COM_uartPrint(P_Data);
+	COM_uartPrint(Data);
 
 	//COM_uartPrint("test\n");
 }

@@ -43,11 +43,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  19 .debug_line   000219e7  00000000  00000000  0008b618  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_str    000a6a93  00000000  00000000  000acfff  2**0
+ 20 .debug_str    000a6aa7  00000000  00000000  000acfff  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .comment      0000007b  00000000  00000000  00153a92  2**0
+ 21 .comment      0000007b  00000000  00000000  00153aa6  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  0000a8c0  00000000  00000000  00153b10  2**2
+ 22 .debug_frame  0000a8c0  00000000  00000000  00153b24  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -30940,13 +30940,13 @@ void COM_readyCommandProcess(void)
 		queue_msg_get = evt.value.p;
  800c1d8:	68bb      	ldr	r3, [r7, #8]
  800c1da:	617b      	str	r3, [r7, #20]
-		char* token = strtok((char*)queue_msg_get->p_buffer, " ");
+		char* p_token = strtok((char*)queue_msg_get->p_buffer, " ");
  800c1dc:	697b      	ldr	r3, [r7, #20]
  800c1de:	490a      	ldr	r1, [pc, #40]	; (800c208 <COM_readyCommandProcess+0x4c>)
  800c1e0:	4618      	mov	r0, r3
  800c1e2:	f003 ff57 	bl	8010094 <strtok>
  800c1e6:	6138      	str	r0, [r7, #16]
-		COMMAND_findAndExecuteCommand(token);
+		COMMAND_findAndExecuteCommand(p_token);
  800c1e8:	6938      	ldr	r0, [r7, #16]
  800c1ea:	f000 f8b5 	bl	800c358 <COMMAND_findAndExecuteCommand>
 		osMailFree(rxMailQueueHandle, queue_msg_get);
@@ -30970,7 +30970,7 @@ void COM_readyCommandProcess(void)
   * @param 	XXX
   * @retval	XXX
   */
-void COM_uartPrint(char* token)
+void COM_uartPrint(char* p_token)
 {
  800c20c:	b580      	push	{r7, lr}
  800c20e:	b084      	sub	sp, #16
@@ -30997,7 +30997,7 @@ void COM_uartPrint(char* token)
 		return;
  800c232:	e016      	b.n	800c262 <COM_uartPrint+0x56>
 	}
-	strncpy((char*)queue_msg_set->p_buffer, token, sizeof(queue_msg_set->p_buffer));
+	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));
  800c234:	68fb      	ldr	r3, [r7, #12]
  800c236:	2264      	movs	r2, #100	; 0x64
  800c238:	6879      	ldr	r1, [r7, #4]
@@ -31121,7 +31121,7 @@ static void COM_setTxBusyFlagOn(void)
 {
  800c2ec:	b480      	push	{r7}
  800c2ee:	af00      	add	r7, sp, #0
-	tx_busy = true;
+	Tx_Busy = true;
  800c2f0:	4b03      	ldr	r3, [pc, #12]	; (800c300 <COM_setTxBusyFlagOn+0x14>)
  800c2f2:	2201      	movs	r2, #1
  800c2f4:	701a      	strb	r2, [r3, #0]
@@ -31141,7 +31141,7 @@ static void COM_setTxBusyFlagOff(void)
 {
  800c304:	b480      	push	{r7}
  800c306:	af00      	add	r7, sp, #0
-	tx_busy = false;
+	Tx_Busy = false;
  800c308:	4b03      	ldr	r3, [pc, #12]	; (800c318 <COM_setTxBusyFlagOff+0x14>)
  800c30a:	2200      	movs	r2, #0
  800c30c:	701a      	strb	r2, [r3, #0]
@@ -31161,7 +31161,7 @@ bool COM_getTxBusyFlag(void)
 {
  800c31c:	b480      	push	{r7}
  800c31e:	af00      	add	r7, sp, #0
-	return tx_busy;
+	return Tx_Busy;
  800c320:	4b03      	ldr	r3, [pc, #12]	; (800c330 <COM_getTxBusyFlag+0x14>)
  800c322:	781b      	ldrb	r3, [r3, #0]
 }
@@ -31204,7 +31204,7 @@ static void COM_bufferInit(uint8_t* p_buffer)
    * @param 	XXX
    * @retval	XXX
    */
-void COMMAND_findAndExecuteCommand(char* token)
+void COMMAND_findAndExecuteCommand(char* p_token)
 {
  800c358:	b580      	push	{r7, lr}
  800c35a:	b084      	sub	sp, #16
@@ -31215,7 +31215,7 @@ void COMMAND_findAndExecuteCommand(char* token)
  800c362:	73fb      	strb	r3, [r7, #15]
  800c364:	e02a      	b.n	800c3bc <COMMAND_findAndExecuteCommand+0x64>
 	{
-		if (strncmp(token, P_COMMANDS[i].name, P_COMMANDS[i].size)==0)
+		if (strncmp(p_token, P_COMMANDS[i].p_name, P_COMMANDS[i].size)==0)
  800c366:	7bfa      	ldrb	r2, [r7, #15]
  800c368:	4917      	ldr	r1, [pc, #92]	; (800c3c8 <COMMAND_findAndExecuteCommand+0x70>)
  800c36a:	4613      	mov	r3, r2
@@ -31244,7 +31244,7 @@ void COMMAND_findAndExecuteCommand(char* token)
 			COM_uartPrint(OK);
  800c398:	480c      	ldr	r0, [pc, #48]	; (800c3cc <COMMAND_findAndExecuteCommand+0x74>)
  800c39a:	f7ff ff37 	bl	800c20c <COM_uartPrint>
-			P_COMMANDS[i].func_ptr(token);
+			P_COMMANDS[i].func_ptr(p_token);
  800c39e:	7bfa      	ldrb	r2, [r7, #15]
  800c3a0:	4909      	ldr	r1, [pc, #36]	; (800c3c8 <COMMAND_findAndExecuteCommand+0x70>)
  800c3a2:	4613      	mov	r3, r2
@@ -31279,7 +31279,7 @@ void COMMAND_findAndExecuteCommand(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pingCallback(char* token)
+void COMMAND_pingCallback(char* p_token)
 {
  800c3d0:	b580      	push	{r7, lr}
  800c3d2:	b082      	sub	sp, #8
@@ -31301,7 +31301,7 @@ void COMMAND_pingCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_getVersionCallback(char* token)
+void COMMAND_getVersionCallback(char* p_token)
 {
  800c3ec:	b580      	push	{r7, lr}
  800c3ee:	b082      	sub	sp, #8
@@ -31320,7 +31320,7 @@ void COMMAND_getVersionCallback(char* token)
 
 0800c408 <COMMAND_pwmStartCallback>:
 
-void COMMAND_pwmStartCallback(char* token)
+void COMMAND_pwmStartCallback(char* p_token)
 {
  800c408:	b580      	push	{r7, lr}
  800c40a:	b082      	sub	sp, #8
@@ -31342,7 +31342,7 @@ void COMMAND_pwmStartCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pwmStopCallback(char* token)
+void COMMAND_pwmStopCallback(char* p_token)
 {
  800c424:	b580      	push	{r7, lr}
  800c426:	b082      	sub	sp, #8
@@ -31364,18 +31364,18 @@ void COMMAND_pwmStopCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_pwmDcCallback(char* token)
+void COMMAND_pwmDcCallback(char* p_token)
 {
  800c440:	b580      	push	{r7, lr}
  800c442:	b084      	sub	sp, #16
  800c444:	af00      	add	r7, sp, #0
  800c446:	6078      	str	r0, [r7, #4]
-	token = strtok(NULL, " ");
+	p_token = strtok(NULL, " ");
  800c448:	490d      	ldr	r1, [pc, #52]	; (800c480 <COMMAND_pwmDcCallback+0x40>)
  800c44a:	2000      	movs	r0, #0
  800c44c:	f003 fe22 	bl	8010094 <strtok>
  800c450:	6078      	str	r0, [r7, #4]
-	int32_t dc = atoi(token);
+	int32_t dc = atoi(p_token);
  800c452:	6878      	ldr	r0, [r7, #4]
  800c454:	f003 f81b 	bl	800f48e <atoi>
  800c458:	60f8      	str	r0, [r7, #12]
@@ -31410,7 +31410,7 @@ void COMMAND_pwmDcCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_crcWholeFlashCalcCallback(char* token)
+void COMMAND_crcWholeFlashCalcCallback(char* p_token)
 {
  800c488:	b580      	push	{r7, lr}
  800c48a:	b082      	sub	sp, #8
@@ -31429,7 +31429,7 @@ void COMMAND_crcWholeFlashCalcCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_iwdgTestCallback(char* token)
+void COMMAND_iwdgTestCallback(char* p_token)
 {
  800c49c:	b480      	push	{r7}
  800c49e:	b083      	sub	sp, #12
@@ -31450,7 +31450,7 @@ void COMMAND_iwdgTestCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_flashLockCallback(char* token)
+void COMMAND_flashLockCallback(char* p_token)
 {
  800c4b0:	b580      	push	{r7, lr}
  800c4b2:	b082      	sub	sp, #8
@@ -31469,7 +31469,7 @@ void COMMAND_flashLockCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_setSNCallback(char* token)
+void COMMAND_setSNCallback(char* p_token)
 {
  800c4c4:	b580      	push	{r7, lr}
  800c4c6:	b082      	sub	sp, #8
@@ -31488,7 +31488,7 @@ void COMMAND_setSNCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_getSNCallback(char* token)
+void COMMAND_getSNCallback(char* p_token)
 {
  800c4d8:	b580      	push	{r7, lr}
  800c4da:	b082      	sub	sp, #8
@@ -31507,7 +31507,7 @@ void COMMAND_getSNCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_startTickCallback(char* token)
+void COMMAND_startTickCallback(char* p_token)
 {
  800c4ec:	b580      	push	{r7, lr}
  800c4ee:	b082      	sub	sp, #8
@@ -31526,7 +31526,7 @@ void COMMAND_startTickCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_stopTickCallback(char* token)
+void COMMAND_stopTickCallback(char* p_token)
 {
  800c500:	b580      	push	{r7, lr}
  800c502:	b082      	sub	sp, #8
@@ -31545,7 +31545,7 @@ void COMMAND_stopTickCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_assert0Callback(char* token)
+void COMMAND_assert0Callback(char* p_token)
 {
  800c514:	b580      	push	{r7, lr}
  800c516:	b082      	sub	sp, #8
@@ -31568,7 +31568,7 @@ void COMMAND_assert0Callback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_clearAssertFlagCallback(char* token)
+void COMMAND_clearAssertFlagCallback(char* p_token)
 {
  800c534:	b580      	push	{r7, lr}
  800c536:	b082      	sub	sp, #8
@@ -31587,7 +31587,7 @@ void COMMAND_clearAssertFlagCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslPerSampleEnableCallback(char* token)
+void COMMAND_lsm6dslPerSampleEnableCallback(char* p_token)
 {
  800c548:	b580      	push	{r7, lr}
  800c54a:	b082      	sub	sp, #8
@@ -31606,7 +31606,7 @@ void COMMAND_lsm6dslPerSampleEnableCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslFifoEnableCallback(char* token)
+void COMMAND_lsm6dslFifoEnableCallback(char* p_token)
 {
  800c55c:	b580      	push	{r7, lr}
  800c55e:	b082      	sub	sp, #8
@@ -31625,7 +31625,7 @@ void COMMAND_lsm6dslFifoEnableCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_lsm6dslDisableCallback(char* token)
+void COMMAND_lsm6dslDisableCallback(char* p_token)
 {
  800c570:	b580      	push	{r7, lr}
  800c572:	b082      	sub	sp, #8
@@ -31644,18 +31644,18 @@ void COMMAND_lsm6dslDisableCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_enterStopModeCallback(char* token)
+void COMMAND_enterStopModeCallback(char* p_token)
 {
  800c584:	b580      	push	{r7, lr}
  800c586:	b084      	sub	sp, #16
  800c588:	af00      	add	r7, sp, #0
  800c58a:	6078      	str	r0, [r7, #4]
-	token = strtok(NULL, " ");
+	p_token = strtok(NULL, " ");
  800c58c:	4908      	ldr	r1, [pc, #32]	; (800c5b0 <COMMAND_enterStopModeCallback+0x2c>)
  800c58e:	2000      	movs	r0, #0
  800c590:	f003 fd80 	bl	8010094 <strtok>
  800c594:	6078      	str	r0, [r7, #4]
-	uint32_t wake_up_time = atoi(token);
+	uint32_t wake_up_time = atoi(p_token);
  800c596:	6878      	ldr	r0, [r7, #4]
  800c598:	f002 ff79 	bl	800f48e <atoi>
  800c59c:	4603      	mov	r3, r0
@@ -31676,7 +31676,7 @@ void COMMAND_enterStopModeCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_enterStandbyModeCallback(char* token)
+void COMMAND_enterStandbyModeCallback(char* p_token)
 {
  800c5b4:	b580      	push	{r7, lr}
  800c5b6:	b082      	sub	sp, #8
@@ -31695,18 +31695,18 @@ void COMMAND_enterStandbyModeCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_startOsTimerCallback(char* token)
+void COMMAND_startOsTimerCallback(char* p_token)
 {
  800c5c8:	b580      	push	{r7, lr}
  800c5ca:	b084      	sub	sp, #16
  800c5cc:	af00      	add	r7, sp, #0
  800c5ce:	6078      	str	r0, [r7, #4]
-	token = strtok(NULL, " ");
+	p_token = strtok(NULL, " ");
  800c5d0:	490a      	ldr	r1, [pc, #40]	; (800c5fc <COMMAND_startOsTimerCallback+0x34>)
  800c5d2:	2000      	movs	r0, #0
  800c5d4:	f003 fd5e 	bl	8010094 <strtok>
  800c5d8:	6078      	str	r0, [r7, #4]
-	uint32_t timer_period_milisec = atoi(token) * 1000;
+	uint32_t timer_period_milisec = atoi(p_token) * 1000;
  800c5da:	6878      	ldr	r0, [r7, #4]
  800c5dc:	f002 ff57 	bl	800f48e <atoi>
  800c5e0:	4602      	mov	r2, r0
@@ -31729,7 +31729,7 @@ void COMMAND_startOsTimerCallback(char* token)
   * @param 	XXX
   * @retval	XXX
   */
-void COMMAND_stopOsTimerCallback(char* token)
+void COMMAND_stopOsTimerCallback(char* p_token)
 {
  800c600:	b580      	push	{r7, lr}
  800c602:	b082      	sub	sp, #8
@@ -31936,7 +31936,7 @@ void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataType)
 {
  800c71c:	b590      	push	{r4, r7, lr}
  800c71e:	b089      	sub	sp, #36	; 0x24
@@ -31975,7 +31975,7 @@ void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataTyp
  800c74c:	61bb      	str	r3, [r7, #24]
  800c74e:	e012      	b.n	800c776 <FLASH_writeN+0x5a>
 				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)wrBuf)[i]);
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)p_wrBuf)[i]);
  800c750:	68ba      	ldr	r2, [r7, #8]
  800c752:	69bb      	ldr	r3, [r7, #24]
  800c754:	4413      	add	r3, r2
@@ -32009,7 +32009,7 @@ void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataTyp
  800c782:	617b      	str	r3, [r7, #20]
  800c784:	e013      	b.n	800c7ae <FLASH_writeN+0x92>
 				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)wrBuf)[i]);
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)p_wrBuf)[i]);
  800c786:	697b      	ldr	r3, [r7, #20]
  800c788:	005b      	lsls	r3, r3, #1
  800c78a:	68ba      	ldr	r2, [r7, #8]
@@ -32044,7 +32044,7 @@ void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataTyp
  800c7ba:	613b      	str	r3, [r7, #16]
  800c7bc:	e012      	b.n	800c7e4 <FLASH_writeN+0xc8>
 				{
-					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)wrBuf)[i]);
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)p_wrBuf)[i]);
  800c7be:	693b      	ldr	r3, [r7, #16]
  800c7c0:	009b      	lsls	r3, r3, #2
  800c7c2:	68ba      	ldr	r2, [r7, #8]
@@ -32088,7 +32088,7 @@ void FLASH_writeN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef dataTyp
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataType)
 {
  800c800:	b480      	push	{r7}
  800c802:	b089      	sub	sp, #36	; 0x24
@@ -32112,7 +32112,7 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
  800c820:	d02b      	beq.n	800c87a <FLASH_readN+0x7a>
  800c822:	2b00      	cmp	r3, #0
  800c824:	d000      	beq.n	800c828 <FLASH_readN+0x28>
-					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
+					*((uint32_t *)p_rdBuf + i) = *(uint32_t *)flashAddress;
 					flashAddress+=4;
 				}
 			break;
@@ -32123,7 +32123,7 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
  800c828:	2300      	movs	r3, #0
  800c82a:	61bb      	str	r3, [r7, #24]
  800c82c:	e00b      	b.n	800c846 <FLASH_readN+0x46>
-					*((uint8_t *)rdBuf + i) = *(uint8_t *)flashAddress;
+					*((uint8_t *)p_rdBuf + i) = *(uint8_t *)flashAddress;
  800c82e:	69fa      	ldr	r2, [r7, #28]
  800c830:	68b9      	ldr	r1, [r7, #8]
  800c832:	69bb      	ldr	r3, [r7, #24]
@@ -32148,7 +32148,7 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
  800c850:	2300      	movs	r3, #0
  800c852:	617b      	str	r3, [r7, #20]
  800c854:	e00c      	b.n	800c870 <FLASH_readN+0x70>
-					*((uint16_t *)rdBuf + i) = *(uint16_t *)flashAddress;
+					*((uint16_t *)p_rdBuf + i) = *(uint16_t *)flashAddress;
  800c856:	69fa      	ldr	r2, [r7, #28]
  800c858:	697b      	ldr	r3, [r7, #20]
  800c85a:	005b      	lsls	r3, r3, #1
@@ -32174,7 +32174,7 @@ void FLASH_readN(uint32_t idx, void *rdBuf, uint32_t Nsize, DataTypeDef dataType
  800c87a:	2300      	movs	r3, #0
  800c87c:	613b      	str	r3, [r7, #16]
  800c87e:	e00c      	b.n	800c89a <FLASH_readN+0x9a>
-					*((uint32_t *)rdBuf + i) = *(uint32_t *)flashAddress;
+					*((uint32_t *)p_rdBuf + i) = *(uint32_t *)flashAddress;
  800c880:	69fa      	ldr	r2, [r7, #28]
  800c882:	693b      	ldr	r3, [r7, #16]
  800c884:	009b      	lsls	r3, r3, #2
@@ -33646,11 +33646,11 @@ static void LSM6DSL_perSampleProcess (void)
  800d0fc:	4b3f      	ldr	r3, [pc, #252]	; (800d1fc <LSM6DSL_perSampleProcess+0x16c>)
  800d0fe:	edc3 7a02 	vstr	s15, [r3, #8]
 
-	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
 	  			  P_Acceleration_Mg[0], P_Acceleration_Mg[1], P_Acceleration_Mg[2]);
  800d102:	4b3e      	ldr	r3, [pc, #248]	; (800d1fc <LSM6DSL_perSampleProcess+0x16c>)
  800d104:	681b      	ldr	r3, [r3, #0]
-	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
  800d106:	4618      	mov	r0, r3
  800d108:	f7f3 fa26 	bl	8000558 <__aeabi_f2d>
  800d10c:	4680      	mov	r8, r0
@@ -33658,7 +33658,7 @@ static void LSM6DSL_perSampleProcess (void)
 	  			  P_Acceleration_Mg[0], P_Acceleration_Mg[1], P_Acceleration_Mg[2]);
  800d110:	4b3a      	ldr	r3, [pc, #232]	; (800d1fc <LSM6DSL_perSampleProcess+0x16c>)
  800d112:	685b      	ldr	r3, [r3, #4]
-	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
  800d114:	4618      	mov	r0, r3
  800d116:	f7f3 fa1f 	bl	8000558 <__aeabi_f2d>
  800d11a:	4604      	mov	r4, r0
@@ -33666,7 +33666,7 @@ static void LSM6DSL_perSampleProcess (void)
 	  			  P_Acceleration_Mg[0], P_Acceleration_Mg[1], P_Acceleration_Mg[2]);
  800d11e:	4b37      	ldr	r3, [pc, #220]	; (800d1fc <LSM6DSL_perSampleProcess+0x16c>)
  800d120:	689b      	ldr	r3, [r3, #8]
-	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
  800d122:	4618      	mov	r0, r3
  800d124:	f7f3 fa18 	bl	8000558 <__aeabi_f2d>
  800d128:	4602      	mov	r2, r0
@@ -33679,7 +33679,7 @@ static void LSM6DSL_perSampleProcess (void)
  800d13a:	4832      	ldr	r0, [pc, #200]	; (800d204 <LSM6DSL_perSampleProcess+0x174>)
  800d13c:	f002 ff62 	bl	8010004 <siprintf>
 
-	  COM_uartPrint(Data);
+	  COM_uartPrint(P_Data);
  800d140:	4830      	ldr	r0, [pc, #192]	; (800d204 <LSM6DSL_perSampleProcess+0x174>)
  800d142:	f7ff f863 	bl	800c20c <COM_uartPrint>
 	}
@@ -33724,11 +33724,11 @@ static void LSM6DSL_perSampleProcess (void)
  800d1a0:	4b1a      	ldr	r3, [pc, #104]	; (800d20c <LSM6DSL_perSampleProcess+0x17c>)
  800d1a2:	edc3 7a02 	vstr	s15, [r3, #8]
 
-	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
 			  P_Angular_Rate_Mdps[0], P_Angular_Rate_Mdps[1], P_Angular_Rate_Mdps[2]);
  800d1a6:	4b19      	ldr	r3, [pc, #100]	; (800d20c <LSM6DSL_perSampleProcess+0x17c>)
  800d1a8:	681b      	ldr	r3, [r3, #0]
-	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d1aa:	4618      	mov	r0, r3
  800d1ac:	f7f3 f9d4 	bl	8000558 <__aeabi_f2d>
  800d1b0:	4680      	mov	r8, r0
@@ -33736,7 +33736,7 @@ static void LSM6DSL_perSampleProcess (void)
 			  P_Angular_Rate_Mdps[0], P_Angular_Rate_Mdps[1], P_Angular_Rate_Mdps[2]);
  800d1b4:	4b15      	ldr	r3, [pc, #84]	; (800d20c <LSM6DSL_perSampleProcess+0x17c>)
  800d1b6:	685b      	ldr	r3, [r3, #4]
-	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d1b8:	4618      	mov	r0, r3
  800d1ba:	f7f3 f9cd 	bl	8000558 <__aeabi_f2d>
  800d1be:	4604      	mov	r4, r0
@@ -33744,7 +33744,7 @@ static void LSM6DSL_perSampleProcess (void)
 			  P_Angular_Rate_Mdps[0], P_Angular_Rate_Mdps[1], P_Angular_Rate_Mdps[2]);
  800d1c2:	4b12      	ldr	r3, [pc, #72]	; (800d20c <LSM6DSL_perSampleProcess+0x17c>)
  800d1c4:	689b      	ldr	r3, [r3, #8]
-	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d1c6:	4618      	mov	r0, r3
  800d1c8:	f7f3 f9c6 	bl	8000558 <__aeabi_f2d>
  800d1cc:	4602      	mov	r2, r0
@@ -33757,7 +33757,7 @@ static void LSM6DSL_perSampleProcess (void)
  800d1de:	4809      	ldr	r0, [pc, #36]	; (800d204 <LSM6DSL_perSampleProcess+0x174>)
  800d1e0:	f002 ff10 	bl	8010004 <siprintf>
 
-	  COM_uartPrint(Data);
+	  COM_uartPrint(P_Data);
  800d1e4:	4807      	ldr	r0, [pc, #28]	; (800d204 <LSM6DSL_perSampleProcess+0x174>)
  800d1e6:	f7ff f811 	bl	800c20c <COM_uartPrint>
 	}
@@ -34029,13 +34029,13 @@ static void LSM6DSL_fifoReadAllData(void)
  800d362:	fba2 2303 	umull	r2, r3, r2, r3
  800d366:	089b      	lsrs	r3, r3, #2
  800d368:	817b      	strh	r3, [r7, #10]
-	sprintf(Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
+	sprintf(P_Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
  800d36a:	897b      	ldrh	r3, [r7, #10]
  800d36c:	461a      	mov	r2, r3
  800d36e:	4923      	ldr	r1, [pc, #140]	; (800d3fc <LSM6DSL_fifoReadAllData+0xe0>)
  800d370:	4823      	ldr	r0, [pc, #140]	; (800d400 <LSM6DSL_fifoReadAllData+0xe4>)
  800d372:	f002 fe47 	bl	8010004 <siprintf>
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
  800d376:	4822      	ldr	r0, [pc, #136]	; (800d400 <LSM6DSL_fifoReadAllData+0xe4>)
  800d378:	f7fe ff48 	bl	800c20c <COM_uartPrint>
 
@@ -34229,13 +34229,13 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800d4fa:	af04      	add	r7, sp, #16
  800d4fc:	4603      	mov	r3, r0
  800d4fe:	80fb      	strh	r3, [r7, #6]
-	sprintf(Data, "%d samples average:\n", divider);
+	sprintf(P_Data, "%d samples average:\n", divider);
  800d500:	88fb      	ldrh	r3, [r7, #6]
  800d502:	461a      	mov	r2, r3
  800d504:	4978      	ldr	r1, [pc, #480]	; (800d6e8 <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f4>)
  800d506:	4879      	ldr	r0, [pc, #484]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d508:	f002 fd7c 	bl	8010004 <siprintf>
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
  800d50c:	4877      	ldr	r0, [pc, #476]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d50e:	f7fe fe7d 	bl	800c20c <COM_uartPrint>
 
@@ -34291,11 +34291,11 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800d5ae:	4b50      	ldr	r3, [pc, #320]	; (800d6f0 <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1fc>)
  800d5b0:	edc3 7a02 	vstr	s15, [r3, #8]
 
-	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
 			P_Acceleration_G_Sum[0], P_Acceleration_G_Sum[1], P_Acceleration_G_Sum[2]);
  800d5b4:	4b4e      	ldr	r3, [pc, #312]	; (800d6f0 <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1fc>)
  800d5b6:	681b      	ldr	r3, [r3, #0]
-	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
  800d5b8:	4618      	mov	r0, r3
  800d5ba:	f7f2 ffcd 	bl	8000558 <__aeabi_f2d>
  800d5be:	4680      	mov	r8, r0
@@ -34303,7 +34303,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 			P_Acceleration_G_Sum[0], P_Acceleration_G_Sum[1], P_Acceleration_G_Sum[2]);
  800d5c2:	4b4b      	ldr	r3, [pc, #300]	; (800d6f0 <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1fc>)
  800d5c4:	685b      	ldr	r3, [r3, #4]
-	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
  800d5c6:	4618      	mov	r0, r3
  800d5c8:	f7f2 ffc6 	bl	8000558 <__aeabi_f2d>
  800d5cc:	4604      	mov	r4, r0
@@ -34311,7 +34311,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 			P_Acceleration_G_Sum[0], P_Acceleration_G_Sum[1], P_Acceleration_G_Sum[2]);
  800d5d0:	4b47      	ldr	r3, [pc, #284]	; (800d6f0 <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1fc>)
  800d5d2:	689b      	ldr	r3, [r3, #8]
-	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
  800d5d4:	4618      	mov	r0, r3
  800d5d6:	f7f2 ffbf 	bl	8000558 <__aeabi_f2d>
  800d5da:	4602      	mov	r2, r0
@@ -34324,7 +34324,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800d5ec:	483f      	ldr	r0, [pc, #252]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d5ee:	f002 fd09 	bl	8010004 <siprintf>
 
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
  800d5f2:	483e      	ldr	r0, [pc, #248]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d5f4:	f7fe fe0a 	bl	800c20c <COM_uartPrint>
 
@@ -34380,11 +34380,11 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800d694:	4b19      	ldr	r3, [pc, #100]	; (800d6fc <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x208>)
  800d696:	edc3 7a02 	vstr	s15, [r3, #8]
 
-	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
 				P_Angular_Rate_Dps_Sum[0], P_Angular_Rate_Dps_Sum[1], P_Angular_Rate_Dps_Sum[2]);
  800d69a:	4b18      	ldr	r3, [pc, #96]	; (800d6fc <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x208>)
  800d69c:	681b      	ldr	r3, [r3, #0]
-	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d69e:	4618      	mov	r0, r3
  800d6a0:	f7f2 ff5a 	bl	8000558 <__aeabi_f2d>
  800d6a4:	4680      	mov	r8, r0
@@ -34392,7 +34392,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 				P_Angular_Rate_Dps_Sum[0], P_Angular_Rate_Dps_Sum[1], P_Angular_Rate_Dps_Sum[2]);
  800d6a8:	4b14      	ldr	r3, [pc, #80]	; (800d6fc <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x208>)
  800d6aa:	685b      	ldr	r3, [r3, #4]
-	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d6ac:	4618      	mov	r0, r3
  800d6ae:	f7f2 ff53 	bl	8000558 <__aeabi_f2d>
  800d6b2:	4604      	mov	r4, r0
@@ -34400,7 +34400,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 				P_Angular_Rate_Dps_Sum[0], P_Angular_Rate_Dps_Sum[1], P_Angular_Rate_Dps_Sum[2]);
  800d6b6:	4b11      	ldr	r3, [pc, #68]	; (800d6fc <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x208>)
  800d6b8:	689b      	ldr	r3, [r3, #8]
-	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
  800d6ba:	4618      	mov	r0, r3
  800d6bc:	f7f2 ff4c 	bl	8000558 <__aeabi_f2d>
  800d6c0:	4602      	mov	r2, r0
@@ -34413,7 +34413,7 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800d6d2:	4806      	ldr	r0, [pc, #24]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d6d4:	f002 fc96 	bl	8010004 <siprintf>
 
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
  800d6d8:	4804      	ldr	r0, [pc, #16]	; (800d6ec <LSM6DSL_fifoCalcAccGyroAvgAndPrint+0x1f8>)
  800d6da:	f7fe fd97 	bl	800c20c <COM_uartPrint>
 

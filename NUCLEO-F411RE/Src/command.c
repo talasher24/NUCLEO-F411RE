@@ -91,7 +91,7 @@
 * Module Variable Definitions
 *******************************************************************************/
 
- const command_t Commands [NUM_OF_COMMANDS] = {
+ const command_t P_COMMANDS [NUM_OF_COMMANDS] = {
 		{PING_COMMAND_NAME, 			sizeof(PING_COMMAND_NAME), 			COMMAND_pingCallback						},
  		{GET_VERSION_COMMAND_NAME, 		sizeof(GET_VERSION_COMMAND_NAME), 	COMMAND_getVersionCallback					},
  		{PWM_START_COMMAND_NAME, 		sizeof(PWM_START_COMMAND_NAME), 	COMMAND_pwmStartCallback					},
@@ -132,10 +132,10 @@ void COMMAND_findAndExecuteCommand(char* token)
 {
 	for (uint8_t i = 0; i < NUM_OF_COMMANDS; i++)
 	{
-		if (strncmp(token, Commands[i].name, Commands[i].size)==0)
+		if (strncmp(token, P_COMMANDS[i].name, P_COMMANDS[i].size)==0)
 		{
 			COM_uartPrint(OK);
-			Commands[i].func_ptr(token);
+			P_COMMANDS[i].func_ptr(token);
 			return;
 		}
 	}

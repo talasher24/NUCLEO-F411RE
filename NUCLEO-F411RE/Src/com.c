@@ -37,6 +37,7 @@ typedef struct {
 * Module Variable Definitions
 *******************************************************************************/
 
+static osThreadId terminalTaskHandle;
 static bool Tx_Busy;
 static uint8_t Rx_Msg_Index;
 static queue_message_t *P_Tx_Current_Msg;
@@ -54,10 +55,38 @@ static bool COM_charHandler(void);
 static void COM_bufferInit(uint8_t* p_buffer);
 static void COM_setTxBusyFlagOff(void);
 static void COM_setTxBusyFlagOn(void);
+static void COM_readyCommandProcess(char* p_buffer);
 
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
+
+/* USER CODE BEGIN Header_StartTerminalTask */
+/**
+* @brief Function implementing the terminalTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTerminalTask */
+void StartTerminalTask(void const * argument)
+{
+  /* USER CODE BEGIN StartTerminalTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  osEvent evt;
+	  evt = osMailGet(RxMailQueueHandle, osWaitForever);
+	  if (evt.status == osEventMail)
+	  {
+		  queue_message_t *queue_msg_get;
+		  queue_msg_get = evt.value.p;
+		  COM_readyCommandProcess((char*)queue_msg_get->p_buffer);
+		  osMailFree(RxMailQueueHandle, queue_msg_get);
+	  }
+
+  }
+  /* USER CODE END StartTerminalTask */
+}
 
 /**
   * @brief 	XXX
@@ -66,6 +95,10 @@ static void COM_setTxBusyFlagOn(void);
   */
 void COM_init(void)
 {
+	/* definition and creation of terminalTask */
+	osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
+	terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
+
 	osMutexDef(UART_Tx_Mutex);
 	UART_Tx_Mutex_Handle = osMutexCreate(osMutex(UART_Tx_Mutex));
 	if (UART_Tx_Mutex_Handle == NULL)
@@ -153,18 +186,10 @@ static bool COM_charHandler(void)
   * @param 	XXX
   * @retval	XXX
   */
-void COM_readyCommandProcess(void)
+static void COM_readyCommandProcess(char* p_buffer)
 {
-	osEvent evt;
-	evt = osMailGet(RxMailQueueHandle, osWaitForever);
-	if (evt.status == osEventMail)
-	{
-		queue_message_t *queue_msg_get;
-		queue_msg_get = evt.value.p;
-		char* p_token = strtok((char*)queue_msg_get->p_buffer, " ");
-		COMMAND_findAndExecuteCommand(p_token);
-		osMailFree(RxMailQueueHandle, queue_msg_get);
-	}
+	char* p_token = strtok(p_buffer, " ");
+	COMMAND_findAndExecuteCommand(p_token);
 }
 
 /**

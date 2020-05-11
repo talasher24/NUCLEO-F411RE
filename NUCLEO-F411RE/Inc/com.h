@@ -42,7 +42,6 @@
  *******************************************************************************/
 
  void COM_init(void);
- void COM_readyCommandProcess(void);
  void COM_uartPrint(char* p_token);
  bool COM_getTxBusyFlag(void);
 

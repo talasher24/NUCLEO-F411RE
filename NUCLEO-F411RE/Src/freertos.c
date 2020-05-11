@@ -54,7 +54,6 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osThreadId terminalTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -62,7 +61,6 @@ osThreadId terminalTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-void StartTerminalTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -129,10 +127,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of terminalTask */
-  osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
-  terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -188,24 +182,6 @@ void StartDefaultTask(void const * argument)
 #endif
 	}
   /* USER CODE END StartDefaultTask */
-}
-
-/* USER CODE BEGIN Header_StartTerminalTask */
-/**
-* @brief Function implementing the terminalTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartTerminalTask */
-void StartTerminalTask(void const * argument)
-{
-  /* USER CODE BEGIN StartTerminalTask */
-  /* Infinite loop */
-  for(;;)
-  {
-	  COM_readyCommandProcess();
-  }
-  /* USER CODE END StartTerminalTask */
 }
 
 /* Private application code --------------------------------------------------*/

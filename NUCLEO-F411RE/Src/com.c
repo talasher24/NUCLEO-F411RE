@@ -41,8 +41,9 @@ static bool Tx_Busy;
 static uint8_t Rx_Msg_Index;
 static queue_message_t *P_Tx_Current_Msg;
 static queue_message_t *P_Rx_Current_Msg;
-static osMailQId  txMailQueueHandle;
-static osMailQId  rxMailQueueHandle;
+static osMailQId  TxMailQueueHandle;
+static osMailQId  RxMailQueueHandle;
+static osMutexId UART_Tx_Mutex_Handle;
 
 /******************************************************************************
 * Function Prototypes
@@ -65,13 +66,21 @@ static void COM_setTxBusyFlagOn(void);
   */
 void COM_init(void)
 {
+	osMutexDef(UART_Tx_Mutex);
+	UART_Tx_Mutex_Handle = osMutexCreate(osMutex(UART_Tx_Mutex));
+	if (UART_Tx_Mutex_Handle == NULL)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		return;
+	}
+
 	osMailQDef(txMailQueue, 16, queue_message_t);
-	txMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
+	TxMailQueueHandle = osMailCreate(osMailQ(txMailQueue), NULL);
 
 	osMailQDef(rxMailQueue, 16, queue_message_t);
-	rxMailQueueHandle = osMailCreate(osMailQ(rxMailQueue), NULL);
+	RxMailQueueHandle = osMailCreate(osMailQ(rxMailQueue), NULL);
 
-	P_Rx_Current_Msg = osMailAlloc(rxMailQueueHandle, 0);
+	P_Rx_Current_Msg = osMailAlloc(RxMailQueueHandle, 0);
 	if (P_Rx_Current_Msg == NULL)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
@@ -105,8 +114,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	 */
 	if (COM_charHandler())
 	{
-		osMailPut(rxMailQueueHandle, P_Rx_Current_Msg);
-		P_Rx_Current_Msg = osMailAlloc(rxMailQueueHandle, 0);
+		osMailPut(RxMailQueueHandle, P_Rx_Current_Msg);
+		P_Rx_Current_Msg = osMailAlloc(RxMailQueueHandle, 0);
 		if (P_Rx_Current_Msg == NULL)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
@@ -147,14 +156,14 @@ static bool COM_charHandler(void)
 void COM_readyCommandProcess(void)
 {
 	osEvent evt;
-	evt = osMailGet(rxMailQueueHandle, osWaitForever);
+	evt = osMailGet(RxMailQueueHandle, osWaitForever);
 	if (evt.status == osEventMail)
 	{
 		queue_message_t *queue_msg_get;
 		queue_msg_get = evt.value.p;
 		char* p_token = strtok((char*)queue_msg_get->p_buffer, " ");
 		COMMAND_findAndExecuteCommand(p_token);
-		osMailFree(rxMailQueueHandle, queue_msg_get);
+		osMailFree(RxMailQueueHandle, queue_msg_get);
 	}
 }
 
@@ -166,17 +175,18 @@ void COM_readyCommandProcess(void)
 void COM_uartPrint(char* p_token)
 {
 	queue_message_t *queue_msg_set;
-	queue_msg_set = osMailAlloc(txMailQueueHandle, 0);
+	queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
 	if (queue_msg_set == NULL)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 		return;
 	}
 	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));
-	osMailPut(txMailQueueHandle, queue_msg_set);
-	if (!COM_getTxBusyFlag())
+	osMailPut(TxMailQueueHandle, queue_msg_set);
+	if (!COM_getTxBusyFlag() && osMutexWait(UART_Tx_Mutex_Handle, 0) == osOK)
 	{
 		HAL_UART_TxCpltCallback(&huart2);
+		osMutexRelease(UART_Tx_Mutex_Handle);
 	}
 }
 
@@ -195,11 +205,11 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 	if (COM_getTxBusyFlag())
 	{
-		osMailFree(txMailQueueHandle, P_Tx_Current_Msg);
+		osMailFree(TxMailQueueHandle, P_Tx_Current_Msg);
 	}
 
 	osEvent evt;
-	evt = osMailGet(txMailQueueHandle, 0);
+	evt = osMailGet(TxMailQueueHandle, 0);
 	if (evt.status != osEventMail)
 	{
 		COM_setTxBusyFlagOff();

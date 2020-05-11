@@ -1,10 +1,23 @@
-13:31:28 **** Incremental Build of configuration Debug for project NUCLEO-F411RE ****
+18:26:32 **** Incremental Build of configuration Debug for project NUCLEO-F411RE ****
 make -j8 all 
+arm-none-eabi-gcc "../Src/com.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/com.d" -MT"Src/com.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/com.o"
+arm-none-eabi-gcc "../Src/command.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/command.d" -MT"Src/command.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/command.o"
+arm-none-eabi-gcc "../Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/freertos.d" -MT"Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/freertos.o"
+arm-none-eabi-gcc "../Src/system_isr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/system_isr.d" -MT"Src/system_isr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/system_isr.o"
+arm-none-eabi-gcc -o "NUCLEO-F411RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-F411RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NUCLEO-F411RE.elf
+ 
+arm-none-eabi-objdump -h -S  NUCLEO-F411RE.elf  > "NUCLEO-F411RE.list"
+arm-none-eabi-objcopy  -O binary  NUCLEO-F411RE.elf  "NUCLEO-F411RE.bin"
 arm-none-eabi-size   NUCLEO-F411RE.elf 
    text	   data	    bss	    dec	    hex	filename
-  74960	    492	   5672	  81124	  13ce4	NUCLEO-F411RE.elf
+  76960	    492	   5680	  83132	  144bc	NUCLEO-F411RE.elf
 Finished building: default.size.stdout
  
+Finished building: NUCLEO-F411RE.bin
+ 
+Finished building: NUCLEO-F411RE.list
+ 
 
-13:31:30 Build Finished. 0 errors, 0 warnings. (took 1s.660ms)
+18:26:44 Build Finished. 0 errors, 0 warnings. (took 11s.932ms)
 

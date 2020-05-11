@@ -128,15 +128,15 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityRealtime, 0, 256);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of terminalTask */
-  osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
+  osThreadDef(terminalTask, StartTerminalTask, osPriorityNormal, 0, 128);
   terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
 
   /* definition and creation of lsm6dslTask */
-  osThreadDef(lsm6dslTask, StartLsm6dslTask, osPriorityIdle, 0, 256);
+  osThreadDef(lsm6dslTask, StartLsm6dslTask, osPriorityNormal, 0, 256);
   lsm6dslTaskHandle = osThreadCreate(osThread(lsm6dslTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -172,7 +172,7 @@ void StartDefaultTask(void const * argument)
 
 	osStatus status;
 
-	status = osThreadTerminate (defaultTaskHandle);
+	status = osThreadTerminate(defaultTaskHandle);
 
 	if (status == osOK)
 	{

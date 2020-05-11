@@ -1,0 +1,10 @@
+flash.c:54:13:FLASH_eraseSector	8	static
+flash.c:67:6:FLASH_setSectorAddress	16	static
+flash.c:78:6:FLASH_writeN	48	static
+flash.c:123:6:FLASH_readN	40	static
+flash.c:160:6:FLASH_wrpSectorEnable	40	static
+flash.c:227:6:FLASH_wrpSectorDisable	40	static
+flash.c:294:6:FLASH_crcWholeFlashCalc	32	static
+flash.c:312:6:FLASH_lock	40	static
+flash.c:367:6:FLASH_setSerialNumberInSector7	16	static
+flash.c:384:6:FLASH_getSerialNumberFromSector7	32	static

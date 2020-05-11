@@ -31,7 +31,7 @@
  * Module Variable Definitions
  *******************************************************************************/
 
- void SYSTEM_DEBUG_assertRecord(uint8_t *file, uint32_t line);
+ void SYSTEM_DEBUG_assertRecord(uint8_t *p_file, uint32_t line);
  void SYSTEM_DEBUG_assertMsgPrint(void);
  void SYSTEM_DEBUG_assertResetFlag(void);
 

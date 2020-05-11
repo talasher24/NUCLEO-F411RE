@@ -37,27 +37,29 @@
  * Function Prototypes
  *******************************************************************************/
 
- void COMMAND_findAndExecuteCommand(char* token);
+ void COMMAND_findAndExecuteCommand(char* p_token);
 
- void COMMAND_pingCallback(char* token);
- void COMMAND_getVersionCallback(char* token);
- void COMMAND_pwmStartCallback(char* token);
- void COMMAND_pwmStopCallback(char* token);
- void COMMAND_pwmDcCallback(char* token);
- void COMMAND_crcWholeFlashCalcCallback(char* token);
- void COMMAND_iwdgTestCallback(char* token);
- void COMMAND_flashLockCallback(char* token);
- void COMMAND_setSNCallback(char* token);
- void COMMAND_getSNCallback(char* token);
- void COMMAND_startTickCallback(char* token);
- void COMMAND_stopTickCallback(char* token);
- void COMMAND_assert0Callback(char* token);
- void COMMAND_clearAssertFlagCallback(char* token);
- void COMMAND_lsm6dslPerSampleEnableCallback(char* token);
- void COMMAND_lsm6dslFifoEnableCallback(char* token);
- void COMMAND_lsm6dslDisableCallback(char* token);
- void COMMAND_enterStopModeCallback(char* token);
- void COMMAND_enterStandbyModeCallback(char* token);
+ void COMMAND_pingCallback(char* p_token);
+ void COMMAND_getVersionCallback(char* p_token);
+ void COMMAND_pwmStartCallback(char* p_token);
+ void COMMAND_pwmStopCallback(char* p_token);
+ void COMMAND_pwmDcCallback(char* p_token);
+ void COMMAND_crcWholeFlashCalcCallback(char* p_token);
+ void COMMAND_iwdgTestCallback(char* p_token);
+ void COMMAND_flashLockCallback(char* p_token);
+ void COMMAND_setSNCallback(char* p_token);
+ void COMMAND_getSNCallback(char* p_token);
+ void COMMAND_startTickCallback(char* p_token);
+ void COMMAND_stopTickCallback(char* p_token);
+ void COMMAND_assert0Callback(char* p_token);
+ void COMMAND_clearAssertFlagCallback(char* p_token);
+ void COMMAND_lsm6dslPerSampleEnableCallback(char* p_token);
+ void COMMAND_lsm6dslFifoEnableCallback(char* p_token);
+ void COMMAND_lsm6dslDisableCallback(char* p_token);
+ void COMMAND_enterStopModeCallback(char* p_token);
+ void COMMAND_enterStandbyModeCallback(char* p_token);
+ void COMMAND_startOsTimerCallback(char* p_token);
+ void COMMAND_stopOsTimerCallback(char* p_token);
 
  /******************************************************************************
  * Function Definitions

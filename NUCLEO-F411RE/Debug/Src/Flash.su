@@ -1,6 +1,0 @@
-flash.c:46:13:FLASH_eraseSector	8	static
-flash.c:54:6:FLASH_setSectorAddress	16	static
-flash.c:60:6:FLASH_writeN	48	static
-flash.c:100:6:FLASH_readN	40	static
-flash.c:132:6:FLASH_wrpSectorEnable	40	static
-flash.c:194:6:FLASH_wrpSectorDisable	40	static

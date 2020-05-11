@@ -67,6 +67,11 @@ const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause);
 * Function Definitions
 *******************************************************************************/
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_assertRecord(uint8_t *p_file, uint32_t line)
 {
 	Assert_Struct.flag = ASSERT_FLAG_ON;
@@ -83,30 +88,50 @@ void SYSTEM_DEBUG_assertRecord(uint8_t *p_file, uint32_t line)
 	while (1) {}; // never reached to here
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_assertMsgPrint(void)
 {
 	if (Assert_Struct.flag == ASSERT_FLAG_ON)
 	{
-		char temp [100];
+		char temp [BUFFER_SIZE];
 		sprintf(temp, "Problem found! Path: %s\tLine: %u\n", Assert_Struct.p_file, (unsigned int)Assert_Struct.line);
 		COM_uartPrint(temp);
 	}
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_assertResetFlag(void)
 {
 	Assert_Struct.flag = ASSERT_FLAG_OFF;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_printResetCause(void)
 {
 	Reset_Cause = SYSTEM_DEBUG_resetCauseGet();
 
-	char temp [100];
+	char temp [BUFFER_SIZE];
 	sprintf(temp, "The system reset cause is \%s\"\n", SYSTEM_DEBUG_resetCauseGetName(Reset_Cause));
 	COM_uartPrint(temp);
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
 {
     reset_cause_t Reset_Cause;
@@ -149,6 +174,11 @@ reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
     return Reset_Cause;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
 {
     const char * reset_cause_name = "TBD";
@@ -184,6 +214,11 @@ const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
     return reset_cause_name;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_enterSleepMode(void)
 {
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
@@ -196,6 +231,11 @@ void SYSTEM_DEBUG_enterSleepMode(void)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_enterStopMode(uint32_t wake_up_time)
 {
 	const float wakeup_time_base = 0.00048;
@@ -223,6 +263,11 @@ void SYSTEM_DEBUG_enterStopMode(uint32_t wake_up_time)
 	COM_uartPrint("STOP MODE is OFF\n");
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_enterStandbyMode(void)
 {
 	/* Clear the WU FLAG */
@@ -249,11 +294,17 @@ void SYSTEM_DEBUG_enterStandbyMode(void)
 		 Error_Handler();
 	 }
 	 COM_uartPrint("STANDBY MODE is ON\n");
+	 HAL_Delay(100);
 
 	 /* Enter the standby mode */
 	 HAL_PWR_EnterSTANDBYMode();
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void SYSTEM_DEBUG_wakeupStandbyMode(void)
 {
 	if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
@@ -269,5 +320,4 @@ void SYSTEM_DEBUG_wakeupStandbyMode(void)
 		HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 	}
 }
-
 

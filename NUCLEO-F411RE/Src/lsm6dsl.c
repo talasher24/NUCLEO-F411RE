@@ -70,7 +70,7 @@ static float P_Acceleration_G_Sum[3];
 static float P_Angular_Rate_Dps_Sum[3];
 
 static stmdev_ctx_t Dev_Ctx;
-static char Data[100];
+static char P_Data[BUFFER_SIZE];
 
 static lsm6dsl_mode_t Lsm6dsl_Mode;
 static lsm6dsl_is_connected_t Lsm6dsl_Is_Connected;
@@ -95,11 +95,15 @@ static void LSM6DSL_fifoSetBypassMode(void);
 static void LSM6DSL_fifoInterruptEnable(void);
 static void LSM6DSL_fifoInterruptDisable(void);
 
-
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_processHanlder(void)
 {
 	if (Lsm6dsl_Mode == LSM6DSL_MODE_PER_SAMPLE)
@@ -112,18 +116,33 @@ void LSM6DSL_processHanlder(void)
 	}
 }
 
-int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 {
     HAL_I2C_Mem_Write(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
     return 0;
 }
 
-int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
 {
 	HAL_I2C_Mem_Read(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
 	return 0;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_init (void)
 {
 	Lsm6dsl_Is_Connected = LSM6DSL_DISCONNECTED;
@@ -174,9 +193,13 @@ void LSM6DSL_init (void)
 	Lsm6dsl_Is_Connected = LSM6DSL_CONNECTED;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_perSampleInit(void)
 {
-
 	if (Lsm6dsl_Is_Connected == LSM6DSL_DISCONNECTED)
 	{
 		COM_uartPrint("LSM6DSL is not connected!\n");
@@ -207,7 +230,12 @@ void LSM6DSL_perSampleInit(void)
 	Lsm6dsl_Mode = LSM6DSL_MODE_PER_SAMPLE;
 }
 
-void LSM6DSL_perSampleProcess (void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_perSampleProcess (void)
 {
 	/*
 	 * Read output only if new value is available
@@ -224,10 +252,10 @@ void LSM6DSL_perSampleProcess (void)
 	  P_Acceleration_Mg[1] = lsm6dsl_from_fs8g_to_mg( Data_Raw_Acceleration.i16bit[1]);
 	  P_Acceleration_Mg[2] = lsm6dsl_from_fs8g_to_mg( Data_Raw_Acceleration.i16bit[2]);
 
-	  sprintf(Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
+	  sprintf(P_Data, "Acceleration [mg]:  %4.2f\t%4.2f\t%4.2f\n",
 	  			  P_Acceleration_Mg[0], P_Acceleration_Mg[1], P_Acceleration_Mg[2]);
 
-	  COM_uartPrint(Data);
+	  COM_uartPrint(P_Data);
 	}
 	if (reg.status_reg.gda)
 	{
@@ -237,14 +265,19 @@ void LSM6DSL_perSampleProcess (void)
 	  P_Angular_Rate_Mdps[1] = lsm6dsl_from_fs500dps_to_mdps(Data_Raw_Angular_Rate.i16bit[1]);
 	  P_Angular_Rate_Mdps[2] = lsm6dsl_from_fs500dps_to_mdps(Data_Raw_Angular_Rate.i16bit[2]);
 
-	  sprintf(Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	  sprintf(P_Data, "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\n\n",
 			  P_Angular_Rate_Mdps[0], P_Angular_Rate_Mdps[1], P_Angular_Rate_Mdps[2]);
 
-	  COM_uartPrint(Data);
+	  COM_uartPrint(P_Data);
 	}
 }
 
-void LSM6DSL_perSampleDisable (void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_perSampleDisable (void)
 {
 	lsm6dsl_int1_route_t reg;
 
@@ -256,6 +289,11 @@ void LSM6DSL_perSampleDisable (void)
 	lsm6dsl_pin_int1_route_set(&Dev_Ctx, reg);
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_fifoInit(void)
 {
 	if (Lsm6dsl_Is_Connected == LSM6DSL_DISCONNECTED)
@@ -308,18 +346,33 @@ void LSM6DSL_fifoInit(void)
 	Lsm6dsl_Mode = LSM6DSL_MODE_FIFO;
 }
 
-void LSM6DSL_fifoProcess(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoProcess(void)
 {
 	LSM6DSL_fifoReadAllData();
 }
 
-void LSM6DSL_fifoDisable(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoDisable(void)
 {
 	LSM6DSL_fifoInterruptDisable();
 	LSM6DSL_fifoSetBypassMode();
 }
 
-void LSM6DSL_fifoReadAllData(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoReadAllData(void)
 {
 	uint16_t unread_int16_fifo_samples = 0;
 
@@ -333,8 +386,8 @@ void LSM6DSL_fifoReadAllData(void)
 	lsm6dsl_fifo_data_level_get(&Dev_Ctx, &unread_int16_fifo_samples);
 
 	uint16_t unread_acc_and_gyro_samples = unread_int16_fifo_samples / ACC_AND_GYRO_SINGLE_FIFO_SAMPLE;
-	sprintf(Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
-	COM_uartPrint(Data);
+	sprintf(P_Data, "Number of unread ACC and Gyro samples each: %d\n", unread_acc_and_gyro_samples);
+	COM_uartPrint(P_Data);
 
 	while (unread_acc_and_gyro_samples > 0)
 	{
@@ -358,7 +411,12 @@ void LSM6DSL_fifoReadAllData(void)
 	}
 }
 
-void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
 {
 	P_Angular_Rate_Dps_Sum[0] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex];
 	P_Angular_Rate_Dps_Sum[1] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 1];
@@ -369,31 +427,43 @@ void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
 	P_Acceleration_G_Sum[2] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 5];
 }
 
-void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
 {
-	sprintf(Data, "%d samples average:\n", divider);
-	COM_uartPrint(Data);
+	sprintf(P_Data, "%d samples average:\n", divider);
+	COM_uartPrint(P_Data);
 
 	P_Acceleration_G_Sum[0] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[0] / divider )/1000;
 	P_Acceleration_G_Sum[1] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[1] / divider )/1000;
 	P_Acceleration_G_Sum[2] = lsm6dsl_from_fs8g_to_mg( P_Acceleration_G_Sum[2] / divider )/1000;
 
-	sprintf(Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
+	sprintf(P_Data, "Acceleration [g]:  %4.2f\t%4.2f\t%4.2f\n",
 			P_Acceleration_G_Sum[0], P_Acceleration_G_Sum[1], P_Acceleration_G_Sum[2]);
 
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
 
 	P_Angular_Rate_Dps_Sum[0] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[0] / divider )/1000;
 	P_Angular_Rate_Dps_Sum[1] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[1] / divider )/1000;
 	P_Angular_Rate_Dps_Sum[2] = lsm6dsl_from_fs500dps_to_mdps( P_Angular_Rate_Dps_Sum[2] / divider )/1000;
 
-	sprintf(Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
+	sprintf(P_Data, "Angular rate [dps]:%4.2f\t%4.2f\t%4.2f\n\n",
 				P_Angular_Rate_Dps_Sum[0], P_Angular_Rate_Dps_Sum[1], P_Angular_Rate_Dps_Sum[2]);
 
-	COM_uartPrint(Data);
+	COM_uartPrint(P_Data);
+
+	//COM_uartPrint("test\n");
 }
 
-void LSM6DSL_fifoSetFIFOMode(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoSetFIFOMode(void)
 {
 	/* Set FIFO mode to FIFO */
 	lsm6dsl_fifo_mode_t fifo_mode_t;
@@ -402,7 +472,12 @@ void LSM6DSL_fifoSetFIFOMode(void)
 	lsm6dsl_fifo_mode_set(&Dev_Ctx, fifo_mode_t);
 }
 
-void LSM6DSL_fifoSetBypassMode(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoSetBypassMode(void)
 {
 	/* Set FIFO mode to BYPASS */
 	lsm6dsl_fifo_mode_t fifo_mode_t;
@@ -413,7 +488,12 @@ void LSM6DSL_fifoSetBypassMode(void)
 	//lsm6dsl_fifo_mode_set(&Dev_Ctx, LSM6DSL_BYPASS_MODE);
 }
 
-void LSM6DSL_fifoInterruptEnable(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoInterruptEnable(void)
 {
 	/* Set FIFO_FTH on INT1 */
 	lsm6dsl_int1_route_t reg;
@@ -423,7 +503,12 @@ void LSM6DSL_fifoInterruptEnable(void)
 	lsm6dsl_pin_int1_route_set(&Dev_Ctx, reg);
 }
 
-void LSM6DSL_fifoInterruptDisable(void)
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_fifoInterruptDisable(void)
 {
 	/* Set FIFO_FTH on INT1 */
 	lsm6dsl_int1_route_t reg;
@@ -432,6 +517,11 @@ void LSM6DSL_fifoInterruptDisable(void)
 	lsm6dsl_pin_int1_route_set(&Dev_Ctx, reg);
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_modesDisable(void)
 {
 	LSM6DSL_perSampleDisable();
@@ -439,16 +529,31 @@ void LSM6DSL_modesDisable(void)
 	Lsm6dsl_Mode = LSM6DSL_MODE_IDLE;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 bool LSM6DSL_getInterruptFlag(void)
 {
 	return Interrup_Flag;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_setInterruptFlagOn(void)
 {
 	Interrup_Flag = true;
 }
 
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
 void LSM6DSL_setInterruptFlagOff(void)
 {
 	Interrup_Flag = false;

@@ -37005,14 +37005,14 @@ int main(void)
  800e6be:	f7fd ffdf 	bl	800c680 <MX_DMA_Init>
   MX_CRC_Init();
  800e6c2:	f7fd ffa7 	bl	800c614 <MX_CRC_Init>
+  MX_I2C1_Init();
+ 800e6c6:	f7fe fb81 	bl	800cdcc <MX_I2C1_Init>
   MX_RTC_Init();
- 800e6c6:	f000 f8c5 	bl	800e854 <MX_RTC_Init>
-  MX_USART2_UART_Init();
- 800e6ca:	f000 fdd9 	bl	800f280 <MX_USART2_UART_Init>
+ 800e6ca:	f000 f8c3 	bl	800e854 <MX_RTC_Init>
   MX_TIM3_Init();
  800e6ce:	f000 fd05 	bl	800f0dc <MX_TIM3_Init>
-  MX_I2C1_Init();
- 800e6d2:	f7fe fb7b 	bl	800cdcc <MX_I2C1_Init>
+  MX_USART2_UART_Init();
+ 800e6d2:	f000 fdd5 	bl	800f280 <MX_USART2_UART_Init>
   /* USER CODE BEGIN 2 */
   HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
  800e6d6:	f44f 7180 	mov.w	r1, #256	; 0x100

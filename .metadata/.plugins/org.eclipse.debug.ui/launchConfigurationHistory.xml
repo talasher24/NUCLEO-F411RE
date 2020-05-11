@@ -18,8 +18,6 @@
 <mruHistory>
 <launch memento="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;launchConfiguration local=&quot;false&quot; path=&quot;/NUCLEO-F411RE/NUCLEO-F411RE Debug.launch&quot;/&gt;&#13;&#10;"/>
 </mruHistory>
-<favorites>
-<launch memento="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;launchConfiguration local=&quot;false&quot; path=&quot;/NUCLEO-F411RE/MyProject Debug.launch&quot;/&gt;&#13;&#10;"/>
-</favorites>
+<favorites/>
 </launchGroup>
 </launchHistory>

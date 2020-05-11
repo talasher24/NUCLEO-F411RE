@@ -55,7 +55,6 @@
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId terminalTaskHandle;
-osThreadId lsm6dslTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -64,7 +63,6 @@ osThreadId lsm6dslTaskHandle;
 
 void StartDefaultTask(void const * argument);
 void StartTerminalTask(void const * argument);
-void StartLsm6dslTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -128,16 +126,12 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityRealtime, 0, 256);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of terminalTask */
-  osThreadDef(terminalTask, StartTerminalTask, osPriorityNormal, 0, 128);
+  osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
   terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
-
-  /* definition and creation of lsm6dslTask */
-  osThreadDef(lsm6dslTask, StartLsm6dslTask, osPriorityNormal, 0, 256);
-  lsm6dslTaskHandle = osThreadCreate(osThread(lsm6dslTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -160,13 +154,13 @@ void StartDefaultTask(void const * argument)
 
 	SYSTEM_ISR_init();
 
+	LSM6DSL_init();
+
 	SYSTEM_DEBUG_wakeupStandbyMode();
 
 	COM_uartPrint(HELLO_WORLD);
 
 	SYSTEM_DEBUG_assertMsgPrint();
-
-	LSM6DSL_init();
 
 	SYSTEM_DEBUG_printResetCause();
 
@@ -212,32 +206,6 @@ void StartTerminalTask(void const * argument)
 	  COM_readyCommandProcess();
   }
   /* USER CODE END StartTerminalTask */
-}
-
-/* USER CODE BEGIN Header_StartLsm6dslTask */
-/**
-* @brief Function implementing the lsm6dslTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartLsm6dslTask */
-void StartLsm6dslTask(void const * argument)
-{
-  /* USER CODE BEGIN StartLsm6dslTask */
-	osEvent evt;
-  /* Infinite loop */
-	for(;;)
-	{
-		evt = osSignalWait(LSM6DSL_SIGNAL, osWaitForever);
-		if (evt.status == osEventSignal)
-		{
-			if (evt.value.signals & LSM6DSL_SIGNAL)
-			{
-				LSM6DSL_processHanlder();
-			}
-		}
-	}
-  /* USER CODE END StartLsm6dslTask */
 }
 
 /* Private application code --------------------------------------------------*/

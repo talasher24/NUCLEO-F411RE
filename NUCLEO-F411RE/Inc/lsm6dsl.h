@@ -37,16 +37,10 @@
  * Function Prototypes
  *******************************************************************************/
 
- void LSM6DSL_processHanlder(void);
  void LSM6DSL_init (void);
  void LSM6DSL_perSampleInit(void);
-
  void LSM6DSL_fifoInit(void);
  void LSM6DSL_modesDisable(void);
-
- bool LSM6DSL_getInterruptFlag(void);
- void LSM6DSL_setInterruptFlagOn(void);
- void LSM6DSL_setInterruptFlagOff(void);
 
  /******************************************************************************
  * Function Definitions

@@ -51,7 +51,7 @@ Src/system_isr.o: ../Src/system_isr.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Inc/lsm6dsl.h ../Inc/types.h
+ ../Inc/types.h
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -158,7 +158,5 @@ Src/system_isr.o: ../Src/system_isr.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-
-../Inc/lsm6dsl.h:
 
 ../Inc/types.h:

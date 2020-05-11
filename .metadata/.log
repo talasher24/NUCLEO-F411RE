@@ -223,3 +223,60 @@ org.eclipse.core.runtime.CoreException: Corrupted database: NUCLEO-F411RE.158919
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-05-11 18:23:08.402
 !MESSAGE Indexed 'NUCLEO-F411RE2' (55 sources, 156 headers) in 5.48 sec: 16,517 declarations; 82,258 references; 6 unresolved inclusions; 443 syntax errors; 5,264 unresolved names (5.1%)
+
+!ENTRY org.eclipse.jface 2 0 2020-05-11 18:42:21.369
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:515)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1965)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:670)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:646)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1609)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1596)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2020-05-11 18:51:07.354
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+symbol-file C:\\Users\\ADMIN\\Documents\\GitHub\\NUCLEO-F411RE\\NUCLEO-F411RE\\Debug\\NUCLEO-F411RE.elf
+
+Error message from debugger back end:
+C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Debug\NUCLEO-F411RE.elf: No such file or directory.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+symbol-file C:\\Users\\ADMIN\\Documents\\GitHub\\NUCLEO-F411RE\\NUCLEO-F411RE\\Debug\\NUCLEO-F411RE.elf
+
+Error message from debugger back end:
+C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Debug\NUCLEO-F411RE.elf: No such file or directory.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:283)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Debug\NUCLEO-F411RE.elf: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-11 18:51:07.356
+!MESSAGE Failed to execute MI command:
+symbol-file C:\\Users\\ADMIN\\Documents\\GitHub\\NUCLEO-F411RE\\NUCLEO-F411RE\\Debug\\NUCLEO-F411RE.elf
+
+Error message from debugger back end:
+C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Debug\NUCLEO-F411RE.elf: No such file or directory.
+!STACK 0
+java.lang.Exception: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Debug\NUCLEO-F411RE.elf: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)

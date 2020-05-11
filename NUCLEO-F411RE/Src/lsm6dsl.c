@@ -11,10 +11,12 @@
 
 #include "lsm6dsl.h"
 #include "lsm6dsl_reg.h"
+#include "system_isr.h"
 #include "com.h"
 #include "usart.h"
 #include "i2c.h"
 #include "stm32f4xx_hal.h"
+#include "cmsis_os.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -58,6 +60,8 @@ typedef enum {
 * Module Variable Definitions
 *******************************************************************************/
 
+osThreadId lsm6dslTaskHandle;
+
 static axis3bit16_t Data_Raw_Acceleration;
 static axis3bit16_t Data_Raw_Angular_Rate;
 static float P_Acceleration_Mg[3];
@@ -75,12 +79,13 @@ static char P_Data[BUFFER_SIZE];
 static lsm6dsl_mode_t Lsm6dsl_Mode;
 static lsm6dsl_is_connected_t Lsm6dsl_Is_Connected;
 
-static bool Interrup_Flag;
-
 /******************************************************************************
 * Function Prototypes
 *******************************************************************************/
 
+static void StartLsm6dslTask(void const * argument);
+static void LSM6DSL_config(void);
+static void LSM6DSL_processHanlder(void);
 static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
 static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len);
 static void LSM6DSL_perSampleProcess (void);
@@ -99,43 +104,30 @@ static void LSM6DSL_fifoInterruptDisable(void);
 * Function Definitions
 *******************************************************************************/
 
+/* USER CODE BEGIN Header_StartLsm6dslTask */
 /**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-void LSM6DSL_processHanlder(void)
+* @brief Function implementing the lsm6dslTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartLsm6dslTask */
+void StartLsm6dslTask(void const * argument)
 {
-	if (Lsm6dsl_Mode == LSM6DSL_MODE_PER_SAMPLE)
+  /* USER CODE BEGIN StartLsm6dslTask */
+	osEvent evt;
+  /* Infinite loop */
+	for(;;)
 	{
-		LSM6DSL_perSampleProcess();
+		evt = osSignalWait(LSM6DSL_SIGNAL, osWaitForever);
+		if (evt.status == osEventSignal)
+		{
+			if (evt.value.signals & LSM6DSL_SIGNAL)
+			{
+				LSM6DSL_processHanlder();
+			}
+		}
 	}
-	else if (Lsm6dsl_Mode == LSM6DSL_MODE_FIFO)
-	{
-		LSM6DSL_fifoProcess();
-	}
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
-{
-    HAL_I2C_Mem_Write(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
-    return 0;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
-{
-	HAL_I2C_Mem_Read(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
-	return 0;
+  /* USER CODE END StartLsm6dslTask */
 }
 
 /**
@@ -144,6 +136,20 @@ static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t l
   * @retval	XXX
   */
 void LSM6DSL_init (void)
+{
+	/* definition and creation of lsm6dslTask */
+	osThreadDef(lsm6dslTask, StartLsm6dslTask, osPriorityNormal, 0, 256);
+	lsm6dslTaskHandle = osThreadCreate(osThread(lsm6dslTask), NULL);
+
+	LSM6DSL_config();
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_config(void)
 {
 	Lsm6dsl_Is_Connected = LSM6DSL_DISCONNECTED;
 
@@ -157,7 +163,7 @@ void LSM6DSL_init (void)
 	lsm6dsl_device_id_get(&Dev_Ctx, &Who_Am_I);
 	if ( Who_Am_I != LSM6DSL_ID )
 	{
-		COM_uartPrint("lsm6dsl device not found\n");
+		COM_uartPrint("lsm6dsl device is not found\n");
 		return;
 		//while(1); /* device not found */
 	}
@@ -191,6 +197,45 @@ void LSM6DSL_init (void)
 	Lsm6dsl_Mode = LSM6DSL_MODE_IDLE;
 
 	Lsm6dsl_Is_Connected = LSM6DSL_CONNECTED;
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static void LSM6DSL_processHanlder(void)
+{
+	if (Lsm6dsl_Mode == LSM6DSL_MODE_PER_SAMPLE)
+	{
+		LSM6DSL_perSampleProcess();
+	}
+	else if (Lsm6dsl_Mode == LSM6DSL_MODE_FIFO)
+	{
+		LSM6DSL_fifoProcess();
+	}
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+{
+    HAL_I2C_Mem_Write(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
+    return 0;
+}
+
+/**
+  * @brief 	XXX
+  * @param 	XXX
+  * @retval	XXX
+  */
+static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+{
+	HAL_I2C_Mem_Read(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
+	return 0;
 }
 
 /**
@@ -527,34 +572,4 @@ void LSM6DSL_modesDisable(void)
 	LSM6DSL_perSampleDisable();
 	LSM6DSL_fifoDisable();
 	Lsm6dsl_Mode = LSM6DSL_MODE_IDLE;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-bool LSM6DSL_getInterruptFlag(void)
-{
-	return Interrup_Flag;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-void LSM6DSL_setInterruptFlagOn(void)
-{
-	Interrup_Flag = true;
-}
-
-/**
-  * @brief 	XXX
-  * @param 	XXX
-  * @retval	XXX
-  */
-void LSM6DSL_setInterruptFlagOff(void)
-{
-	Interrup_Flag = false;
 }

@@ -221,14 +221,10 @@ const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
   */
 void SYSTEM_DEBUG_enterSleepMode(void)
 {
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
 	// Enters to sleep mode
 	HAL_SuspendTick();
 	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 	HAL_ResumeTick();
-
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 
 /**

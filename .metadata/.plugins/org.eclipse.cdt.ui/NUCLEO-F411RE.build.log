@@ -1,10 +1,10 @@
-19:05:38 **** Incremental Build of configuration Debug for project NUCLEO-F411RE ****
+01:39:38 **** Incremental Build of configuration Debug for project NUCLEO-F411RE ****
 make -j8 all 
 arm-none-eabi-size   NUCLEO-F411RE.elf 
    text	   data	    bss	    dec	    hex	filename
-  76984	    492	   5680	  83156	  144d4	NUCLEO-F411RE.elf
+  78264	    492	   5704	  84460	  149ec	NUCLEO-F411RE.elf
 Finished building: default.size.stdout
  
 
-19:05:39 Build Finished. 0 errors, 0 warnings. (took 1s.714ms)
+01:39:40 Build Finished. 0 errors, 0 warnings. (took 1s.662ms)
 

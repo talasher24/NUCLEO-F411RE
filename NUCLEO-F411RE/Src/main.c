@@ -44,7 +44,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//#define IWDG_ENABLE
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -107,11 +107,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
   HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-
-#ifdef IWDG_ENABLE
-	MX_IWDG_Init();
-#endif
-
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

@@ -2454,3 +2454,1611 @@
 2020-05-11 19:04:40,463 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1389mS.
 2020-05-11 19:04:40,465 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 2mS.
 2020-05-11 19:04:40,477 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-05-11 19:08:45,228 [INFO] MainUpdater:2230 - connection check result : 10
+2020-05-11 19:08:45,258 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-11 19:08:45,258 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-11 19:08:45,260 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-11 19:08:45,262 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 775477112 Bytes (1016070144)
+2020-05-11 19:08:45,263 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-11 19:08:45,263 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-11 19:08:45,263 [INFO] OpenFileManager:274 - Change cursor
+2020-05-11 19:08:45,272 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-05-11 19:08:46,036 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,036 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,036 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,036 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,036 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,037 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,038 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,038 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,038 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,038 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,038 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-05-11 19:08:46,040 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-05-11 19:08:46,040 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-05-11 19:08:46,041 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-05-11 19:08:46,151 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 710989280 Bytes (1016070144)
+2020-05-11 19:08:46,156 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452158110]
+2020-05-11 19:08:46,157 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1586452157437
+2020-05-11 19:08:46,157 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452160686, 1586452158193]
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-05-11 19:08:46,192 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-05-11 19:08:46,193 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-05-11 19:08:46,193 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-05-11 19:08:46,267 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-11 19:08:46,268 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-05-11 19:08:46,411 [INFO] UtilMem:74 - Before build in PCC Used Memory: 801466688 Bytes (1016070144)
+2020-05-11 19:08:46,525 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:08:46,547 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:08:46,570 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:08:46,572 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:08:46,599 [INFO] UtilMem:74 - After build in PCC Used Memory: 842883400 Bytes (1016070144)
+2020-05-11 19:08:46,608 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,611 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,612 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,613 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,614 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,615 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,616 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,616 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:08:46,619 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:46,619 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:46,628 [ERROR] FreeRTOS:936 - Null or empty value: should not occur! (nothing added to the table)
+2020-05-11 19:08:46,634 [INFO] ApiDbMcu:451 - Load IP Config File for FREERTOS
+2020-05-11 19:08:46,656 [INFO] OpenFileManager:294 - Restore cursor
+2020-05-11 19:08:46,743 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:46,743 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:46,743 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:46,743 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:08:48,922 [ERROR] RtosPanel:515 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2020-05-11 19:09:05,562 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 498950472 Bytes (1016070144)
+2020-05-11 19:09:06,370 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 509436232 Bytes (1016070144)
+2020-05-11 19:09:06,547 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 523594048 Bytes (1016070144)
+2020-05-11 19:09:06,673 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: FREERTOS
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: IWDG
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-05-11 19:09:06,674 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-05-11 19:09:06,675 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: I2C
+2020-05-11 19:09:06,675 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-05-11 19:09:06,681 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:09:06,682 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:09:06,691 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-11 19:09:06,691 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:09:06,691 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-05-11 19:09:06,691 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-05-11 19:09:06,691 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-11 19:09:06,691 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:09:06,691 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:09:06,691 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:09:06,691 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-11 19:09:06,692 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-05-11 19:09:06,693 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-11 19:09:06,693 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:09:06,693 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-11 19:09:06,694 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-11 19:09:06,694 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-11 19:09:06,695 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-11 19:09:06,797 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp_save
+2020-05-11 19:09:06,836 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp
+2020-05-11 19:09:06,874 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c_save
+2020-05-11 19:09:06,938 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c
+2020-05-11 19:09:06,947 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h_save
+2020-05-11 19:09:07,012 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h
+2020-05-11 19:09:07,228 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:07,229 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-05-11 19:09:07,230 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:07,238 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c_save
+2020-05-11 19:09:07,384 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c
+2020-05-11 19:09:07,397 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h_save
+2020-05-11 19:09:07,477 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h
+2020-05-11 19:09:07,482 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:07,484 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-05-11 19:09:07,485 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:07,520 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c_save
+2020-05-11 19:09:07,687 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c
+2020-05-11 19:09:07,697 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h_save
+2020-05-11 19:09:07,780 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h
+2020-05-11 19:09:07,783 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:07,803 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-05-11 19:09:07,807 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp_save
+2020-05-11 19:09:07,849 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp
+2020-05-11 19:09:07,853 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp_save
+2020-05-11 19:09:07,896 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp
+2020-05-11 19:09:07,900 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp_save
+2020-05-11 19:09:07,940 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp
+2020-05-11 19:09:07,944 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp_save
+2020-05-11 19:09:07,987 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp
+2020-05-11 19:09:07,991 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp_save
+2020-05-11 19:09:08,030 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp
+2020-05-11 19:09:08,034 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp_save
+2020-05-11 19:09:08,076 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp
+2020-05-11 19:09:08,080 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp_save
+2020-05-11 19:09:08,119 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp
+2020-05-11 19:09:08,124 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h_save
+2020-05-11 19:09:08,178 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h
+2020-05-11 19:09:08,184 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c_save
+2020-05-11 19:09:08,244 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c
+2020-05-11 19:09:08,248 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:08,250 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for I2C
+2020-05-11 19:09:08,250 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:08,260 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c_save
+2020-05-11 19:09:08,339 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c
+2020-05-11 19:09:08,346 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h_save
+2020-05-11 19:09:08,402 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h
+2020-05-11 19:09:08,405 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:08,406 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for IWDG
+2020-05-11 19:09:08,407 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:08,414 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c_save
+2020-05-11 19:09:08,479 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c
+2020-05-11 19:09:08,484 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h_save
+2020-05-11 19:09:08,527 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h
+2020-05-11 19:09:08,529 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:08,530 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-05-11 19:09:08,531 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:08,535 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c_save
+2020-05-11 19:09:08,629 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c
+2020-05-11 19:09:08,634 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h_save
+2020-05-11 19:09:08,704 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h
+2020-05-11 19:09:08,708 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:08,710 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-05-11 19:09:08,712 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:08,721 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c_save
+2020-05-11 19:09:08,825 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c
+2020-05-11 19:09:08,831 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h_save
+2020-05-11 19:09:08,885 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h
+2020-05-11 19:09:08,887 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:09:08,888 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-05-11 19:09:08,888 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:08,896 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c_save
+2020-05-11 19:09:08,984 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c
+2020-05-11 19:09:08,991 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h_save
+2020-05-11 19:09:09,056 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h
+2020-05-11 19:09:09,060 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-05-11 19:09:09,061 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:09:09,067 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c_save
+2020-05-11 19:09:09,138 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c
+2020-05-11 19:09:09,146 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h_save
+2020-05-11 19:09:09,206 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h
+2020-05-11 19:09:09,218 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c_save
+2020-05-11 19:09:09,302 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c
+2020-05-11 19:09:09,306 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp_save
+2020-05-11 19:09:09,357 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp
+2020-05-11 19:09:09,363 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-05-11 19:09:09,414 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c
+2020-05-11 19:09:09,421 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h_save
+2020-05-11 19:09:09,489 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h
+2020-05-11 19:09:09,509 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h_save
+2020-05-11 19:09:09,578 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h
+2020-05-11 19:09:09,592 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c_save
+2020-05-11 19:09:09,754 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c
+2020-05-11 19:09:10,270 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 118mS.
+2020-05-11 19:09:10,274 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-05-11 19:09:10,443 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-05-11 19:09:11,595 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1321mS.
+2020-05-11 19:09:11,597 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-05-11 19:09:11,605 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-11 19:44:52,710 [INFO] MainUpdater:2230 - connection check result : 10
+2020-05-11 19:44:52,740 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-11 19:44:52,741 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-11 19:44:52,743 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-11 19:44:52,746 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 438925416 Bytes (1073741824)
+2020-05-11 19:44:52,746 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-11 19:44:52,746 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-11 19:44:52,746 [INFO] OpenFileManager:274 - Change cursor
+2020-05-11 19:44:52,754 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-05-11 19:44:53,403 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,403 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,403 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,403 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,403 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,405 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-05-11 19:44:53,407 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-05-11 19:44:53,407 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-05-11 19:44:53,408 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-05-11 19:44:53,500 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 845663520 Bytes (1073741824)
+2020-05-11 19:44:53,506 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452158110]
+2020-05-11 19:44:53,506 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1586452157437
+2020-05-11 19:44:53,506 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452160686, 1586452158193]
+2020-05-11 19:44:53,533 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-05-11 19:44:53,534 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-05-11 19:44:53,535 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-05-11 19:44:53,535 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-05-11 19:44:53,622 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-11 19:44:53,624 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-05-11 19:44:53,784 [INFO] UtilMem:74 - Before build in PCC Used Memory: 385477288 Bytes (1073741824)
+2020-05-11 19:44:53,877 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:44:53,892 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:44:53,908 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:44:53,909 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-11 19:44:53,938 [INFO] UtilMem:74 - After build in PCC Used Memory: 426898080 Bytes (1073741824)
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,948 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,949 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,951 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,953 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,953 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,953 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,953 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,953 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-11 19:44:53,955 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:53,955 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:53,962 [ERROR] FreeRTOS:936 - Null or empty value: should not occur! (nothing added to the table)
+2020-05-11 19:44:53,967 [INFO] ApiDbMcu:451 - Load IP Config File for FREERTOS
+2020-05-11 19:44:53,992 [INFO] OpenFileManager:294 - Restore cursor
+2020-05-11 19:44:54,031 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:54,031 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:54,031 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:54,031 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:44:56,235 [ERROR] RtosPanel:515 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2020-05-11 19:45:03,704 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 558286568 Bytes (1073741824)
+2020-05-11 19:45:04,619 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 568250080 Bytes (1073741824)
+2020-05-11 19:45:04,836 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 611763944 Bytes (1073741824)
+2020-05-11 19:45:05,007 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: FREERTOS
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: IWDG
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-05-11 19:45:05,008 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: I2C
+2020-05-11 19:45:05,009 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-05-11 19:45:05,014 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-11 19:45:05,014 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-11 19:45:05,025 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-11 19:45:05,025 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-11 19:45:05,026 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:45:05,026 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:45:05,026 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-11 19:45:05,027 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-11 19:45:05,028 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:45:05,028 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-11 19:45:05,029 [INFO] Argument:280 - 	 sub Args: 
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-11 19:45:05,029 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:45:05,029 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-11 19:45:05,030 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-11 19:45:05,031 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-11 19:45:05,166 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp_save
+2020-05-11 19:45:05,216 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp
+2020-05-11 19:45:05,265 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c_save
+2020-05-11 19:45:05,354 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c
+2020-05-11 19:45:05,365 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h_save
+2020-05-11 19:45:05,430 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h
+2020-05-11 19:45:05,568 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:05,569 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-05-11 19:45:05,569 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:05,641 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c_save
+2020-05-11 19:45:05,706 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c
+2020-05-11 19:45:05,713 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h_save
+2020-05-11 19:45:05,761 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h
+2020-05-11 19:45:05,763 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:05,764 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-05-11 19:45:05,765 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:05,788 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c_save
+2020-05-11 19:45:05,835 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c
+2020-05-11 19:45:05,840 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h_save
+2020-05-11 19:45:05,904 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h
+2020-05-11 19:45:05,911 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:05,935 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-05-11 19:45:05,940 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp_save
+2020-05-11 19:45:05,990 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp
+2020-05-11 19:45:05,995 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp_save
+2020-05-11 19:45:06,034 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp
+2020-05-11 19:45:06,037 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp_save
+2020-05-11 19:45:06,082 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp
+2020-05-11 19:45:06,086 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp_save
+2020-05-11 19:45:06,130 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp
+2020-05-11 19:45:06,134 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp_save
+2020-05-11 19:45:06,175 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp
+2020-05-11 19:45:06,178 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp_save
+2020-05-11 19:45:06,217 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp
+2020-05-11 19:45:06,221 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp_save
+2020-05-11 19:45:06,261 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp
+2020-05-11 19:45:06,266 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h_save
+2020-05-11 19:45:06,319 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h
+2020-05-11 19:45:06,325 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c_save
+2020-05-11 19:45:06,381 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c
+2020-05-11 19:45:06,385 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:06,386 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for I2C
+2020-05-11 19:45:06,386 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:06,394 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c_save
+2020-05-11 19:45:06,456 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c
+2020-05-11 19:45:06,460 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h_save
+2020-05-11 19:45:06,503 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h
+2020-05-11 19:45:06,505 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:06,506 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for IWDG
+2020-05-11 19:45:06,506 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:06,510 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c_save
+2020-05-11 19:45:06,568 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c
+2020-05-11 19:45:06,572 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h_save
+2020-05-11 19:45:06,615 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h
+2020-05-11 19:45:06,617 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:06,618 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-05-11 19:45:06,618 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:06,623 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c_save
+2020-05-11 19:45:06,687 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c
+2020-05-11 19:45:06,692 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h_save
+2020-05-11 19:45:06,734 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h
+2020-05-11 19:45:06,737 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:06,737 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-05-11 19:45:06,738 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:06,742 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c_save
+2020-05-11 19:45:06,808 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c
+2020-05-11 19:45:06,813 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h_save
+2020-05-11 19:45:06,856 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h
+2020-05-11 19:45:06,858 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-11 19:45:06,859 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-05-11 19:45:06,860 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:06,866 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c_save
+2020-05-11 19:45:06,942 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c
+2020-05-11 19:45:06,947 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h_save
+2020-05-11 19:45:06,993 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h
+2020-05-11 19:45:06,995 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-05-11 19:45:06,995 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-11 19:45:07,000 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c_save
+2020-05-11 19:45:07,066 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c
+2020-05-11 19:45:07,071 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h_save
+2020-05-11 19:45:07,117 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h
+2020-05-11 19:45:07,125 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c_save
+2020-05-11 19:45:07,194 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c
+2020-05-11 19:45:07,198 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp_save
+2020-05-11 19:45:07,235 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp
+2020-05-11 19:45:07,239 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-05-11 19:45:07,282 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c
+2020-05-11 19:45:07,288 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h_save
+2020-05-11 19:45:07,334 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h
+2020-05-11 19:45:07,346 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h_save
+2020-05-11 19:45:07,397 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h
+2020-05-11 19:45:07,404 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c_save
+2020-05-11 19:45:07,553 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c
+2020-05-11 19:45:07,988 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 124mS.
+2020-05-11 19:45:07,993 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-05-11 19:45:08,158 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-05-11 19:45:09,538 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1545mS.
+2020-05-11 19:45:09,539 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-05-11 19:45:09,550 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-12 00:46:53,123 [INFO] MainUpdater:2230 - connection check result : 10
+2020-05-12 00:46:53,158 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 00:46:53,158 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 00:46:53,160 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 00:46:53,162 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 808233040 Bytes (1073741824)
+2020-05-12 00:46:53,163 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 00:46:53,163 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 00:46:53,163 [INFO] OpenFileManager:274 - Change cursor
+2020-05-12 00:46:53,170 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-05-12 00:46:53,825 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,825 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,825 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,825 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,826 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,827 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-05-12 00:46:53,830 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-05-12 00:46:53,830 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-05-12 00:46:53,831 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-05-12 00:46:53,934 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 558423120 Bytes (1073741824)
+2020-05-12 00:46:53,940 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452158110]
+2020-05-12 00:46:53,940 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1586452157437
+2020-05-12 00:46:53,941 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452160686, 1586452158193]
+2020-05-12 00:46:53,968 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-05-12 00:46:53,968 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-05-12 00:46:53,969 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-05-12 00:46:54,041 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 00:46:54,042 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-05-12 00:46:54,211 [INFO] UtilMem:74 - Before build in PCC Used Memory: 648374200 Bytes (1073741824)
+2020-05-12 00:46:54,304 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 00:46:54,325 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 00:46:54,339 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 00:46:54,340 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 00:46:54,374 [INFO] UtilMem:74 - After build in PCC Used Memory: 689794992 Bytes (1073741824)
+2020-05-12 00:46:54,382 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,382 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,384 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,385 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,386 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,388 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,388 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,388 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 00:46:54,390 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:54,390 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:54,396 [ERROR] FreeRTOS:936 - Null or empty value: should not occur! (nothing added to the table)
+2020-05-12 00:46:54,400 [INFO] ApiDbMcu:451 - Load IP Config File for FREERTOS
+2020-05-12 00:46:54,422 [INFO] OpenFileManager:294 - Restore cursor
+2020-05-12 00:46:54,469 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:54,470 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:54,470 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:54,470 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 00:46:59,779 [ERROR] RtosPanel:515 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2020-05-12 00:48:09,832 [INFO] TasksAndQueuesTab:731 - Dynamic
+2020-05-12 00:48:09,832 [WARN] TasksAndQueuesTab:737 - 256 128
+2020-05-12 00:48:09,832 [WARN] TasksAndQueuesTab:749 - max value is: 3840.0
+2020-05-12 00:48:24,963 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 877490096 Bytes (1073741824)
+2020-05-12 00:48:26,060 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 886927280 Bytes (1073741824)
+2020-05-12 00:48:26,244 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 900558768 Bytes (1073741824)
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: FREERTOS
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: IWDG
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-05-12 00:48:26,424 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-05-12 00:48:26,425 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-05-12 00:48:26,425 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: I2C
+2020-05-12 00:48:26,425 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-05-12 00:48:26,429 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 00:48:26,429 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 00:48:26,438 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 00:48:26,438 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 00:48:26,438 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 00:48:26,438 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 00:48:26,438 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 00:48:26,438 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 00:48:26,439 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 00:48:26,439 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 00:48:26,440 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 00:48:26,440 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 00:48:26,440 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 00:48:26,441 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 00:48:26,441 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 00:48:26,441 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 00:48:26,442 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 00:48:26,549 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp_save
+2020-05-12 00:48:26,588 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp
+2020-05-12 00:48:26,623 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c_save
+2020-05-12 00:48:26,670 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c
+2020-05-12 00:48:26,675 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h_save
+2020-05-12 00:48:26,718 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h
+2020-05-12 00:48:26,867 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:26,868 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-05-12 00:48:26,869 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:26,875 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c_save
+2020-05-12 00:48:26,939 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c
+2020-05-12 00:48:26,946 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h_save
+2020-05-12 00:48:27,015 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h
+2020-05-12 00:48:27,019 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:27,020 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-05-12 00:48:27,022 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:27,047 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c_save
+2020-05-12 00:48:27,105 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c
+2020-05-12 00:48:27,110 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h_save
+2020-05-12 00:48:27,180 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h
+2020-05-12 00:48:27,186 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:27,223 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-05-12 00:48:27,230 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp_save
+2020-05-12 00:48:27,297 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp
+2020-05-12 00:48:27,303 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp_save
+2020-05-12 00:48:27,342 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp
+2020-05-12 00:48:27,346 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp_save
+2020-05-12 00:48:27,390 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp
+2020-05-12 00:48:27,393 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp_save
+2020-05-12 00:48:27,437 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp
+2020-05-12 00:48:27,440 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp_save
+2020-05-12 00:48:27,477 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp
+2020-05-12 00:48:27,481 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp_save
+2020-05-12 00:48:27,521 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp
+2020-05-12 00:48:27,524 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp_save
+2020-05-12 00:48:27,561 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp
+2020-05-12 00:48:27,566 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h_save
+2020-05-12 00:48:27,624 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h
+2020-05-12 00:48:27,631 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c_save
+2020-05-12 00:48:27,693 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c
+2020-05-12 00:48:27,695 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:27,696 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for I2C
+2020-05-12 00:48:27,696 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:27,702 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c_save
+2020-05-12 00:48:27,775 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c
+2020-05-12 00:48:27,780 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h_save
+2020-05-12 00:48:27,825 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h
+2020-05-12 00:48:27,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:27,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for IWDG
+2020-05-12 00:48:27,828 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:27,832 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c_save
+2020-05-12 00:48:27,965 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c
+2020-05-12 00:48:27,970 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h_save
+2020-05-12 00:48:28,011 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h
+2020-05-12 00:48:28,014 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:28,015 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-05-12 00:48:28,016 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:28,021 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c_save
+2020-05-12 00:48:28,081 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c
+2020-05-12 00:48:28,086 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h_save
+2020-05-12 00:48:28,130 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h
+2020-05-12 00:48:28,132 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:28,133 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-05-12 00:48:28,134 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:28,139 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c_save
+2020-05-12 00:48:28,202 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c
+2020-05-12 00:48:28,208 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h_save
+2020-05-12 00:48:28,251 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h
+2020-05-12 00:48:28,252 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 00:48:28,253 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-05-12 00:48:28,253 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:28,258 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c_save
+2020-05-12 00:48:28,328 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c
+2020-05-12 00:48:28,334 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h_save
+2020-05-12 00:48:28,376 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h
+2020-05-12 00:48:28,378 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-05-12 00:48:28,379 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 00:48:28,384 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c_save
+2020-05-12 00:48:28,448 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c
+2020-05-12 00:48:28,451 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h_save
+2020-05-12 00:48:28,493 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h
+2020-05-12 00:48:28,500 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c_save
+2020-05-12 00:48:28,562 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c
+2020-05-12 00:48:28,565 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp_save
+2020-05-12 00:48:28,602 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp
+2020-05-12 00:48:28,606 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-05-12 00:48:28,654 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c
+2020-05-12 00:48:28,659 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h_save
+2020-05-12 00:48:28,705 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h
+2020-05-12 00:48:28,719 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h_save
+2020-05-12 00:48:28,773 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h
+2020-05-12 00:48:28,778 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c_save
+2020-05-12 00:48:28,837 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c
+2020-05-12 00:48:29,245 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 135mS.
+2020-05-12 00:48:29,249 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-05-12 00:48:29,406 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-05-12 00:48:31,010 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1761mS.
+2020-05-12 00:48:31,011 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-05-12 00:48:31,020 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-12 01:10:21,651 [INFO] MainUpdater:2230 - connection check result : 10
+2020-05-12 01:10:21,705 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 01:10:21,706 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 01:10:21,707 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 01:10:21,709 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 861706472 Bytes (1073741824)
+2020-05-12 01:10:21,710 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 01:10:21,710 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 01:10:21,710 [INFO] OpenFileManager:274 - Change cursor
+2020-05-12 01:10:21,715 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-05-12 01:10:22,455 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,456 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,457 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-05-12 01:10:22,459 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-05-12 01:10:22,460 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-05-12 01:10:22,460 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-05-12 01:10:22,588 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 832771056 Bytes (1073741824)
+2020-05-12 01:10:22,597 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452158110]
+2020-05-12 01:10:22,597 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1586452157437
+2020-05-12 01:10:22,598 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452160686, 1586452158193]
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-05-12 01:10:22,625 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-05-12 01:10:22,626 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-05-12 01:10:22,684 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 01:10:22,685 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-05-12 01:10:22,810 [INFO] UtilMem:74 - Before build in PCC Used Memory: 922195808 Bytes (1073741824)
+2020-05-12 01:10:22,922 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:10:22,940 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:10:22,953 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:10:22,954 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:10:22,982 [INFO] UtilMem:74 - After build in PCC Used Memory: 497322840 Bytes (1073741824)
+2020-05-12 01:10:22,990 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,990 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,991 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,993 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,994 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,995 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,995 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,995 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:10:22,997 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:22,997 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:23,003 [ERROR] FreeRTOS:936 - Null or empty value: should not occur! (nothing added to the table)
+2020-05-12 01:10:23,006 [INFO] ApiDbMcu:451 - Load IP Config File for FREERTOS
+2020-05-12 01:10:23,024 [INFO] OpenFileManager:294 - Restore cursor
+2020-05-12 01:10:23,065 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:23,065 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:23,065 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:23,065 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:26,271 [ERROR] RtosPanel:515 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2020-05-12 01:10:30,007 [INFO] TasksAndQueuesTab:731 - Dynamic
+2020-05-12 01:10:30,008 [WARN] TasksAndQueuesTab:737 - 256 128
+2020-05-12 01:10:30,008 [WARN] TasksAndQueuesTab:749 - max value is: 3840.0
+2020-05-12 01:10:31,736 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2020-05-12 01:10:31,736 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2020-05-12 01:10:35,619 [INFO] TasksAndQueuesTab:731 - Dynamic
+2020-05-12 01:10:35,619 [WARN] TasksAndQueuesTab:737 - 256 128
+2020-05-12 01:10:35,620 [WARN] TasksAndQueuesTab:749 - max value is: 3840.0
+2020-05-12 01:10:38,906 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2020-05-12 01:10:38,906 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2020-05-12 01:10:42,742 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 636783448 Bytes (1073741824)
+2020-05-12 01:10:43,863 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 647269208 Bytes (1073741824)
+2020-05-12 01:10:44,973 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 714378072 Bytes (1073741824)
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: FREERTOS
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: IWDG
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-05-12 01:10:45,097 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: I2C
+2020-05-12 01:10:45,098 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-05-12 01:10:45,102 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:45,102 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 01:10:45,111 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 01:10:45,111 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:10:45,111 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:10:45,111 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:10:45,112 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 01:10:45,113 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:10:45,113 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:10:45,113 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:10:45,114 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:10:45,115 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:10:45,115 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:10:45,115 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:10:45,115 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 01:10:45,115 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 01:10:45,214 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp_save
+2020-05-12 01:10:45,252 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp
+2020-05-12 01:10:45,295 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c_save
+2020-05-12 01:10:45,344 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c
+2020-05-12 01:10:45,349 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h_save
+2020-05-12 01:10:45,395 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h
+2020-05-12 01:10:45,588 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:45,589 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-05-12 01:10:45,589 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:45,594 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c_save
+2020-05-12 01:10:45,661 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c
+2020-05-12 01:10:45,667 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h_save
+2020-05-12 01:10:45,716 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h
+2020-05-12 01:10:45,718 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:45,719 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-05-12 01:10:45,720 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:45,743 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c_save
+2020-05-12 01:10:45,789 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c
+2020-05-12 01:10:45,793 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h_save
+2020-05-12 01:10:45,839 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h
+2020-05-12 01:10:45,842 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:45,857 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-05-12 01:10:45,861 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp_save
+2020-05-12 01:10:45,905 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp
+2020-05-12 01:10:45,910 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp_save
+2020-05-12 01:10:45,955 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp
+2020-05-12 01:10:45,963 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp_save
+2020-05-12 01:10:46,030 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp
+2020-05-12 01:10:46,035 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp_save
+2020-05-12 01:10:46,087 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp
+2020-05-12 01:10:46,092 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp_save
+2020-05-12 01:10:46,167 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp
+2020-05-12 01:10:46,173 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp_save
+2020-05-12 01:10:46,233 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp
+2020-05-12 01:10:46,239 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp_save
+2020-05-12 01:10:46,280 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp
+2020-05-12 01:10:46,284 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h_save
+2020-05-12 01:10:46,341 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h
+2020-05-12 01:10:46,348 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c_save
+2020-05-12 01:10:46,406 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c
+2020-05-12 01:10:46,408 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:46,409 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for I2C
+2020-05-12 01:10:46,410 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:46,415 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c_save
+2020-05-12 01:10:46,476 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c
+2020-05-12 01:10:46,481 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h_save
+2020-05-12 01:10:46,526 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h
+2020-05-12 01:10:46,527 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:46,528 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for IWDG
+2020-05-12 01:10:46,529 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:46,533 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c_save
+2020-05-12 01:10:46,593 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c
+2020-05-12 01:10:46,599 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h_save
+2020-05-12 01:10:46,650 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h
+2020-05-12 01:10:46,652 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:46,653 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-05-12 01:10:46,654 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:46,659 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c_save
+2020-05-12 01:10:46,726 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c
+2020-05-12 01:10:46,732 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h_save
+2020-05-12 01:10:46,777 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h
+2020-05-12 01:10:46,780 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:46,781 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-05-12 01:10:46,781 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:46,787 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c_save
+2020-05-12 01:10:46,850 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c
+2020-05-12 01:10:46,855 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h_save
+2020-05-12 01:10:46,907 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h
+2020-05-12 01:10:46,909 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:10:46,910 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-05-12 01:10:46,910 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:46,915 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c_save
+2020-05-12 01:10:47,065 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c
+2020-05-12 01:10:47,071 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h_save
+2020-05-12 01:10:47,127 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h
+2020-05-12 01:10:47,130 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-05-12 01:10:47,130 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:10:47,135 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c_save
+2020-05-12 01:10:47,194 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c
+2020-05-12 01:10:47,199 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h_save
+2020-05-12 01:10:47,245 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h
+2020-05-12 01:10:47,253 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c_save
+2020-05-12 01:10:47,320 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c
+2020-05-12 01:10:47,324 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp_save
+2020-05-12 01:10:47,365 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp
+2020-05-12 01:10:47,369 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-05-12 01:10:47,413 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c
+2020-05-12 01:10:47,419 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h_save
+2020-05-12 01:10:47,475 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h
+2020-05-12 01:10:47,490 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h_save
+2020-05-12 01:10:47,539 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h
+2020-05-12 01:10:47,544 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c_save
+2020-05-12 01:10:47,625 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c
+2020-05-12 01:10:48,205 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 119mS.
+2020-05-12 01:10:48,210 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-05-12 01:10:48,435 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-05-12 01:10:49,979 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1769mS.
+2020-05-12 01:10:49,980 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-12 01:10:49,990 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-12 01:41:37,162 [INFO] MainUpdater:2230 - connection check result : 10
+2020-05-12 01:41:37,191 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 01:41:37,191 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 01:41:37,193 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 01:41:37,195 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 925213160 Bytes (1073741824)
+2020-05-12 01:41:37,195 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-05-12 01:41:37,195 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-05-12 01:41:37,196 [INFO] OpenFileManager:274 - Change cursor
+2020-05-12 01:41:37,200 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-05-12 01:41:37,947 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,948 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_RX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,949 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (USART2_TX) currently not set
+2020-05-12 01:41:37,951 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (48MHZClocksFreq_Value) has invalid value (84000000)
+2020-05-12 01:41:37,952 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FLatency) has Id (AdvancedSettings) currently not set
+2020-05-12 01:41:37,952 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2020-05-12 01:41:38,061 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 820345624 Bytes (1073741824)
+2020-05-12 01:41:38,067 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452158110]
+2020-05-12 01:41:38,067 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1586452157437
+2020-05-12 01:41:38,067 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1586452160686, 1586452158193]
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-05-12 01:41:38,096 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-05-12 01:41:38,097 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-05-12 01:41:38,097 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-05-12 01:41:38,097 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-05-12 01:41:38,097 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-05-12 01:41:38,097 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-05-12 01:41:38,151 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-05-12 01:41:38,152 [INFO] PinOutPanel:1420 - setPackage(STM32F411RETx,LQFP64)
+2020-05-12 01:41:38,277 [INFO] UtilMem:74 - Before build in PCC Used Memory: 909770376 Bytes (1073741824)
+2020-05-12 01:41:38,395 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:41:38,421 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:41:38,436 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:41:38,438 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/ADMIN/.stm32cubemx/plugins/power
+2020-05-12 01:41:38,464 [INFO] UtilMem:74 - After build in PCC Used Memory: 440983176 Bytes (1073741824)
+2020-05-12 01:41:38,472 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,472 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,472 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,473 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,474 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,475 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,476 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,477 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,477 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,477 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-05-12 01:41:38,478 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:38,479 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:38,484 [ERROR] FreeRTOS:936 - Null or empty value: should not occur! (nothing added to the table)
+2020-05-12 01:41:38,487 [INFO] ApiDbMcu:451 - Load IP Config File for FREERTOS
+2020-05-12 01:41:38,508 [INFO] OpenFileManager:294 - Restore cursor
+2020-05-12 01:41:38,541 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:38,542 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:38,543 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:38,543 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:41:41,840 [ERROR] RtosPanel:515 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2020-05-12 01:41:44,181 [INFO] TasksAndQueuesTab:731 - Dynamic
+2020-05-12 01:41:44,181 [WARN] TasksAndQueuesTab:737 - 256 128
+2020-05-12 01:41:44,181 [WARN] TasksAndQueuesTab:749 - max value is: 3840.0
+2020-05-12 01:41:50,156 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2020-05-12 01:41:50,157 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2020-05-12 01:43:14,672 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 674289296 Bytes (1073741824)
+2020-05-12 01:43:15,847 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 683726480 Bytes (1073741824)
+2020-05-12 01:43:16,040 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 698406544 Bytes (1073741824)
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RTC
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: FREERTOS
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: USART
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: IWDG
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RCC
+2020-05-12 01:43:16,164 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: CRC
+2020-05-12 01:43:16,165 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: I2C
+2020-05-12 01:43:16,165 [INFO] CodeGenerator:603 - code generatio: config db path: C:\ST\STM32CubeIDE_1.3.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.6.0.202002181639\\db\
+2020-05-12 01:43:16,169 [WARN] IP:1936 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2020-05-12 01:43:16,169 [WARN] IP:1936 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2020-05-12 01:43:16,178 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 01:43:16,178 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:43:16,178 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 01:43:16,178 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream5
+2020-05-12 01:43:16,178 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 01:43:16,178 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:43:16,178 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:43:16,178 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 01:43:16,179 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 01:43:16,180 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Stream6
+2020-05-12 01:43:16,180 [INFO] Argument:278 - Argument : Initvalue: null
+2020-05-12 01:43:16,180 [INFO] Argument:280 - 	 sub Args: 
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_4
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : FIFOThresholdvalue: null
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : MemBurstvalue: null
+2020-05-12 01:43:16,181 [INFO] Argument:288 - Argument : MemBurstvalue: null
+2020-05-12 01:43:16,181 [INFO] Argument:278 - Argument : PeriphBurstvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : PeriphBurstvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : Statevalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : Statevalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-05-12 01:43:16,182 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-05-12 01:43:16,287 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp_save
+2020-05-12 01:43:16,326 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\license.tmp
+2020-05-12 01:43:16,356 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c_save
+2020-05-12 01:43:16,400 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\gpio.c
+2020-05-12 01:43:16,405 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h_save
+2020-05-12 01:43:16,453 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\gpio.h
+2020-05-12 01:43:16,653 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:16,655 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for CRC
+2020-05-12 01:43:16,655 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:16,661 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c_save
+2020-05-12 01:43:16,724 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\crc.c
+2020-05-12 01:43:16,729 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h_save
+2020-05-12 01:43:16,781 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\crc.h
+2020-05-12 01:43:16,784 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:16,784 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-05-12 01:43:16,785 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:16,804 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c_save
+2020-05-12 01:43:16,882 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\dma.c
+2020-05-12 01:43:16,893 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h_save
+2020-05-12 01:43:16,964 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\dma.h
+2020-05-12 01:43:16,967 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:16,984 [INFO] Middleware:1103 - No code input for Bsp Dependency
+2020-05-12 01:43:16,987 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp_save
+2020-05-12 01:43:17,028 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_inc.tmp
+2020-05-12 01:43:17,032 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp_save
+2020-05-12 01:43:17,074 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_vars.tmp
+2020-05-12 01:43:17,077 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp_save
+2020-05-12 01:43:17,121 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_pfp.tmp
+2020-05-12 01:43:17,124 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp_save
+2020-05-12 01:43:17,166 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_obj_creat.tmp
+2020-05-12 01:43:17,171 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp_save
+2020-05-12 01:43:17,210 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_kernelStart.tmp
+2020-05-12 01:43:17,214 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp_save
+2020-05-12 01:43:17,254 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_default_thread.tmp
+2020-05-12 01:43:17,257 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp_save
+2020-05-12 01:43:17,295 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\rtos_threads.tmp
+2020-05-12 01:43:17,300 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h_save
+2020-05-12 01:43:17,361 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\FreeRTOSConfig.h
+2020-05-12 01:43:17,366 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c_save
+2020-05-12 01:43:17,423 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\freertos.c
+2020-05-12 01:43:17,425 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:17,426 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for I2C
+2020-05-12 01:43:17,426 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:17,431 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c_save
+2020-05-12 01:43:17,493 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\i2c.c
+2020-05-12 01:43:17,498 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h_save
+2020-05-12 01:43:17,544 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\i2c.h
+2020-05-12 01:43:17,546 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:17,547 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for IWDG
+2020-05-12 01:43:17,547 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:17,554 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c_save
+2020-05-12 01:43:17,632 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\iwdg.c
+2020-05-12 01:43:17,637 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h_save
+2020-05-12 01:43:17,686 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\iwdg.h
+2020-05-12 01:43:17,688 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:17,689 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-05-12 01:43:17,689 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:17,694 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c_save
+2020-05-12 01:43:17,763 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\rtc.c
+2020-05-12 01:43:17,768 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h_save
+2020-05-12 01:43:17,812 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\rtc.h
+2020-05-12 01:43:17,815 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:17,816 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-05-12 01:43:17,816 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:17,823 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c_save
+2020-05-12 01:43:17,896 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\tim.c
+2020-05-12 01:43:17,901 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h_save
+2020-05-12 01:43:17,946 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\tim.h
+2020-05-12 01:43:17,950 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-05-12 01:43:17,952 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-05-12 01:43:17,952 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:17,958 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c_save
+2020-05-12 01:43:18,121 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\usart.c
+2020-05-12 01:43:18,126 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h_save
+2020-05-12 01:43:18,169 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\usart.h
+2020-05-12 01:43:18,172 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-05-12 01:43:18,172 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-05-12 01:43:18,176 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c_save
+2020-05-12 01:43:18,233 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_it.c
+2020-05-12 01:43:18,238 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h_save
+2020-05-12 01:43:18,282 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_it.h
+2020-05-12 01:43:18,288 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c_save
+2020-05-12 01:43:18,352 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_msp.c
+2020-05-12 01:43:18,356 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp_save
+2020-05-12 01:43:18,394 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\MXTmpFiles\system.tmp
+2020-05-12 01:43:18,398 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c_save
+2020-05-12 01:43:18,440 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\stm32f4xx_hal_timebase_tim.c
+2020-05-12 01:43:18,446 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h_save
+2020-05-12 01:43:18,492 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\stm32f4xx_hal_conf.h
+2020-05-12 01:43:18,505 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h_save
+2020-05-12 01:43:18,550 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Inc\main.h
+2020-05-12 01:43:18,557 [INFO] CodeEngine:188 - oldGeneratedFile, C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c_save
+2020-05-12 01:43:18,624 [INFO] CodeEngine:206 - Generated code: C:\Users\ADMIN\Documents\GitHub\NUCLEO-F411RE\NUCLEO-F411RE\Src\main.c
+2020-05-12 01:43:19,026 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 118mS.
+2020-05-12 01:43:19,030 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-05-12 01:43:19,188 [INFO] ConfigFileManager:1066 - The Die is : DIE431
+2020-05-12 01:43:20,750 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1720mS.
+2020-05-12 01:43:20,752 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-05-12 01:43:20,759 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.

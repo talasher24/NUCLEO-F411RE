@@ -96,14 +96,14 @@ void StartTerminalTask(void const * argument)
 void COM_init(void)
 {
 	/* definition and creation of terminalTask */
-	osThreadDef(terminalTask, StartTerminalTask, osPriorityIdle, 0, 128);
+	osThreadDef(terminalTask, StartTerminalTask, osPriorityNormal, 0, 128);
 	terminalTaskHandle = osThreadCreate(osThread(terminalTask), NULL);
 
 	osMutexDef(UART_Tx_Mutex);
 	UART_Tx_Mutex_Handle = osMutexCreate(osMutex(UART_Tx_Mutex));
 	if (UART_Tx_Mutex_Handle == NULL)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		Error_Handler();
 		return;
 	}
 
@@ -116,7 +116,7 @@ void COM_init(void)
 	P_Rx_Current_Msg = osMailAlloc(RxMailQueueHandle, 0);
 	if (P_Rx_Current_Msg == NULL)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		Error_Handler();
 		return;
 	}
 	COM_bufferInit(P_Rx_Current_Msg->p_buffer);
@@ -151,7 +151,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		P_Rx_Current_Msg = osMailAlloc(RxMailQueueHandle, 0);
 		if (P_Rx_Current_Msg == NULL)
 		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			Error_Handler();
 			return;
 		}
 		COM_bufferInit(P_Rx_Current_Msg->p_buffer);
@@ -203,7 +203,7 @@ void COM_uartPrint(char* p_token)
 	queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
 	if (queue_msg_set == NULL)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		Error_Handler();
 		return;
 	}
 	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));

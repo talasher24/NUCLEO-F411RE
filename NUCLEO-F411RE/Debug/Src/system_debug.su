@@ -6,6 +6,6 @@ system_debug.c:121:6:SYSTEM_DEBUG_printResetCause	112	static
 system_debug.c:135:15:SYSTEM_DEBUG_resetCauseGet	16	static
 system_debug.c:182:14:SYSTEM_DEBUG_resetCauseGetName	24	static
 system_debug.c:222:6:SYSTEM_DEBUG_enterSleepMode	8	static
-system_debug.c:239:6:SYSTEM_DEBUG_enterStopMode	24	static
-system_debug.c:271:6:SYSTEM_DEBUG_enterStandbyMode	8	static
-system_debug.c:308:6:SYSTEM_DEBUG_wakeupStandbyMode	8	static
+system_debug.c:235:6:SYSTEM_DEBUG_enterStopMode	24	static
+system_debug.c:267:6:SYSTEM_DEBUG_enterStandbyMode	8	static
+system_debug.c:304:6:SYSTEM_DEBUG_wakeupStandbyMode	8	static

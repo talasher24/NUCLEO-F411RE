@@ -39,9 +39,9 @@ extern IWDG_HandleTypeDef hiwdg;
 void MX_IWDG_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-#ifdef IWDG_ENABLE
+//#ifdef IWDG_ENABLE
 void kickDog(void);
-#endif
+//#endif
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

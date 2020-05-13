@@ -75,7 +75,7 @@ void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t size, data_type_e dataType)
 {
 	uint32_t flashAddress = Sector_Addrs + idx;
 
@@ -88,7 +88,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
 	switch(dataType)
 	{
 		case DATA_TYPE_8:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, flashAddress , ((uint8_t *)p_wrBuf)[i]);
 					flashAddress++;
@@ -96,7 +96,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
 			break;
 
 		case DATA_TYPE_16:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, flashAddress , ((uint16_t *)p_wrBuf)[i]);
 					flashAddress+=2;
@@ -104,7 +104,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
 			break;
 
 		case DATA_TYPE_32:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, flashAddress , ((uint32_t *)p_wrBuf)[i]);
 					flashAddress+=4;
@@ -120,14 +120,14 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t size, data_type_e dataType)
 {
 	uint32_t flashAddress = Sector_Addrs + idx;
 
 	switch(dataType)
 	{
 		case DATA_TYPE_8:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					*((uint8_t *)p_rdBuf + i) = *(uint8_t *)flashAddress;
 					flashAddress++;
@@ -135,7 +135,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
 			break;
 
 		case DATA_TYPE_16:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					*((uint16_t *)p_rdBuf + i) = *(uint16_t *)flashAddress;
 					flashAddress+=2;
@@ -143,7 +143,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
 			break;
 
 		case DATA_TYPE_32:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
 				{
 					*((uint32_t *)p_rdBuf + i) = *(uint32_t *)flashAddress;
 					flashAddress+=4;

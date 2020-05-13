@@ -78,10 +78,10 @@ void StartTerminalTask(void const * argument)
 	  evt = osMailGet(RxMailQueueHandle, osWaitForever);
 	  if (evt.status == osEventMail)
 	  {
-		  queue_message_t *queue_msg_get;
-		  queue_msg_get = evt.value.p;
-		  COM_readyCommandProcess((char*)queue_msg_get->p_buffer);
-		  osMailFree(RxMailQueueHandle, queue_msg_get);
+		  queue_message_t *p_queue_msg_get;
+		  p_queue_msg_get = evt.value.p;
+		  COM_readyCommandProcess((char*)p_queue_msg_get->p_buffer);
+		  osMailFree(RxMailQueueHandle, p_queue_msg_get);
 	  }
 
   }
@@ -199,15 +199,15 @@ static void COM_readyCommandProcess(char* p_buffer)
   */
 void COM_uartPrint(char* p_token)
 {
-	queue_message_t *queue_msg_set;
-	queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
-	if (queue_msg_set == NULL)
+	queue_message_t *p_queue_msg_set;
+	p_queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
+	if (p_queue_msg_set == NULL)
 	{
 		Error_Handler();
 		return;
 	}
-	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));
-	osMailPut(TxMailQueueHandle, queue_msg_set);
+	strncpy((char*)p_queue_msg_set->p_buffer, p_token, sizeof(p_queue_msg_set->p_buffer));
+	osMailPut(TxMailQueueHandle, p_queue_msg_set);
 	if (!COM_getTxBusyFlag() && osMutexWait(UART_Tx_Mutex_Handle, 0) == osOK)
 	{
 		HAL_UART_TxCpltCallback(&huart2);

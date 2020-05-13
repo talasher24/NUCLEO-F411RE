@@ -212,14 +212,14 @@ void StartDefaultTask(void const * argument)
 	}
 	else
 	{
-		COM_uartPrint("Failed to terminate a thread\n");
+		COM_uartPrint("Failed to terminate a task\n");
 	}
 
   /* Infinite loop */
 
 	for(;;)
 	{
-		//SYSTEM_DEBUG_enterSleepMode();
+
 	}
   /* USER CODE END StartDefaultTask */
 }

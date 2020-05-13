@@ -31,7 +31,7 @@
  	DATA_TYPE_8 = 0,
  	DATA_TYPE_16,
  	DATA_TYPE_32,
- } DataTypeDef;
+ } data_type_e;
 
  /******************************************************************************
  * Module Variable Definitions
@@ -42,8 +42,8 @@
  *******************************************************************************/
 
  void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs);
- void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataType);
- void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataType);
+ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t size, data_type_e dataType);
+ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t size, data_type_e dataType);
  void FLASH_wrpSectorEnable (void);
  void FLASH_wrpSectorDisable (void);
  void FLASH_crcWholeFlashCalc(void);

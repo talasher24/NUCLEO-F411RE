@@ -7,19 +7,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00012350  080001a0  080001a0  000101a0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000cc8  080124f0  080124f0  000224f0  2**3
+  2 .rodata       00000cc0  080124f0  080124f0  000224f0  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080131b8  080131b8  00030264  2**0
+  3 .ARM.extab    00000000  080131b0  080131b0  00030264  2**0
                   CONTENTS
-  4 .ARM          00000008  080131b8  080131b8  000231b8  2**2
+  4 .ARM          00000008  080131b0  080131b0  000231b0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  080131c0  080131c0  00030264  2**0
+  5 .preinit_array 00000000  080131b8  080131b8  00030264  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080131c0  080131c0  000231c0  2**2
+  6 .init_array   00000004  080131b8  080131b8  000231b8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  080131c4  080131c4  000231c4  2**2
+  7 .fini_array   00000004  080131bc  080131bc  000231bc  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         000001e4  20000080  080131c8  00030080  2**2
+  8 .data         000001e4  20000080  080131c0  00030080  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   9 .noinit       00000044  20000000  20000000  00040000  2**2
                   ALLOC
@@ -31,23 +31,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  13 .ARM.attributes 00000030  00000000  00000000  00030264  2**0
                   CONTENTS, READONLY
- 14 .debug_info   00033876  00000000  00000000  00030294  2**0
+ 14 .debug_info   00033872  00000000  00000000  00030294  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_abbrev 00005ec3  00000000  00000000  00063b0a  2**0
+ 15 .debug_abbrev 00005eb0  00000000  00000000  00063b06  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_aranges 00002658  00000000  00000000  000699d0  2**3
+ 16 .debug_aranges 00002658  00000000  00000000  000699b8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_ranges 000023a0  00000000  00000000  0006c028  2**3
+ 17 .debug_ranges 000023a0  00000000  00000000  0006c010  2**3
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_macro  0001e7cb  00000000  00000000  0006e3c8  2**0
+ 18 .debug_macro  0001e7cb  00000000  00000000  0006e3b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_line   000229f2  00000000  00000000  0008cb93  2**0
+ 19 .debug_line   000229f2  00000000  00000000  0008cb7b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_str    000a6d3f  00000000  00000000  000af585  2**0
+ 20 .debug_str    000a6d50  00000000  00000000  000af56d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .comment      0000007b  00000000  00000000  001562c4  2**0
+ 21 .comment      0000007b  00000000  00000000  001562bd  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  0000aa24  00000000  00000000  00156340  2**2
+ 22 .debug_frame  0000aa24  00000000  00000000  00156338  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3415,7 +3415,7 @@ static uint32_t DMA_CalcBaseAndBitshift(DMA_HandleTypeDef *hdma)
  8001b78:	4770      	bx	lr
  8001b7a:	bf00      	nop
  8001b7c:	aaaaaaab 	.word	0xaaaaaaab
- 8001b80:	08012ddc 	.word	0x08012ddc
+ 8001b80:	08012dd8 	.word	0x08012dd8
 
 08001b84 <DMA_CheckFifoParam>:
   * @param  hdma       pointer to a DMA_HandleTypeDef structure that contains
@@ -10847,7 +10847,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8004886:	bf00      	nop
  8004888:	08012700 	.word	0x08012700
  800488c:	40023800 	.word	0x40023800
- 8004890:	08012ee0 	.word	0x08012ee0
+ 8004890:	08012edc 	.word	0x08012edc
  8004894:	20000090 	.word	0x20000090
  8004898:	20000080 	.word	0x20000080
 
@@ -11110,7 +11110,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  8004a80:	4618      	mov	r0, r3
  8004a82:	bd80      	pop	{r7, pc}
  8004a84:	40023800 	.word	0x40023800
- 8004a88:	08012ef0 	.word	0x08012ef0
+ 8004a88:	08012eec 	.word	0x08012eec
 
 08004a8c <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -11136,7 +11136,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8004aa8:	4618      	mov	r0, r3
  8004aaa:	bd80      	pop	{r7, pc}
  8004aac:	40023800 	.word	0x40023800
- 8004ab0:	08012ef0 	.word	0x08012ef0
+ 8004ab0:	08012eec 	.word	0x08012eec
 
 08004ab4 <HAL_RCC_GetClockConfig>:
   * will be configured.
@@ -26747,9 +26747,9 @@ BaseType_t xReturn;
  800a9c6:	46bd      	mov	sp, r7
  800a9c8:	bd80      	pop	{r7, pc}
  800a9ca:	bf00      	nop
- 800a9cc:	08012f18 	.word	0x08012f18
- 800a9d0:	08012f38 	.word	0x08012f38
- 800a9d4:	08012ef8 	.word	0x08012ef8
+ 800a9cc:	08012f14 	.word	0x08012f14
+ 800a9d0:	08012f34 	.word	0x08012f34
+ 800a9d4:	08012ef4 	.word	0x08012ef4
 
 0800a9d8 <prvAddNewTaskToReadyList>:
 /*-----------------------------------------------------------*/
@@ -32920,15 +32920,15 @@ void StartTerminalTask(void const * argument)
  800cc24:	2b20      	cmp	r3, #32
  800cc26:	d1f3      	bne.n	800cc10 <StartTerminalTask+0x8>
 	  {
-		  queue_message_t *queue_msg_get;
-		  queue_msg_get = evt.value.p;
+		  queue_message_t *p_queue_msg_get;
+		  p_queue_msg_get = evt.value.p;
  800cc28:	68fb      	ldr	r3, [r7, #12]
  800cc2a:	617b      	str	r3, [r7, #20]
-		  COM_readyCommandProcess((char*)queue_msg_get->p_buffer);
+		  COM_readyCommandProcess((char*)p_queue_msg_get->p_buffer);
  800cc2c:	697b      	ldr	r3, [r7, #20]
  800cc2e:	4618      	mov	r0, r3
  800cc30:	f000 f8e2 	bl	800cdf8 <COM_readyCommandProcess>
-		  osMailFree(RxMailQueueHandle, queue_msg_get);
+		  osMailFree(RxMailQueueHandle, p_queue_msg_get);
  800cc34:	4b03      	ldr	r3, [pc, #12]	; (800cc44 <StartTerminalTask+0x3c>)
  800cc36:	681b      	ldr	r3, [r3, #0]
  800cc38:	6979      	ldr	r1, [r7, #20]
@@ -33247,15 +33247,15 @@ void COM_uartPrint(char* p_token)
  800ce1e:	b084      	sub	sp, #16
  800ce20:	af00      	add	r7, sp, #0
  800ce22:	6078      	str	r0, [r7, #4]
-	queue_message_t *queue_msg_set;
-	queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
+	queue_message_t *p_queue_msg_set;
+	p_queue_msg_set = osMailAlloc(TxMailQueueHandle, 0);
  800ce24:	4b1a      	ldr	r3, [pc, #104]	; (800ce90 <COM_uartPrint+0x74>)
  800ce26:	681b      	ldr	r3, [r3, #0]
  800ce28:	2100      	movs	r1, #0
  800ce2a:	4618      	mov	r0, r3
  800ce2c:	f7fc fb80 	bl	8009530 <osMailAlloc>
  800ce30:	60f8      	str	r0, [r7, #12]
-	if (queue_msg_set == NULL)
+	if (p_queue_msg_set == NULL)
  800ce32:	68fb      	ldr	r3, [r7, #12]
  800ce34:	2b00      	cmp	r3, #0
  800ce36:	d102      	bne.n	800ce3e <COM_uartPrint+0x22>
@@ -33265,13 +33265,13 @@ void COM_uartPrint(char* p_token)
 		return;
  800ce3c:	e024      	b.n	800ce88 <COM_uartPrint+0x6c>
 	}
-	strncpy((char*)queue_msg_set->p_buffer, p_token, sizeof(queue_msg_set->p_buffer));
+	strncpy((char*)p_queue_msg_set->p_buffer, p_token, sizeof(p_queue_msg_set->p_buffer));
  800ce3e:	68fb      	ldr	r3, [r7, #12]
  800ce40:	2264      	movs	r2, #100	; 0x64
  800ce42:	6879      	ldr	r1, [r7, #4]
  800ce44:	4618      	mov	r0, r3
  800ce46:	f003 ff53 	bl	8010cf0 <strncpy>
-	osMailPut(TxMailQueueHandle, queue_msg_set);
+	osMailPut(TxMailQueueHandle, p_queue_msg_set);
  800ce4a:	4b11      	ldr	r3, [pc, #68]	; (800ce90 <COM_uartPrint+0x74>)
  800ce4c:	681b      	ldr	r3, [r3, #0]
  800ce4e:	68f9      	ldr	r1, [r7, #12]
@@ -33553,7 +33553,7 @@ void COMMAND_findAndExecuteCommand(char* p_token)
  800cfea:	3710      	adds	r7, #16
  800cfec:	46bd      	mov	sp, r7
  800cfee:	bd80      	pop	{r7, pc}
- 800cff0:	08012de4 	.word	0x08012de4
+ 800cff0:	08012de0 	.word	0x08012de0
  800cff4:	08012a14 	.word	0x08012a14
 
 0800cff8 <COMMAND_pingCallback>:
@@ -34213,7 +34213,7 @@ void FLASH_setSectorAddress(uint8_t sector, uint32_t addrs)
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t size, data_type_e dataType)
 {
  800d33c:	b590      	push	{r4, r7, lr}
  800d33e:	b089      	sub	sp, #36	; 0x24
@@ -34247,7 +34247,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d368:	d151      	bne.n	800d40e <FLASH_writeN+0xd2>
 	{
 		case DATA_TYPE_8:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d36a:	2300      	movs	r3, #0
  800d36c:	61bb      	str	r3, [r7, #24]
  800d36e:	e012      	b.n	800d396 <FLASH_writeN+0x5a>
@@ -34268,7 +34268,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d38a:	69fb      	ldr	r3, [r7, #28]
  800d38c:	3301      	adds	r3, #1
  800d38e:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d390:	69bb      	ldr	r3, [r7, #24]
  800d392:	3301      	adds	r3, #1
  800d394:	61bb      	str	r3, [r7, #24]
@@ -34281,7 +34281,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d39e:	e036      	b.n	800d40e <FLASH_writeN+0xd2>
 
 		case DATA_TYPE_16:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d3a0:	2300      	movs	r3, #0
  800d3a2:	617b      	str	r3, [r7, #20]
  800d3a4:	e013      	b.n	800d3ce <FLASH_writeN+0x92>
@@ -34303,7 +34303,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d3c2:	69fb      	ldr	r3, [r7, #28]
  800d3c4:	3302      	adds	r3, #2
  800d3c6:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d3c8:	697b      	ldr	r3, [r7, #20]
  800d3ca:	3301      	adds	r3, #1
  800d3cc:	617b      	str	r3, [r7, #20]
@@ -34316,7 +34316,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d3d6:	e01a      	b.n	800d40e <FLASH_writeN+0xd2>
 
 		case DATA_TYPE_32:
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d3d8:	2300      	movs	r3, #0
  800d3da:	613b      	str	r3, [r7, #16]
  800d3dc:	e012      	b.n	800d404 <FLASH_writeN+0xc8>
@@ -34337,7 +34337,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
  800d3f8:	69fb      	ldr	r3, [r7, #28]
  800d3fa:	3304      	adds	r3, #4
  800d3fc:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d3fe:	693b      	ldr	r3, [r7, #16]
  800d400:	3301      	adds	r3, #1
  800d402:	613b      	str	r3, [r7, #16]
@@ -34365,7 +34365,7 @@ void FLASH_writeN(uint32_t idx, void *p_wrBuf, uint32_t Nsize, DataTypeDef dataT
   * @param 	XXX
   * @retval	XXX
   */
-void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataType)
+void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t size, data_type_e dataType)
 {
  800d420:	b480      	push	{r7}
  800d422:	b089      	sub	sp, #36	; 0x24
@@ -34396,7 +34396,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
 	}
 }
  800d446:	e03d      	b.n	800d4c4 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d448:	2300      	movs	r3, #0
  800d44a:	61bb      	str	r3, [r7, #24]
  800d44c:	e00b      	b.n	800d466 <FLASH_readN+0x46>
@@ -34411,7 +34411,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
  800d45a:	69fb      	ldr	r3, [r7, #28]
  800d45c:	3301      	adds	r3, #1
  800d45e:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d460:	69bb      	ldr	r3, [r7, #24]
  800d462:	3301      	adds	r3, #1
  800d464:	61bb      	str	r3, [r7, #24]
@@ -34421,7 +34421,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
  800d46c:	d3ef      	bcc.n	800d44e <FLASH_readN+0x2e>
 			break;
  800d46e:	e029      	b.n	800d4c4 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d470:	2300      	movs	r3, #0
  800d472:	617b      	str	r3, [r7, #20]
  800d474:	e00c      	b.n	800d490 <FLASH_readN+0x70>
@@ -34437,7 +34437,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
  800d484:	69fb      	ldr	r3, [r7, #28]
  800d486:	3302      	adds	r3, #2
  800d488:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d48a:	697b      	ldr	r3, [r7, #20]
  800d48c:	3301      	adds	r3, #1
  800d48e:	617b      	str	r3, [r7, #20]
@@ -34447,7 +34447,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
  800d496:	d3ee      	bcc.n	800d476 <FLASH_readN+0x56>
 			break;
  800d498:	e014      	b.n	800d4c4 <FLASH_readN+0xa4>
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d49a:	2300      	movs	r3, #0
  800d49c:	613b      	str	r3, [r7, #16]
  800d49e:	e00c      	b.n	800d4ba <FLASH_readN+0x9a>
@@ -34463,7 +34463,7 @@ void FLASH_readN(uint32_t idx, void *p_rdBuf, uint32_t Nsize, DataTypeDef dataTy
  800d4ae:	69fb      	ldr	r3, [r7, #28]
  800d4b0:	3304      	adds	r3, #4
  800d4b2:	61fb      	str	r3, [r7, #28]
-				for(uint32_t i=0; i<Nsize; i++)
+				for(uint32_t i=0; i<size; i++)
  800d4b4:	693b      	ldr	r3, [r7, #16]
  800d4b6:	3301      	adds	r3, #1
  800d4b8:	613b      	str	r3, [r7, #16]
@@ -34948,7 +34948,7 @@ void StartDefaultTask(void const * argument)
 	}
 	else
 	{
-		COM_uartPrint("Failed to terminate a thread\n");
+		COM_uartPrint("Failed to terminate a task\n");
  800d738:	4803      	ldr	r0, [pc, #12]	; (800d748 <StartDefaultTask+0x4c>)
  800d73a:	f7ff fb6f 	bl	800ce1c <COM_uartPrint>
 	}
@@ -35634,7 +35634,7 @@ void LSM6DSL_init (void)
  800db32:	3720      	adds	r7, #32
  800db34:	46bd      	mov	sp, r7
  800db36:	bdb0      	pop	{r4, r5, r7, pc}
- 800db38:	08012ad0 	.word	0x08012ad0
+ 800db38:	08012acc 	.word	0x08012acc
  800db3c:	200010bc 	.word	0x200010bc
 
 0800db40 <LSM6DSL_config>:
@@ -35765,7 +35765,7 @@ static void LSM6DSL_config(void)
  800dbec:	0800dc67 	.word	0x0800dc67
  800dbf0:	2000105c 	.word	0x2000105c
  800dbf4:	20000c78 	.word	0x20000c78
- 800dbf8:	08012aec 	.word	0x08012aec
+ 800dbf8:	08012ae8 	.word	0x08012ae8
  800dbfc:	20000c79 	.word	0x20000c79
  800dc00:	20000fd4 	.word	0x20000fd4
 
@@ -35811,7 +35811,7 @@ static void LSM6DSL_processHanlder(void)
   * @param 	XXX
   * @retval	XXX
   */
-static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+static int32_t LSM6DSL_write(void *p_handle, uint8_t Reg, uint8_t *p_buf, uint16_t len)
 {
  800dc2c:	b580      	push	{r7, lr}
  800dc2e:	b088      	sub	sp, #32
@@ -35823,7 +35823,7 @@ static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t 
  800dc3a:	72fb      	strb	r3, [r7, #11]
  800dc3c:	4613      	mov	r3, r2
  800dc3e:	813b      	strh	r3, [r7, #8]
-    HAL_I2C_Mem_Write(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
+    HAL_I2C_Mem_Write(p_handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, p_buf, len, 1000);
  800dc40:	7afb      	ldrb	r3, [r7, #11]
  800dc42:	b29a      	uxth	r2, r3
  800dc44:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
@@ -35849,7 +35849,7 @@ static int32_t LSM6DSL_write(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t 
   * @param 	XXX
   * @retval	XXX
   */
-static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t len)
+static int32_t LSM6DSL_read(void *p_handle, uint8_t Reg, uint8_t *p_buf, uint16_t len)
 {
  800dc66:	b580      	push	{r7, lr}
  800dc68:	b088      	sub	sp, #32
@@ -35861,7 +35861,7 @@ static int32_t LSM6DSL_read(void *handle, uint8_t Reg, uint8_t *Bufp, uint16_t l
  800dc74:	72fb      	strb	r3, [r7, #11]
  800dc76:	4613      	mov	r3, r2
  800dc78:	813b      	strh	r3, [r7, #8]
-	HAL_I2C_Mem_Read(handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, Bufp, len, 1000);
+	HAL_I2C_Mem_Read(p_handle, LSM6DSL_I2C_ADD_H, Reg, I2C_MEMADD_SIZE_8BIT, p_buf, len, 1000);
  800dc7a:	7afb      	ldrb	r3, [r7, #11]
  800dc7c:	b29a      	uxth	r2, r3
  800dc7e:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
@@ -35961,9 +35961,9 @@ void LSM6DSL_perSampleInit(void)
  800dd00:	46bd      	mov	sp, r7
  800dd02:	bd80      	pop	{r7, pc}
  800dd04:	20000fd5 	.word	0x20000fd5
- 800dd08:	08012b0c 	.word	0x08012b0c
+ 800dd08:	08012b08 	.word	0x08012b08
  800dd0c:	20000fd4 	.word	0x20000fd4
- 800dd10:	08012b28 	.word	0x08012b28
+ 800dd10:	08012b24 	.word	0x08012b24
  800dd14:	20000f64 	.word	0x20000f64
 
 0800dd18 <LSM6DSL_perSampleProcess>:
@@ -36151,11 +36151,11 @@ static void LSM6DSL_perSampleProcess (void)
  800de7c:	20000f64 	.word	0x20000f64
  800de80:	20000c50 	.word	0x20000c50
  800de84:	20000c60 	.word	0x20000c60
- 800de88:	08012b4c 	.word	0x08012b4c
+ 800de88:	08012b48 	.word	0x08012b48
  800de8c:	20000f70 	.word	0x20000f70
  800de90:	20000c58 	.word	0x20000c58
  800de94:	20000c6c 	.word	0x20000c6c
- 800de98:	08012b74 	.word	0x08012b74
+ 800de98:	08012b70 	.word	0x08012b70
 
 0800de9c <LSM6DSL_perSampleDisable>:
   * @brief 	XXX
@@ -36319,9 +36319,9 @@ void LSM6DSL_fifoInit(void)
  800df70:	bd80      	pop	{r7, pc}
  800df72:	bf00      	nop
  800df74:	20000fd5 	.word	0x20000fd5
- 800df78:	08012b0c 	.word	0x08012b0c
+ 800df78:	08012b08 	.word	0x08012b08
  800df7c:	20000fd4 	.word	0x20000fd4
- 800df80:	08012b9c 	.word	0x08012b9c
+ 800df80:	08012b98 	.word	0x08012b98
  800df84:	20000f64 	.word	0x20000f64
 
 0800df88 <LSM6DSL_fifoProcess>:
@@ -36501,7 +36501,7 @@ static void LSM6DSL_fifoReadAllData(void)
  800e078:	20000f58 	.word	0x20000f58
  800e07c:	20000f64 	.word	0x20000f64
  800e080:	aaaaaaab 	.word	0xaaaaaaab
- 800e084:	08012bc4 	.word	0x08012bc4
+ 800e084:	08012bc0 	.word	0x08012bc0
  800e088:	20000f70 	.word	0x20000f70
  800e08c:	20000c7c 	.word	0x20000c7c
 
@@ -36510,14 +36510,14 @@ static void LSM6DSL_fifoReadAllData(void)
   * @param 	XXX
   * @retval	XXX
   */
-static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
+static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t sample_index)
 {
  800e090:	b480      	push	{r7}
  800e092:	b083      	sub	sp, #12
  800e094:	af00      	add	r7, sp, #0
  800e096:	4603      	mov	r3, r0
  800e098:	80fb      	strh	r3, [r7, #6]
-	P_Angular_Rate_Dps_Sum[0] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex];
+	P_Angular_Rate_Dps_Sum[0] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index];
  800e09a:	4b35      	ldr	r3, [pc, #212]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e09c:	ed93 7a00 	vldr	s14, [r3]
  800e0a0:	88fb      	ldrh	r3, [r7, #6]
@@ -36528,7 +36528,7 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
  800e0b0:	ee77 7a27 	vadd.f32	s15, s14, s15
  800e0b4:	4b2e      	ldr	r3, [pc, #184]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e0b6:	edc3 7a00 	vstr	s15, [r3]
-	P_Angular_Rate_Dps_Sum[1] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 1];
+	P_Angular_Rate_Dps_Sum[1] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index + 1];
  800e0ba:	4b2d      	ldr	r3, [pc, #180]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e0bc:	ed93 7a01 	vldr	s14, [r3, #4]
  800e0c0:	88fb      	ldrh	r3, [r7, #6]
@@ -36540,7 +36540,7 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
  800e0d2:	ee77 7a27 	vadd.f32	s15, s14, s15
  800e0d6:	4b26      	ldr	r3, [pc, #152]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e0d8:	edc3 7a01 	vstr	s15, [r3, #4]
-	P_Angular_Rate_Dps_Sum[2] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 2];
+	P_Angular_Rate_Dps_Sum[2] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index + 2];
  800e0dc:	4b24      	ldr	r3, [pc, #144]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e0de:	ed93 7a02 	vldr	s14, [r3, #8]
  800e0e2:	88fb      	ldrh	r3, [r7, #6]
@@ -36553,7 +36553,7 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
  800e0f8:	4b1d      	ldr	r3, [pc, #116]	; (800e170 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe0>)
  800e0fa:	edc3 7a02 	vstr	s15, [r3, #8]
 
-	P_Acceleration_G_Sum[0] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 3];
+	P_Acceleration_G_Sum[0] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index + 3];
  800e0fe:	4b1e      	ldr	r3, [pc, #120]	; (800e178 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe8>)
  800e100:	ed93 7a00 	vldr	s14, [r3]
  800e104:	88fb      	ldrh	r3, [r7, #6]
@@ -36565,7 +36565,7 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
  800e116:	ee77 7a27 	vadd.f32	s15, s14, s15
  800e11a:	4b17      	ldr	r3, [pc, #92]	; (800e178 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe8>)
  800e11c:	edc3 7a00 	vstr	s15, [r3]
-	P_Acceleration_G_Sum[1] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 4];
+	P_Acceleration_G_Sum[1] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index + 4];
  800e120:	4b15      	ldr	r3, [pc, #84]	; (800e178 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe8>)
  800e122:	ed93 7a01 	vldr	s14, [r3, #4]
  800e126:	88fb      	ldrh	r3, [r7, #6]
@@ -36577,7 +36577,7 @@ static void LSM6DSL_fifoAccAndGyroReadSingleSample(uint16_t SampleIndex)
  800e138:	ee77 7a27 	vadd.f32	s15, s14, s15
  800e13c:	4b0e      	ldr	r3, [pc, #56]	; (800e178 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe8>)
  800e13e:	edc3 7a01 	vstr	s15, [r3, #4]
-	P_Acceleration_G_Sum[2] += P_Data_Raw_Acc_Gy_Buf->i16bit[SampleIndex + 5];
+	P_Acceleration_G_Sum[2] += P_Data_Raw_Acc_Gy_Buf->i16bit[sample_index + 5];
  800e142:	4b0d      	ldr	r3, [pc, #52]	; (800e178 <LSM6DSL_fifoAccAndGyroReadSingleSample+0xe8>)
  800e144:	ed93 7a02 	vldr	s14, [r3, #8]
  800e148:	88fb      	ldrh	r3, [r7, #6]
@@ -36805,13 +36805,13 @@ static void LSM6DSL_fifoCalcAccGyroAvgAndPrint(uint16_t divider)
  800e368:	3708      	adds	r7, #8
  800e36a:	46bd      	mov	sp, r7
  800e36c:	e8bd 83b0 	ldmia.w	sp!, {r4, r5, r7, r8, r9, pc}
- 800e370:	08012bf4 	.word	0x08012bf4
+ 800e370:	08012bf0 	.word	0x08012bf0
  800e374:	20000f70 	.word	0x20000f70
  800e378:	20000f4c 	.word	0x20000f4c
  800e37c:	447a0000 	.word	0x447a0000
- 800e380:	08012c0c 	.word	0x08012c0c
+ 800e380:	08012c08 	.word	0x08012c08
  800e384:	20000f58 	.word	0x20000f58
- 800e388:	08012c34 	.word	0x08012c34
+ 800e388:	08012c30 	.word	0x08012c30
 
 0800e38c <LSM6DSL_fifoSetFIFOMode>:
   * @brief 	XXX
@@ -39411,6 +39411,7 @@ int main(void)
   /* Start scheduler */
   osKernelStart();
  800f372:	f7f9 fd47 	bl	8008e04 <osKernelStart>
+ 
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -39635,7 +39636,7 @@ void Error_Handler(void)
  800f4b6:	f7fd fcb1 	bl	800ce1c <COM_uartPrint>
 	while(1);
  800f4ba:	e7fe      	b.n	800f4ba <Error_Handler+0xa>
- 800f4bc:	08012c5c 	.word	0x08012c5c
+ 800f4bc:	08012c58 	.word	0x08012c58
 
 0800f4c0 <assert_failed>:
   * @param  file: pointer to the source file name
@@ -40663,7 +40664,7 @@ void SYSTEM_DEBUG_assertMsgPrint(void)
  800f99c:	bd80      	pop	{r7, pc}
  800f99e:	bf00      	nop
  800f9a0:	20000000 	.word	0x20000000
- 800f9a4:	08012c64 	.word	0x08012c64
+ 800f9a4:	08012c60 	.word	0x08012c60
 
 0800f9a8 <SYSTEM_DEBUG_assertResetFlag>:
   * @brief 	XXX
@@ -40724,19 +40725,19 @@ void SYSTEM_DEBUG_printResetCause(void)
  800f9f8:	46bd      	mov	sp, r7
  800f9fa:	bd80      	pop	{r7, pc}
  800f9fc:	20000fd6 	.word	0x20000fd6
- 800fa00:	08012c88 	.word	0x08012c88
+ 800fa00:	08012c84 	.word	0x08012c84
 
 0800fa04 <SYSTEM_DEBUG_resetCauseGet>:
   * @brief 	XXX
   * @param 	XXX
   * @retval	XXX
   */
-reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
+reset_cause_e SYSTEM_DEBUG_resetCauseGet(void)
 {
  800fa04:	b480      	push	{r7}
  800fa06:	b083      	sub	sp, #12
  800fa08:	af00      	add	r7, sp, #0
-    reset_cause_t Reset_Cause;
+    reset_cause_e Reset_Cause;
 
     if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))
  800fa0a:	4b26      	ldr	r3, [pc, #152]	; (800faa4 <SYSTEM_DEBUG_resetCauseGet+0xa0>)
@@ -40851,18 +40852,18 @@ reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
   * @param 	XXX
   * @retval	XXX
   */
-const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
+const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_e reset_cause)
 {
  800faa8:	b480      	push	{r7}
  800faaa:	b085      	sub	sp, #20
  800faac:	af00      	add	r7, sp, #0
  800faae:	4603      	mov	r3, r0
  800fab0:	71fb      	strb	r3, [r7, #7]
-    const char * reset_cause_name = "TBD";
+    const char * p_reset_cause_name = "TBD";
  800fab2:	4b1c      	ldr	r3, [pc, #112]	; (800fb24 <SYSTEM_DEBUG_resetCauseGetName+0x7c>)
  800fab4:	60fb      	str	r3, [r7, #12]
 
-    switch (Reset_Cause)
+    switch (reset_cause)
  800fab6:	79fb      	ldrb	r3, [r7, #7]
  800fab8:	2b07      	cmp	r3, #7
  800faba:	d82b      	bhi.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
@@ -40879,56 +40880,56 @@ const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
  800fae0:	0800fb0f 	.word	0x0800fb0f
     {
         case RESET_CAUSE_UNKNOWN:
-            reset_cause_name = "UNKNOWN";
+            p_reset_cause_name = "UNKNOWN";
  800fae4:	4b10      	ldr	r3, [pc, #64]	; (800fb28 <SYSTEM_DEBUG_resetCauseGetName+0x80>)
  800fae6:	60fb      	str	r3, [r7, #12]
             break;
  800fae8:	e014      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_LOW_POWER_RESET:
-            reset_cause_name = "LOW_POWER_RESET";
+            p_reset_cause_name = "LOW_POWER_RESET";
  800faea:	4b10      	ldr	r3, [pc, #64]	; (800fb2c <SYSTEM_DEBUG_resetCauseGetName+0x84>)
  800faec:	60fb      	str	r3, [r7, #12]
             break;
  800faee:	e011      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_WINDOW_WATCHDOG_RESET:
-            reset_cause_name = "WINDOW_WATCHDOG_RESET";
+            p_reset_cause_name = "WINDOW_WATCHDOG_RESET";
  800faf0:	4b0f      	ldr	r3, [pc, #60]	; (800fb30 <SYSTEM_DEBUG_resetCauseGetName+0x88>)
  800faf2:	60fb      	str	r3, [r7, #12]
             break;
  800faf4:	e00e      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_INDEPENDENT_WATCHDOG_RESET:
-            reset_cause_name = "INDEPENDENT_WATCHDOG_RESET";
+            p_reset_cause_name = "INDEPENDENT_WATCHDOG_RESET";
  800faf6:	4b0f      	ldr	r3, [pc, #60]	; (800fb34 <SYSTEM_DEBUG_resetCauseGetName+0x8c>)
  800faf8:	60fb      	str	r3, [r7, #12]
             break;
  800fafa:	e00b      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_SOFTWARE_RESET:
-            reset_cause_name = "SOFTWARE_RESET";
+            p_reset_cause_name = "SOFTWARE_RESET";
  800fafc:	4b0e      	ldr	r3, [pc, #56]	; (800fb38 <SYSTEM_DEBUG_resetCauseGetName+0x90>)
  800fafe:	60fb      	str	r3, [r7, #12]
             break;
  800fb00:	e008      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_POWER_ON_POWER_DOWN_RESET:
-            reset_cause_name = "POWER-ON_RESET (POR) / POWER-DOWN_RESET (PDR)";
+            p_reset_cause_name = "POWER-ON_RESET (POR) / POWER-DOWN_RESET (PDR)";
  800fb02:	4b0e      	ldr	r3, [pc, #56]	; (800fb3c <SYSTEM_DEBUG_resetCauseGetName+0x94>)
  800fb04:	60fb      	str	r3, [r7, #12]
             break;
  800fb06:	e005      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_EXTERNAL_RESET_PIN_RESET:
-            reset_cause_name = "EXTERNAL_RESET_PIN_RESET";
+            p_reset_cause_name = "EXTERNAL_RESET_PIN_RESET";
  800fb08:	4b0d      	ldr	r3, [pc, #52]	; (800fb40 <SYSTEM_DEBUG_resetCauseGetName+0x98>)
  800fb0a:	60fb      	str	r3, [r7, #12]
             break;
  800fb0c:	e002      	b.n	800fb14 <SYSTEM_DEBUG_resetCauseGetName+0x6c>
         case RESET_CAUSE_BROWNOUT_RESET:
-            reset_cause_name = "BROWNOUT_RESET (BOR)";
+            p_reset_cause_name = "BROWNOUT_RESET (BOR)";
  800fb0e:	4b0d      	ldr	r3, [pc, #52]	; (800fb44 <SYSTEM_DEBUG_resetCauseGetName+0x9c>)
  800fb10:	60fb      	str	r3, [r7, #12]
             break;
  800fb12:	bf00      	nop
     }
 
-    return reset_cause_name;
+    return p_reset_cause_name;
  800fb14:	68fb      	ldr	r3, [r7, #12]
 }
  800fb16:	4618      	mov	r0, r3
@@ -40937,15 +40938,15 @@ const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
  800fb1c:	f85d 7b04 	ldr.w	r7, [sp], #4
  800fb20:	4770      	bx	lr
  800fb22:	bf00      	nop
- 800fb24:	08012ca8 	.word	0x08012ca8
- 800fb28:	08012cac 	.word	0x08012cac
- 800fb2c:	08012cb4 	.word	0x08012cb4
- 800fb30:	08012cc4 	.word	0x08012cc4
- 800fb34:	08012cdc 	.word	0x08012cdc
- 800fb38:	08012cf8 	.word	0x08012cf8
- 800fb3c:	08012d08 	.word	0x08012d08
- 800fb40:	08012d38 	.word	0x08012d38
- 800fb44:	08012d54 	.word	0x08012d54
+ 800fb24:	08012ca4 	.word	0x08012ca4
+ 800fb28:	08012ca8 	.word	0x08012ca8
+ 800fb2c:	08012cb0 	.word	0x08012cb0
+ 800fb30:	08012cc0 	.word	0x08012cc0
+ 800fb34:	08012cd8 	.word	0x08012cd8
+ 800fb38:	08012cf4 	.word	0x08012cf4
+ 800fb3c:	08012d04 	.word	0x08012d04
+ 800fb40:	08012d34 	.word	0x08012d34
+ 800fb44:	08012d50 	.word	0x08012d50
 
 0800fb48 <SYSTEM_DEBUG_enterStopMode>:
   * @brief 	XXX
@@ -41023,9 +41024,9 @@ void SYSTEM_DEBUG_enterStopMode(uint32_t wake_up_time)
  800fbbc:	bd80      	pop	{r7, pc}
  800fbbe:	bf00      	nop
  800fbc0:	39fba882 	.word	0x39fba882
- 800fbc4:	08012d6c 	.word	0x08012d6c
+ 800fbc4:	08012d68 	.word	0x08012d68
  800fbc8:	200010c0 	.word	0x200010c0
- 800fbcc:	08012d80 	.word	0x08012d80
+ 800fbcc:	08012d7c 	.word	0x08012d7c
 
 0800fbd0 <SYSTEM_DEBUG_enterStandbyMode>:
   * @brief 	XXX
@@ -41091,7 +41092,7 @@ void SYSTEM_DEBUG_enterStandbyMode(void)
  800fc22:	bd80      	pop	{r7, pc}
  800fc24:	40007000 	.word	0x40007000
  800fc28:	200010c0 	.word	0x200010c0
- 800fc2c:	08012d94 	.word	0x08012d94
+ 800fc2c:	08012d90 	.word	0x08012d90
 
 0800fc30 <SYSTEM_DEBUG_wakeupStandbyMode>:
   * @brief 	XXX
@@ -41134,7 +41135,7 @@ void SYSTEM_DEBUG_wakeupStandbyMode(void)
  800fc60:	bf00      	nop
  800fc62:	bd80      	pop	{r7, pc}
  800fc64:	40007000 	.word	0x40007000
- 800fc68:	08012da8 	.word	0x08012da8
+ 800fc68:	08012da4 	.word	0x08012da4
  800fc6c:	200010c0 	.word	0x200010c0
 
 0800fc70 <SYSTEM_ISR_init>:
@@ -41274,7 +41275,7 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
  800fd12:	46bd      	mov	sp, r7
  800fd14:	bd80      	pop	{r7, pc}
  800fd16:	bf00      	nop
- 800fd18:	08012dc4 	.word	0x08012dc4
+ 800fd18:	08012dc0 	.word	0x08012dc0
 
 0800fd1c <Timer01Callback>:
   * @brief 	XXX
@@ -41298,7 +41299,7 @@ void Timer01Callback(void const * argument)
  800fd2e:	46bd      	mov	sp, r7
  800fd30:	bd80      	pop	{r7, pc}
  800fd32:	bf00      	nop
- 800fd34:	08012dcc 	.word	0x08012dcc
+ 800fd34:	08012dc8 	.word	0x08012dc8
 
 0800fd38 <SystemInit>:
   *         configuration.
@@ -41972,7 +41973,7 @@ LoopFillZerobss:
   ldr   sp, =_estack    		 /* set stack pointer */
  80100fc:	20020000 	.word	0x20020000
   ldr  r3, =_sidata
- 8010100:	080131c8 	.word	0x080131c8
+ 8010100:	080131c0 	.word	0x080131c0
   ldr  r0, =_sdata
  8010104:	20000080 	.word	0x20000080
   ldr  r3, =_edata
@@ -42023,10 +42024,10 @@ Infinite_Loop:
  8010152:	4798      	blx	r3
  8010154:	3501      	adds	r5, #1
  8010156:	e7f2      	b.n	801013e <__libc_init_array+0x1e>
- 8010158:	080131c0 	.word	0x080131c0
- 801015c:	080131c0 	.word	0x080131c0
- 8010160:	080131c0 	.word	0x080131c0
- 8010164:	080131c4 	.word	0x080131c4
+ 8010158:	080131b8 	.word	0x080131b8
+ 801015c:	080131b8 	.word	0x080131b8
+ 8010160:	080131b8 	.word	0x080131b8
+ 8010164:	080131bc 	.word	0x080131bc
 
 08010168 <malloc>:
  8010168:	4b02      	ldr	r3, [pc, #8]	; (8010174 <malloc+0xc>)
@@ -42650,11 +42651,11 @@ Infinite_Loop:
  801071c:	9306      	str	r3, [sp, #24]
  801071e:	e015      	b.n	801074c <_printf_float+0x324>
  8010720:	7fefffff 	.word	0x7fefffff
- 8010724:	08012f5c 	.word	0x08012f5c
- 8010728:	08012f58 	.word	0x08012f58
- 801072c:	08012f64 	.word	0x08012f64
- 8010730:	08012f60 	.word	0x08012f60
- 8010734:	08012f68 	.word	0x08012f68
+ 8010724:	08012f58 	.word	0x08012f58
+ 8010728:	08012f54 	.word	0x08012f54
+ 801072c:	08012f60 	.word	0x08012f60
+ 8010730:	08012f5c 	.word	0x08012f5c
+ 8010734:	08012f64 	.word	0x08012f64
  8010738:	2301      	movs	r3, #1
  801073a:	9a06      	ldr	r2, [sp, #24]
  801073c:	4631      	mov	r1, r6
@@ -43134,8 +43135,8 @@ Infinite_Loop:
  8010ba6:	f884 3042 	strb.w	r3, [r4, #66]	; 0x42
  8010baa:	f104 0542 	add.w	r5, r4, #66	; 0x42
  8010bae:	e76c      	b.n	8010a8a <_printf_i+0xf6>
- 8010bb0:	08012f6a 	.word	0x08012f6a
- 8010bb4:	08012f7b 	.word	0x08012f7b
+ 8010bb0:	08012f66 	.word	0x08012f66
+ 8010bb4:	08012f77 	.word	0x08012f77
 
 08010bb8 <cleanup_glue>:
  8010bb8:	b538      	push	{r3, r4, r5, lr}
@@ -43894,11 +43895,11 @@ Infinite_Loop:
  8011318:	509f79fb 	.word	0x509f79fb
  801131c:	3fd34413 	.word	0x3fd34413
  8011320:	7ff00000 	.word	0x7ff00000
- 8011324:	08012f69 	.word	0x08012f69
+ 8011324:	08012f65 	.word	0x08012f65
  8011328:	3ff80000 	.word	0x3ff80000
- 801132c:	08012fd0 	.word	0x08012fd0
- 8011330:	08012fa8 	.word	0x08012fa8
- 8011334:	08012f95 	.word	0x08012f95
+ 801132c:	08012fc8 	.word	0x08012fc8
+ 8011330:	08012fa0 	.word	0x08012fa0
+ 8011334:	08012f91 	.word	0x08012f91
  8011338:	07f1      	lsls	r1, r6, #31
  801133a:	d508      	bpl.n	801134e <_dtoa_r+0x34e>
  801133c:	e9dd 0108 	ldrd	r0, r1, [sp, #32]
@@ -44137,8 +44138,8 @@ Infinite_Loop:
  80115ea:	f7ef f80d 	bl	8000608 <__aeabi_dmul>
  80115ee:	e9cd 0100 	strd	r0, r1, [sp]
  80115f2:	e7bc      	b.n	801156e <_dtoa_r+0x56e>
- 80115f4:	08012fd0 	.word	0x08012fd0
- 80115f8:	08012fa8 	.word	0x08012fa8
+ 80115f4:	08012fc8 	.word	0x08012fc8
+ 80115f8:	08012fa0 	.word	0x08012fa0
  80115fc:	3ff00000 	.word	0x3ff00000
  8011600:	40240000 	.word	0x40240000
  8011604:	401c0000 	.word	0x401c0000
@@ -44700,8 +44701,8 @@ Infinite_Loop:
  8011b60:	f000 f875 	bl	8011c4e <__multadd>
  8011b64:	9004      	str	r0, [sp, #16]
  8011b66:	e7ea      	b.n	8011b3e <_dtoa_r+0xb3e>
- 8011b68:	08012f68 	.word	0x08012f68
- 8011b6c:	08012f8c 	.word	0x08012f8c
+ 8011b68:	08012f64 	.word	0x08012f64
+ 8011b6c:	08012f88 	.word	0x08012f88
 
 08011b70 <__locale_ctype_ptr_l>:
  8011b70:	f8d0 00ec 	ldr.w	r0, [r0, #236]	; 0xec
@@ -45108,7 +45109,7 @@ Infinite_Loop:
  8011f30:	4638      	mov	r0, r7
  8011f32:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
  8011f36:	bf00      	nop
- 8011f38:	08013098 	.word	0x08013098
+ 8011f38:	08013090 	.word	0x08013090
 
 08011f3c <__lshift>:
  8011f3c:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -45621,9 +45622,9 @@ Infinite_Loop:
  8012414:	f7fe fabe 	bl	8010994 <_printf_i>
  8012418:	e7ea      	b.n	80123f0 <_svfiprintf_r+0x1b0>
  801241a:	bf00      	nop
- 801241c:	080130a4 	.word	0x080130a4
- 8012420:	080130aa 	.word	0x080130aa
- 8012424:	080130ae 	.word	0x080130ae
+ 801241c:	0801309c 	.word	0x0801309c
+ 8012420:	080130a2 	.word	0x080130a2
+ 8012424:	080130a6 	.word	0x080130a6
  8012428:	08010429 	.word	0x08010429
  801242c:	0801218d 	.word	0x0801218d
 

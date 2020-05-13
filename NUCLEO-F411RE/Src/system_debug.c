@@ -31,7 +31,7 @@
 * Module Typedefs
 *******************************************************************************/
 
-typedef enum reset_cause_t {
+typedef enum {
     RESET_CAUSE_UNKNOWN = 0,
     RESET_CAUSE_LOW_POWER_RESET,
     RESET_CAUSE_WINDOW_WATCHDOG_RESET,
@@ -40,7 +40,7 @@ typedef enum reset_cause_t {
     RESET_CAUSE_POWER_ON_POWER_DOWN_RESET,
     RESET_CAUSE_EXTERNAL_RESET_PIN_RESET,
     RESET_CAUSE_BROWNOUT_RESET,
-} reset_cause_t;
+} reset_cause_e;
 
 typedef struct {
 	char 		p_file [60];
@@ -52,7 +52,7 @@ typedef struct {
 * Module Variable Definitions
 *******************************************************************************/
 
-static reset_cause_t Reset_Cause;
+static reset_cause_e Reset_Cause;
 __attribute__((section(".noinit"))) static assert_t Assert_Struct;
 
 /******************************************************************************
@@ -60,8 +60,8 @@ __attribute__((section(".noinit"))) static assert_t Assert_Struct;
 *******************************************************************************/
 
 extern void SystemClock_Config(void);
-reset_cause_t SYSTEM_DEBUG_resetCauseGet(void);
-const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause);
+reset_cause_e SYSTEM_DEBUG_resetCauseGet(void);
+const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_e reset_cause);
 
 /******************************************************************************
 * Function Definitions
@@ -132,9 +132,9 @@ void SYSTEM_DEBUG_printResetCause(void)
   * @param 	XXX
   * @retval	XXX
   */
-reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
+reset_cause_e SYSTEM_DEBUG_resetCauseGet(void)
 {
-    reset_cause_t Reset_Cause;
+    reset_cause_e Reset_Cause;
 
     if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))
     {
@@ -179,39 +179,39 @@ reset_cause_t SYSTEM_DEBUG_resetCauseGet(void)
   * @param 	XXX
   * @retval	XXX
   */
-const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_t Reset_Cause)
+const char * SYSTEM_DEBUG_resetCauseGetName(reset_cause_e reset_cause)
 {
-    const char * reset_cause_name = "TBD";
+    const char * p_reset_cause_name = "TBD";
 
-    switch (Reset_Cause)
+    switch (reset_cause)
     {
         case RESET_CAUSE_UNKNOWN:
-            reset_cause_name = "UNKNOWN";
+            p_reset_cause_name = "UNKNOWN";
             break;
         case RESET_CAUSE_LOW_POWER_RESET:
-            reset_cause_name = "LOW_POWER_RESET";
+            p_reset_cause_name = "LOW_POWER_RESET";
             break;
         case RESET_CAUSE_WINDOW_WATCHDOG_RESET:
-            reset_cause_name = "WINDOW_WATCHDOG_RESET";
+            p_reset_cause_name = "WINDOW_WATCHDOG_RESET";
             break;
         case RESET_CAUSE_INDEPENDENT_WATCHDOG_RESET:
-            reset_cause_name = "INDEPENDENT_WATCHDOG_RESET";
+            p_reset_cause_name = "INDEPENDENT_WATCHDOG_RESET";
             break;
         case RESET_CAUSE_SOFTWARE_RESET:
-            reset_cause_name = "SOFTWARE_RESET";
+            p_reset_cause_name = "SOFTWARE_RESET";
             break;
         case RESET_CAUSE_POWER_ON_POWER_DOWN_RESET:
-            reset_cause_name = "POWER-ON_RESET (POR) / POWER-DOWN_RESET (PDR)";
+            p_reset_cause_name = "POWER-ON_RESET (POR) / POWER-DOWN_RESET (PDR)";
             break;
         case RESET_CAUSE_EXTERNAL_RESET_PIN_RESET:
-            reset_cause_name = "EXTERNAL_RESET_PIN_RESET";
+            p_reset_cause_name = "EXTERNAL_RESET_PIN_RESET";
             break;
         case RESET_CAUSE_BROWNOUT_RESET:
-            reset_cause_name = "BROWNOUT_RESET (BOR)";
+            p_reset_cause_name = "BROWNOUT_RESET (BOR)";
             break;
     }
 
-    return reset_cause_name;
+    return p_reset_cause_name;
 }
 
 /**
